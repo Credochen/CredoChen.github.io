@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Brightness</title>
+  <title>使用supervisor启动redis服务 | Brightness</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想起那天夕阳下的奔跑，那是我逝去的青春。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Brightness">
-<meta property="og:url" content="http://blog.guangpeng.me/index.html">
+  <meta name="description" content="缘起在服务器没有优化前，Web服务和Redis服务是同一台服务器，有一次系统遇到异常，导致Redis进程被干掉了。因为Session是用Redis存储的，结果导致网站无法登录。（后来查了/var/log/message,发现是内存不够，系统自动杀死了耗内存的进程，连crontab服务也死了😢。优化的方案是把Redis服务独立一台服务器，而且做了主从。之后服务稳定运行。不够一直不解的问题是，Red">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用supervisor启动redis服务">
+<meta property="og:url" content="http://blog.guangpeng.me/2016/05/08/使用supervisor启动redis服务/index.html">
 <meta property="og:site_name" content="Brightness">
-<meta property="og:description" content="我想起那天夕阳下的奔跑，那是我逝去的青春。">
+<meta property="og:description" content="缘起在服务器没有优化前，Web服务和Redis服务是同一台服务器，有一次系统遇到异常，导致Redis进程被干掉了。因为Session是用Redis存储的，结果导致网站无法登录。（后来查了/var/log/message,发现是内存不够，系统自动杀死了耗内存的进程，连crontab服务也死了😢。优化的方案是把Redis服务独立一台服务器，而且做了主从。之后服务稳定运行。不够一直不解的问题是，Red">
+<meta property="og:updated_time" content="2016-05-08T03:30:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Brightness">
-<meta name="twitter:description" content="我想起那天夕阳下的奔跑，那是我逝去的青春。">
+<meta name="twitter:title" content="使用supervisor启动redis服务">
+<meta name="twitter:description" content="缘起在服务器没有优化前，Web服务和Redis服务是同一台服务器，有一次系统遇到异常，导致Redis进程被干掉了。因为Session是用Redis存储的，结果导致网站无法登录。（后来查了/var/log/message,发现是内存不够，系统自动杀死了耗内存的进程，连crontab服务也死了😢。优化的方案是把Redis服务独立一台服务器，而且做了主从。之后服务稳定运行。不够一直不解的问题是，Red">
   
     <link rel="alternate" href="/atom.xml" title="Brightness" type="application/atom+xml">
   
@@ -66,9 +67,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-使用supervisor启动redis服务" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-使用supervisor启动redis服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/08/使用supervisor启动redis服务/" class="article-date">
   <time datetime="2016-05-08T03:19:51.000Z" itemprop="datePublished">2016-05-08</time>
@@ -81,8 +80,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/08/使用supervisor启动redis服务/">使用supervisor启动redis服务</a>
+    <h1 class="article-title" itemprop="name">
+      使用supervisor启动redis服务
     </h1>
   
 
@@ -123,10 +122,9 @@
     </footer>
   </div>
   
-</article>
-
-
+    
   
+</article>
 
 </section>
         
