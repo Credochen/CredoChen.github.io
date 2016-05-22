@@ -1,0 +1,632 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="###选择优化的数据类型
+
+更小的通常更好：
+更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。
+但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。
+
+
+简单就好：
+简单的数据类型的操作通常需要更少的cpu周期。
+eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《高性能MySQL》读书笔记——查询性能优化">
+<meta property="og:url" content="http://blog.guangpeng.me/2014/02/20/《高性能MySQL》读书笔记——Schema与数据类型优化/index.html">
+<meta property="og:site_name" content="光">
+<meta property="og:description" content="###选择优化的数据类型
+
+更小的通常更好：
+更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。
+但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。
+
+
+简单就好：
+简单的数据类型的操作通常需要更少的cpu周期。
+eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字">
+<meta property="og:updated_time" content="2016-05-22T13:49:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《高性能MySQL》读书笔记——查询性能优化">
+<meta name="twitter:description" content="###选择优化的数据类型
+
+更小的通常更好：
+更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。
+但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。
+
+
+简单就好：
+简单的数据类型的操作通常需要更少的cpu周期。
+eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 《高性能MySQL》读书笔记——查询性能优化 | 光 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">光</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">程序员笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《高性能MySQL》读书笔记——查询性能优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-02-20T20:29:00+08:00" content="2014-02-20">
+              2014-02-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###选择优化的数据类型</p>
+<ul>
+<li>更小的通常更好：<ul>
+<li>更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。</li>
+<li><strong>但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。</strong></li>
+</ul>
+</li>
+<li>简单就好：<ul>
+<li>简单的数据类型的操作通常需要更少的cpu周期。</li>
+<li>eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字符串，应该使用整型存储IP地址。</li>
+</ul>
+</li>
+<li>尽量避免NULL：<ul>
+<li>如果查询中包含可为NULL的列，可为NULL的列使得索引、索引统计的值比较都跟复杂；</li>
+<li>可为NULL的列会使用更多的存储空间；</li>
+<li>通常把可为NULL的列改为NOT NULL带来的性能提升比较小；</li>
+<li>但是如果计划在列上建索引，就应该尽量避免设计成可为NULL的列。</li>
+</ul>
+</li>
+</ul>
+<p>###选择数据类型</p>
+<blockquote>
+<p>DATATIME和TIMESTAMP:<br><br>DATETIME和TIMESTAMP都可以存储相同类型的数据，然而TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化，具有特殊的自动更新能力。另一方面，TIMESTAMP允许的时间范围要小的多。</p>
+</blockquote>
+<p>###整数类型</p>
+<ul>
+<li>TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT，分别使用8,16,24,32,64位存储空间，它们可以存储的值的范围从pow(-2,N-1)到pow(2,(N-1)-1),其中N是存储空间的位数，pow()为PHP中的指数表达式。</li>
+<li>整数类型有可选的UNSIGNED属性，表示不允许负值，这大致可以使整数的上线提高一倍。eg:TINYINT UNSIGEND可以存储的值的范围是0~255，而不加UNSIGNED的范围是-128~127。</li>
+<li>MySQL可以为整数类型指定宽度，例如INT(11)，对大多数应用这是<strong>没有意义的</strong>：他不会限制值的范围，只是规定了MySQL的一些交互工具用来显示字符的个数。<strong>对于存储和计算来说，INT(1)和INT(20)是相同的</strong>。</li>
+</ul>
+<p>###实数类型</p>
+<ul>
+<li>实数是带有小数部分的数字。MySQL支持精确类型，也支持不精确类型。</li>
+<li><strong>FLOAT</strong>和<strong>DOUBLE</strong>类型支持使用标准的浮点运算进行近似计算。</li>
+<li><strong>DECIMAL</strong>类型用于存储精确的小数。</li>
+<li>浮点和DECIMAL都可以指定精度。eg:DECIMAL(18,9)小数点两边将各存储9个数字，一共使用9个字节：小数点前的数字用4个字节，小数点后的用4个字节，小数点本身一个字节。</li>
+</ul>
+<p>###字符串类型</p>
+<p>#####VARCHAR</p>
+<ul>
+<li>VARCHAR 类型用于存储可边长字符串，比定长类型更省空间因为它仅使用必要的空间（eg.越短的字符串使用越少的空间）。<strong>有一种情况例外</strong>，如果MySQL表使用 ROW_FORMAT=FIXED 创建的话，没一行都会使用定长存储，这回很浪费空间。<br></li>
+<li><strong>VARCHAR需要使用1或2个额外的字节记录字符串的长度：如果列的最大长度小于或等于255字节，则只使用1个字节表示，否则使用2个字节。</strong></li>
+<li>适合使用VARCHAR的情况：<ul>
+<li>字符串列的最大长度比平均长度大很多；</li>
+<li>列的更新少，所以碎片不是问题；</li>
+<li>使用了像UTF-8复杂的字符集，每个字符都使用不同的字节数进行存储。</li>
+</ul>
+</li>
+</ul>
+<p>#####CHAR</p>
+<ul>
+<li>CHAR 适合存储很短的字符串</li>
+<li>对于经常变更的数据，CHAR也比VARCHAR更好，因为订单的CHAR类型不容易产生碎片；</li>
+<li>对于非常短的列，CHAR比VARCHAR在存储空间上也更有效率。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/02/15/优化MySQL分页/" rel="next" title="优化MySQL分页">
+                <i class="fa fa-chevron-left"></i> 优化MySQL分页
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/02/20/《高性能MySQL》读书笔记——查询性能优化/" rel="prev" title="《高性能MySQL》读书笔记——查询性能优化">
+                《高性能MySQL》读书笔记——查询性能优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="GuangPeng" />
+          <p class="site-author-name" itemprop="name">GuangPeng</p>
+          <p class="site-description motion-element" itemprop="description">光会自然照到它应该到达的地方。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuangPeng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
