@@ -87,7 +87,7 @@
 <meta name="description" content="光会自然照到它应该到达的地方。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="光">
-<meta property="og:url" content="http://blog.guangpeng.me/tags/php/index.html">
+<meta property="og:url" content="http://blog.guangpeng.me/page/2/index.html">
 <meta property="og:site_name" content="光">
 <meta property="og:description" content="光会自然照到它应该到达的地方。">
 <meta name="twitter:card" content="summary">
@@ -110,7 +110,7 @@
   };
 </script>
 
-  <title> 标签: php | 光 </title>
+  <title> 光 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,7 +131,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -208,75 +210,143 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        php
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <section id="posts" class="posts-expand">
     
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2014/05/20/2014-05-20/" itemprop="url">
-              
-                <span itemprop="name">函数-PHP下载文件</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2014-05-20T12:38:43+08:00"
-              content="2014-05-20" >
-          05-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2014/05/19/2014-05-19/" itemprop="url">
-              
-                <span itemprop="name">解决Nginx+PHP环境无法报错的问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2014-05-19T21:38:43+08:00"
-              content="2014-05-19" >
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/02/15/优化MySQL分页/" itemprop="url">
+                  优化MySQL分页
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-02-15T11:44:30+08:00" content="2014-02-15">
+              2014-02-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前写的SQL查询语句根本没有考虑到性能方面的问题，一是自己没有经验，二是因为网站规模小数据量不大，自然感受不到查询带来的性能问题。</p>
+<p>最近由于数据量开始真大，在大后台一个产品列表的页面卡住了好久。最近也在阅读《高性能MYSQL》，就觉得将查询的语句优化下。废话结束。</p>
+<hr>
+<ul>
+<li><p>传统分页：</p>
+<ul>
+<li>SELECT * FROM table LIMIT 100000,10</li>
+</ul>
+</li>
+<li><p>LIMIT的原理：</p>
+<ul>
+<li>LIMIT 偏移量，条数</li>
+<li>当偏移量越大，速度越慢。</li>
+</ul>
+</li>
+<li><p>推荐方法：</p>
+<ul>
+<li>SELECT * FROM table WHERE id&gt;=100000 LIMIT 11 #10+1 (每页10条);</li>
+<li>SELECT * FROM table INNER JOIN (SELECT id FROM table LIMIT 100000,10) AS t USING(id);</li>
+<li>SELECT * FROM table WHERE id&gt;=(SELECT id FROM table LIMIT 100000,1) LIMIT 10; </li>
+<li>SELECT id FROM table LIMIT 100000,10;<br>SELECT * FROM table WHERE id IN(100,101…,110);</li>
+</ul>
+</li>
+<li><p>其他：</p>
+<ul>
+<li>尽量不用SELECT * ，只取需要数据列 <ul>
+<li>更安全的设计：减少表变化带来的影响</li>
+<li><strong>为使用covering index提供可能性</strong></li>
+<li>Select/JOIN减少硬盘临时表生成，特别是有TEXT/BLOB时</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考：<br>0.MySQL数据库开发的三十六条军规<em>石展</em>完整.pdf<br>1.<a href="http://blog.chinaunix.net/uid-26602509-id-3363512.html" target="_blank" rel="external"><strong>mysql LIMIT 子句用法及原理 </strong></a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>

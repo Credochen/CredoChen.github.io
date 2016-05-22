@@ -233,6 +233,148 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/22/编译安装MySQL5-6/" itemprop="url">
+                  编译安装MySQL5.6
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-22T22:07:15+08:00" content="2016-05-22">
+              2016-05-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="安装编译代码需要的包"><a href="#安装编译代码需要的包" class="headerlink" title="安装编译代码需要的包"></a>安装编译代码需要的包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make gcc-c++ cmake bison-devel  ncurses-devel</span><br></pre></td></tr></table></figure>
+<h3 id="下载MySQL-5-6-14"><a href="#下载MySQL-5-6-14" class="headerlink" title="下载MySQL 5.6.14"></a>下载MySQL 5.6.14</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.14.tar.gz</span><br><span class="line">tar xvf mysql-5.6.14.tar.gz</span><br><span class="line">cd mysql-5.6.14</span><br></pre></td></tr></table></figure>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><blockquote>
+<p>编译的参数可以参考<a href="http://dev.mysql.com/doc/refman/5.5/en/source-configuration-options.html。" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.5/en/source-configuration-options.html。</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cmake \</span><br><span class="line">-DCMAKE_INSTALL_PREFIX=/usr/local/mysql \</span><br><span class="line">-DMYSQL_DATADIR=/usr/local/mysql/data \</span><br><span class="line">-DSYSCONFDIR=/etc \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_MEMORY_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_READLINE=1 \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/var/lib/mysql/mysql.sock \</span><br><span class="line">-DMYSQL_TCP_PORT=3306 \</span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DEXTRA_CHARSETS=all \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \</span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>整个过程需要30分钟左右……漫长的等待</p>
+<h3 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h3><h4 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h4><p>使用下面的命令查看是否有mysql用户及用户组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd #查看用户列表</span><br><span class="line">cat /etc/group  #查看用户组列表</span><br><span class="line"></span><br><span class="line">groupadd mysql</span><br><span class="line">useradd -g mysql mysql</span><br><span class="line"># 修改/usr/local/mysql权限</span><br><span class="line"></span><br><span class="line">chown -R mysql:mysql /usr/local/mysql</span><br><span class="line"># 修改/usr/local/mysql权限</span><br></pre></td></tr></table></figure>
+<h4 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h4><p>进入安装路径</p>
+<p><code>cd /usr/local/mysql</code><br>进入安装路径，执行初始化配置脚本，创建系统自带的数据库和表</p>
+<p><code>scripts/mysql_install_db --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --user=mysql</code></p>
+<blockquote>
+<p>注：在启动MySQL服务时，会按照一定次序搜索my.cnf，先在/etc目录下找，找不到则会搜索”$basedir/my.cnf”，在本例中就是 /usr/local/mysql/my.cnf，这是新版MySQL的配置文件的默认位置！</p>
+</blockquote>
+<p><strong>注意：在CentOS 6.4版操作系统的最小安装完成后，在/etc目录下会存在一个my.cnf，需要将此文件更名为其他的名字，如：/etc/my.cnf.bak，否则，该文件会干扰源码安装的MySQL的正确配置，造成无法启动。</strong></p>
+<p>在使用”yum update”更新系统后，需要检查下/etc目录下是否会多出一个my.cnf，如果多出，将它重命名成别的。否则，MySQL将使用这个配置文件启动，可能造成无法正常启动等问题。</p>
+<p>启动MySQL</p>
+<ul>
+<li>添加服务，拷贝服务脚本到init.d目录，并设置开机启动</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysql</span><br><span class="line">chkconfig mysql on</span><br><span class="line">service mysql start  #启动MySQL</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置用户</li>
+</ul>
+<p>MySQL启动成功后，root默认没有密码，我们需要设置root密码。</p>
+<p>设置之前，我们需要先设置PATH，要不不能直接调用mysql</p>
+<p>修改<code>/etc/profile</code>文件，在文件末尾添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PATH=/usr/local/mysql/bin:$PATH</span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure>
+<p>关闭文件，运行下面的命令，让配置立即生效</p>
+<p><code>source /etc/profile</code><br>现在，我们可以在终端内直接输入mysql进入，mysql的环境了</p>
+<p>执行下面的命令修改root密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot  </span><br><span class="line">mysql&gt; SET PASSWORD = PASSWORD(&apos;123456&apos;);</span><br></pre></td></tr></table></figure>
+<p>若要设置root用户可以远程访问，执行</p>
+<p><code>`mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;172.16.%&#39; IDENTIFIED BY &#39;password&#39; WITH GRANT OPTION;</code><br>password为远程访问时，root用户的密码，可以和本地不同。</p>
+<ul>
+<li>配置防火墙</li>
+</ul>
+<p>防火墙的3306端口默认没有开启，若要远程访问，需要开启这个端口</p>
+<p>打开<code>/etc/sysconfig/iptables</code></p>
+<p>在<code>-A INPUT –m state --state NEW –m tcp –p –dport 22 –j ACCEPT</code>，下添加：</p>
+<p><code>-A INPUT -m state --state NEW -m tcp -p -dport 3306 -j ACCEPT</code><br>然后保存，并关闭该文件，在终端内运行下面的命令，刷新防火墙配置：</p>
+<p><code>service iptables restart</code></p>
+<p>OK，一切配置完毕，你可以访问你的MySQL了~</p>
+<hr>
+<p>CentOS 7中默认使用Firewalld做防火墙，所以修改iptables后，在重启系统后，根本不管用。</p>
+<p>Firewalld中添加端口方法如下：</p>
+<p>firewall-cmd –zone=public –add-port=3306/tcp –permanent</p>
+<p>firewall-cmd –reload</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/22/Elasticsearch 入门/" itemprop="url">
                   Elasticsearch入门
                 </a>
@@ -1010,148 +1152,6 @@
             
               
                 
-                <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——Schema与数据类型优化/" itemprop="url">
-                  《高性能MySQL》读书笔记——Schema与数据类型优化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-02-20T20:29:00+08:00" content="2014-02-20">
-              2014-02-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="选择优化的数据类型"><a href="#选择优化的数据类型" class="headerlink" title="选择优化的数据类型"></a>选择优化的数据类型</h3><ul>
-<li>更小的通常更好：<ul>
-<li>更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。</li>
-<li><strong>但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。</strong></li>
-</ul>
-</li>
-<li>简单就好：<ul>
-<li>简单的数据类型的操作通常需要更少的cpu周期。</li>
-<li>eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字符串，应该使用整型存储IP地址。</li>
-</ul>
-</li>
-<li>尽量避免NULL：<ul>
-<li>如果查询中包含可为NULL的列，可为NULL的列使得索引、索引统计的值比较都跟复杂；</li>
-<li>可为NULL的列会使用更多的存储空间；</li>
-<li>通常把可为NULL的列改为NOT NULL带来的性能提升比较小；</li>
-<li>但是如果计划在列上建索引，就应该尽量避免设计成可为NULL的列。</li>
-</ul>
-</li>
-</ul>
-<h3 id="选择数据类型"><a href="#选择数据类型" class="headerlink" title="选择数据类型"></a>选择数据类型</h3><blockquote>
-<p>DATATIME和TIMESTAMP:<br><br>DATETIME和TIMESTAMP都可以存储相同类型的数据，然而TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化，具有特殊的自动更新能力。另一方面，TIMESTAMP允许的时间范围要小的多。</p>
-</blockquote>
-<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><ul>
-<li>TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT，分别使用8,16,24,32,64位存储空间，它们可以存储的值的范围从pow(-2,N-1)到pow(2,(N-1)-1),其中N是存储空间的位数，pow()为PHP中的指数表达式。</li>
-<li>整数类型有可选的UNSIGNED属性，表示不允许负值，这大致可以使整数的上线提高一倍。eg:TINYINT UNSIGEND可以存储的值的范围是0~255，而不加UNSIGNED的范围是-128~127。</li>
-<li>MySQL可以为整数类型指定宽度，例如INT(11)，对大多数应用这是<strong>没有意义的</strong>：他不会限制值的范围，只是规定了MySQL的一些交互工具用来显示字符的个数。<strong>对于存储和计算来说，INT(1)和INT(20)是相同的</strong>。</li>
-</ul>
-<h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><ul>
-<li>实数是带有小数部分的数字。MySQL支持精确类型，也支持不精确类型。</li>
-<li><strong>FLOAT</strong> 和 <strong>DOUBLE</strong> 类型支持使用标准的浮点运算进行近似计算。</li>
-<li><strong>DECIMAL</strong> 类型用于存储精确的小数。</li>
-<li>浮点和DECIMAL都可以指定精度。eg:DECIMAL(18,9)小数点两边将各存储9个数字，一共使用9个字节：小数点前的数字用4个字节，小数点后的用4个字节，小数点本身一个字节。</li>
-</ul>
-<p>###字符串类型</p>
-<h5 id="VARCHAR"><a href="#VARCHAR" class="headerlink" title="VARCHAR"></a>VARCHAR</h5><ul>
-<li>VARCHAR 类型用于存储可边长字符串，比定长类型更省空间因为它仅使用必要的空间（eg.越短的字符串使用越少的空间）。<strong>有一种情况例外</strong>，如果MySQL表使用 ROW_FORMAT=FIXED 创建的话，没一行都会使用定长存储，这回很浪费空间。<br></li>
-<li><strong>VARCHAR需要使用1或2个额外的字节记录字符串的长度：如果列的最大长度小于或等于255字节，则只使用1个字节表示，否则使用2个字节。</strong></li>
-<li>适合使用VARCHAR的情况：<ul>
-<li>字符串列的最大长度比平均长度大很多；</li>
-<li>列的更新少，所以碎片不是问题；</li>
-<li>使用了像UTF-8复杂的字符集，每个字符都使用不同的字节数进行存储。</li>
-</ul>
-</li>
-</ul>
-<h5 id="CHAR"><a href="#CHAR" class="headerlink" title="CHAR"></a>CHAR</h5><ul>
-<li>CHAR 适合存储很短的字符串</li>
-<li>对于经常变更的数据，CHAR也比VARCHAR更好，因为订单的CHAR类型不容易产生碎片；</li>
-<li>对于非常短的列，CHAR比VARCHAR在存储空间上也更有效率。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——查询性能优化/" itemprop="url">
                   《高性能MySQL》读书笔记——查询性能优化
                 </a>
@@ -1285,8 +1285,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/02/15/优化MySQL分页/" itemprop="url">
-                  优化MySQL分页
+                <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——Schema与数据类型优化/" itemprop="url">
+                  《高性能MySQL》读书笔记——Schema与数据类型优化
                 </a>
               
             
@@ -1299,8 +1299,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-02-15T11:44:30+08:00" content="2014-02-15">
-              2014-02-15
+            <time itemprop="dateCreated" datetime="2014-02-20T20:29:00+08:00" content="2014-02-20">
+              2014-02-20
             </time>
           </span>
 
@@ -1329,41 +1329,55 @@
       
         
           
-            <p>之前写的SQL查询语句根本没有考虑到性能方面的问题，一是自己没有经验，二是因为网站规模小数据量不大，自然感受不到查询带来的性能问题。</p>
-<p>最近由于数据量开始真大，在大后台一个产品列表的页面卡住了好久。最近也在阅读《高性能MYSQL》，就觉得将查询的语句优化下。废话结束。</p>
-<hr>
-<ul>
-<li><p>传统分页：</p>
-<ul>
-<li>SELECT * FROM table LIMIT 100000,10</li>
+            <h3 id="选择优化的数据类型"><a href="#选择优化的数据类型" class="headerlink" title="选择优化的数据类型"></a>选择优化的数据类型</h3><ul>
+<li>更小的通常更好：<ul>
+<li>更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。</li>
+<li><strong>但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。</strong></li>
 </ul>
 </li>
-<li><p>LIMIT的原理：</p>
-<ul>
-<li>LIMIT 偏移量，条数</li>
-<li>当偏移量越大，速度越慢。</li>
+<li>简单就好：<ul>
+<li>简单的数据类型的操作通常需要更少的cpu周期。</li>
+<li>eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字符串，应该使用整型存储IP地址。</li>
 </ul>
 </li>
-<li><p>推荐方法：</p>
-<ul>
-<li>SELECT * FROM table WHERE id&gt;=100000 LIMIT 11 #10+1 (每页10条);</li>
-<li>SELECT * FROM table INNER JOIN (SELECT id FROM table LIMIT 100000,10) AS t USING(id);</li>
-<li>SELECT * FROM table WHERE id&gt;=(SELECT id FROM table LIMIT 100000,1) LIMIT 10; </li>
-<li>SELECT id FROM table LIMIT 100000,10;<br>SELECT * FROM table WHERE id IN(100,101…,110);</li>
-</ul>
-</li>
-<li><p>其他：</p>
-<ul>
-<li>尽量不用SELECT * ，只取需要数据列 <ul>
-<li>更安全的设计：减少表变化带来的影响</li>
-<li><strong>为使用covering index提供可能性</strong></li>
-<li>Select/JOIN减少硬盘临时表生成，特别是有TEXT/BLOB时</li>
+<li>尽量避免NULL：<ul>
+<li>如果查询中包含可为NULL的列，可为NULL的列使得索引、索引统计的值比较都跟复杂；</li>
+<li>可为NULL的列会使用更多的存储空间；</li>
+<li>通常把可为NULL的列改为NOT NULL带来的性能提升比较小；</li>
+<li>但是如果计划在列上建索引，就应该尽量避免设计成可为NULL的列。</li>
 </ul>
 </li>
 </ul>
+<h3 id="选择数据类型"><a href="#选择数据类型" class="headerlink" title="选择数据类型"></a>选择数据类型</h3><blockquote>
+<p>DATATIME和TIMESTAMP:<br><br>DATETIME和TIMESTAMP都可以存储相同类型的数据，然而TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化，具有特殊的自动更新能力。另一方面，TIMESTAMP允许的时间范围要小的多。</p>
+</blockquote>
+<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><ul>
+<li>TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT，分别使用8,16,24,32,64位存储空间，它们可以存储的值的范围从pow(-2,N-1)到pow(2,(N-1)-1),其中N是存储空间的位数，pow()为PHP中的指数表达式。</li>
+<li>整数类型有可选的UNSIGNED属性，表示不允许负值，这大致可以使整数的上线提高一倍。eg:TINYINT UNSIGEND可以存储的值的范围是0~255，而不加UNSIGNED的范围是-128~127。</li>
+<li>MySQL可以为整数类型指定宽度，例如INT(11)，对大多数应用这是<strong>没有意义的</strong>：他不会限制值的范围，只是规定了MySQL的一些交互工具用来显示字符的个数。<strong>对于存储和计算来说，INT(1)和INT(20)是相同的</strong>。</li>
+</ul>
+<h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><ul>
+<li>实数是带有小数部分的数字。MySQL支持精确类型，也支持不精确类型。</li>
+<li><strong>FLOAT</strong> 和 <strong>DOUBLE</strong> 类型支持使用标准的浮点运算进行近似计算。</li>
+<li><strong>DECIMAL</strong> 类型用于存储精确的小数。</li>
+<li>浮点和DECIMAL都可以指定精度。eg:DECIMAL(18,9)小数点两边将各存储9个数字，一共使用9个字节：小数点前的数字用4个字节，小数点后的用4个字节，小数点本身一个字节。</li>
+</ul>
+<p>###字符串类型</p>
+<h5 id="VARCHAR"><a href="#VARCHAR" class="headerlink" title="VARCHAR"></a>VARCHAR</h5><ul>
+<li>VARCHAR 类型用于存储可边长字符串，比定长类型更省空间因为它仅使用必要的空间（eg.越短的字符串使用越少的空间）。<strong>有一种情况例外</strong>，如果MySQL表使用 ROW_FORMAT=FIXED 创建的话，没一行都会使用定长存储，这回很浪费空间。<br></li>
+<li><strong>VARCHAR需要使用1或2个额外的字节记录字符串的长度：如果列的最大长度小于或等于255字节，则只使用1个字节表示，否则使用2个字节。</strong></li>
+<li>适合使用VARCHAR的情况：<ul>
+<li>字符串列的最大长度比平均长度大很多；</li>
+<li>列的更新少，所以碎片不是问题；</li>
+<li>使用了像UTF-8复杂的字符集，每个字符都使用不同的字节数进行存储。</li>
+</ul>
 </li>
 </ul>
-<p>参考：<br>0.MySQL数据库开发的三十六条军规<em>石展</em>完整.pdf<br>1.<a href="http://blog.chinaunix.net/uid-26602509-id-3363512.html" target="_blank" rel="external"><strong>mysql LIMIT 子句用法及原理 </strong></a></p>
+<h5 id="CHAR"><a href="#CHAR" class="headerlink" title="CHAR"></a>CHAR</h5><ul>
+<li>CHAR 适合存储很短的字符串</li>
+<li>对于经常变更的数据，CHAR也比VARCHAR更好，因为订单的CHAR类型不容易产生碎片；</li>
+<li>对于非常短的列，CHAR比VARCHAR在存储空间上也更有效率。</li>
+</ul>
 
           
         
@@ -1395,6 +1409,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1433,7 +1451,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
