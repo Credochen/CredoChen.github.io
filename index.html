@@ -1010,8 +1010,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——查询性能优化/" itemprop="url">
-                  《高性能MySQL》读书笔记——查询性能优化
+                <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——Schema与数据类型优化/" itemprop="url">
+                  《高性能MySQL》读书笔记——Schema与数据类型优化
                 </a>
               
             
@@ -1054,48 +1054,55 @@
       
         
           
-            <p>###优化COUNT() 查询</p>
-<ul>
-<li>列值统计时要求列值是非空的（不统计NULL）。当括号内指定了列或者列的表达式，则统计的就是这个表达式有值的结果数。</li>
-<li>当MySQL确认括号内的表达式值不可能为空是，实际上就是在统计行数。——COUNT(*)。</li>
-<li>如果希望知道的是结果集的行数，最好使用<strong>COUNT(*)</strong>。</li>
-<li>关于MyISAM的神话<ul>
-<li>只有没有任何WHERE条件的<strong>COUNT(*)</strong>才非常快，因为此时无需实际地去计算表的行数。</li>
+            <h3 id="选择优化的数据类型"><a href="#选择优化的数据类型" class="headerlink" title="选择优化的数据类型"></a>选择优化的数据类型</h3><ul>
+<li>更小的通常更好：<ul>
+<li>更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。</li>
+<li><strong>但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。</strong></li>
+</ul>
+</li>
+<li>简单就好：<ul>
+<li>简单的数据类型的操作通常需要更少的cpu周期。</li>
+<li>eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字符串，应该使用整型存储IP地址。</li>
+</ul>
+</li>
+<li>尽量避免NULL：<ul>
+<li>如果查询中包含可为NULL的列，可为NULL的列使得索引、索引统计的值比较都跟复杂；</li>
+<li>可为NULL的列会使用更多的存储空间；</li>
+<li>通常把可为NULL的列改为NOT NULL带来的性能提升比较小；</li>
+<li>但是如果计划在列上建索引，就应该尽量避免设计成可为NULL的列。</li>
 </ul>
 </li>
 </ul>
-<hr>
-<ul>
-<li><p>优化前：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(\*) <span class="keyword">FROM</span> world.City <span class="keyword">WHERE</span> <span class="keyword">id</span>&gt;<span class="number">5</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>优化后：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(\*) <span class="keyword">FROM</span> world.City) - <span class="keyword">COUNT</span>(\*) <span class="keyword">FROM</span> world.City</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span>&lt;=<span class="number">5</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>###优化关联查询</p>
-<ol>
-<li>确保ON或者USING字句中的列上有索引。</li>
-<li>确保任何的GROUP BY 和ORDER BY 中的表达式只涉及到一个表中的列，这样MySQL才有可能使用索引来优化这个过程</li>
-</ol>
-<p>###优化子查询<br><strong>尽可能</strong>的使用关联查询代替。</p>
-<p>###优化GROUP BY 和DISTINCT<br>采用查找表的标识列分组的效率会比其他列更高。</p>
-<p>###优化LIMIT分页</p>
-<blockquote>
-<p>在偏移量非常大的时候，例如可能是LIMIT 10000，20这样的查询，这时MySQL需要查询10020条记录然后只返回20条，前面的10000条都将被抛弃。</p>
+<h3 id="选择数据类型"><a href="#选择数据类型" class="headerlink" title="选择数据类型"></a>选择数据类型</h3><blockquote>
+<p>DATATIME和TIMESTAMP:<br><br>DATETIME和TIMESTAMP都可以存储相同类型的数据，然而TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化，具有特殊的自动更新能力。另一方面，TIMESTAMP允许的时间范围要小的多。</p>
 </blockquote>
-<ul>
-<li>要优化这种查询，要么是在页面中限制分页的数量，要么是优化大偏移量的性能。</li>
-<li>一个最简单的办法就是尽可能地使用索引覆盖扫描，而不是查询所有的列。然后根据需要做一次关联操作再返回所需的列。考虑下面的查询：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT film_id, description FROM sakila.film ORDER BY title LIMIT 50,5;</span><br></pre></td></tr></table></figure>
+<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><ul>
+<li>TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT，分别使用8,16,24,32,64位存储空间，它们可以存储的值的范围从pow(-2,N-1)到pow(2,(N-1)-1),其中N是存储空间的位数，pow()为PHP中的指数表达式。</li>
+<li>整数类型有可选的UNSIGNED属性，表示不允许负值，这大致可以使整数的上线提高一倍。eg:TINYINT UNSIGEND可以存储的值的范围是0~255，而不加UNSIGNED的范围是-128~127。</li>
+<li>MySQL可以为整数类型指定宽度，例如INT(11)，对大多数应用这是<strong>没有意义的</strong>：他不会限制值的范围，只是规定了MySQL的一些交互工具用来显示字符的个数。<strong>对于存储和计算来说，INT(1)和INT(20)是相同的</strong>。</li>
+</ul>
+<h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><ul>
+<li>实数是带有小数部分的数字。MySQL支持精确类型，也支持不精确类型。</li>
+<li><strong>FLOAT</strong> 和 <strong>DOUBLE</strong> 类型支持使用标准的浮点运算进行近似计算。</li>
+<li><strong>DECIMAL</strong> 类型用于存储精确的小数。</li>
+<li>浮点和DECIMAL都可以指定精度。eg:DECIMAL(18,9)小数点两边将各存储9个数字，一共使用9个字节：小数点前的数字用4个字节，小数点后的用4个字节，小数点本身一个字节。</li>
+</ul>
+<p>###字符串类型</p>
+<h5 id="VARCHAR"><a href="#VARCHAR" class="headerlink" title="VARCHAR"></a>VARCHAR</h5><ul>
+<li>VARCHAR 类型用于存储可边长字符串，比定长类型更省空间因为它仅使用必要的空间（eg.越短的字符串使用越少的空间）。<strong>有一种情况例外</strong>，如果MySQL表使用 ROW_FORMAT=FIXED 创建的话，没一行都会使用定长存储，这回很浪费空间。<br></li>
+<li><strong>VARCHAR需要使用1或2个额外的字节记录字符串的长度：如果列的最大长度小于或等于255字节，则只使用1个字节表示，否则使用2个字节。</strong></li>
+<li>适合使用VARCHAR的情况：<ul>
+<li>字符串列的最大长度比平均长度大很多；</li>
+<li>列的更新少，所以碎片不是问题；</li>
+<li>使用了像UTF-8复杂的字符集，每个字符都使用不同的字节数进行存储。</li>
+</ul>
 </li>
 </ul>
-<p>如果这张表非常大，那么下面的语句将大大提高效率。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT film_id, description FROM  sakila.film INNER JOIN (SELECT film_id FROM sakila.film ORDER BY title LIMIT 50,5) AS lim USING(film_id);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>LIMIT和OFFSET的问题，其实是OFFSET的问题，它会导致MySQL扫描大量不需要的行然后再抛弃掉。如果可以使用书签记录上次数据的位置，那么下次就可以直接从该书签记录的位置开始扫描，这样可以避免使用OFFSET。如：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT * FROM sakila.rental ORDER BY rental_id DESC LIMIT 20;</span><br></pre></td></tr></table></figure>
-</li>
+<h5 id="CHAR"><a href="#CHAR" class="headerlink" title="CHAR"></a>CHAR</h5><ul>
+<li>CHAR 适合存储很短的字符串</li>
+<li>对于经常变更的数据，CHAR也比VARCHAR更好，因为订单的CHAR类型不容易产生碎片；</li>
+<li>对于非常短的列，CHAR比VARCHAR在存储空间上也更有效率。</li>
 </ul>
-<p>假设上面查询返回的主键为16049到16030，那么下一页的查询就可以从16030开始。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT * FROM sakila.rental WHERE rental_id&lt;16030 ORDER BY rental_id DESC LIMIT 20;</span><br></pre></td></tr></table></figure></p>
-<p>###使用用户自定义变量<br>避免重复查询刚刚更新的数据<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#bad sql</span><br><span class="line">mysql&gt; UPDATE t1 SET lastUpdate = NOW() WHERE id=1;</span><br><span class="line">mysql&gt; SELECT lastUpdate FROM t1  WHERE id=1</span><br><span class="line">#good sql</span><br><span class="line">mysql&gt; UPDATE t1 SET lastUpdate = NOW() WHERE id=1 AND @now := NOW();</span><br><span class="line">mysql&gt; SELECT @not;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1145,7 +1152,7 @@
             
               
                 
-                <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——Schema与数据类型优化/" itemprop="url">
+                <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——查询性能优化/" itemprop="url">
                   《高性能MySQL》读书笔记——查询性能优化
                 </a>
               
@@ -1189,61 +1196,46 @@
       
         
           
-            <p>###选择优化的数据类型</p>
+            <h3 id="优化COUNT-查询"><a href="#优化COUNT-查询" class="headerlink" title="优化COUNT() 查询"></a>优化COUNT() 查询</h3><ul>
+<li>列值统计时要求列值是非空的（不统计NULL）。当括号内指定了列或者列的表达式，则统计的就是这个表达式有值的结果数。</li>
+<li>当MySQL确认括号内的表达式值不可能为空是，实际上就是在统计行数。——COUNT(*)。</li>
+<li>如果希望知道的是结果集的行数，最好使用<strong>COUNT(*)</strong>。</li>
+<li>关于MyISAM的神话<ul>
+<li>只有没有任何WHERE条件的<strong>COUNT(*)</strong>才非常快，因为此时无需实际地去计算表的行数。</li>
+</ul>
+</li>
+</ul>
+<hr>
 <ul>
-<li>更小的通常更好：<ul>
-<li>更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。</li>
-<li><strong>但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。</strong></li>
-</ul>
+<li><p>优化前：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(\*) <span class="keyword">FROM</span> world.City <span class="keyword">WHERE</span> <span class="keyword">id</span>&gt;<span class="number">5</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>简单就好：<ul>
-<li>简单的数据类型的操作通常需要更少的cpu周期。</li>
-<li>eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字符串，应该使用整型存储IP地址。</li>
-</ul>
-</li>
-<li>尽量避免NULL：<ul>
-<li>如果查询中包含可为NULL的列，可为NULL的列使得索引、索引统计的值比较都跟复杂；</li>
-<li>可为NULL的列会使用更多的存储空间；</li>
-<li>通常把可为NULL的列改为NOT NULL带来的性能提升比较小；</li>
-<li>但是如果计划在列上建索引，就应该尽量避免设计成可为NULL的列。</li>
-</ul>
+<li><p>优化后：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(\*) <span class="keyword">FROM</span> world.City) - <span class="keyword">COUNT</span>(\*) <span class="keyword">FROM</span> world.City</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span>&lt;=<span class="number">5</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###选择数据类型</p>
+<h3 id="优化关联查询"><a href="#优化关联查询" class="headerlink" title="优化关联查询"></a>优化关联查询</h3><ol>
+<li>确保ON或者USING字句中的列上有索引。</li>
+<li>确保任何的GROUP BY 和ORDER BY 中的表达式只涉及到一个表中的列，这样MySQL才有可能使用索引来优化这个过程</li>
+</ol>
+<h3 id="优化子查询"><a href="#优化子查询" class="headerlink" title="优化子查询"></a>优化子查询</h3><p><strong>尽可能</strong> 的使用关联查询代替。</p>
+<p>###优化GROUP BY 和DISTINCT<br>采用查找表的标识列分组的效率会比其他列更高。</p>
+<p>###优化LIMIT分页</p>
 <blockquote>
-<p>DATATIME和TIMESTAMP:<br><br>DATETIME和TIMESTAMP都可以存储相同类型的数据，然而TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化，具有特殊的自动更新能力。另一方面，TIMESTAMP允许的时间范围要小的多。</p>
+<p>在偏移量非常大的时候，例如可能是LIMIT 10000，20这样的查询，这时MySQL需要查询10020条记录然后只返回20条，前面的10000条都将被抛弃。</p>
 </blockquote>
-<p>###整数类型</p>
 <ul>
-<li>TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT，分别使用8,16,24,32,64位存储空间，它们可以存储的值的范围从pow(-2,N-1)到pow(2,(N-1)-1),其中N是存储空间的位数，pow()为PHP中的指数表达式。</li>
-<li>整数类型有可选的UNSIGNED属性，表示不允许负值，这大致可以使整数的上线提高一倍。eg:TINYINT UNSIGEND可以存储的值的范围是0~255，而不加UNSIGNED的范围是-128~127。</li>
-<li>MySQL可以为整数类型指定宽度，例如INT(11)，对大多数应用这是<strong>没有意义的</strong>：他不会限制值的范围，只是规定了MySQL的一些交互工具用来显示字符的个数。<strong>对于存储和计算来说，INT(1)和INT(20)是相同的</strong>。</li>
-</ul>
-<p>###实数类型</p>
-<ul>
-<li>实数是带有小数部分的数字。MySQL支持精确类型，也支持不精确类型。</li>
-<li><strong>FLOAT</strong>和<strong>DOUBLE</strong>类型支持使用标准的浮点运算进行近似计算。</li>
-<li><strong>DECIMAL</strong>类型用于存储精确的小数。</li>
-<li>浮点和DECIMAL都可以指定精度。eg:DECIMAL(18,9)小数点两边将各存储9个数字，一共使用9个字节：小数点前的数字用4个字节，小数点后的用4个字节，小数点本身一个字节。</li>
-</ul>
-<p>###字符串类型</p>
-<p>#####VARCHAR</p>
-<ul>
-<li>VARCHAR 类型用于存储可边长字符串，比定长类型更省空间因为它仅使用必要的空间（eg.越短的字符串使用越少的空间）。<strong>有一种情况例外</strong>，如果MySQL表使用 ROW_FORMAT=FIXED 创建的话，没一行都会使用定长存储，这回很浪费空间。<br></li>
-<li><strong>VARCHAR需要使用1或2个额外的字节记录字符串的长度：如果列的最大长度小于或等于255字节，则只使用1个字节表示，否则使用2个字节。</strong></li>
-<li>适合使用VARCHAR的情况：<ul>
-<li>字符串列的最大长度比平均长度大很多；</li>
-<li>列的更新少，所以碎片不是问题；</li>
-<li>使用了像UTF-8复杂的字符集，每个字符都使用不同的字节数进行存储。</li>
-</ul>
+<li>要优化这种查询，要么是在页面中限制分页的数量，要么是优化大偏移量的性能。</li>
+<li>一个最简单的办法就是尽可能地使用索引覆盖扫描，而不是查询所有的列。然后根据需要做一次关联操作再返回所需的列。考虑下面的查询：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT film_id, description FROM sakila.film ORDER BY title LIMIT 50,5;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>#####CHAR</p>
+<p>如果这张表非常大，那么下面的语句将大大提高效率。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT film_id, description FROM  sakila.film INNER JOIN (SELECT film_id FROM sakila.film ORDER BY title LIMIT 50,5) AS lim USING(film_id);</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>CHAR 适合存储很短的字符串</li>
-<li>对于经常变更的数据，CHAR也比VARCHAR更好，因为订单的CHAR类型不容易产生碎片；</li>
-<li>对于非常短的列，CHAR比VARCHAR在存储空间上也更有效率。</li>
+<li>LIMIT和OFFSET的问题，其实是OFFSET的问题，它会导致MySQL扫描大量不需要的行然后再抛弃掉。如果可以使用书签记录上次数据的位置，那么下次就可以直接从该书签记录的位置开始扫描，这样可以避免使用OFFSET。如：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT * FROM sakila.rental ORDER BY rental_id DESC LIMIT 20;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>假设上面查询返回的主键为16049到16030，那么下一页的查询就可以从16030开始。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT * FROM sakila.rental WHERE rental_id&lt;16030 ORDER BY rental_id DESC LIMIT 20;</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用用户自定义变量"><a href="#使用用户自定义变量" class="headerlink" title="使用用户自定义变量"></a>使用用户自定义变量</h3><p>避免重复查询刚刚更新的数据<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#bad sql</span><br><span class="line">mysql&gt; UPDATE t1 SET lastUpdate = NOW() WHERE id=1;</span><br><span class="line">mysql&gt; SELECT lastUpdate FROM t1  WHERE id=1</span><br><span class="line">#good sql</span><br><span class="line">mysql&gt; UPDATE t1 SET lastUpdate = NOW() WHERE id=1 AND @now := NOW();</span><br><span class="line">mysql&gt; SELECT @not;</span><br></pre></td></tr></table></figure></p>
 
           
         
