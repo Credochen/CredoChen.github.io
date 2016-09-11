@@ -233,6 +233,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/11/influxdb/" itemprop="url">
+                  基于telegraf＋inlfuxDB搭建日志收集系统
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-11T22:07:15+08:00" content="2016-09-11">
+              2016-09-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基于telegraf＋inlfuxDB搭建日志收集系统"><a href="#基于telegraf＋inlfuxDB搭建日志收集系统" class="headerlink" title="基于telegraf＋inlfuxDB搭建日志收集系统"></a>基于telegraf＋inlfuxDB搭建日志收集系统</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li><p>InfluxDB</p>
+<blockquote>
+<p><a href="https://www.influxdata.com/" target="_blank" rel="external">InfluxDB</a>用Go语言编写的一个开源分布式时序、事件和指标数据库，和传统是数据库相比有不少不同的地方。<br>类似的数据库有Elasticsearch、Graphite等。</p>
+</blockquote>
+</li>
+<li><p>telegraf</p>
+<blockquote>
+<p>Telegraf 是一个用 Go 编写的代理程序，可收集系统和服务的统计数据，并写入到 InfluxDB 数据库。<br>Telegraf 具有内存占用小的特点，通过插件系统开发人员可轻松添加支持其他服务的扩展。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装influxDB</span></span><br><span class="line">wget https://dl.influxdata.com/influxdb/releases/influxdb-1.0.0.x86_64.rpm</span><br><span class="line">sudo yum localinstall influxdb-1.0.0.x86_64.rpm</span><br><span class="line"><span class="comment"># 安装telegraf</span></span><br><span class="line">wget https://dl.influxdata.com/telegraf/releases/telegraf-1.0.0.x86_64.rpm</span><br><span class="line">sudo yum localinstall telegraf-1.0.0.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<p>安装好后配置文件分别在 <code>/etc/influxdb/</code>,<code>/etc/telegraf</code>下</p>
+<h2 id="修改telegraf配置文件"><a href="#修改telegraf配置文件" class="headerlink" title="修改telegraf配置文件"></a>修改telegraf配置文件</h2><p><code>vim /etc/telegraf/telegraf.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里配置收集日至规则,如果日志格式不同可以配置多项</span></span><br><span class="line">[[inputs.logparser]]</span><br><span class="line">    files = [<span class="string">"/var/log/test/tmp.log"</span>]</span><br><span class="line">    from_beginning = <span class="literal">true</span></span><br><span class="line">    [inputs.logparser.grok]</span><br><span class="line">    	 <span class="comment"># grok patterns，可以参考logstash的grok</span></span><br><span class="line">    	 patterns = [<span class="string">"%&#123;DATA:date&#125; %&#123;IPV4:ip&#125; %&#123;HOSTNAME:client&#125; %&#123;WORD:method&#125;#%&#123;PARAMS:params&#125;"</span>]</span><br><span class="line">    	 <span class="comment"># 上面的规则匹配如下日志</span></span><br><span class="line">    	 <span class="comment"># 2016-09-11 10:59:03 127.0.0.1 localhost Order_Globle_Search#sid:,mid:,lid:,tid:,ltitle:,ttitle:,btime1:,etime1:,btime2:,etime2:,btime3:,etime3:,ordernum:6605350,oname:,otel:,s    tatus:,pays:,fromt:,orderby:1,sort:0,rstart:0,n:1,c:,ordermode:,payinfo:,pmode:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 类似于数据库的table名称</span></span><br><span class="line">        measurement = <span class="string">"soap_log"</span></span><br><span class="line">		 <span class="comment"># 这里定义自定义匹配规则，格式: 变量名 正则表达式，每行一个规则</span></span><br><span class="line">        custom_patterns = <span class="string">''</span><span class="string">'</span><br><span class="line">            PARAMS .*</span><br><span class="line">        '</span><span class="string">''</span></span><br><span class="line"> [[inputs.logparser]]</span><br><span class="line">   files = [<span class="string">"/var/log/test/tmp.log"</span>]</span><br><span class="line">   from_beginning = <span class="literal">true</span></span><br><span class="line">     <span class="comment"># nginx 访问日志格式</span></span><br><span class="line">     patterns = [<span class="string">"%&#123;COMMON_LOG_FORMAT&#125;"</span>]</span><br><span class="line">	  <span class="comment"># 自定义匹配格式保存的文件位置</span></span><br><span class="line">     custom_pattern_files = []</span><br><span class="line">     <span class="comment">## Custom patterns can also be defined here. Put one pattern per line.</span></span><br><span class="line">     custom_patterns = <span class="string">''</span><span class="string">'</span><br><span class="line">        PARAMS .*</span><br><span class="line">     '</span><span class="string">''</span></span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service influxdb start</span><br><span class="line">service telegraf start</span><br></pre></td></tr></table></figure>
+<p>打开influxdb的web后台地址(默认端口是8083)，选择数据库 telegraf，执行<code>show measurements</code> ,可以查看已有的表。如果配置文件只修改了<code>logparser</code> ，那么还可以看到cpu，disk等一些与系统相关的表，这也是telegraf收集的数据。</p>
+<h2 id="常用的查询语句"><a href="#常用的查询语句" class="headerlink" title="常用的查询语句"></a>常用的查询语句</h2><ul>
+<li>根据字段名称查询：<code>select * from test_access_log where words=~ /Dynamic_Price_And_Storage/</code></li>
+<li>删除表:<code>drop MEASUREMENTS test_access_log</code></li>
+</ul>
+<img src="/2016/09/11/influxdb/demo.jpg" alt="demo" title="demo">
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000000444617" target="_blank" rel="external">InfluxDB 开源分布式时序、事件和指标数据库</a></li>
+<li><a href="http://udn.yyuap.com/doc/logstash-best-practice-cn/filter/grok.html" target="_blank" rel="external">Grok正则捕获</a></li>
+<li><a href="https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns" target="_blank" rel="external">logstash 系统自带的grop规则(可以直接在telegraf中使用)</a></li>
+<li><a href="https://github.com/kkos/oniguruma/blob/master/doc/RE" target="_blank" rel="external">Oniguruma Regular Expressions Version 6.0.0</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/22/编译安装MySQL5-6/" itemprop="url">
                   编译安装MySQL5.6
                 </a>
@@ -1264,148 +1386,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/02/20/《高性能MySQL》读书笔记——Schema与数据类型优化/" itemprop="url">
-                  《高性能MySQL》读书笔记——Schema与数据类型优化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-02-20T20:29:00+08:00" content="2014-02-20">
-              2014-02-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="选择优化的数据类型"><a href="#选择优化的数据类型" class="headerlink" title="选择优化的数据类型"></a>选择优化的数据类型</h3><ul>
-<li>更小的通常更好：<ul>
-<li>更小的数据类型通常更快，因为它们占用更好的磁盘、内存和cpu缓存，并且处理时需要的cpu周期更少。</li>
-<li><strong>但是要确保没有低估需要存储的值的范围；如果无法确定哪个数据类型是最好的，就选择自己认为不会超过范围的最小类型。</strong></li>
-</ul>
-</li>
-<li>简单就好：<ul>
-<li>简单的数据类型的操作通常需要更少的cpu周期。</li>
-<li>eg:整型 VS 字符型，应该使用MySQL内建的类型存储时间和日期而不是用字符串，应该使用整型存储IP地址。</li>
-</ul>
-</li>
-<li>尽量避免NULL：<ul>
-<li>如果查询中包含可为NULL的列，可为NULL的列使得索引、索引统计的值比较都跟复杂；</li>
-<li>可为NULL的列会使用更多的存储空间；</li>
-<li>通常把可为NULL的列改为NOT NULL带来的性能提升比较小；</li>
-<li>但是如果计划在列上建索引，就应该尽量避免设计成可为NULL的列。</li>
-</ul>
-</li>
-</ul>
-<h3 id="选择数据类型"><a href="#选择数据类型" class="headerlink" title="选择数据类型"></a>选择数据类型</h3><blockquote>
-<p>DATATIME和TIMESTAMP:<br><br>DATETIME和TIMESTAMP都可以存储相同类型的数据，然而TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化，具有特殊的自动更新能力。另一方面，TIMESTAMP允许的时间范围要小的多。</p>
-</blockquote>
-<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><ul>
-<li>TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT，分别使用8,16,24,32,64位存储空间，它们可以存储的值的范围从pow(-2,N-1)到pow(2,(N-1)-1),其中N是存储空间的位数，pow()为PHP中的指数表达式。</li>
-<li>整数类型有可选的UNSIGNED属性，表示不允许负值，这大致可以使整数的上线提高一倍。eg:TINYINT UNSIGEND可以存储的值的范围是0~255，而不加UNSIGNED的范围是-128~127。</li>
-<li>MySQL可以为整数类型指定宽度，例如INT(11)，对大多数应用这是<strong>没有意义的</strong>：他不会限制值的范围，只是规定了MySQL的一些交互工具用来显示字符的个数。<strong>对于存储和计算来说，INT(1)和INT(20)是相同的</strong>。</li>
-</ul>
-<h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><ul>
-<li>实数是带有小数部分的数字。MySQL支持精确类型，也支持不精确类型。</li>
-<li><strong>FLOAT</strong> 和 <strong>DOUBLE</strong> 类型支持使用标准的浮点运算进行近似计算。</li>
-<li><strong>DECIMAL</strong> 类型用于存储精确的小数。</li>
-<li>浮点和DECIMAL都可以指定精度。eg:DECIMAL(18,9)小数点两边将各存储9个数字，一共使用9个字节：小数点前的数字用4个字节，小数点后的用4个字节，小数点本身一个字节。</li>
-</ul>
-<p>###字符串类型</p>
-<h5 id="VARCHAR"><a href="#VARCHAR" class="headerlink" title="VARCHAR"></a>VARCHAR</h5><ul>
-<li>VARCHAR 类型用于存储可边长字符串，比定长类型更省空间因为它仅使用必要的空间（eg.越短的字符串使用越少的空间）。<strong>有一种情况例外</strong>，如果MySQL表使用 ROW_FORMAT=FIXED 创建的话，没一行都会使用定长存储，这回很浪费空间。<br></li>
-<li><strong>VARCHAR需要使用1或2个额外的字节记录字符串的长度：如果列的最大长度小于或等于255字节，则只使用1个字节表示，否则使用2个字节。</strong></li>
-<li>适合使用VARCHAR的情况：<ul>
-<li>字符串列的最大长度比平均长度大很多；</li>
-<li>列的更新少，所以碎片不是问题；</li>
-<li>使用了像UTF-8复杂的字符集，每个字符都使用不同的字节数进行存储。</li>
-</ul>
-</li>
-</ul>
-<h5 id="CHAR"><a href="#CHAR" class="headerlink" title="CHAR"></a>CHAR</h5><ul>
-<li>CHAR 适合存储很短的字符串</li>
-<li>对于经常变更的数据，CHAR也比VARCHAR更好，因为订单的CHAR类型不容易产生碎片；</li>
-<li>对于非常短的列，CHAR比VARCHAR在存储空间上也更有效率。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1451,7 +1431,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1461,7 +1441,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
