@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	获取Let's Encrypt的证书 - 
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+					
+					<h1><a href="index.html"></a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="self" href="index.html">Home</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">Archives</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+
+
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">获取Let's Encrypt的证书</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<h2 id="toc_0">获取CertBot</h2>
+
+<pre><code class="language-bash">wget https://dl.eff.org/certbot-auto
+chmod a+x certbot-auto
+</code></pre>
+
+<h2 id="toc_1">nginx 配置</h2>
+
+<blockquote>
+<p>针对不通的域名，都要有相应的配置。在Server下增加下面的location</p>
+</blockquote>
+
+<pre><code>location ^~ /.well-known/acme-challenge/ {
+   default_type &quot;text/plain&quot;;
+   root     /opt/openresty/nginx/html/;
+}
+location = /.well-known/acme-challenge/ {
+   return 404;
+}
+</code></pre>
+
+<h2 id="toc_2">获取证书</h2>
+
+<pre><code class="language-bash">./certbot-auto certonly --email coder@12301.cc \
+-w /opt/openresty/nginx/html/ -d www.12301.cc \
+--nginx --nginx-server-root /opt/openresty/nginx \
+--nginx-ctl /usr/local/nginx/nginx
+</code></pre>
+
+<blockquote>
+<p>--nginx-server-root NGINX_SERVER_ROOT<br/>
+     Nginx server root directory. (default: /etc/nginx)<br/>
+--nginx-ctl NGINX_CTL<br/>
+     Path to the &#39;nginx&#39; binary, used for &#39;configtest&#39; and<br/>
+     retrieving nginx version number. (default: nginx)</p>
+</blockquote>
+
+<h2 id="toc_3">自动续期--renew</h2>
+
+<blockquote>
+<p>Let&#39;s Encrypt 的证书有效期为 90 天，所以需要在到期前 renew 一下证书。</p>
+</blockquote>
+
+<pre><code class="language-bash"># 每隔 80 天的凌晨 4 点执行一次 renew：
+0 4 */80 * * /root/certbot-auto certonly renew --email coder@12301.cc -w /var/www/html/open -d api.12301.cc &amp;&gt;&gt; /tmp/certbot-renew.log
+</code></pre>
+
+<h2 id="toc_4">修改Nginx，启用Https</h2>
+
+<pre><code class="language-bash">listen 443 ssl;
+listen [::]:443 ssl ipv6only=on;# 如果服务器未启用ipv6，不要写这项配置
+ssl_certificate /etc/letsencrypt/live/www.12301dev.com/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/www.12301dev.com/privkey.pem;
+ssl_trusted_certificate /etc/letsencrypt/live/www.12301dev.com/chain.pem;
+</code></pre>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>
