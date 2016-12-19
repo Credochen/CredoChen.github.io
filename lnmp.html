@@ -122,6 +122,76 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2016-12-19T21:36:29+08:00" itemprop="datePublished">2016/12/19</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='lnmp.html'>lnmp</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="stroing_mac_addr_in_mysql.html" itemprop="url">
+		MySQL用什么类型的字段存储mac地址合适？</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>工作中遇到需要存储硬件的设备的mac地址，想到我们可以用<code>ip2long</code>,<code>long2ip</code>两个函数来存储和解析ip地址，那么mac地址应该也是可以的。</p>
+
+<h2 id="toc_0">mac地址格式</h2>
+
+<blockquote>
+<p>MAC地址共48位（6个字节），以十六进制表示。比如： 01:23:45:67:78:AB</p>
+
+<p>这意味着每个十六进制字段可以存储256（以10为基数的2的8的幂）值。 每个值为8位（= 1字节）。</p>
+</blockquote>
+
+<p>6 field x 8 bit = 48 bit = 6 bytes</p>
+
+<h2 id="toc_1">数据库字段设计</h2>
+
+<p>使用<code>bigint unsigned</code>存储。</p>
+
+<blockquote>
+<p>bigint 支持的数据范围：支持 -9223372036854775808到9223372036854775807(SIGNED)，0到18446744073709551615(UNSIGNED)，需要8个字节存储</p>
+</blockquote>
+
+<pre><code class="language-sql">-- 保存
+INSERT INTO `devices` (mac_addr) VALUES (x&#39;0123456789AB&#39;);
+-- 读取
+SELECT HEX(mac_addr) FROM `devices`;
+</code></pre>
+
+<h2 id="toc_2">PHP处理</h2>
+
+<pre><code class="language-php">function mac2int($mac) {
+    return base_convert($mac, 16, 10);
+}
+
+function int2mac($int) {
+    return base_convert($int, 10, 16);
+}
+// 更加人性化的读取
+function int2macaddress($int) {
+    $hex = base_convert($int, 10, 16);
+    while (strlen($hex) &lt; 12)
+        $hex = &#39;0&#39;.$hex;
+    return strtoupper(implode(&#39;:&#39;, str_split($hex,2)));
+}
+</code></pre>
+
+<ul>
+<li>参考：<a href="http://www.onurguzel.com/storing-mac-address-in-a-mysql-database/">Storing MAC address in a MySQL database</a></li>
+</ul>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-12-11T21:23:24+08:00" itemprop="datePublished">2016/12/11</time>
 			</div>
 			<div class="tags">posted in 
