@@ -122,6 +122,60 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2017-01-29T10:27:32+08:00" itemprop="datePublished">2017/1/29</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='lnmp.html'>lnmp</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="14856568522782.html" itemprop="url">
+		使用percona-xtrabackup</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>安装 </p>
+
+<pre><code class="language-shell">rpm -ivh percona-xtrabackup-2.3.2-1.el6.x86_64.rpm
+</code></pre>
+
+<blockquote>
+<p>安装失败，报错：<br/><br/>
+error: Failed dependencies:<br/>
+    libaio.so.1()(64bit) is needed by percona-xtrabackup-2.3.2-1.el6.x86_64<br/>
+    libaio.so.1(LIBAIO_0.1)(64bit) is needed by percona-xtrabackup-2.3.2-1.el6.x86_64<br/>
+    libaio.so.1(LIBAIO_0.4)(64bit) is needed by percona-xtrabackup-2.3.2-1.el6.x86_64<br/>
+    libev.so.4()(64bit) is needed by percona-xtrabackup-2.3.2-1.el6.x86_64<br/>
+    perl(DBD::mysql) is needed by percona-xtrabackup-2.3.2-1.el6.x86_64</p>
+</blockquote>
+
+<p>解决方式：安装依赖 <br/>
+       <code>shell <br/>
+       yum -y install perl perl-devel libaio libaio-devel perl-Time-HiRes perl-DBD-MySQL<br/>
+</code></p>
+
+<blockquote>
+<p>还有错：<br/><br/>
+error: Failed dependencies:<br/>
+    libev.so.4()(64bit) is needed by percona-xtrabackup-2.3.2-1.el6.x86_64</p>
+</blockquote>
+
+<p>解决方式：</p>
+
+<pre><code class="language-shell">    wget ftp://rpmfind.net/linux/atrpms/el6-x86_64/atrpms/stable/libev-4.04-2.el6.x86_64.rpm
+    rpm -ivh libev-4.04-2.el6.x86_64.rpm
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-12-22T22:26:09+08:00" itemprop="datePublished">2016/12/22</time>
 			</div>
 			<div class="tags">posted in 
