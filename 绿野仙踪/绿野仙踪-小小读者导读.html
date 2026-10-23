@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>绿野仙踪 · 小小读者导读</title>
+<meta name="description" content="把《绿野仙踪》拆成小朋友听得懂的故事：一个小女孩、一条黄砖路、三个觉得自己缺了什么的伙伴。原著里是银鞋，不是红宝石鞋。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%8C%88%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#2E3A34;
+    --ink-soft:#66756D;
+    --ink-faint:#96A49C;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#E8E0CB;
+    --dark:#2F4A3E;
+    --gold:#0F9D70;
+    --gold-deep:#0A7A57;
+    --gold-soft:#E3F7EF;
+    --gold-line:#BFEBDD;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.15), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(15,157,112,.10), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.09), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--gold-soft);border-color:var(--gold-line);color:var(--gold-deep);}
+
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,#0A7A57,#3FBF95);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(10,122,87,.26);
+    transform:rotate(-2deg);
+  }
+  h1{font-size:clamp(28px,5vw,48px);line-height:1.32;margin:20px 0 6px;letter-spacing:2px;font-weight:900;}
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:680px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(15,157,112,.16);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;background-size:100% 12px;background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+
+  .oneline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--gold-soft);border-color:var(--gold-line);}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--purple-soft);border-color:#DCD3FF;}
+
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--gold-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--gold-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCFAF1;border:1.5px dashed #E4DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;}
+  .say::before{content:"“";font-weight:900;color:var(--gold);}
+  .say::after{content:"”";font-weight:900;color:var(--gold);}
+
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:11px;top:8px;bottom:12px;border-left:3px dotted #D8EADF;}
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--gold);box-shadow:0 0 0 4px #EDF9F4;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .act:nth-child(6)::before{border-color:var(--yellow);}
+  .actbody{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;box-shadow:0 8px 20px rgba(107,95,160,.06);}
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--gold);padding:3px 10px;border-radius:8px;}
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .act:nth-child(6) .actno{background:#D9A62A;}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{font-size:12px;color:var(--ink-soft);background:#FBF7EA;border:1.5px solid #EDE5CE;border-radius:999px;padding:2px 10px;}
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  .beats{display:grid;gap:10px;}
+  details.beat{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);transition:.2s;}
+  details.beat[open]{border-color:var(--gold-line);box-shadow:0 12px 26px rgba(15,157,112,.14);}
+  details.beat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 0;font-weight:800;font-size:15.8px;outline:none;}
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{flex:0 0 34px;height:34px;border-radius:12px;background:var(--gold-soft);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;}
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);padding:1px 8px;border-radius:6px;margin-top:4px;}
+  .binner .key.q{background:var(--orange);}
+
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--gold-deep);background:var(--gold-soft);border-radius:12px;padding:7px 11px;}
+
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F2EEE0;vertical-align:top;}
+  thead th{background:#F3FBF7;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF6;white-space:nowrap;}
+  tbody tr:hover td{background:#FBFFFC;}
+  .hint{display:none;font-size:12.5px;color:var(--ink-faint);margin:8px 0 0;}
+
+  .finale{
+    background:linear-gradient(150deg,#E9F9F2,#FFF8E4 58%,#F4F0FF);
+    border:3px solid var(--gold-line);border-radius:var(--radius);
+    padding:32px 30px;text-align:center;box-shadow:0 18px 36px rgba(15,157,112,.14);
+  }
+  .finale .ball{
+    width:74px;height:74px;margin:0 auto 14px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #EFFCF7, #A8E3CC 55%, #63C4A3);
+    border:3px solid #fff;box-shadow:0 10px 22px rgba(15,157,112,.24), inset 0 0 0 2px #D5F2E7;
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+  }
+  .finale h3{margin:0 0 8px;font-size:21px;font-weight:900;color:#1D5343;}
+  .finale p{margin:0 auto;max-width:640px;font-size:15px;color:#4A6B5E;line-height:1.95;}
+  .finale .q{margin-top:14px;font-size:14px;color:var(--gold-deep);font-weight:800;}
+
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #3A5A4C, #233A31 60%, #1B2C25);
+    border-radius:var(--radius);padding:34px 30px;color:#F2FBF6;
+    position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(27,44,37,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .qitem{position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);margin-bottom:6px;}
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#AFCFC0;letter-spacing:.5px;}
+
+  .think{display:grid;gap:12px;}
+  .qitem2{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px dashed #E2DCC6;border-radius:18px;padding:16px 18px;}
+  .qnum{flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;}
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--gold-deep);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  .parent{background:linear-gradient(140deg,#E9F9F2,#FFF6E4);border:2px solid #CDEBDD;border-radius:var(--radius);padding:26px 28px;}
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#54685E;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#54685E;background:rgba(255,255,255,.72);border-radius:12px;padding:9px 13px;}
+  .parent a{color:var(--gold-deep);font-weight:800;text-decoration:none;border-bottom:2px solid var(--gold-line);}
+  .parent .warn{background:#FFF8E6;border-left:3px solid #E8B84B;border-radius:0 10px 10px 0;padding:10px 14px;font-size:14px;color:#7A6320;margin-top:10px;}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:13px;padding:44px 0 56px;line-height:2;}
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid #E4DCC6;background:#fff;color:var(--gold-deep);font-size:18px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(107,95,160,.16);display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+    .binner{padding-left:0;}
+    .finale{padding:24px 20px;}
+    .hint{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">📖 绿野仙踪·小小读者版</span>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#map">两张图</a>
+    <a href="#acts">故事</a>
+    <a href="#chapters">十二台阶</a>
+    <a href="#world">小百科</a>
+    <a href="#compare">四人对照</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">鲍姆 · 1900</span>
+    <h1>走了一整条黄砖路，<br><span class="hl">回家的力气一直在脚上</span></h1>
+    <p class="sub">一场龙卷风把小女孩多萝西吹到了奥兹国。为了回家，她沿着黄砖路去找一位大巫师，路上遇到三个觉得自己「缺了点什么」的伙伴。这一页帮你把这条路走一遍。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 300" role="img" aria-label="一条黄砖路通向远处的翡翠城，多萝西、稻草人、铁皮人和狮子正沿着路往前走">
+        <defs>
+          <linearGradient id="skyO" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#DCF3E6"/>
+            <stop offset="52%" stop-color="#F4FBEF"/>
+            <stop offset="100%" stop-color="#FFF7DE"/>
+          </linearGradient>
+        </defs>
+        <rect width="1000" height="300" rx="30" fill="url(#skyO)"/>
+
+        <circle cx="150" cy="66" r="30" fill="#FFD76A" opacity="0.55"/>
+        <circle cx="150" cy="66" r="44" fill="none" stroke="#FFD76A" stroke-width="3" opacity="0.3"/>
+
+        <path d="M0 210 Q140 176 260 202 Q380 228 500 204 Q620 180 740 200 Q870 222 1000 198 L1000 300 L0 300 Z" fill="#DFF3E4"/>
+        <path d="M0 232 Q160 206 300 226 Q450 248 600 226 Q760 204 1000 226 L1000 300 L0 300 Z" fill="#D2EDDA"/>
+
+        <g>
+          <rect x="748" y="150" width="34" height="56" rx="3" fill="#4FAE8A"/>
+          <path d="M744 150 L765 126 L786 150 Z" fill="#2E8A68"/>
+          <rect x="790" y="122" width="44" height="84" rx="3" fill="#5FBF97"/>
+          <path d="M786 122 L812 88 L838 122 Z" fill="#2E8A68"/>
+          <rect x="842" y="146" width="32" height="60" rx="3" fill="#4FAE8A"/>
+          <path d="M838 146 L858 122 L878 146 Z" fill="#2E8A68"/>
+          <rect x="882" y="134" width="40" height="72" rx="3" fill="#5FBF97"/>
+          <path d="M878 134 L902 104 L926 134 Z" fill="#2E8A68"/>
+          <rect x="930" y="158" width="30" height="48" rx="3" fill="#4FAE8A"/>
+          <path d="M926 158 L945 136 L964 158 Z" fill="#2E8A68"/>
+          <g fill="#FFE28A">
+            <rect x="804" y="140" width="8" height="10" rx="2"/>
+            <rect x="820" y="140" width="8" height="10" rx="2"/>
+            <rect x="804" y="160" width="8" height="10" rx="2"/>
+            <rect x="820" y="160" width="8" height="10" rx="2"/>
+            <rect x="896" y="152" width="7" height="9" rx="2"/>
+            <rect x="908" y="152" width="7" height="9" rx="2"/>
+          </g>
+        </g>
+
+        <path d="M0 246 Q180 224 330 246 Q470 268 610 246 Q780 222 1000 246 L1000 300 L0 300 Z" fill="#C7E7D2"/>
+
+        <path d="M96 300 C300 272 560 232 722 208 L792 208 C660 236 470 280 372 300 Z" fill="#F3C964"/>
+        <g stroke="#E0B14A" stroke-width="2" fill="none" opacity="0.8">
+          <path d="M150 288 C330 262 560 224 716 210"/>
+          <path d="M210 280 C380 254 590 220 730 208"/>
+          <path d="M270 272 C420 248 610 216 742 208"/>
+        </g>
+        <g stroke="#E8BC55" stroke-width="2" opacity="0.55">
+          <line x1="180" y1="296" x2="185" y2="282"/>
+          <line x1="240" y1="288" x2="246" y2="274"/>
+          <line x1="300" y1="280" x2="307" y2="266"/>
+          <line x1="360" y1="272" x2="368" y2="258"/>
+        </g>
+
+        <g>
+          <ellipse cx="190" cy="299" rx="30" ry="6" fill="#BEDFC9"/>
+          <path d="M168 246 q22 -10 44 0 l12 52 h-68 z" fill="#7FA9F2"/>
+          <path d="M178 250 l12 22 l12 -22" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.8"/>
+          <circle cx="190" cy="224" r="14" fill="#F7D9BE" stroke="#DFB695" stroke-width="2"/>
+          <path d="M176 222 q3 -17 14 -17 q11 0 14 17 q-7 -7 -14 -7 q-7 0 -14 7 z" fill="#7A5A4A"/>
+          <ellipse cx="176" cy="238" rx="4.5" ry="8" fill="#7A5A4A"/>
+          <ellipse cx="204" cy="238" rx="4.5" ry="8" fill="#7A5A4A"/>
+          <rect x="178" y="290" width="9" height="12" rx="4" fill="#4A4470"/>
+          <rect x="194" y="290" width="9" height="12" rx="4" fill="#4A4470"/>
+        </g>
+
+        <g>
+          <ellipse cx="266" cy="289" rx="26" ry="5" fill="#BEDFC9"/>
+          <path d="M248 240 q18 -8 36 0 l8 48 h-52 z" fill="#EFD08E"/>
+          <g stroke="#D9B96A" stroke-width="2">
+            <line x1="252" y1="252" x2="280" y2="252"/>
+            <line x1="252" y1="264" x2="280" y2="264"/>
+          </g>
+          <path d="M244 250 l-10 22 M288 250 l10 22" stroke="#D9B96A" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="266" cy="222" r="13" fill="#F5DFA8" stroke="#DCBE7E" stroke-width="2"/>
+          <ellipse cx="266" cy="210" rx="24" ry="5" fill="#D9A94A"/>
+          <path d="M246 210 q20 -16 40 0 z" fill="#D9A94A"/>
+          <circle cx="261" cy="220" r="1.8" fill="#5B4B45"/>
+          <circle cx="271" cy="220" r="1.8" fill="#5B4B45"/>
+          <path d="M261 227 q5 4 10 0" fill="none" stroke="#5B4B45" stroke-width="1.6"/>
+        </g>
+
+        <g>
+          <ellipse cx="336" cy="280" rx="24" ry="5" fill="#BEDFC9"/>
+          <rect x="320" y="230" width="32" height="48" rx="5" fill="#B9C4CE" stroke="#93A2B0" stroke-width="2"/>
+          <path d="M322 228 l28 0 l-4 -14 l-20 0 z" fill="#8FA0AE"/>
+          <circle cx="336" cy="212" r="11" fill="#C9D3DC" stroke="#93A2B0" stroke-width="2"/>
+          <circle cx="332" cy="210" r="1.8" fill="#4A5A66"/>
+          <circle cx="340" cy="210" r="1.8" fill="#4A5A66"/>
+          <path d="M332 217 q4 3 8 0" fill="none" stroke="#4A5A66" stroke-width="1.6"/>
+          <path d="M318 238 l-8 18 M354 238 l8 18" stroke="#93A2B0" stroke-width="5" stroke-linecap="round"/>
+          <rect x="324" y="276" width="8" height="10" rx="3" fill="#8FA0AE"/>
+          <rect x="340" y="276" width="8" height="10" rx="3" fill="#8FA0AE"/>
+        </g>
+
+        <g>
+          <ellipse cx="410" cy="270" rx="30" ry="6" fill="#BEDFC9"/>
+          <ellipse cx="408" cy="248" rx="30" ry="15" fill="#C99A5B"/>
+          <circle cx="436" cy="238" r="19" fill="#A97A3C"/>
+          <circle cx="436" cy="238" r="12" fill="#D9A967"/>
+          <circle cx="440" cy="236" r="1.8" fill="#5B4B45"/>
+          <circle cx="431" cy="236" r="1.8" fill="#5B4B45"/>
+          <path d="M432 243 q4 3 8 0" fill="none" stroke="#5B4B45" stroke-width="1.6"/>
+          <rect x="386" y="256" width="8" height="14" rx="3" fill="#B07F42"/>
+          <rect x="402" y="256" width="8" height="14" rx="3" fill="#B07F42"/>
+          <rect x="418" y="256" width="8" height="14" rx="3" fill="#B07F42"/>
+          <path d="M378 244 q-10 -6 -8 -16" fill="none" stroke="#A97A3C" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <text x="52" y="142" font-size="20" fill="#7E8F86" font-weight="700">1900 · 一个美国童话</text>
+        <text x="948" y="292" font-size="20" fill="#7E8F86" font-weight="700" text-anchor="end">这条路通往翡翠城</text>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">📚 <b>24</b> 章</span>
+      <span class="badge">👦 建议 <b>9 岁+</b></span>
+      <span class="badge">⏱ 读完约 <b>20 分钟</b></span>
+      <span class="badge">👟 原著是 <b>银鞋</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 三句话 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整本书</h2></div>
+    <p class="lead">如果同学问你「这本书讲什么」，你可以这样回答。</p>
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 一场风，把她吹走了</h3>
+        <p>龙卷风把多萝西和小狗托托连房子一起卷到奥兹国。房子落地时，正好压死了<b>东方恶女巫</b>，当地人送了她一双<b>银鞋</b>。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 一条路，四个人</h3>
+        <p>她沿着<b>黄砖路</b>去翡翠城找大巫师奥兹，路上遇到想要脑子的稻草人、想要心的铁皮人、想要胆量的狮子。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 一个骗子，一双鞋子</h3>
+        <p>奥兹其实是个<b>从奥马哈来的魔术师</b>，什么也不会。真正能送她回家的，是那双一直穿在脚上的银鞋。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎭</span><h2>人物小档案</h2></div>
+    <p class="lead">四个人凑在一起，其实是在找同一样东西：<b>他们以为自己缺的那一块</b>。</p>
+    <div class="people">
+
+      <article class="person" style="--accent:#E3F7EF">
+        <div class="phead">
+          <div class="avatar">🧺</div>
+          <div><div class="pname">多萝西</div><div class="prole">小女孩 · 想回家的人</div></div>
+        </div>
+        <p>父母不在了，跟着爱姆婶婶和亨利叔叔住在堪萨斯大草原上。她胆子不算大，但一路上从没丢下过任何一个伙伴。</p>
+        <div class="say">她想要的从来不是魔法，是「回去」</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">🐕</div>
+          <div><div class="pname">托托</div><div class="prole">小狗 · 一路都在的那个</div></div>
+        </div>
+        <p>一只黑色的小狗，会叫、会跑、会闯祸。它不会说话，可每次出事它都在场——最后也是它追着一只猫，让热气球先飞走了。</p>
+        <div class="say">它不懂什么叫冒险，只知道跟着主人走</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">🌾</div>
+          <div><div class="pname">稻草人</div><div class="prole">想要脑子 · 其实最会想办法</div></div>
+        </div>
+        <p>插在稻田里吓鸟的稻草人，被多萝西放下来一起走。他一口咬定自己「没有脑子」，可每次遇到难关，第一个出主意的都是他。</p>
+        <div class="say">他说自己不会想，然后想出了搭桥的办法</div>
+      </article>
+
+      <article class="person" style="--accent:#E9EFF3">
+        <div class="phead">
+          <div class="avatar">🪓</div>
+          <div><div class="pname">铁皮人</div><div class="prole">想要心 · 其实最容易哭</div></div>
+        </div>
+        <p>被施了魔法、全身变成铁皮的樵夫。他怕自己「不会爱」，可路上踩到一只甲虫都要难过半天，讲起往事就哭到关节生锈。</p>
+        <div class="say">他一直想要一颗心，却一直在替别人心疼</div>
+      </article>
+
+      <article class="person" style="--accent:#FFEEDD">
+        <div class="phead">
+          <div class="avatar">🦁</div>
+          <div><div class="pname">胆小狮</div><div class="prole">想要胆量 · 其实每次都冲最前</div></div>
+        </div>
+        <p>森林里的大狮子，一开口就说自己胆小。可真碰上沟壑、怪兽和恶女巫，扑上去的总是他。他怕的其实不是危险，是「别人觉得他怕」。</p>
+        <div class="say">他一边发抖，一边往前冲</div>
+      </article>
+
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🎩</div>
+          <div><div class="pname">奥兹</div><div class="prole">大巫师 · 其实是个魔术师</div></div>
+        </div>
+        <p>翡翠城里谁也没见过他的真面目。他对四个人现出四种样子，用投影和机关把人吓得不敢多问——直到托托撞翻了屏风。</p>
+        <div class="say">他骗了所有人，却也真的让三个人变好了</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🧹</div>
+          <div><div class="pname">西方恶女巫</div><div class="prole">反派 · 只有一只眼</div></div>
+        </div>
+        <p>统治温基人的女巫，只有一只眼睛，靠望远镜盯着整片国土。她不怕刀、不怕火，只怕一样东西——水。</p>
+        <div class="say">她什么都算到了，没算到一桶水</div>
+      </article>
+
+      <article class="person" style="--accent:#E3F7EF">
+        <div class="phead">
+          <div class="avatar">👑</div>
+          <div><div class="pname">格林达</div><div class="prole">南方善女巫 · 说出答案的人</div></div>
+        </div>
+        <p>南方夸德林国的善女巫，也是全书最知道底细的人。她一见多萝西就说：你脚上那双鞋，第一天就能带你回家。</p>
+        <div class="say">答案她一直知道，却等到最后才说</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 主图 ============ -->
+<section id="map">
+  <div class="wrap">
+    <div class="title"><span class="ico">🕸️</span><h2>两张图，看懂这本书</h2></div>
+    <p class="lead">第一张图是全书最妙的一个机关：<b>同一个人，四个人看见四样东西</b>。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 540 306" role="img" aria-label="左边是一道帷幕，右边是四个人各自看到的奥兹：巨人的头、美丽的女子、可怕的怪兽、一团火球">
+        <rect x="14" y="26" width="140" height="230" rx="14" fill="#F1F8F3" stroke="#CFE8DA" stroke-width="2"/>
+        <path d="M18 30 q26 40 26 110 q0 70 -26 112" fill="none" stroke="#9ED3BB" stroke-width="3"/>
+        <path d="M150 30 q-26 40 -26 110 q0 70 26 112" fill="none" stroke="#9ED3BB" stroke-width="3"/>
+        <g stroke="#BFE0CE" stroke-width="2" opacity="0.9">
+          <line x1="52" y1="40" x2="52" y2="240"/>
+          <line x1="78" y1="34" x2="78" y2="248"/>
+          <line x1="104" y1="40" x2="104" y2="240"/>
+        </g>
+        <text x="84" y="276" text-anchor="middle" font-size="15" font-weight="800" fill="#5C7B6C" font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">帷幕后面</text>
+
+        <path d="M166 141 l22 0" stroke="#0F9D70" stroke-width="3" stroke-linecap="round"/>
+        <path d="M182 135 l7 6 l-7 6" fill="none" stroke="#0F9D70" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <rect x="200" y="26" width="152" height="106" rx="12" fill="#FFF8E4" stroke="#F0DFC0" stroke-width="2"/>
+        <circle cx="276" cy="68" r="37" fill="#F3D08A" stroke="#D9B25F" stroke-width="2"/>
+        <path d="M252 52 q24 -16 48 4" fill="none" stroke="#E8BE6E" stroke-width="3" opacity="0.8"/>
+        <ellipse cx="264" cy="62" rx="4.5" ry="5.5" fill="#6B5330"/>
+        <ellipse cx="288" cy="62" rx="4.5" ry="5.5" fill="#6B5330"/>
+        <path d="M262 84 L290 84" stroke="#6B5330" stroke-width="3.4" stroke-linecap="round"/>
+        <text x="276" y="120" text-anchor="middle" font-size="15" font-weight="800" fill="#7A6320" font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">一颗大头</text>
+
+        <rect x="366" y="26" width="152" height="106" rx="12" fill="#FFF0F5" stroke="#FFD3E1" stroke-width="2"/>
+        <circle cx="442" cy="58" r="24" fill="none" stroke="#FFC93C" stroke-width="2" opacity="0.7"/>
+        <path d="M424 104 q18 -30 36 0 z" fill="#FFB3C7"/>
+        <circle cx="442" cy="64" r="14" fill="#F9DCC4" stroke="#DFB695" stroke-width="2"/>
+        <path d="M426 62 q2 -18 16 -18 q14 0 16 18 q-16 -9 -32 0 z" fill="#7A5A4A"/>
+        <path d="M424 58 q-6 22 2 34 M460 58 q6 22 -2 34" fill="none" stroke="#7A5A4A" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="437" cy="64" r="2.2" fill="#5B4B45"/>
+        <circle cx="447" cy="64" r="2.2" fill="#5B4B45"/>
+        <path d="M439 72 L445 72" stroke="#5B4B45" stroke-width="2" stroke-linecap="round"/>
+        <text x="442" y="120" text-anchor="middle" font-size="15" font-weight="800" fill="#B03A63" font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">一位美女</text>
+
+        <rect x="200" y="150" width="152" height="106" rx="12" fill="#EFF1FA" stroke="#D6DBEF" stroke-width="2"/>
+        <path d="M276 170 L302 178 L314 196 L306 218 L284 230 L264 228 L248 212 L244 190 L258 176 Z" fill="#7E84AE" stroke="#5F669A" stroke-width="2"/>
+        <path d="M250 186 l-14 -10 l18 -2 z M302 186 l14 -10 l-18 -2 z" fill="#5F669A"/>
+        <ellipse cx="264" cy="196" rx="6" ry="4" fill="#FFE28A"/>
+        <ellipse cx="290" cy="196" rx="6" ry="4" fill="#FFE28A"/>
+        <path d="M258 214 l8 6 l8 -6 l8 6 l8 -6" fill="none" stroke="#FFF6DA" stroke-width="2.6" stroke-linecap="round"/>
+        <text x="276" y="244" text-anchor="middle" font-size="15" font-weight="800" fill="#4A4470" font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">一头怪兽</text>
+
+        <rect x="366" y="150" width="152" height="106" rx="12" fill="#FFF3E6" stroke="#FFE0BE" stroke-width="2"/>
+        <path d="M442 172 q12 12 10 26 q10 -6 14 6 q6 22 -24 30 q-30 -8 -24 -30 q4 -12 14 -6 q-2 -14 10 -26 z" fill="#FF9E3D"/>
+        <path d="M442 188 q7 8 6 18 q6 -4 8 4 q4 14 -14 20 q-18 -6 -14 -20 q2 -8 8 -4 q-1 -10 6 -18 z" fill="#FFD08A"/>
+        <circle cx="442" cy="208" r="7" fill="#FFF6DA"/>
+        <text x="442" y="244" text-anchor="middle" font-size="15" font-weight="800" fill="#9A5A11" font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">一团火球</text>
+      </svg>
+      <div class="cap">图 1 · 他给每个人看的，都是他们最怕、最信的那样东西。</div>
+    </div>
+
+    <p class="lead" style="margin-top:28px;">第二张图是路线的形状。注意最后那条回到起点的线——<b>他们绕了一整圈</b>。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 540 306" role="img" aria-label="环形路线图：从堪萨斯出发，经芒奇金国、翡翠城、温基国、再回翡翠城、南下夸德林国，最后回到堪萨斯">
+        <ellipse cx="270" cy="152" rx="176" ry="98" fill="none" stroke="#F3C964" stroke-width="14" opacity="0.45"/>
+        <ellipse cx="270" cy="152" rx="176" ry="98" fill="none" stroke="#E2B24C" stroke-width="2" stroke-dasharray="8 8"/>
+
+        <g font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif" font-size="15" font-weight="800" text-anchor="middle">
+          <circle cx="94" cy="152" r="30" fill="#E3F7EF" stroke="#0F9D70" stroke-width="2.5"/>
+          <text x="94" y="150" fill="#0A7A57">堪萨</text>
+          <text x="94" y="168" fill="#0A7A57">斯</text>
+
+          <circle cx="180" cy="66" r="30" fill="#FFF6DA" stroke="#D9B25F" stroke-width="2.5"/>
+          <text x="180" y="64" fill="#8A621A">芒奇</text>
+          <text x="180" y="82" fill="#8A621A">金国</text>
+
+          <circle cx="270" cy="54" r="32" fill="#DFF3E4" stroke="#3FAE86" stroke-width="2.5"/>
+          <text x="270" y="52" fill="#1C6B5C">翡翠</text>
+          <text x="270" y="70" fill="#1C6B5C">城①</text>
+
+          <circle cx="360" cy="66" r="30" fill="#FFEEDD" stroke="#E0A66A" stroke-width="2.5"/>
+          <text x="360" y="64" fill="#9A5A11">温基</text>
+          <text x="360" y="82" fill="#9A5A11">国</text>
+
+          <circle cx="446" cy="152" r="32" fill="#DFF3E4" stroke="#3FAE86" stroke-width="2.5"/>
+          <text x="446" y="150" fill="#1C6B5C">翡翠</text>
+          <text x="446" y="168" fill="#1C6B5C">城②</text>
+
+          <circle cx="270" cy="250" r="30" fill="#EFEBFF" stroke="#7C6BFF" stroke-width="2.5"/>
+          <text x="270" y="248" fill="#4A3E96">夸德</text>
+          <text x="270" y="266" fill="#4A3E96">林国</text>
+        </g>
+
+        <g font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif" text-anchor="middle">
+          <text x="270" y="140" font-size="19" font-weight="900" fill="#0A7A57">绕了一整圈</text>
+          <text x="270" y="170" font-size="17" font-weight="800" fill="#8A621A">答案在脚上</text>
+        </g>
+      </svg>
+      <div class="cap">图 2 · 起点和终点是同一个地方，中间多了一整圈「以为自己不行」。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 六幕 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎬</span><h2>故事六幕</h2></div>
+    <p class="lead">这本书是顺叙的，一路往前走。每换一个地方，就多一个同伴、多一道难关。</p>
+    <div class="acts">
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第一幕</span><h3>灰色的草原，龙卷风来了</h3></div>
+          <div class="chips"><span class="chip">📍 堪萨斯草原</span><span class="chip">🌪 灰扑扑</span></div>
+          <ul>
+            <li>堪萨斯草原上什么都灰：草是灰的，房子是灰的，连爱姆婶婶的脸都很少笑。</li>
+            <li>龙卷风来了。亨利叔叔喊多萝西躲地窖，可她先去追被风吹跑的托托。</li>
+            <li>结果连人带房子被卷上天。<b>房子落在芒奇金国，正好压死东方恶女巫。</b></li>
+            <li>北方善女巫赶来道谢，把死者的<b>银鞋</b>送给多萝西，告诉她：去翡翠城找奥兹。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第二幕</span><h3>黄砖路上，捡到三个伙伴</h3></div>
+          <div class="chips"><span class="chip">🚶 一路向北</span><span class="chip">🤝 结伴</span></div>
+          <ul>
+            <li><b>稻草人</b>：挂在稻田里，被放下来以后第一句话是「我没有脑子」。</li>
+            <li><b>铁皮人</b>：浑身生锈，关节上油以后才动得了，说自己「没有心」。</li>
+            <li><b>胆小狮</b>：跳出来吓人，结果被托托一叫就躲，承认自己「没有胆量」。</li>
+            <li>三个人缺的东西不一样，去的地方却是同一个：<b>翡翠城</b>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第三幕</span><h3>路上的四道关</h3></div>
+          <div class="chips"><span class="chip">⚠️ 越来越险</span><span class="chip">🌾 罂粟花</span></div>
+          <ul>
+            <li><b>大沟壑</b>：稻草人出主意——砍倒一棵树架在两边，大家走过去。</li>
+            <li><b>卡利达斯兽</b>：长着老虎身子熊脑袋的怪兽追来，稻草人再砍一棵树，怪兽掉进沟里。</li>
+            <li><b>大河</b>：木筏被冲走，稻草人挂在河中央的杆子上，一只<b>送子鹳</b>把他叼回岸上。</li>
+            <li><b>罂粟花田</b>：香味让人睡过去再也醒不来。多萝西和狮子倒在花里，<b>田鼠女王</b>带着成千上万只田鼠，用绳子把他们拖出去。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第四幕</span><h3>翡翠城，和四张脸</h3></div>
+          <div class="chips"><span class="chip">📍 翡翠城</span><span class="chip">👓 绿眼镜</span></div>
+          <ul>
+            <li>进城的人都要戴上<b>绿眼镜</b>，还被锁上——所以谁都以为这城真是翡翠做的。</li>
+            <li>奥兹不见人，只一个一个地见。多萝西看见<b>一颗巨大的头</b>，稻草人看见<b>一位美女</b>，铁皮人看见<b>一头怪兽</b>，狮子看见<b>一团火球</b>。</li>
+            <li>他开出条件：<b>先去杀死西方恶女巫</b>，回来就满足你们。</li>
+            <li>四个人没办法，只能往西走。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第五幕</span><h3>西方恶女巫，和一桶水</h3></div>
+          <div class="chips"><span class="chip">📍 温基国</span><span class="chip">🐒 飞猴</span></div>
+          <ul>
+            <li>女巫只有<b>一只眼睛</b>，靠望远镜盯着国土。她先派狼群、再派乌鸦、再派蜜蜂，都被挡了回去。</li>
+            <li>她戴上<b>金冠</b>召唤<b>飞猴</b>，把四个人抓回城堡。</li>
+            <li>她想要多萝西脚上的银鞋，抢的时候被泼了一桶水——<b>她化掉了</b>。</li>
+            <li>温基人从此自由。多萝西拿到金冠，也拿回了女巫那只望远镜。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第六幕</span><h3>骗子、气球，和脚上的鞋</h3></div>
+          <div class="chips"><span class="chip">📍 翡翠城 → 南方 → 家</span><span class="chip">💧 舍不得</span></div>
+          <ul>
+            <li>回到翡翠城，<b>托托撞翻了屏风</b>——后面站着一个普通老头。</li>
+            <li>他承认：自己是从奥马哈来的魔术师，靠投影和机关装神弄鬼，什么魔法也不会。</li>
+            <li>他还是给了礼物：稻草人一把针和一袋糠，铁皮人一颗绸子的心，狮子一瓶「勇气药水」。</li>
+            <li>他想造热气球带多萝西走，<b>气球先飞了</b>，只剩他一个人上天。</li>
+            <li>他们南下找格林达。格林达说：<b>你那双银鞋，第一天就能带你回家。</b></li>
+            <li>多萝西并脚、鞋跟碰三次，回到堪萨斯。银鞋在飞越沙漠时掉了，再也找不回来。</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 章节地图 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🗺️</span><h2>十二个台阶</h2></div>
+    <p class="lead">原著二十四章，这里按十二个台阶收拢。点开看「发生什么」和「为什么重要」。</p>
+    <div class="beats">
+
+      <details class="beat">
+        <summary><span class="bno">01</span>灰色的草原，龙卷风<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>堪萨斯草原一片灰。龙卷风来了，多萝西为了追托托没进地窖，连房子一起被卷走。</p>
+          <p><span class="key q">为什么重要</span>开头把「家」画得又灰又穷，可全书她一直想回去。<b>先让你看见它不好，再看她为什么还要回去</b>，这是作者的用意。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>芒奇金国：一双银鞋<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>房子压死了东方恶女巫，芒奇金人获救。北方善女巫把女巫的银鞋送给多萝西，让她去翡翠城。</p>
+          <p><span class="key q">为什么重要</span>全书最重要的道具在这里就交到她手上了。<b>答案从第一页起就在她脚上</b>——只是没人告诉她。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>稻草人：我想要脑子<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>多萝西把他从杆子上放下来。他一路走一路说自己「没有脑子」，却马上开始出主意。</p>
+          <p><span class="key q">为什么重要</span>第一个同伴，也是第一个「误会自己」的人。<b>他缺的不是脑子，是被人需要的机会</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>铁皮人：我想要心<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>森林里找到锈住的他，上油以后能动。他讲自己怎么一斧一斧把自己砍成铁皮，讲着讲着哭到关节锈住。</p>
+          <p><span class="key q">为什么重要</span>一个「没有心」的人，是全书哭得最多的那个。<b>会哭，就是有心</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>胆小狮：我想要胆量<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>狮子跳出来拦路，被托托一叫就退。他说自己天生胆小，希望奥兹给他一点胆量。</p>
+          <p><span class="key q">为什么重要</span>三人组齐了。注意一件事：<b>他说完自己胆小，接下来每次都冲在最前面</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>三道关：沟壑、大河、怪兽<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>沟壑用砍倒的树架桥，卡利达斯兽追来又砍一棵树让它掉下去；大河上木筏被冲散，稻草人挂在河心，送子鹳把他救回。</p>
+          <p><span class="key q">为什么重要</span>这一串难关全是<b>稻草人出主意、大家配合</b>过的。书在用事实证明他「有脑子」。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>罂粟花田<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>大片罂粟花的香味让人昏睡不醒。多萝西和狮子倒下，田鼠女王带成千上万只田鼠用绳子把他们拖出花田。</p>
+          <p><span class="key q">为什么重要</span>这是全书最危险的一次，而救他们的<b>是之前被稻草人救过的一只小田鼠</b>。善意是会被还回来的。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">08</span>翡翠城：戴绿眼镜的城市<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>进城要戴绿眼镜，还要上锁。城里一切都是绿的，人人都说这里是翡翠做的。</p>
+          <p><span class="key q">为什么重要</span>作者在这里埋了全书最锋利的讽刺：<b>大家看见的绿，是被要求看见的绿</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">09</span>奥兹的四张脸<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>奥兹分别会见四个人，现出大头、美女、怪兽、火球四种样子，然后开出条件：先杀西方恶女巫。</p>
+          <p><span class="key q">为什么重要</span>同一场戏，四种面貌。<b>他不是在变，是在照每个人的想象变形</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">10</span>西方恶女巫与飞猴<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>女巫用一只眼和望远镜盯着他们，派出狼群、乌鸦、蜜蜂都失败，最后戴上金冠召唤飞猴抓人。多萝西一桶水把她化掉。</p>
+          <p><span class="key q">为什么重要</span>全书唯一的「战斗」。解决方式不是打赢，<b>是一个生气的动作恰好戳中了对方的弱点</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">11</span>骗子的礼物<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>托托撞翻屏风，奥兹现出原形：一个奥马哈来的魔术师。他给稻草人针和糠、给铁皮人绸子心、给狮子一瓶药水，热气球却先飞走了。</p>
+          <p><span class="key q">为什么重要</span>最扎心的一场：<b>礼物是假的，效果却是真的</b>。三个人从那天起真的变了。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">12</span>格林达：答案在脚上<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>南下找到格林达。她告诉他们银鞋的用法：并脚、鞋跟碰三次、说出想去的地方。多萝西回到家，银鞋丢在沙漠里。</p>
+          <p><span class="key q">为什么重要</span>全书收口。格林达说她第一天就能回家——<b>可如果那样，她就得不到这一路</b>。</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小百科 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">🪐</span><h2>8 个关键词，看懂这本书</h2></div>
+    <p class="lead">《绿野仙踪》被电影改过很多地方。下面这几条，按原著说。</p>
+    <div class="wiki">
+
+      <div class="card" style="background:var(--gold-soft);border-color:var(--gold-line);">
+        <h3>🌕 黄砖路</h3>
+        <p>从芒奇金国通往翡翠城的路，铺着黄色砖。它是全书唯一的方向——所有人只要沿着它走，就会走到该去的地方。</p>
+        <div class="tip">💡 像学校门口那条路：你不知道前面有什么，但你知道该往哪边走。</div>
+      </div>
+
+      <div class="card" style="background:var(--teal-soft);border-color:#C9F1E8;">
+        <h3>🏰 翡翠城</h3>
+        <p>奥兹住的城市，看起来全是翡翠。但进城必须戴绿眼镜，而眼镜是锁上的——<b>你看到的绿，是被安排好的绿</b>。</p>
+        <div class="tip">💡 像戴着彩色镜片看世界：颜色不在外面，在镜片上。</div>
+      </div>
+
+      <div class="card" style="background:var(--yellow-soft);border-color:#F3DFA4;">
+        <h3>👟 银鞋（不是红宝石鞋）</h3>
+        <p><b>原著里是银鞋。</b>红宝石鞋是 1939 年电影为了彩色画面改的。银鞋的用法是：并脚、鞋跟互碰三次、说出想去的地方。</p>
+        <div class="tip">💡 这是全书最容易被记错的一处——记住「银」，你比很多人都准。</div>
+      </div>
+
+      <div class="card" style="background:var(--purple-soft);border-color:#DCD3FF;">
+        <h3>🐒 飞猴与金冠</h3>
+        <p>戴上金冠念咒，就能召唤一群飞猴办事。但它们是被咒语绑住的，不是自愿的——书里最后，金冠被还给猴王，飞猴从此自由。</p>
+        <div class="tip">💡 像借来的工具：能用，但用完该还回去。</div>
+      </div>
+
+      <div class="card" style="background:var(--pink-soft);border-color:#FFD3E1;">
+        <h3>🎩 奥兹的真身</h3>
+        <p>他不是巫师，是从美国奥马哈坐热气球飘来的魔术师。他用投影、假头、假声音吓人，因为他自己也没办法。</p>
+        <div class="tip">💡 像舞台后面的音箱：声音很吓人，后面只有一个放音乐的人。</div>
+      </div>
+
+      <div class="card" style="background:var(--orange-soft);border-color:#FFE0BE;">
+        <h3>🧭 四个女巫</h3>
+        <p>奥兹国有四位女巫：东方和西方是恶的，北方和南方是善的。东方被房子压死，西方被水化掉，北方很老、法力不强，南方格林达最强。</p>
+        <div class="tip">💡 像四个方位的守门人：不是「好人坏人各一半」，是四个各有各的脾气。</div>
+      </div>
+
+      <div class="card" style="background:var(--gold-soft);border-color:var(--gold-line);">
+        <h3>💭 这不是一场梦</h3>
+        <p>电影常把整个故事处理成多萝西做的一场梦，<b>原著不是</b>。书里奥兹国是真的，她真的去了、真的回来了。</p>
+        <div class="tip">💡 「是一场梦」是电影给的安慰，原著给的是一段真的经历。</div>
+      </div>
+
+      <div class="card" style="background:var(--teal-soft);border-color:#C9F1E8;">
+        <h3>✨ 他们本来就有的</h3>
+        <p>稻草人一直在出主意，铁皮人一直在心疼别人，狮子一直冲在最前，多萝西一直穿着能回家的鞋。<b>四个人缺的东西，都在自己身上。</b></p>
+        <div class="tip">💡 像你找不到的橡皮，其实一直在你自己口袋里。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>四个人，四样「我想要」</h2></div>
+    <p class="lead">这张表是整本书的骨架。孩子记不住情节时，看这一张就够了。</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>谁</th><th>他想要</th><th>为什么觉得自己没有</th><th>路上其实已经</th><th>奥兹给了什么</th></tr></thead>
+        <tbody>
+          <tr><td>稻草人</td><td>一个脑子</td><td>我是稻草扎的，里面是空的</td><td>每次难关都是他先想出办法</td><td>一把针，一袋糠</td></tr>
+          <tr><td>铁皮人</td><td>一颗心</td><td>我是铁打的，敲起来会响</td><td>踩到甲虫都难过，讲往事哭到生锈</td><td>一颗绸子做的红心</td></tr>
+          <tr><td>胆小狮</td><td>一点胆量</td><td>我一见危险就想跑</td><td>每次都是他第一个扑上去</td><td>一瓶「勇气药水」</td></tr>
+          <tr><td>多萝西</td><td>回家</td><td>我不会魔法，也没有翅膀</td><td>那双能带她回家的银鞋，一直穿在脚上</td><td>什么也没给——只能自己走</td></tr>
+          <tr><td>结论</td><td colspan="4">四个人要的东西，都在自己身上。只是要先走完这一整条路，才敢相信这件事。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">表格可左右滑动 →</p>
+  </div>
+</section>
+
+<!-- ============ 金句 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✨</span><h2>4 句值得抄在本子上的话</h2></div>
+
+      <div class="qitem">
+        <p>假如你能懂得它们的魔力，在你来到奥兹的第一天，你就可以回到你的爱姆婶婶那里去的。</p>
+        <span>—— 格林达对多萝西说（大意）</span>
+      </div>
+
+      <div class="qitem">
+        <p>这些都是真的。可是我一点儿也不懊悔，因为我帮助了朋友们。</p>
+        <span>—— 多萝西的回答（大意）</span>
+      </div>
+
+      <div class="qitem">
+        <p>哦，爱姆婶婶！我真高兴又回到家了。</p>
+        <span>—— 《绿野仙踪》全书最后一句</span>
+      </div>
+
+      <div class="qitem">
+        <p>我必须先并着脚，随后把鞋跟互相碰撞三次，就可以命令它们带我去任何地方。</p>
+        <span>—— 银鞋的用法（大意）</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 终章 ============ -->
+<section id="finale">
+  <div class="wrap">
+    <div class="finale">
+      <div class="ball">👟</div>
+      <h3>她本来可以第一天就回家</h3>
+      <p>格林达说出真相的时候，三个伙伴都急了：那我们就得不到脑子、心、和胆量了。多萝西说，没关系，因为这一路我帮到了朋友。所以这本书其实在讲两件事：<b>你早就有能力了</b>，以及<b>你得先走一趟，才敢相信自己有能力</b>。</p>
+      <div class="q">如果是你，你愿意第一天就回家，还是走完这一整条路？</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">这本书没有标准答案，只有很多值得争一争的问题。</p>
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>如果第一天格林达就告诉你「鞋子能回家」，<b>你还会走这一趟吗</b>？你希望自己早知道，还是晚知道？</p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>稻草人一路出的主意都很好，可他还是觉得自己没脑子。<b>为什么别人看得见的东西，自己总是看不见</b>？</p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>奥兹是个骗子，可他让三个人都真的变好了。<b>一个骗子做的好事，算不算好事</b>？</p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>翡翠城里所有人都戴绿眼镜，所以所有人都说城是绿的。<b>如果你从没见过别的颜色，你会怀疑吗</b>？</p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>多萝西回到堪萨斯，那里还是灰的、还是穷的。<b>她为什么还是很高兴</b>？</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这本书会遇到的小词</h2></div>
+    <p class="lead">遇到不认识的名词，回来查一下就好，不用背。</p>
+    <div class="words">
+      <dl class="word"><dt>堪萨斯<em>地名</em></dt><dd>美国中部的大草原，多萝西的家。书里把它写得很灰、很穷、很空。</dd></dl>
+      <dl class="word"><dt>龙卷风<em>天气</em></dt><dd>草原上会突然出现的旋转大风，能把房子整个卷起来。故事就是从这里开始的。</dd></dl>
+      <dl class="word"><dt>芒奇金人<em>居民</em></dt><dd>住在奥兹国东边的小矮人，被东方恶女巫奴役，房子压死女巫后他们自由了。</dd></dl>
+      <dl class="word"><dt>黄砖路<em>地点</em></dt><dd>从芒奇金国通往翡翠城的路，用黄砖铺成。全书的人都靠它认方向。</dd></dl>
+      <dl class="word"><dt>翡翠城<em>地点</em></dt><dd>奥兹住的城市。进城要戴绿眼镜，所以人人都以为整座城是翡翠做的。</dd></dl>
+      <dl class="word"><dt>银鞋<em>道具</em></dt><dd>东方恶女巫脚上的鞋，送给多萝西。<b>碰三次鞋跟就能去任何地方</b>。电影里改成了红宝石鞋。</dd></dl>
+      <dl class="word"><dt>卡利达斯兽<em>怪兽</em></dt><dd>奥兹国里的猛兽，长着老虎的身子、熊的脑袋，专追过路的人。</dd></dl>
+      <dl class="word"><dt>罂粟花<em>植物</em></dt><dd>一大片红色的花，香味会让人睡过去醒不来。多萝西和狮子差点留在这里。</dd></dl>
+      <dl class="word"><dt>温基人<em>居民</em></dt><dd>住在奥兹国西边的人，被西方恶女巫奴役，女巫化掉后获救。</dd></dl>
+      <dl class="word"><dt>飞猴<em>生物</em></dt><dd>戴金冠念咒就能召唤的一群猴子，会飞、力气大。它们是被咒语绑住的，不是自愿的。</dd></dl>
+      <dl class="word"><dt>夸德林国<em>地名</em></dt><dd>奥兹国南方的地区，格林达住在这里。</dd></dl>
+      <dl class="word"><dt>格林达<em>人物</em></dt><dd>南方善女巫，四个女巫里最强的一个，也是最后说出银鞋秘密的人。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>先说清楚：这本书很轻，但有三处要交代</h3>
+      <p>· <b>两个女巫死了</b>：东方女巫被房子压死，西方女巫被一桶水化掉。写法不血腥，但确实是「死」，5 岁以下可能会在意。<br>
+         · <b>奥兹是骗子</b>：孩子如果很投入，可能会有被欺骗的失落感。建议顺势聊一句「他骗人不对，可他让三个人变好了，这两件事怎么算」。<br>
+         · <b>银鞋最后丢了</b>：回家的代价是那双鞋永远留在沙漠里。这是个略酸的结尾，但也正是它让故事不只是「从此幸福」。</p>
+      <p>建议：<b>8 岁以上可独立阅读，9 岁前建议陪读一遍</b>。这本书的真正门槛不在字词，在最后那层意思——「你早就有能力了」，孩子需要有人帮他点破。</p>
+
+      <div class="warn">
+        <b>如果孩子先看过电影，请先说明三件事：</b>①原著是<b>银鞋</b>，红宝石鞋是 1939 年电影改的；②原著里奥兹国<b>不是一场梦</b>，电影才这么处理；③「没有地方比得上家」是电影台词，<b>原著里没有这句</b>，原著最后一句是「我真高兴又回到家了」。
+      </div>
+
+      <h3 style="margin-top:18px;">三种读法，挑一种</h3>
+      <div class="route">
+        <div><b>路线 A · 故事优先：</b>先读第三幕「路上的四道关」，沟壑、怪兽、罂粟花，这一段最像冒险。</div>
+        <div><b>路线 B · 顺着读：</b>按本页六幕顺序；每读完一幕，回到「四个人，四样我想要」那张表填一行。</div>
+        <div><b>路线 C · 只聊问题：</b>书先不读，直接看「想一想」的第 1、3 题，和孩子聊十分钟，再决定要不要翻开原著。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#6B8078;">本页覆盖《绿野仙踪》第一本（1900 年，二十四章），包含结局。鲍姆后来还写了十三本奥兹国续集，本页均未涉及。中文最早译本出自陈伯吹，1942 年连载，与本页所用译名可能不同（如多萝西/桃乐丝、奥兹/奥芝）。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《绿野仙踪》· 小小读者导读<br>
+    为小学生重述 · 共 6 幕 / 12 个情节台阶 / 8 位人物<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span></p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>
