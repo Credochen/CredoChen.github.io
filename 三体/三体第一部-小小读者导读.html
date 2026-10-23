@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《三体》第一部 · 小小读者导读</title>
+<meta name="description" content="把刘慈欣《三体》第一部拆成小朋友听得懂的故事：五幕情节、17 个情节台阶、人物关系星图与三体世界小百科。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%AA%90%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#33305A;
+    --ink-soft:#6C688E;
+    --ink-faint:#9A96B4;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#EDE4D5;
+    --dark:#3B3563;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.14), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(124,107,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.10), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--purple-soft);border-color:#DCD3FF;color:var(--purple);}
+
+  /* ---------- 封面 ---------- */
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,var(--purple),#9C8BFF);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(124,107,255,.28);
+    transform:rotate(-2deg);
+  }
+  h1{
+    font-size:clamp(30px,5.4vw,52px);
+    line-height:1.28;margin:20px 0 6px;letter-spacing:2px;font-weight:900;
+  }
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:640px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(124,107,255,.14);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;
+    background-size:100% 12px;
+    background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{
+    background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);
+  }
+
+  /* ---------- 一句话 ---------- */
+  .oneline{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;
+  }
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--purple-soft);border-color:#DED5FF;}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--teal-soft);border-color:#C9F1E8;}
+
+  /* ---------- 人物 ---------- */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--purple-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--purple-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{
+    margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCF7EC;
+    border:1.5px dashed #E9DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;
+  }
+  .say::before{content:"“";font-weight:900;color:var(--purple);}
+  .say::after{content:"”";font-weight:900;color:var(--purple);}
+
+  /* ---------- SVG 图容器 ---------- */
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+  .subhead{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;margin:26px 0 12px;}
+  .subhead .dot{width:10px;height:10px;border-radius:50%;background:var(--purple);}
+
+  /* ---------- 五幕 ---------- */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{
+    content:"";position:absolute;left:11px;top:8px;bottom:12px;
+    border-left:3px dotted #DCD2F5;
+  }
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--purple);box-shadow:0 0 0 4px #F3EEFF;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .actbody{
+    background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+  }
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{
+    font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--purple);
+    padding:3px 10px;border-radius:8px;
+  }
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{
+    font-size:12px;color:var(--ink-soft);background:#FBF6EA;border:1.5px solid #EFE4CE;
+    border-radius:999px;padding:2px 10px;
+  }
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  /* ---------- 折叠章节卡 ---------- */
+  .beats{display:grid;gap:10px;}
+  details.beat{
+    background:var(--paper);border:2px solid var(--line);border-radius:18px;
+    padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);
+    transition:.2s;
+  }
+  details.beat[open]{border-color:#D9CEFF;box-shadow:0 12px 26px rgba(124,107,255,.12);}
+  details.beat summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;
+    padding:12px 0;font-weight:800;font-size:15.8px;outline:none;
+  }
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{
+    flex:0 0 34px;height:34px;border-radius:12px;background:var(--purple-soft);color:var(--purple);
+    display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;
+  }
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{
+    flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);
+    padding:1px 8px;border-radius:6px;margin-top:4px;
+  }
+  .binner .key.q{background:var(--orange);}
+
+  /* ---------- 小百科 ---------- */
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--purple);background:var(--purple-soft);border-radius:12px;padding:7px 11px;}
+
+  /* ---------- 表格 ---------- */
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F4EDE0;vertical-align:top;}
+  thead th{background:#FCF6E9;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF8;white-space:nowrap;}
+  tbody tr:hover td{background:#FFF9EC;}
+
+  /* ---------- 金句 ---------- */
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #4A4374, #2C2A4A 60%, #23213E);
+    border-radius:var(--radius);padding:34px 30px;color:#F4F1FF;
+    position:relative;overflow:hidden;
+    box-shadow:0 20px 40px rgba(44,42,74,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .quotes .title h2::after{display:none;}
+  .qitem{
+    position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);
+    margin-bottom:6px;
+  }
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#B9B3D8;letter-spacing:.5px;}
+
+  /* ---------- 想一想 ---------- */
+  .think{display:grid;gap:12px;}
+  .qitem2{
+    display:flex;gap:14px;align-items:flex-start;background:#fff;
+    border:2px dashed #E4D9C4;border-radius:18px;padding:16px 18px;
+  }
+  .qnum{
+    flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;
+  }
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  /* ---------- 小词典 ---------- */
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--purple);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  /* ---------- 家长提示 ---------- */
+  .parent{
+    background:linear-gradient(140deg,#FFF6E4,#FFEFF4);
+    border:2px solid #F6E3C6;border-radius:var(--radius);padding:26px 28px;
+  }
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#6A5F52;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#6A5F52;background:rgba(255,255,255,.7);border-radius:12px;padding:9px 13px;}
+
+  footer{
+    text-align:center;color:var(--ink-faint);font-size:13px;
+    padding:44px 0 56px;line-height:2;
+  }
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;
+    width:46px;height:46px;border-radius:50%;border:2px solid #E7DCC6;background:#fff;
+    color:var(--purple);font-size:18px;cursor:pointer;box-shadow:0 8px 20px rgba(107,95,160,.16);
+    display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">📖 三体·小小读者版</span>
+    <a href="三体第二部-黑暗森林-小小读者导读.html" style="background:#EAE4FF;color:#5B4BE0;border-color:#DCD3FF;font-weight:700;">第二部 →</a>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#map">关系图</a>
+    <a href="#acts">五幕故事</a>
+    <a href="#chapters">章节地图</a>
+    <a href="#world">小百科</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">刘慈欣 · 《三体》第一部</span>
+    <h1>三个太阳的星球，<br>和一个<span class="hl">按下按钮</span>的人</h1>
+    <p class="sub">这本书有点厚、有点难。这一页把它拆成小故事，讲成你听得懂的样子。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 300" role="img" aria-label="一个小朋友在山坡上用望远镜看着三颗太阳">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#E9F0FF"/>
+            <stop offset="55%" stop-color="#F4F1FF"/>
+            <stop offset="100%" stop-color="#FFF3E2"/>
+          </linearGradient>
+          <radialGradient id="sunA" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#FFE9A8"/>
+            <stop offset="100%" stop-color="#FFC93C"/>
+          </radialGradient>
+          <radialGradient id="sunB" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#FFD3AE"/>
+            <stop offset="100%" stop-color="#FF9E3D"/>
+          </radialGradient>
+          <radialGradient id="sunC" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#FFD5E2"/>
+            <stop offset="100%" stop-color="#FF8FB4"/>
+          </radialGradient>
+        </defs>
+
+        <rect width="1000" height="300" rx="30" fill="url(#sky)"/>
+
+        <!-- 星星 -->
+        <g fill="#C6CFF0">
+          <circle cx="70" cy="52" r="2.4"/><circle cx="130" cy="96" r="1.8"/>
+          <circle cx="205" cy="44" r="2"/><circle cx="300" cy="86" r="2.6"/>
+          <circle cx="420" cy="46" r="1.8"/><circle cx="480" cy="104" r="2.2"/>
+          <circle cx="560" cy="60" r="2"/><circle cx="640" cy="30" r="1.6"/>
+          <circle cx="900" cy="48" r="2.2"/><circle cx="960" cy="126" r="1.8"/>
+          <circle cx="200" cy="140" r="1.6"/><circle cx="80" cy="150" r="1.8"/>
+        </g>
+        <g fill="#FFD97A" opacity=".9">
+          <circle cx="360" cy="130" r="3"/><circle cx="690" cy="160" r="2.6"/>
+          <circle cx="520" cy="170" r="2.2"/><circle cx="880" cy="90" r="2.4"/>
+        </g>
+
+        <!-- 三颗太阳 -->
+        <g>
+          <circle cx="742" cy="82" r="52" fill="url(#sunA)" opacity=".28"/>
+          <circle cx="742" cy="82" r="34" fill="url(#sunA)"/>
+          <circle cx="838" cy="118" r="42" fill="url(#sunB)" opacity=".26"/>
+          <circle cx="838" cy="118" r="26" fill="url(#sunB)"/>
+          <circle cx="676" cy="136" r="34" fill="url(#sunC)" opacity=".26"/>
+          <circle cx="676" cy="136" r="19" fill="url(#sunC)"/>
+        </g>
+
+        <!-- 从山顶发出的虚线信号 -->
+        <path d="M300 196 Q 470 150 660 132" stroke="#9C8BFF" stroke-width="2.6"
+              stroke-dasharray="7 9" fill="none" opacity=".85"/>
+        <text x="438" y="150" font-size="13" fill="#7C6BFF" font-weight="700">4 光年</text>
+
+        <!-- 远山 -->
+        <path d="M0 300 L0 236 Q150 176 292 214 Q400 242 470 300 Z" fill="#D5EFDF"/>
+        <path d="M470 300 Q620 226 760 250 Q880 268 1000 236 L1000 300 Z" fill="#BFE7D4"/>
+
+        <!-- 小朋友 + 望远镜 -->
+        <g>
+          <circle cx="247" cy="152" r="13" fill="#4A4470"/>
+          <path d="M236 165 q11 -8 22 0 l4 32 h-30 z" fill="#4A4470"/>
+          <rect x="234" y="196" width="8" height="20" rx="4" fill="#4A4470"/>
+          <rect x="250" y="196" width="8" height="20" rx="4" fill="#4A4470"/>
+          <path d="M258 170 l22 -10" stroke="#4A4470" stroke-width="6" stroke-linecap="round"/>
+          <g transform="rotate(-24 286 158)">
+            <rect x="272" y="148" width="40" height="14" rx="7" fill="#7C6BFF"/>
+            <rect x="306" y="145" width="8" height="20" rx="4" fill="#5B4BE0"/>
+          </g>
+        </g>
+
+        <!-- 小旗子 -->
+        <g>
+          <rect x="150" y="196" width="3" height="30" rx="1.5" fill="#B7AECF"/>
+          <path d="M153 197 l22 6 -22 6 z" fill="#FF9E3D"/>
+        </g>
+
+        <text x="60" y="272" font-size="14" fill="#8A83B8" font-weight="700">地球 · 我们的家</text>
+        <text x="742" y="222" font-size="14" fill="#8A83B8" font-weight="700">三体世界 · 他们的家</text>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">📚 <b>36 章</b> 左右</span>
+      <span class="badge">👦 建议 <b>10 岁+</b></span>
+      <span class="badge">⏱ 读完约 <b>3~4 周</b></span>
+      <span class="badge">🎬 故事横跨 <b>40 多年</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 3分钟版 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整本书</h2></div>
+    <p class="lead">如果同学问你"《三体》讲了什么"，你可以这样回答。</p>
+
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 有人在宇宙里喊了一声</h3>
+        <p>一位叫叶文洁的女科学家，在深山里的秘密基地，偷偷用太阳给宇宙发了一条消息。一个外星人回她："不要回答！"——她还是回答了。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 于是有人要来了</h3>
+        <p>那颗星球上有三颗太阳，环境乱得没法活。他们决定搬来地球，还先派了两个"小间谍"把人类的科学锁住。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 人类开始反击</h3>
+        <p>科学家汪淼和警官史强一路追查，发现了藏在地球上的"三体组织"，并用一条看不见的"纳米丝"截获了敌人的资料。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🧑‍🚀</span><h2>人物小档案</h2></div>
+    <p class="lead">先认识人，再看故事，会轻松很多。带着颜色的小圆片是他们的"身份标签"。</p>
+
+    <div class="people">
+      <article class="person" style="--accent:#E3FAF5">
+        <div class="phead">
+          <div class="avatar">🔬</div>
+          <div><div class="pname">汪淼</div><div class="prole">纳米科学家 · 主角</div></div>
+        </div>
+        <p>研究一种叫"飞刃"的超细纳米丝，比头发丝细几百倍，却比钢还结实。他被军方请去调查科学家自杀事件，从此掉进一个大谜团。</p>
+        <div class="say">我只是个做材料的，为什么这些事都找上我？</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🚬</div>
+          <div><div class="pname">史强</div><div class="prole">警官 · 外号"大史"</div></div>
+        </div>
+        <p>说话粗、爱吃烟、看着不太靠谱，但直觉准得吓人。从头到尾都在保护汪淼，是全书最让人安心的大人。</p>
+        <div class="say">邪乎到家必有鬼。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🌌</div>
+          <div><div class="pname">叶文洁</div><div class="prole">天体物理学家 · 关键人物</div></div>
+        </div>
+        <p>全书最重要的一个人。年轻时经历家庭破碎、被信任的人出卖，后来进入"红岸基地"，向宇宙发出了人类的第一声呼唤。她的选择，改变了整个人类的命运。</p>
+        <div class="say">到这里来吧，我将帮助你们获得这个世界。</div>
+      </article>
+
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">💫</div>
+          <div><div class="pname">杨冬</div><div class="prole">物理学家 · 叶文洁的女儿</div></div>
+        </div>
+        <p>非常聪明的女科学家，也是汪淼认识的朋友。她留下一句"物理学不存在了"，然后结束了自己的生命。她的死，是整个故事的起点。</p>
+        <div class="say">（她几乎没有台词，却让所有人开始追问）</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🎱</div>
+          <div><div class="pname">丁仪</div><div class="prole">理论物理学家 · 杨冬的爱人</div></div>
+        </div>
+        <p>头发乱糟糟、说话不着调，但脑子极快。他用一张台球桌，给汪淼演示了"物理规律好像失灵了"这件事。</p>
+        <div class="say">你看，同样的球，同样的力，它每次进同一个洞——这才是物理。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">🧮</div>
+          <div><div class="pname">申玉菲</div><div class="prole">"科学边界"成员 · 拯救派</div></div>
+        </div>
+        <p>冷静、神秘，总是像在替别人传话。她告诉汪淼"停下来，倒计时就会消失"，也带他走进了《三体》这个游戏。</p>
+        <div class="say">宇宙将为你闪烁。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🌍</div>
+          <div><div class="pname">伊文斯</div><div class="prole">富豪 · 降临派首领</div></div>
+        </div>
+        <p>一个对人类彻底失望的外国人。他出钱建起了"地球三体组织"，还有一艘巨大的船"审判日号"，所有秘密都藏在船上。</p>
+        <div class="say">人类已经没有救了。</div>
+      </article>
+
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🎖️</div>
+          <div><div class="pname">常伟思</div><div class="prole">作战中心 · 将军</div></div>
+        </div>
+        <p>负责调查科学家自杀之谜的军方负责人。是他把汪淼"借"进了这个案子，也是他说了一句很重的话：战争可能已经开始了。</p>
+        <div class="say">敌人就在我们中间，而我们连他是谁都不知道。</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">👂</div>
+          <div><div class="pname">1379 号监听员</div><div class="prole">三体世界 · 一个小小的话务员</div></div>
+        </div>
+        <p>三体世界上一个地位很低的监听员，每天守着机器听宇宙里有没有声音。当他听到地球的呼唤，他做了件"违规"的事：发出警告。</p>
+        <div class="say">不要回答！不要回答！不要回答！</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🧙</div>
+          <div><div class="pname">杨卫宁 &amp; 雷志成</div><div class="prole">红岸基地 · 政委与总工程师</div></div>
+        </div>
+        <p>把叶文洁带进红岸基地的两个人。杨卫宁后来成了她的丈夫；雷志成是基地的领导。三个人的命运，在悬崖边纠缠在了一起。</p>
+        <div class="say">（他们的故事，是全书最沉重的一段）</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 关系图 ============ -->
+<section id="map">
+  <div class="wrap">
+    <div class="title"><span class="ico">🕸️</span><h2>人物关系图</h2></div>
+    <p class="lead">先看叶文洁这一张"星图"——她像一颗恒星，几乎所有线都连到她身上。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 700 660" role="img" aria-label="以叶文洁为中心的人物关系星图">
+        <!-- 连线 -->
+        <g stroke="#D8D0F2" stroke-width="3" stroke-dasharray="6 7" fill="none">
+          <line x1="350" y1="330" x2="350" y2="80"/>
+          <line x1="350" y1="330" x2="566" y2="205"/>
+          <line x1="350" y1="330" x2="566" y2="455"/>
+          <line x1="350" y1="330" x2="350" y2="580"/>
+          <line x1="350" y1="330" x2="134" y2="455"/>
+          <line x1="350" y1="330" x2="134" y2="205"/>
+        </g>
+
+        <!-- 中心 -->
+        <rect x="265" y="298" width="170" height="64" rx="20" fill="#7C6BFF"/>
+        <text x="350" y="327" text-anchor="middle" font-size="19" font-weight="800" fill="#fff">叶文洁</text>
+        <text x="350" y="347" text-anchor="middle" font-size="11.5" fill="#E7E2FF">红岸科学家 · ETO 统帅</text>
+
+        <!-- 上：三体世界 -->
+        <rect x="255" y="44" width="190" height="72" rx="18" fill="#FFF6DA" stroke="#F3DFA4" stroke-width="2"/>
+        <text x="350" y="72" text-anchor="middle" font-size="15.5" font-weight="800" fill="#5B4A1E">三体世界</text>
+        <text x="350" y="92" text-anchor="middle" font-size="11.5" fill="#8A7A46">1379 号监听员 · 智子</text>
+        <text x="350" y="107" text-anchor="middle" font-size="11" fill="#B0A276">4 光年外 · 三颗太阳</text>
+
+        <!-- 右上：杨冬 -->
+        <rect x="471" y="169" width="190" height="72" rx="18" fill="#EFEBFF" stroke="#DED5FF" stroke-width="2"/>
+        <text x="566" y="197" text-anchor="middle" font-size="15.5" font-weight="800" fill="#4A3E96">杨冬</text>
+        <text x="566" y="217" text-anchor="middle" font-size="11.5" fill="#7A6FBD">女儿 · 物理学家</text>
+        <text x="566" y="232" text-anchor="middle" font-size="11" fill="#9A90D2">爱人：丁仪</text>
+
+        <!-- 右下：ETO -->
+        <rect x="471" y="419" width="190" height="72" rx="18" fill="#FFE9F0" stroke="#FFC9DA" stroke-width="2"/>
+        <text x="566" y="447" text-anchor="middle" font-size="15.5" font-weight="800" fill="#A33A5E">地球三体组织</text>
+        <text x="566" y="467" text-anchor="middle" font-size="11.5" fill="#C26887">伊文斯 · 申玉菲 · 潘寒</text>
+        <text x="566" y="482" text-anchor="middle" font-size="11" fill="#D08FA6">她创建的组织 · 三派对立</text>
+
+        <!-- 下：红岸 -->
+        <rect x="255" y="544" width="190" height="72" rx="18" fill="#E2FAF5" stroke="#C9F1E8" stroke-width="2"/>
+        <text x="350" y="572" text-anchor="middle" font-size="15.5" font-weight="800" fill="#1C6B5C">红岸基地</text>
+        <text x="350" y="592" text-anchor="middle" font-size="11.5" fill="#4C9487">大兴安岭 · 雷达峰</text>
+        <text x="350" y="607" text-anchor="middle" font-size="11" fill="#79B3A8">寻找外星文明的秘密基地</text>
+
+        <!-- 左下：杨卫宁 -->
+        <rect x="39" y="419" width="190" height="72" rx="18" fill="#FFF0DE" stroke="#FFE0BE" stroke-width="2"/>
+        <text x="134" y="447" text-anchor="middle" font-size="15.5" font-weight="800" fill="#8F5A16">杨卫宁</text>
+        <text x="134" y="467" text-anchor="middle" font-size="11.5" fill="#B08048">丈夫 · 红岸总工程师</text>
+        <text x="134" y="482" text-anchor="middle" font-size="11" fill="#C09A6A">同事：雷志成</text>
+
+        <!-- 左上：叶哲泰 -->
+        <rect x="39" y="169" width="190" height="72" rx="18" fill="#FFF0DE" stroke="#FFE0BE" stroke-width="2"/>
+        <text x="134" y="197" text-anchor="middle" font-size="15.5" font-weight="800" fill="#8F5A16">叶哲泰</text>
+        <text x="134" y="217" text-anchor="middle" font-size="11.5" fill="#B08048">爸爸 · 物理学教授</text>
+        <text x="134" y="232" text-anchor="middle" font-size="11" fill="#C09A6A">她人生的第一个伤口</text>
+
+        <!-- 关系小标签 -->
+      </svg>
+      <div class="cap">图 1 · 叶文洁的"关系星图"：一个人，把地球和四光年外的世界连了起来</div>
+    </div>
+
+    <div class="subhead"><span class="dot"></span>另一条线：汪淼是怎么一步步查到真相的？</div>
+    <div class="graph">
+      <svg viewBox="0 0 700 300" role="img" aria-label="汪淼调查路线的五步流程图">
+        <defs>
+          <marker id="arw" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0 0 L9 4.5 L0 9 z" fill="#C4BADC"/>
+          </marker>
+        </defs>
+
+        <!-- 五个步骤 -->
+        <g font-family="inherit">
+          <rect x="8" y="52" width="118" height="74" rx="18" fill="#EFEBFF" stroke="#DED5FF" stroke-width="2"/>
+          <text x="67" y="80" text-anchor="middle" font-size="13.5" font-weight="800" fill="#4A3E96">① 被请去</text>
+          <text x="67" y="99" text-anchor="middle" font-size="13.5" font-weight="800" fill="#4A3E96">查案</text>
+          <text x="67" y="116" text-anchor="middle" font-size="10.5" fill="#8A80C4">常伟思 + 史强</text>
+
+          <rect x="149" y="52" width="118" height="74" rx="18" fill="#E2FAF5" stroke="#C9F1E8" stroke-width="2"/>
+          <text x="208" y="80" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1C6B5C">② 走进</text>
+          <text x="208" y="99" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1C6B5C">"科学边界"</text>
+          <text x="208" y="116" text-anchor="middle" font-size="10.5" fill="#5EA79A">申玉菲 · 潘寒</text>
+
+          <rect x="290" y="52" width="118" height="74" rx="18" fill="#FFF6DA" stroke="#F3DFA4" stroke-width="2"/>
+          <text x="349" y="80" text-anchor="middle" font-size="13.5" font-weight="800" fill="#5B4A1E">③ 打通</text>
+          <text x="349" y="99" text-anchor="middle" font-size="13.5" font-weight="800" fill="#5B4A1E">《三体》游戏</text>
+          <text x="349" y="116" text-anchor="middle" font-size="10.5" fill="#9C8B4A">看见三颗太阳</text>
+
+          <rect x="431" y="52" width="118" height="74" rx="18" fill="#FFE9F0" stroke="#FFC9DA" stroke-width="2"/>
+          <text x="490" y="80" text-anchor="middle" font-size="13.5" font-weight="800" fill="#A33A5E">④ 参加</text>
+          <text x="490" y="99" text-anchor="middle" font-size="13.5" font-weight="800" fill="#A33A5E">玩家聚会</text>
+          <text x="490" y="116" text-anchor="middle" font-size="10.5" fill="#CE7E99">见到"统帅"</text>
+
+          <rect x="572" y="52" width="118" height="74" rx="18" fill="#FFF0DE" stroke="#FFE0BE" stroke-width="2"/>
+          <text x="631" y="80" text-anchor="middle" font-size="13.5" font-weight="800" fill="#8F5A16">⑤ 古筝</text>
+          <text x="631" y="99" text-anchor="middle" font-size="13.5" font-weight="800" fill="#8F5A16">行动</text>
+          <text x="631" y="116" text-anchor="middle" font-size="10.5" fill="#BB8B4C">切开审判日号</text>
+        </g>
+
+        <!-- 箭头 -->
+        <g stroke="#C4BADC" stroke-width="2.6" marker-end="url(#arw)">
+          <line x1="128" y1="89" x2="145" y2="89"/>
+          <line x1="269" y1="89" x2="286" y2="89"/>
+          <line x1="410" y1="89" x2="427" y2="89"/>
+          <line x1="551" y1="89" x2="568" y2="89"/>
+        </g>
+
+        <!-- 下方辅助角色 -->
+        <g>
+          <rect x="8" y="176" width="118" height="56" rx="16" fill="#FBF6EA" stroke="#EFE4CE" stroke-width="1.8"/>
+          <text x="67" y="200" text-anchor="middle" font-size="12.5" font-weight="800" fill="#6C5A38">史强</text>
+          <text x="67" y="218" text-anchor="middle" font-size="10.5" fill="#9C8B6A">一直保护他</text>
+
+          <rect x="290" y="176" width="118" height="56" rx="16" fill="#FBF6EA" stroke="#EFE4CE" stroke-width="1.8"/>
+          <text x="349" y="200" text-anchor="middle" font-size="12.5" font-weight="800" fill="#6C5A38">眼中的倒计时</text>
+          <text x="349" y="218" text-anchor="middle" font-size="10.5" fill="#9C8B6A">只有他看得见</text>
+
+          <rect x="572" y="176" width="118" height="56" rx="16" fill="#FBF6EA" stroke="#EFE4CE" stroke-width="1.8"/>
+          <text x="631" y="200" text-anchor="middle" font-size="12.5" font-weight="800" fill="#6C5A38">纳米丝"飞刃"</text>
+          <text x="631" y="218" text-anchor="middle" font-size="10.5" fill="#9C8B6A">汪淼自己的研究</text>
+        </g>
+        <g stroke="#E4D9C4" stroke-width="1.8" stroke-dasharray="5 6" fill="none">
+          <line x1="67" y1="176" x2="67" y2="130"/>
+          <line x1="349" y1="176" x2="349" y2="130"/>
+          <line x1="631" y1="176" x2="631" y2="130"/>
+        </g>
+
+        <text x="350" y="272" text-anchor="middle" font-size="11.5" fill="#A9A2C2">有意思的是：最后解决问题的，正是别人让他"停下来别做"的那个研究。</text>
+      </svg>
+      <div class="cap">图 2 · 汪淼的"探案路线"：五步走到真相，还能绕回来救世界</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 五幕 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎬</span><h2>故事五幕：像看一场电影</h2></div>
+    <p class="lead">整本书有两条线来回切换：一条是"现在"（汪淼查案），一条是"过去"（叶文洁的一生）。记住这一点，就不会读乱。</p>
+
+    <div class="acts">
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第一幕</span><h3>谜团：科学家为什么一个接一个自杀？</h3></div>
+          <div class="chips"><span class="chip">🕐 现在</span><span class="chip">📍 北京 · 作战中心</span><span class="chip">👀 汪淼视角</span></div>
+          <ul>
+            <li>纳米科学家<b>汪淼</b>被警官<b>史强</b>带去"看现场"：一位著名科学家自杀了，遗书里写着类似"<b>物理学不存在了</b>"的话。</li>
+            <li><b>常伟思</b>将军告诉他：最近一批最聪明的人接连自杀，像是有什么东西在"点名"科学界。</li>
+            <li>线索指向一个叫"<b>科学边界</b>"的学会——里面的科学家都说：科学有边界，我们不该再往前看。</li>
+            <li>丁仪用一张台球桌做实验：同样的球、同样的力，每次都进同一个洞。可到了粒子加速器里，同样的实验却得出了不一样的结果——<b>规律好像不见了</b>。</li>
+            <li>两个著名的"思想实验"登场：<b>射手假说</b>和<b>农场主假说</b>。原来我们以为的"宇宙定律"，可能只是别人世界里的一次巧合。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第二幕</span><h3>倒计时：数字出现在他的眼睛里</h3></div>
+          <div class="chips"><span class="chip">🕐 现在</span><span class="chip">📍 北京 · 《三体》游戏</span><span class="chip">😰 悬疑</span></div>
+          <ul>
+            <li>汪淼的视野里出现了一串<b>倒计时</b>，只有他看得见；他拍照，照片上也有。数字一点点变小，像在等什么。</li>
+            <li><b>申玉菲</b>告诉他：只要停止纳米材料的研究，倒计时就会消失。她不像在威胁，更像在<b>转达某个要求</b>。</li>
+            <li>他进入了一个奇怪的游戏《<b>三体</b>》：里面的人穿着古装，却在研究"太阳为什么乱跑"——周文王、墨子、哥白尼、牛顿、爱因斯坦轮番上场。</li>
+            <li>"<b>宇宙将为你闪烁</b>"。汪淼戴上特制的眼镜，看见宇宙的背景辐射整体忽明忽暗，<b>整个宇宙像被人按了开关</b>。</li>
+            <li>他宣布暂停研究，倒计时停了。但问题变得更大了：<b>是谁，能让宇宙闪烁？</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第三幕</span><h3>红岸往事：那个按下按钮的人</h3></div>
+          <div class="chips"><span class="chip">🕐 过去</span><span class="chip">📍 1967—1979 · 大兴安岭</span><span class="chip">💔 最沉重的一幕</span></div>
+          <ul>
+            <li>1967 年，<b>叶文洁</b>的爸爸<b>叶哲泰</b>是一位物理学教授，在一场批斗中去世。一个家，就这样散了。</li>
+            <li>她去了内蒙古的生产建设兵团，遇到记者<b>白沐霖</b>，帮他抄信。信出了问题，她被推出去承担一切；审问她的人说：签了字，就算你立功。<b>她第一次对人类失望。</b></li>
+            <li><b>杨卫宁</b>和<b>雷志成</b>把她带进"<b>红岸基地</b>"——建在大兴安岭雷达峰上的秘密基地，任务是听宇宙里有没有别的声音。</li>
+            <li>她发现了一个惊天秘密：<b>太阳是一个巨大的"电波放大器"</b>。把信号对准太阳，它会被放大几亿倍，传向宇宙深处。</li>
+            <li>她偷偷发出了人类的第一声呼唤。八年后，回信来了——来自 4 光年外的三体世界，一个叫 <b>1379 号</b>的监听员：<b>"不要回答！不要回答！不要回答！"</b></li>
+            <li>她还是回答了。她说：我们的文明已经没有办法解决自己的问题，<b>请你们来</b>。</li>
+            <li>后来她与杨卫宁结婚，生下女儿<b>杨冬</b>。当她发现雷志成要抢走这份"功劳"、还要处置她时，她在悬崖上割断了那根绳索——雷志成和丈夫一起坠落。<b>这是她一生最重的秘密。</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第四幕</span><h3>三体世界：那边的家，真的很难住</h3></div>
+          <div class="chips"><span class="chip">🕐 4 光年外</span><span class="chip">📍 三颗太阳中间</span><span class="chip">🪐 想象力爆棚</span></div>
+          <ul>
+            <li>三体世界在一颗行星上，头顶有<b>三颗太阳</b>。它们怎么转，没有规律可循。</li>
+            <li><b>恒纪元</b>：太阳温柔，风调雨顺，文明可以发展。<b>乱纪元</b>：三颗太阳一起烤（<b>三日凌空</b>）、把行星甩出去（<b>大撕裂</b>）、或者极夜长寒。</li>
+            <li>三体人进化出了"<b>脱水</b>"：把身体里的水排干，变成一张皮卷起来存进仓库；恒纪元来了，再泡进水里"复活"。</li>
+            <li>他们的文明<b>一次又一次被毁灭，又一次又一次重建</b>。所以他们最想要的，是一个"永远安稳的家"。</li>
+            <li>收到叶文洁的回信后，三体世界决定：<b>移民地球</b>。第一支舰队出发，要飞 <b>450 年</b>才能到。</li>
+            <li>在此之前，他们先送来了两个"<b>智子</b>"：把质子展开成两维、刻上电路、再收成微观粒子。它们锁死了人类的粒子实验，还<b>时刻监视着地球上的一切</b>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第五幕</span><h3>组织、真相，和一场"古筝"</h3></div>
+          <div class="chips"><span class="chip">🕐 现在</span><span class="chip">📍 巴拿马运河</span><span class="chip">⚔️ 高潮</span></div>
+          <ul>
+            <li>汪淼在游戏里"通关"，被邀请参加玩家聚会，第一次见到<b>地球三体组织（ETO）</b>的人。</li>
+            <li>组织分成三派：<b>降临派</b>（伊文斯：人类是虫子，请主来清洗）、<b>拯救派</b>（申玉菲：想解开三体问题，两边都救）、<b>幸存派</b>（只求三体人来了以后自己能活下来）。</li>
+            <li>军队突袭聚会，<b>叶文洁</b>出现了——她就是组织的"<b>统帅</b>"。潘寒杀死了申玉菲，组织内部彻底崩裂。</li>
+            <li>但最要紧的东西在伊文斯的巨轮"<b>审判日号</b>"上：<b>28G 的资料</b>，人类所有的疑问都在里面。</li>
+            <li><b>古筝行动</b>：在运河两岸竖起钢柱，拉满汪淼研究的纳米丝"<b>飞刃</b>"。它细到看不见，却比刀还快。船开过去，整艘船被切成薄片——人类拿到了真相。</li>
+            <li>尾声：<b>智子</b>在汪淼和丁仪眼前打出四个字："<b>你们是虫子</b>"。史强带他们去看麦田里的蝗虫：人类吃了几千年蝗虫，用尽了办法，蝗虫也从来没有被消灭。<b>"虫子从来没有被真正战胜过。"</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 章节地图 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🗺️</span><h2>章节地图：17 个小台阶</h2></div>
+    <p class="lead">原书的章节是"现在—过去"来回跳的（像"红岸之一""红岸之二"这样一段段插进来）。下面按情节顺序排好了，点开看每一段发生了什么。</p>
+
+    <div class="beats">
+      <details class="beat">
+        <summary><span class="bno">01</span>科学边界：聪明人一个接一个离开<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>汪淼被史强拉去看现场。死者是知名科学家，遗书的意思大概是"物理学不存在了"。随后常伟思邀请汪淼参加秘密会议，希望他打入"科学边界"学会。</p>
+          <p><span class="key q">为什么重要</span>谜团立起来了：<b>如果连最聪明的人都绝望了，他们到底知道了什么？</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>台球桌上的实验<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>丁仪摆好台球，用同样的位置、同样的力去打，球每次都走同一条路。他说：这就是物理。可同样的实验放到粒子加速器里，结果却每次都不一样。</p>
+          <p><span class="key q">为什么重要</span>这是全书最重要的"科学悬念"：<b>规律被人动了手脚。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>射手与农场主<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>两个思想实验：<b>射手</b>在靶子上每隔 10 厘米打一个洞，靶子上的"科学家"就总结出"宇宙每隔 10 厘米必有一个洞"的定律；<b>农场主</b>每天 11 点喂火鸡，火鸡科学家就宣布"每天 11 点天降食物"，直到感恩节那天。</p>
+          <p><span class="key q">为什么重要</span>它问了一个让人后背发凉的问题：<b>我们总结的规律，会不会只是"局部"的？</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>眼睛里的倒计时<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>汪淼的视野里出现倒计时，别人看不见，照片上却有。申玉菲告诉他：停止纳米研究，倒计时就会停下。</p>
+          <p><span class="key q">为什么重要</span>第一次"超自然"事件。它说明对方<b>能直接影响人的感官</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>《三体》游戏：一个需要"救文明"的游戏<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>汪淼戴上 V 装具进入游戏。里面是古代的场景，人物却是历史上的科学家：周文王、墨子、哥白尼、牛顿、爱因斯坦……他们都在想办法"算出太阳明天怎么走"。</p>
+          <p><span class="key q">为什么重要</span>游戏其实是<b>三体世界的模拟器</b>——用地球人熟悉的历史外壳，重演那颗星球上的灾难。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>宇宙闪烁<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>申玉菲说"宇宙将为你闪烁"。汪淼戴上 3K 眼镜，观测到宇宙微波背景辐射整体地波动，像整个天空在呼吸。</p>
+          <p><span class="key q">为什么重要</span>这是一次"<b>实力展示</b>"：对方在说——我们能改动整个宇宙的背景光。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>1967：一个家庭碎了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>时间切到过去。叶文洁的父亲叶哲泰是物理学教授，在那个特殊的年代被批斗、去世。母亲和家庭也随之改变，叶文洁被送去了生产建设兵团。</p>
+          <p><span class="key q">为什么重要</span>要理解她后面那个"按下按钮"的选择，必须先理解<b>她经历了什么</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">08</span>被信任的人推出去<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>她遇到记者白沐霖，帮他抄信。信惹了麻烦，她被推出去担责；负责审问的程丽华用"立功减罪"来换她的签字。</p>
+          <p><span class="key q">为什么重要</span>这是她<b>对人类失望的第二刀</b>——第一刀来自时代，第二刀来自具体的人。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">09</span>红岸基地：深山里的"耳朵"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>杨卫宁和雷志成把她带进了红岸基地——大兴安岭雷达峰上的绝密工程，任务是监听宇宙、寻找外星文明。她在那里重新成了科学家。</p>
+          <p><span class="key q">为什么重要</span>故事的两个时空，在这里接上了。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">10</span>用太阳喊话<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>她研究出太阳的电磁辐射可以像巨大的放大器一样，把电波放大后射向宇宙。她绕过所有人，偷偷对准太阳，发了一条信息出去。</p>
+          <p><span class="key q">为什么重要</span>这是人类第一次"主动敲门"。而这个决定，是一个人对人类失望之后做的。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">11</span>"不要回答！"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>八年后，回信到了。发信人是三体世界一个地位很低的监听员——1379 号。他连着喊了三遍"不要回答"，还告诉她：只要回答，你的世界就会被占领。</p>
+          <p><span class="key q">为什么重要</span>这是全书最温柔的一个人：<b>他在替一个陌生的星球担心。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">12</span>她回答了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>她按下了发送键：到这里来吧，我将帮助你们获得这个世界；我们的文明已无力解决自己的问题，需要你们的力量来介入。</p>
+          <p><span class="key q">为什么重要</span>整个《三体》三部曲，都是从这一秒钟开始的。<b>一个人的绝望，成了一个文明的危机。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">13</span>悬崖上的绳索<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>她与杨卫宁结婚，生下女儿杨冬。后来她发现雷志成知道了信号的事，要抢功劳、也要处置她。在悬崖边，她割断了那根承重的绳索，雷志成和杨卫宁一起坠下悬崖。</p>
+          <p><span class="key q">为什么重要</span>她从此背着一个谁也不能说的秘密活着——这也是她后来对女儿、对人类都那么"远"的原因。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">14</span>三颗太阳的家<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>镜头转向 4 光年外：一颗行星在三颗太阳之间，恒纪元与乱纪元交替，人们靠"脱水"熬过灾难，文明一次次毁灭又重建。</p>
+          <p><span class="key q">为什么重要</span>到这里你才明白：<b>他们不是坏，他们是没地方住了。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">15</span>智子来了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三体舰队出发（450 年后到），同时先把质子改造成"智子"送来地球：锁死粒子加速器里的一切新发现，并实时监视人类。</p>
+          <p><span class="key q">为什么重要</span>这是最狠的一招：<b>不打你，先让你再也想不出新东西。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">16</span>ETO 与"统帅"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>汪淼通关游戏、参加聚会，见到地球三体组织：降临派、拯救派、幸存派。军方突袭现场，叶文洁现身——她是"统帅"。潘寒枪杀申玉菲。</p>
+          <p><span class="key q">为什么重要</span>三条线在这里合成一条：<b>过去的秘密、现在的谜团、未来的危机，是同一件事。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">17</span>古筝行动 + "你们是虫子"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>用纳米丝"飞刃"在巴拿马运河切开"审判日号"，拿到 28G 资料，人类终于知道全部真相。之后智子在汪淼和丁仪眼前打出四个字："你们是虫子。"史强带他们去看蝗虫。</p>
+          <p><span class="key q">为什么重要</span>第一部结束在一个"输了一半、但还没认输"的地方——<b>故事真正开始的地方。</b></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小百科 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">🪐</span><h2>三体世界小百科</h2></div>
+    <p class="lead">这五个概念看懂了，这本书就懂了一大半。</p>
+
+    <div class="wiki">
+      <div class="card" style="background:var(--yellow-soft);border-color:#F3DFA4;">
+        <h3>☀️ 恒纪元 / 乱纪元</h3>
+        <p>三体世界的天气不是按季节来的。太阳稳定、温度合适的一段，叫<b>恒纪元</b>，可以种地、建城、发展文明；太阳乱来的一段，叫<b>乱纪元</b>，人只能躲起来。</p>
+        <div class="tip">💡 想象一下：今天出门要不要带伞，得先看天上三颗太阳的心情。</div>
+      </div>
+
+      <div class="card" style="background:var(--teal-soft);border-color:#C9F1E8;">
+        <h3>💧 脱水</h3>
+        <p>三体人的绝技：把身体里的水分排干，变成一张薄薄的皮，卷起来放进仓库；等好日子来了，再扔进水里泡开，重新活过来。</p>
+        <div class="tip">💡 有点像把文件"压缩"存起来，需要时再"解压"。</div>
+      </div>
+
+      <div class="card" style="background:var(--purple-soft);border-color:#DED5FF;">
+        <h3>🌀 三体问题</h3>
+        <p>两个天体互相吸引，轨迹可以算得很准；但<b>三个</b>天体一起互相拉扯，就再也没有一个通用公式能算出来了——它变成"混沌"的，只能算一段、猜一段。</p>
+        <div class="tip">💡 所以三体人算不出明天太阳怎么走，只能一次次被毁灭。</div>
+      </div>
+
+      <div class="card" style="background:var(--pink-soft);border-color:#FFC9DA;">
+        <h3>🔮 智子</h3>
+        <p>三体人把一个小小的<b>质子</b>展开成两维平面，在上面刻满电路，再收起来，做成一个有智能的微观粒子。它锁死人类的粒子实验，还负责监视地球。</p>
+        <div class="tip">💡 一个比原子还小的东西，却成了人类最大的麻烦。</div>
+      </div>
+
+      <div class="card" style="background:var(--orange-soft);border-color:#FFE0BE;">
+        <h3>🎮 《三体》游戏</h3>
+        <p>表面是个很怪的游戏，实际上是一份"招聘广告"加"模拟器"：它让聪明人先体验三体世界的绝望，再问他们——你愿意站在哪一边？</p>
+        <div class="tip">💡 游戏里的"文明第 N 号"，就是那颗星球毁灭的第 N 次。</div>
+      </div>
+
+      <div class="card" style="background:#FBF6EA;border-color:#EFE4CE;">
+        <h3>📏 光年</h3>
+        <p>光走一年走过的距离，大约 <b>9.46 万亿公里</b>。三体世界离我们 <b>4 光年</b>，也就是说：他们那儿的光，要走 4 年多才到地球。</p>
+        <div class="tip">💡 叶文洁发出消息，8 年后才收到回信——一来一回，正好 8 年。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>三个"世界"比一比</h2></div>
+    <p class="lead">很多同学会搞混：游戏里的世界，和三体世界，是不是一回事？看这张表就清楚了。</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>对比项</th><th>🌍 地球</th><th>☀️ 三体世界</th><th>🎮 《三体》游戏</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>头顶有几个太阳</td><td>1 个，很稳定</td><td>3 个，乱跑</td><td>也是 3 个（模拟出来的）</td></tr>
+          <tr><td>气候</td><td>四季有序</td><td>恒纪元 / 乱纪元随机切换</td><td>玩家眼看着文明被烤、被冻、被撕</td></tr>
+          <tr><td>居民怎么活</td><td>正常生活</td><td>会"脱水"，会集体躲进地下</td><td>穿着古装的"文明"，一次次重建</td></tr>
+          <tr><td>最难的事</td><td>解决自己的问题</td><td>算不出明天太阳怎么走</td><td>想办法让这个文明活下来</td></tr>
+          <tr><td>一句话形容</td><td>有点乱，但值得救</td><td>很想搬家</td><td>一份写给聪明人的"邀请函"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 金句 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✨</span><h2>四句值得抄在本子上的话</h2></div>
+      <div class="qitem">
+        <p>不要回答！不要回答！不要回答！</p>
+        <span>—— 1379 号监听员，三体世界</span>
+      </div>
+      <div class="qitem">
+        <p>到这里来吧，我将帮助你们获得这个世界。</p>
+        <span>—— 叶文洁，按发送键之前</span>
+      </div>
+      <div class="qitem">
+        <p>邪乎到家必有鬼。</p>
+        <span>—— 史强，全书最实用的一句话</span>
+      </div>
+      <div class="qitem">
+        <p>虫子从来没有被真正战胜过。</p>
+        <span>—— 史强，站在麦田里</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">这本书没有标准答案，只有很多值得争一争的问题。可以和爸爸妈妈、同学一起说。</p>
+
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>如果你是叶文洁，收到"<b>不要回答</b>"的警告，你会回答吗？为什么？</p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>火鸡科学家的错，到底错在哪里？<b>我们怎么知道自己不是火鸡？</b></p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>三体人<b>不会说谎</b>（他们用脑电波直接交流，想什么对方都知道）。这是优点还是缺点？</p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>汪淼最后没有变成"虫子"。让他撑住的，是勇敢，还是<b>他手里那项被人要求停掉的研究</b>？</p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>如果三体人明天就到，你希望人类做的第一件事是什么？</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这本书会遇到的小词</h2></div>
+    <p class="lead">遇到不认识的名词，回来查一下就好，不用停下来死磕。</p>
+
+    <div class="words">
+      <dl class="word"><dt>纳米<em>长度单位</em></dt><dd>1 纳米 = 十亿分之一米。一根头发丝的直径大约是 8 万纳米。</dd></dl>
+      <dl class="word"><dt>飞刃<em>书里的材料</em></dt><dd>汪淼研究的高强度纳米丝，细到看不见，却能把巨轮切开。</dd></dl>
+      <dl class="word"><dt>粒子加速器<em>实验设备</em></dt><dd>把微小的粒子加速到极快，让它们对撞，看里面还有什么。三体人最怕的就是它。</dd></dl>
+      <dl class="word"><dt>质子<em>微观粒子</em></dt><dd>原子核里带正电的小东西。智子就是被改造过的质子。</dd></dl>
+      <dl class="word"><dt>3K 眼镜<em>书里的道具</em></dt><dd>能看到宇宙微波背景辐射的装置。戴上它，"宇宙闪烁"才看得见。</dd></dl>
+      <dl class="word"><dt>雷达峰<em>地点</em></dt><dd>红岸基地所在的山头，一座巨大的天线对着天空。</dd></dl>
+      <dl class="word"><dt>统帅<em>组织头衔</em></dt><dd>地球三体组织的最高领导者。书里是叶文洁。</dd></dl>
+      <dl class="word"><dt>降临派<em>ETO 派别</em></dt><dd>认为人类没救了，希望三体人来"清洗"地球。</dd></dl>
+      <dl class="word"><dt>拯救派<em>ETO 派别</em></dt><dd>想解出三体问题，让三颗太阳稳定下来，救三体也救地球。</dd></dl>
+      <dl class="word"><dt>幸存派<em>ETO 派别</em></dt><dd>不站队，只希望三体人来的时候，自己的后代能活下来。</dd></dl>
+      <dl class="word"><dt>古筝行动<em>行动代号</em></dt><dd>用纳米丝切开"审判日号"的行动。名字来自"像古筝的弦一样排列"。</dd></dl>
+      <dl class="word"><dt>光年<em>长度单位</em></dt><dd>光走一年的距离，约 9.46 万亿公里。它是距离，不是时间。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>先说清楚：这本书有"重量"</h3>
+      <p>《三体》第一部虽然是科幻，但开篇就是特殊年代的批斗、亲人离世、被信任的人出卖、科学家集体自杀，还有叶文洁在悬崖上割断绳索的情节。这些内容对小学生来说是<b>真实的情感冲击</b>，不是"打怪升级"式的冒险。</p>
+      <p>建议：<b>10 岁以上、并且家长陪读或先讲一遍</b>更合适。本页已经把暴力情节改写得比较克制，但原书建议家长自己先翻一遍第一、三幕对应的章节。</p>
+      <h3 style="margin-top:18px;">三种读法，挑一种</h3>
+      <div class="route">
+        <div><b>路线 A · 兴趣优先：</b>先读"《三体》游戏"和"古筝行动"这两段（最像冒险故事），再回头补人物和红岸往事。</div>
+        <div><b>路线 B · 顺着读：</b>按本页五幕顺序读，每读完一幕回来对一下"章节地图"，把跳来跳去的时间线接上。</div>
+        <div><b>路线 C · 只讲故事：</b>孩子暂时读不下去也没关系，先用这一页把故事讲一遍，等他大一点再读原书——这本书本来就值得读两次。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#8A7B66;">本页只是第一部的<b>故事梳理与人物关系导读</b>，不含第二部《黑暗森林》、第三部《死神永生》的内容，可以放心当作"入场券"。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《三体》第一部 · 小小读者导读<br>
+    为小学生重述 · 共 5 幕 / 17 个情节台阶 / 10 位主要人物<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span></p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 默认展开第一个情节台阶，给读者一个"可以点"的提示
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>

@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《猫武士》第三部曲①《预视力量》· 小小读者导读</title>
+<meta name="description" content="把《猫武士》第三部曲第一部《预视力量》讲给小读者：雷族三只小猫、族群规矩、湖区四族地图，以及星族的那句预言。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%90%BE%3C/text%3E%3C/svg%3E">
+<style>
+
+  /* ================================================================
+     kid-book-guide 设计系统（默认主色 = 暗金）。
+     换主色只需改 --gold / --gold-soft / --gold-line，
+     或整体换成紫/墨绿/海蓝，详见 references/design-system.md。
+     原则：单文件、零外链、浅色底、圆角 26、正文 16.5/1.9。
+     ================================================================ */
+
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#33305A;
+    --ink-soft:#6C688E;
+    --ink-faint:#9A96B4;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#EDE4D5;
+    --dark:#3B3563;
+    --gold:#2F7A63;
+    --gold-deep:#22604D;
+    --gold-soft:#E4F5EE;
+    --gold-line:#C6EBDF;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.16), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(124,107,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.09), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--purple-soft);border-color:#DCD3FF;color:var(--purple);}
+  .nav a.prev{background:var(--purple-soft);color:#5B4BE0;border-color:#DCD3FF;font-weight:700;}
+  .nav a.prev:hover{background:#E5DEFF;border-color:#CFC3FF;color:#4A3E96;}
+
+  /* ---------- 封面 ---------- */
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,#22604D,#5FB99B);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(47,122,99,.26);
+    transform:rotate(-2deg);
+  }
+  h1{font-size:clamp(28px,5vw,48px);line-height:1.32;margin:20px 0 6px;letter-spacing:2px;font-weight:900;}
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:670px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(47,122,99,.14);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;background-size:100% 12px;background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+
+  /* ---------- 一句话 ---------- */
+  .oneline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--purple-soft);border-color:#DED5FF;}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--gold-soft);border-color:var(--gold-line);}
+
+  /* ---------- 人物 ---------- */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--purple-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--purple-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCF7EC;border:1.5px dashed #E9DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;}
+  .say::before{content:"“";font-weight:900;color:var(--purple);}
+  .say::after{content:"”";font-weight:900;color:var(--purple);}
+
+  /* ---------- SVG 图容器 ---------- */
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+  .subhead{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;margin:26px 0 12px;}
+  .subhead .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+
+  /* ---------- 三个童话 ---------- */
+  .tales{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .tale{
+    background:#fff;border:2px solid var(--gold-line);border-radius:24px;
+    padding:22px 22px 20px;position:relative;box-shadow:0 10px 24px rgba(47,122,99,.08);
+  }
+  .tale .num{
+    position:absolute;right:16px;top:14px;width:34px;height:34px;border-radius:50%;
+    background:var(--gold-soft);color:var(--gold);border:1.5px solid var(--gold-line);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;
+  }
+  .tale h3{margin:0 0 8px;font-size:17px;font-weight:900;padding-right:40px;}
+  .tale .story{font-size:14.2px;color:var(--ink-soft);margin:0 0 12px;}
+  .tale .ans{
+    font-size:13.6px;background:var(--purple-soft);border-radius:14px;padding:10px 13px;
+    color:#4A3E96;line-height:1.8;
+  }
+  .tale .ans b{color:#3A2E86;}
+  .tale .ans .lb{display:block;font-size:11.5px;letter-spacing:1.5px;color:#8A80C4;font-weight:800;margin-bottom:3px;}
+
+  /* ---------- 六幕 ---------- */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:11px;top:8px;bottom:12px;border-left:3px dotted #E7D8BB;}
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--purple);box-shadow:0 0 0 4px #F3EEFF;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .act:nth-child(6)::before{border-color:var(--gold);}
+  .actbody{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;box-shadow:0 8px 20px rgba(107,95,160,.06);}
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--purple);padding:3px 10px;border-radius:8px;}
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .act:nth-child(6) .actno{background:var(--gold);}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{font-size:12px;color:var(--ink-soft);background:#FBF6EA;border:1.5px solid #EFE4CE;border-radius:999px;padding:2px 10px;}
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  /* ---------- 折叠章节卡 ---------- */
+  .beats{display:grid;gap:10px;}
+  details.beat{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);transition:.2s;}
+  details.beat[open]{border-color:#C6EBDF;box-shadow:0 12px 26px rgba(47,122,99,.14);}
+  details.beat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 0;font-weight:800;font-size:15.8px;outline:none;}
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{flex:0 0 34px;height:34px;border-radius:12px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;}
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);padding:1px 8px;border-radius:6px;margin-top:4px;}
+  .binner .key.q{background:var(--orange);}
+
+  /* ---------- 小百科 ---------- */
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--purple);background:var(--purple-soft);border-radius:12px;padding:7px 11px;}
+
+/* ---------- 黑暗森林配方 ---------- */
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .fitem{background:#fff;border:2px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);}
+  .fitem h4{margin:0 0 5px;font-size:15.5px;display:flex;gap:9px;align-items:center;font-weight:900;}
+  .fnum{
+    width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:var(--purple-soft);color:var(--purple);
+    font-size:12.5px;font-weight:900;display:flex;align-items:center;justify-content:center;
+  }
+  .fitem p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .fmid{text-align:center;color:var(--ink-faint);font-size:13.5px;margin:16px 0 12px;letter-spacing:1px;font-weight:700;}
+  .fres{
+    background:linear-gradient(140deg,#FFF6DA,#FFEEDA);border:3px solid #F3DFA4;border-radius:24px;
+    padding:24px 26px;text-align:center;box-shadow:0 12px 26px rgba(243,223,164,.35);
+  }
+  .fres .lab{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#B08930;}
+  .fres h3{margin:6px 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .fres p{margin:0;font-size:15px;color:#7A6320;line-height:1.9;}
+
+    /* ---------- 表格 ---------- */
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F4EDE0;vertical-align:top;}
+  thead th{background:#FCF6E9;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF8;white-space:nowrap;}
+  tbody tr:hover td{background:#FFF9EC;}
+
+  /* ---------- 终章卡 ---------- */
+  .finale{
+    background:linear-gradient(150deg,#FFF8E4,#F7EEFF 60%,#FFF0F5);
+    border:3px solid var(--gold-line);border-radius:var(--radius);
+    padding:32px 30px;text-align:center;box-shadow:0 18px 36px rgba(47,122,99,.14);
+  }
+  .finale .ball{
+    width:74px;height:74px;margin:0 auto 14px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #EAFFF6, #B9F0DC 55%, #8FD9C0);
+    border:3px solid #fff;box-shadow:0 10px 22px rgba(47,197,171,.24), inset 0 0 0 2px #D8F5EA;
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+  }
+  .finale h3{margin:0 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .finale p{margin:0 auto;max-width:640px;font-size:15px;color:#7A6A46;line-height:1.95;}
+  .finale .q{margin-top:14px;font-size:14px;color:#22604D;font-weight:800;}
+
+  /* ---------- 三部曲 ---------- */
+  .trilogy{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .tl{
+    background:#fff;border:2px solid var(--line);border-radius:22px;padding:20px;
+    text-decoration:none;color:inherit;display:block;transition:.18s;
+    box-shadow:0 8px 18px rgba(107,95,160,.06);
+  }
+  .tl:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(107,95,160,.13);border-color:#E2D8C2;}
+  .tl .no{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--gold);}
+  .tl h3{margin:4px 0 6px;font-size:17px;font-weight:900;}
+  .tl p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .tl.now{border-color:#DED5FF;background:#FBFAFF;cursor:default;}
+  .tl.now:hover{transform:none;box-shadow:0 8px 18px rgba(107,95,160,.06);}
+
+  /* ---------- 金句 ---------- */
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #4A4374, #2C2A4A 60%, #23213E);
+    border-radius:var(--radius);padding:34px 30px;color:#F4F1FF;
+    position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(44,42,74,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .qitem{position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);margin-bottom:6px;}
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#B9B3D8;letter-spacing:.5px;}
+
+  /* ---------- 想一想 ---------- */
+  .think{display:grid;gap:12px;}
+  .qitem2{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px dashed #E4D9C4;border-radius:18px;padding:16px 18px;}
+  .qnum{flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;}
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  /* ---------- 小词典 ---------- */
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--purple);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  /* ---------- 家长提示 ---------- */
+  .parent{background:linear-gradient(140deg,#FFF6E4,#FFEFF4);border:2px solid #F6E3C6;border-radius:var(--radius);padding:26px 28px;}
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#6A5F52;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#6A5F52;background:rgba(255,255,255,.7);border-radius:12px;padding:9px 13px;}
+  .parent a{color:var(--gold-deep);font-weight:800;text-decoration:none;border-bottom:2px solid var(--gold-line);}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:13px;padding:44px 0 56px;line-height:2;}
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid #E7DCC6;background:#fff;color:var(--gold);font-size:18px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(107,95,160,.16);display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody,.tale{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+    .binner{padding-left:0;}
+    .finale{padding:24px 20px;}
+  }
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">🐾 猫武士·小小读者版</span>
+    <a href="猫武士三部曲-暗河汹涌-小小读者导读.html" style="background:#E4F5EE;color:#2F6E5B;border-color:#C6EBDF;font-weight:700;">第 2 册 →</a>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#map">关系图</a>
+    <a href="#acts">五幕故事</a>
+    <a href="#chapters">章节地图</a>
+    <a href="#world">猫族规矩</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">艾琳·亨特 ·《猫武士》第三部曲 ①</span>
+    <h1>三只小猫，<br><span class="hl">爪子里握着星星</span></h1>
+    <p class="sub">《预视力量》是《三力量》的第一本。雷族多了三只小猫，看起来和别的幼崽没什么两样——直到星族开口说话。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 330" role="img" aria-label="夜晚的湖边，三只小猫坐在石头上看银河和月亮">
+        <defs>
+          <linearGradient id="skyC" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#EDF4E8"/>
+            <stop offset="45%" stop-color="#EFF2FF"/>
+            <stop offset="100%" stop-color="#FFF8E9"/>
+          </linearGradient>
+          <linearGradient id="lakeC" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#DFF1FB"/>
+            <stop offset="100%" stop-color="#BFE3F5"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="1000" height="330" rx="30" fill="url(#skyC)"/>
+
+        <!-- 银河 -->
+        <path d="M40 40 Q300 110 560 40 Q760 -10 980 60" stroke="#DCD8F5" stroke-width="34" fill="none" opacity=".45"/>
+        <g fill="#CFC9EE">
+          <circle cx="80" cy="52" r="2"/><circle cx="150" cy="76" r="1.6"/>
+          <circle cx="240" cy="60" r="2.2"/><circle cx="330" cy="86" r="1.7"/>
+          <circle cx="430" cy="58" r="2"/><circle cx="520" cy="48" r="1.6"/>
+          <circle cx="610" cy="40" r="2.2"/><circle cx="700" cy="34" r="1.8"/>
+          <circle cx="790" cy="42" r="2"/><circle cx="900" cy="52" r="1.7"/>
+        </g>
+        <g fill="#FFE28A">
+          <circle cx="180" cy="40" r="2.4"/><circle cx="380" cy="30" r="2"/>
+          <circle cx="560" cy="76" r="2.2"/><circle cx="660" cy="90" r="1.8"/>
+          <circle cx="120" cy="112" r="1.8"/><circle cx="470" cy="118" r="2"/>
+        </g>
+
+        <!-- 月亮 -->
+        <circle cx="838" cy="76" r="46" fill="#FFF3C9" opacity=".35"/>
+        <circle cx="838" cy="76" r="30" fill="#FFF6D8"/>
+        <circle cx="848" cy="66" r="5" fill="#F4E7BE"/>
+        <circle cx="828" cy="88" r="7" fill="#F4E7BE"/>
+
+        <!-- 远山 -->
+        <path d="M0 330 L0 216 Q140 178 300 208 Q440 234 560 214 Q720 188 1000 224 L1000 330 Z" fill="#DCEDD8"/>
+        <path d="M0 330 L0 252 Q180 220 360 250 Q560 284 760 254 Q880 236 1000 258 L1000 330 Z" fill="#C4E3CE"/>
+
+        <!-- 湖 -->
+        <ellipse cx="660" cy="268" rx="210" ry="34" fill="url(#lakeC)"/>
+        <g stroke="#FFFFFF" stroke-width="2.4" opacity=".7">
+          <line x1="560" y1="262" x2="640" y2="262"/>
+          <line x1="600" y1="276" x2="700" y2="276"/>
+          <line x1="680" y1="288" x2="750" y2="288"/>
+        </g>
+
+        <!-- 石头 -->
+        <ellipse cx="292" cy="274" rx="118" ry="20" fill="#C9D6C3"/>
+        <ellipse cx="292" cy="268" rx="118" ry="16" fill="#DCE7D6"/>
+
+        <!-- 三只小猫：狮爪 / 冬青爪 / 松鸦爪 -->
+        <g fill="#4A4470">
+          <g transform="translate(210,264) scale(1.52)">
+            <path d="M-15 6 q-2 -17 11 -17 q13 0 11 17 z"/>
+            <circle cx="-4" cy="-16" r="9.4"/>
+            <path d="M-11 -21 L-14 -32 L-4 -26 Z"/><path d="M4 -21 L7 -32 L-1 -26 Z"/>
+            <path d="M15 4 q15 5 8 -11" fill="none" stroke="#4A4470" stroke-width="4.2" stroke-linecap="round"/>
+          </g>
+        </g>
+        <g fill="#3F5B52">
+          <g transform="translate(288,264) scale(1.4)">
+            <path d="M-15 6 q-2 -17 11 -17 q13 0 11 17 z"/>
+            <circle cx="-4" cy="-16" r="9.4"/>
+            <path d="M-11 -21 L-14 -32 L-4 -26 Z"/><path d="M4 -21 L7 -32 L-1 -26 Z"/>
+            <path d="M15 4 q15 5 8 -11" fill="none" stroke="#3F5B52" stroke-width="4.2" stroke-linecap="round"/>
+          </g>
+        </g>
+        <g fill="#2F3B47">
+          <g transform="translate(358,264) scale(1.26)">
+            <path d="M-15 6 q-2 -17 11 -17 q13 0 11 17 z"/>
+            <circle cx="-4" cy="-16" r="9.4"/>
+            <path d="M-11 -21 L-14 -32 L-4 -26 Z"/><path d="M4 -21 L7 -32 L-1 -26 Z"/>
+            <path d="M15 4 q15 5 8 -11" fill="none" stroke="#2F3B47" stroke-width="4.2" stroke-linecap="round"/>
+          </g>
+        </g>
+
+        <text x="70" y="300" font-size="13.5" fill="#3F7A63" font-weight="700">雷族的三个学徒，望着同一个方向</text>
+        <text x="700" y="316" font-size="13" fill="#6E8CA0" font-weight="700">湖的那一边，是别的族群</text>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">📖 第三部曲 <b>第 1 册</b></span>
+      <span class="badge">🐾 四族 · <b>一个湖</b></span>
+      <span class="badge">👦 建议 <b>10 岁+</b></span>
+      <span class="badge">✨ 核心 <b>1 个预言</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 三句话 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整本书</h2></div>
+    <p class="lead">如果同学问你《预视力量》讲了什么，你可以这样回答。</p>
+
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 雷族添了三只小猫</h3>
+        <p>狮爪、冬青爪、松鸦爪。他们的爸爸是副族长，外祖父是族长——全族都在猜，这三只小猫将来会不会了不起。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 最不服气的是松鸦爪</h3>
+        <p>他生下来就看不见，却偏要当武士。族里把他当"需要照顾的猫"，他偏要证明自己不是。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 星族说了一句话</h3>
+        <p>"有三个，你亲族的亲族，他们的爪中掌握着星辰的力量。"——这一年，族长火星听到了这句预言。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🐾</span><h2>人物小档案</h2></div>
+    <p class="lead">这本书里的猫很多，先认这 10 只，故事就通了。名字后面带"爪"的，都是正在学习的学徒。</p>
+
+    <div class="people">
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🌑</div>
+          <div><div class="pname">松鸦爪</div><div class="prole">雷族学徒 · 天生看不见</div></div>
+        </div>
+        <p>三只小猫里最小的那只。眼睛看不见，脾气却最大。他能听见别人听不见的声音，后来还能走进别的猫的梦里。</p>
+        <div class="say">（他看不见路，却总想走在最前面）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🦁</div>
+          <div><div class="pname">狮爪</div><div class="prole">雷族学徒 · 力气最大</div></div>
+        </div>
+        <p>胆子大、冲得快，做事常常不过脑子。在一场冲突里，他发现自己"不会累、也不怕疼"——这让他又兴奋又害怕。</p>
+        <div class="say">（他是三只里最先冲出去的那只）</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🌿</div>
+          <div><div class="pname">冬青爪</div><div class="prole">雷族学徒 · 最认真</div></div>
+        </div>
+        <p>要强、守规矩，一心想成为"最像样的武士"。三只小猫里，她最在意别人怎么看她，也最怕自己不够好。</p>
+        <div class="say">（她总想把每件事都做到最好）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🐿️</div>
+          <div><div class="pname">松鼠飞</div><div class="prole">雷族武士 · 三只小猫的母亲</div></div>
+        </div>
+        <p>性子急、嘴也快，护孩子护得厉害。她是族长火星的女儿，从小在族里长大，最受不了别人说她家"特殊"。</p>
+        <div class="say">（谁敢动她的孩子，她第一个扑上去）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">🖤</div>
+          <div><div class="pname">黑莓掌</div><div class="prole">雷族副族长 · 三只小猫的父亲</div></div>
+        </div>
+        <p>稳重、话少，做事有分寸。他是族长的接班人，一直在学"怎么当一个让所有猫都信服的族长"。</p>
+        <div class="say">（他很少说话，但每句都算数）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🔥</div>
+          <div><div class="pname">火星</div><div class="prole">雷族族长 · 外祖父</div></div>
+        </div>
+        <p>他原本是一只宠物猫，后来走进森林、成了雷族族长。正因为这样，他一直相信"出身不能决定一只猫能走多远"。</p>
+        <div class="say">（族里有些猫到现在还不服气他的出身）</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🌙</div>
+          <div><div class="pname">叶池</div><div class="prole">雷族巫医 · 松鼠飞的妹妹</div></div>
+        </div>
+        <p>会认草药、会治病，也能听见星族的声音。她发现松鸦爪的"梦"不寻常，最后收他做了学徒。</p>
+        <div class="say">（她说话很轻，但族里没人不听）</div>
+      </article>
+
+      <article class="person" style="--accent:#FBF0D4">
+        <div class="phead">
+          <div class="avatar">🌼</div>
+          <div><div class="pname">亮心</div><div class="prole">雷族武士 · 松鸦爪的导师</div></div>
+        </div>
+        <p>她脸上有伤，失去过一只眼睛。她不跟松鸦爪讲道理，直接把他带进森林：闭上眼，用耳朵、胡须和鼻子去"看"。</p>
+        <div class="say">（她比谁都懂"少一只眼睛"是什么感觉）</div>
+      </article>
+
+      <article class="person" style="--accent:#F2F2F2">
+        <div class="phead">
+          <div class="avatar">🩶</div>
+          <div><div class="pname">灰条</div><div class="prole">雷族老武士 · 失踪很久</div></div>
+        </div>
+        <p>他失踪了很长一段时间，这一册里终于回到营地，全族都轰动了。他还带回来一只宠物猫。</p>
+        <div class="say">（老武士回家，连族长都亲自出来接）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFFDF6">
+        <div class="phead">
+          <div class="avatar">🤍</div>
+          <div><div class="pname">米莉</div><div class="prole">宠物猫 · 想当武士</div></div>
+        </div>
+        <p>她原本住在两脚兽的家里，跟着灰条走进森林，从最基础的捕猎、爬树开始学。族群对"外来的猫"一向很警惕。</p>
+        <div class="say">（她想证明：宠物猫也能当武士）</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 关系图 ============ -->
+<section id="map">
+  <div class="wrap">
+    <div class="title"><span class="ico">🕸️</span><h2>第一张图：这三个孩子"来头"不小</h2></div>
+    <p class="lead">看这张图只要记住一件事：三只小猫的家里，有族长、有副族长、还有一位巫医。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 700 392" role="img" aria-label="雷族家族关系树：火星的女儿松鼠飞与副族长黑莓掌生下狮爪、冬青爪、松鸦爪，叶池是松鼠飞的妹妹">
+        <!-- 连线 -->
+        <g stroke="#CFE4DA" stroke-width="3" fill="none">
+          <path d="M355 96 L355 112 L255 112 L255 130"/>
+          <path d="M255 196 L255 232"/>
+          <path d="M455 196 L455 232"/>
+          <path d="M255 232 L455 232"/>
+          <path d="M145 232 L145 252"/>
+          <path d="M355 232 L355 252"/>
+          <path d="M565 232 L565 252"/>
+        </g>
+        <g stroke="#C6D9D0" stroke-width="2.4" stroke-dasharray="5 6" fill="none">
+          <line x1="142" y1="164" x2="168" y2="164"/>
+        </g>
+
+        <!-- 火星 -->
+        <rect x="270" y="36" width="170" height="60" rx="18" fill="#FFF0DE" stroke="#FFE0BE" stroke-width="2"/>
+        <text x="355" y="62" text-anchor="middle" font-size="16" font-weight="800" fill="#8F5A16">火星</text>
+        <text x="355" y="82" text-anchor="middle" font-size="11.5" fill="#B08048">雷族族长 · 外祖父</text>
+
+        <!-- 叶池（姐妹，虚线相连） -->
+        <rect x="8" y="132" width="134" height="64" rx="16" fill="#E2FAF5" stroke="#C9F1E8" stroke-width="2"/>
+        <text x="75" y="158" text-anchor="middle" font-size="15" font-weight="800" fill="#1C6B5C">叶池</text>
+        <text x="75" y="178" text-anchor="middle" font-size="11" fill="#4C9487">巫医 · 松鼠飞的妹妹</text>
+
+        <!-- 松鼠飞 × 黑莓掌 -->
+        <rect x="168" y="132" width="172" height="64" rx="18" fill="#FFE9F0" stroke="#FFC9DA" stroke-width="2"/>
+        <text x="254" y="158" text-anchor="middle" font-size="16" font-weight="800" fill="#A33A5E">松鼠飞</text>
+        <text x="254" y="178" text-anchor="middle" font-size="11.5" fill="#C26887">母亲 · 雷族武士</text>
+
+        <rect x="370" y="132" width="172" height="64" rx="18" fill="#FFF6DA" stroke="#F3DFA4" stroke-width="2"/>
+        <text x="456" y="158" text-anchor="middle" font-size="16" font-weight="800" fill="#8A6A1E">黑莓掌</text>
+        <text x="456" y="178" text-anchor="middle" font-size="11.5" fill="#A98C48">父亲 · 雷族副族长</text>
+
+        <text x="355" y="172" text-anchor="middle" font-size="15" font-weight="900" fill="#B9AECF">×</text>
+
+        <!-- 三只小猫 -->
+        <rect x="60" y="252" width="170" height="82" rx="18" fill="#EFEBFF" stroke="#DED5FF" stroke-width="2"/>
+        <text x="145" y="278" text-anchor="middle" font-size="16" font-weight="800" fill="#4A3E96">狮爪</text>
+        <text x="145" y="297" text-anchor="middle" font-size="11.5" fill="#7A6FBD">力气大 · 导师灰毛</text>
+        <text x="145" y="316" text-anchor="middle" font-size="11" fill="#9A90D2">最先冲出去的那只</text>
+
+        <rect x="270" y="252" width="170" height="82" rx="18" fill="#E4F5EE" stroke="#C6EBDF" stroke-width="2"/>
+        <text x="355" y="278" text-anchor="middle" font-size="16" font-weight="800" fill="#2F6E5B">冬青爪</text>
+        <text x="355" y="297" text-anchor="middle" font-size="11.5" fill="#5A9884">最认真 · 导师蕨毛</text>
+        <text x="355" y="316" text-anchor="middle" font-size="11" fill="#79B3A8">想把每件事做到最好</text>
+
+        <rect x="480" y="252" width="170" height="82" rx="18" fill="#F1F2F6" stroke="#D8DDE7" stroke-width="2"/>
+        <text x="565" y="278" text-anchor="middle" font-size="16" font-weight="800" fill="#3A4453">松鸦爪</text>
+        <text x="565" y="297" text-anchor="middle" font-size="11.5" fill="#6C7686">看不见 · 导师亮心</text>
+        <text x="565" y="316" text-anchor="middle" font-size="11" fill="#8E97A6">后来拜叶池为师</text>
+
+        <text x="355" y="364" text-anchor="middle" font-size="12" fill="#A9A2C2">虚线 = 姐妹；×  = 伴侣</text>
+      </svg>
+      <div class="cap">图 1 · 一家六口加一位姨妈：三只小猫身上，流着族长家的血</div>
+    </div>
+
+    <div class="subhead"><span class="dot"></span>第二张图：一个湖，四个家</div>
+    <div class="graph">
+      <svg viewBox="0 0 700 400" role="img" aria-label="湖区四族分布示意图：雷族在森林、影族在沼泽松林、河族在水边、风族在草原，星族在上方">
+        <!-- 背景 -->
+        <rect width="700" height="400" rx="24" fill="#FBFAF3"/>
+
+        <!-- 星族 -->
+        <g>
+          <circle cx="350" cy="34" r="17" fill="#FFF3C9" stroke="#F1DFA5" stroke-width="2"/>
+          <g fill="#FFD97A">
+            <path d="M350 12 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z"/>
+          </g>
+          <text x="350" y="70" text-anchor="middle" font-size="13.5" font-weight="800" fill="#A98C48">星族（银河里的祖先）</text>
+        </g>
+
+        <!-- 湖 -->
+        <ellipse cx="350" cy="212" rx="104" ry="62" fill="#CFE9F7" stroke="#B4DBEF" stroke-width="2"/>
+        <text x="350" y="208" text-anchor="middle" font-size="14" font-weight="800" fill="#5C8FA8">大 湖</text>
+        <text x="350" y="228" text-anchor="middle" font-size="11" fill="#7FA8BC">四族绕着它住</text>
+
+        <!-- 影族（左上） -->
+        <ellipse cx="146" cy="130" rx="108" ry="62" fill="#E9E4F5" stroke="#D6CCEC" stroke-width="2"/>
+        <text x="146" y="124" text-anchor="middle" font-size="15" font-weight="800" fill="#5A4A86">影族</text>
+        <text x="146" y="146" text-anchor="middle" font-size="11.5" fill="#7F71A6">沼泽与松林 · 夜里行动</text>
+
+        <!-- 风族（右上） -->
+        <ellipse cx="556" cy="130" rx="110" ry="62" fill="#FBF0CF" stroke="#EDDCAE" stroke-width="2"/>
+        <text x="556" y="124" text-anchor="middle" font-size="15" font-weight="800" fill="#8A6A1E">风族</text>
+        <text x="556" y="146" text-anchor="middle" font-size="11.5" fill="#A98C48">开阔草原 · 跑得最快</text>
+
+        <!-- 雷族（左下） -->
+        <ellipse cx="150" cy="300" rx="112" ry="64" fill="#D8EEDD" stroke="#C0E4CB" stroke-width="2"/>
+        <text x="150" y="292" text-anchor="middle" font-size="15" font-weight="800" fill="#2F6E5B">雷族</text>
+        <text x="150" y="313" text-anchor="middle" font-size="11.5" fill="#5A9884">森林 · 三只小猫的家</text>
+
+        <!-- 河族（右下） -->
+        <ellipse cx="556" cy="300" rx="110" ry="64" fill="#DCF0FA" stroke="#C2E3F2" stroke-width="2"/>
+        <text x="556" y="292" text-anchor="middle" font-size="15" font-weight="800" fill="#3A6F8C">河族</text>
+        <text x="556" y="313" text-anchor="middle" font-size="11.5" fill="#5F93AC">河岸 · 会游泳会抓鱼</text>
+
+        <!-- 月亮池 -->
+        <g>
+          <circle cx="262" cy="262" r="7" fill="#BFE3F5" stroke="#8FC4DD" stroke-width="2"/>
+          <text x="262" y="288" text-anchor="middle" font-size="11" fill="#6E9AB0">月亮池</text>
+        </g>
+
+        <text x="350" y="386" text-anchor="middle" font-size="11.5" fill="#A9A2C2">示意图：位置只是大概，重要的是"每条边界上都有一道气味线"</text>
+      </svg>
+      <div class="cap">图 2 · 四个族群各占一角，平时互不越界，月圆之夜才坐到一起</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 五幕 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎬</span><h2>故事五幕：从育婴室到预言</h2></div>
+    <p class="lead">这本书没有大战争，它更像"开学第一年"：三只小猫从幼崽变成学徒，各自找到自己的位置。</p>
+
+    <div class="acts">
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第一幕</span><h3>三个小家伙</h3></div>
+          <div class="chips"><span class="chip">🕐 春天</span><span class="chip">📍 雷族育婴室</span><span class="chip">🐣 新生命</span></div>
+          <ul>
+            <li>松鼠飞生下三只小猫，全族都跑来看。</li>
+            <li>他们的父亲是副族长<b>黑莓掌</b>，外祖父是族长<b>火星</b>——在族里，这样的"来头"很难不被议论。</li>
+            <li>最小的那只生下来就<b>看不见</b>。母亲给他取名"松鸦崽"。</li>
+            <li>星族没有解释：为什么是他们三个。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第二幕</span><h3>名字后面多了一个"爪"</h3></div>
+          <div class="chips"><span class="chip">🕐 六个月后</span><span class="chip">📍 雷族营地</span><span class="chip">🎓 学徒仪式</span></div>
+          <ul>
+            <li>幼崽长到六个月，成为<b>学徒</b>：狮爪、冬青爪、松鸦爪。名字一变，身份就变了。</li>
+            <li>每个学徒跟着一位武士学本事：狮爪跟<b>灰毛</b>，冬青爪跟<b>蕨毛</b>，松鸦爪跟<b>亮心</b>。</li>
+            <li>松鸦爪气坏了——族里把他当成"需要照顾的猫"，可他想要的是战斗训练。</li>
+            <li>亮心不跟他讲道理，直接把他带进森林：<b>闭上眼睛，用耳朵听，用胡须量，用鼻子记。</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第三幕</span><h3>灰条回来了</h3></div>
+          <div class="chips"><span class="chip">🕐 同一时期</span><span class="chip">📍 雷族营地</span><span class="chip">🏠 归来</span></div>
+          <ul>
+            <li>失踪很久的老武士<b>灰条</b>突然回到营地，全族都轰动了。</li>
+            <li>他不是一只猫回来的——他带回来一只宠物猫，<b>米莉</b>。</li>
+            <li>米莉想留下来当武士。有的猫觉得她"不是森林里的猫"，有的猫想起：族长火星当年也是宠物猫。</li>
+            <li>米莉从最基础的开始学：捕猎、爬树、认气味，一样一样补。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第四幕</span><h3>边界上的那条线</h3></div>
+          <div class="chips"><span class="chip">🕐 夏秋之交</span><span class="chip">📍 族群边界 · 小岛</span><span class="chip">⚔️ 紧张</span></div>
+          <ul>
+            <li>湖边的地盘早就分好了：四个族群各有各的边界，边界上有一道<b>气味线</b>。</li>
+            <li>这一阵子猎物变少，年轻的猫总在边界上撞见对方，<b>谁都不肯退</b>。</li>
+            <li>月圆之夜，四族在小岛上<b>集会</b>。集会期间不许打仗——可集会散了，账还要算。</li>
+            <li>一场冲突里，狮爪第一次感觉到自己的身体"不太对劲"：<b>他不会累，也不怕疼。</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第五幕</span><h3>星族的声音</h3></div>
+          <div class="chips"><span class="chip">🕐 那年冬天</span><span class="chip">📍 巫医巢穴 · 梦里</span><span class="chip">✨ 转折</span></div>
+          <ul>
+            <li>松鸦爪开始做梦。梦里他能走进别的猫的梦，能"看见"看不见的地方。</li>
+            <li>他把这件事告诉<b>叶池</b>。叶池知道：这不是普通的本事。</li>
+            <li>松鸦爪做了一个谁也没想到的决定：<b>不当武士了，改当巫医学徒，拜叶池为师。</b></li>
+            <li>也在这一年，星族给火星一句预言：<b>"有三个，你亲族的亲族，他们的爪中掌握着星辰的力量。"</b></li>
+            <li>火星回头看向那三只小猫——故事从这里才真正开始。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 章节地图 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🗺️</span><h2>章节地图：15 个台阶</h2></div>
+    <p class="lead">点开每一段，看它"发生了什么"和"为什么重要"。记不住细节没关系，记住台阶的顺序就够了。</p>
+
+    <div class="beats">
+      <details class="beat">
+        <summary><span class="bno">01</span>序章：星族在看着<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>故事从星族开始。那些住在银河里的祖先猫，正低声说着什么，可那时还没有活着的猫听懂。</p>
+          <p><span class="key q">为什么重要</span>整部《三力量》的谜题，第一页就已经埋下了——<b>只是没人知道他们在等谁。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>三只小猫出生<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>松鼠飞生下三只小猫。父亲黑莓掌是副族长，外祖父火星是族长。全族都来看，也都在议论。</p>
+          <p><span class="key q">为什么重要</span>他们一出生就"被期待"——这对三个孩子来说，是压力不是礼物。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>名字：狮崽、冬青崽、松鸦崽<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三只幼崽有了名字。最小的那只眼睛看不见，母亲给他取名"松鸦崽"。</p>
+          <p><span class="key q">为什么重要</span>猫族的名字是"身份进度条"：崽 → 爪 → 武士名。名字一变，全族看你的眼光就变。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>松鸦爪的世界<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>松鸦爪看不见，但他听得见最轻的脚步声、闻得出谁刚去过哪里。他不喜欢被同情。</p>
+          <p><span class="key q">为什么重要</span>他的"缺陷"其实是他最早的武器——<b>看不见的猫，靠别的方式在看世界。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>学徒仪式：三个"爪"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三只小猫成为学徒，各自有了导师：狮爪跟灰条，冬青爪跟蕨毛，松鸦爪跟亮心。</p>
+          <p><span class="key q">为什么重要</span>从这一刻起，他们不再是"族长家的孩子"，而是<b>要自己挣名字的学徒</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>亮心的第一课<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>亮心把松鸦爪带进森林，让他闭上眼睛，用耳朵、胡须和鼻子去"看"。她自己也失去过一只眼睛。</p>
+          <p><span class="key q">为什么重要</span>这是全书最动人的一段师生关系：<b>她不是安慰他，是教他方法。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>冬青爪想当"最好的武士"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>冬青爪训练最刻苦，样样想争第一。她怕别人说她"靠家里的关系"。</p>
+          <p><span class="key q">为什么重要</span>三兄妹里，她代表"想被认可"的那一种孩子。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">08</span>狮爪的力气<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>训练和冲突中，狮爪发现自己比同龄猫更强、更耐打，甚至"不会累"。他不敢跟别人说。</p>
+          <p><span class="key q">为什么重要</span>力量的第一次露头。它看起来像天赋，其实是个<b>需要回答的问题</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">09</span>灰条归来<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>失踪很久的老武士灰条回到营地，全族轰动。他还带回一只宠物猫米莉。</p>
+          <p><span class="key q">为什么重要</span>它提醒读者：这个族群不是封闭的，<b>门一直开着一道缝</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">10</span>米莉：宠物猫也想当武士<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>米莉留下来学习，从捕猎、爬树、认气味开始。有的猫欢迎她，有的猫始终警惕。</p>
+          <p><span class="key q">为什么重要</span>它和火星的出身呼应：<b>"你从哪来"到底该不该决定"你能成为谁"？</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">11</span>边界上的气味线<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>猎物变少，年轻猫在边界上频繁撞见别的族群，气氛越来越紧。</p>
+          <p><span class="key q">为什么重要</span>猫族世界的"国际关系"就是从这里开始的：<b>一条气味线，两边都不肯退。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">12</span>月圆之夜：四族集会<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>四族在小岛上集会，通报消息。集会期间不许打仗。</p>
+          <p><span class="key q">为什么重要</span>这是猫族唯一"坐下来谈"的时刻，也是读者一次认清四个族群的好机会。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">13</span>松鸦爪的梦<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>松鸦爪发现自己的梦不普通：他能走进别的猫的梦里，能"看见"远处和过去。</p>
+          <p><span class="key q">为什么重要</span>三兄妹的力量开始显现，而他的力量最不像"武士"的力量。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">14</span>拜叶池为师<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>松鸦爪决定放弃武士之路，成为巫医学徒，跟着叶池学草药、学听星族的声音。</p>
+          <p><span class="key q">为什么重要</span>这是他第一次<b>自己选</b>，而不是被"看不见"安排。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">15</span>预言：爪中掌握着星辰的力量<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>星族给族长火星一句预言：有三个，你亲族的亲族，他们的爪中掌握着星辰的力量。</p>
+          <p><span class="key q">为什么重要</span>第一册在这里收尾：<b>谜面给了，谜底还在后面五本。</b></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 猫族规矩 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">📜</span><h2>八个规矩，看懂猫族世界</h2></div>
+    <p class="lead">《猫武士》最容易被绕晕的不是剧情，是这一套"猫的社会"。记住这八条，读起来像回家。</p>
+
+    <div class="wiki">
+      <div class="card" style="background:var(--gold-soft);border-color:var(--gold-line);">
+        <h3>🏘️ 族群</h3>
+        <p>一群猫组成的大部落，有自己的地盘、规矩、族长和巫医。四个族群互不隶属，也不许随便越界。</p>
+        <div class="tip">💡 像四个村子：各有村口、各管各的地。</div>
+      </div>
+
+      <div class="card" style="background:#F1F0FF;border-color:#DED5FF;">
+        <h3>✨ 星族</h3>
+        <p>死去的族猫，住在银河里。他们不能直接插手活猫的事，只能托梦、给征兆、在月亮池边说话。</p>
+        <div class="tip">💡 像"住在天上的祖先"，只在梦里出现。</div>
+      </div>
+
+      <div class="card" style="background:#FFF0DE;border-color:#FFE0BE;">
+        <h3>👑 族长与九条命</h3>
+        <p>族长名字后面带"星"，在月亮池接受九条命。失去一条命不等于死，但九条会用完。</p>
+        <div class="tip">💡 像游戏里的九格血条，一格一格掉。</div>
+      </div>
+
+      <div class="card" style="background:#E4F5EE;border-color:#C6EBDF;">
+        <h3>📛 名字就是进度条</h3>
+        <p>幼崽叫"xx崽"，学徒叫"xx爪"，成为武士后换一个新名字。名字一变，身份和别人的眼光都变。</p>
+        <div class="tip">💡 小石头 → 石爪 → 石毛：名字里写着他走到哪一步。</div>
+      </div>
+
+      <div class="card" style="background:#E2FAF5;border-color:#C9F1E8;">
+        <h3>🌿 巫医</h3>
+        <p>会认草药、会治病，还能听见星族的声音。一个族群只有一位巫医（加一名学徒），通常不参加战斗。</p>
+        <div class="tip">💡 是医生，也是"能和祖先通话的人"。</div>
+      </div>
+
+      <div class="card" style="background:#FFF6DA;border-color:#F3DFA4;">
+        <h3>📖 武士守则</h3>
+        <p>猫族的"校规"：忠于自己的族群、照顾幼崽和长老、不杀害同类、集会之夜不动手、尊重边界。</p>
+        <div class="tip">💡 很多冲突，都发生在"守则"和"活下去"打架的时候。</div>
+      </div>
+
+      <div class="card" style="background:#DCF0FA;border-color:#C2E3F2;">
+        <h3>🌕 集会</h3>
+        <p>每月月圆之夜，四族在小岛上见面、通报消息。集会期间停战，谁动手谁丢脸。</p>
+        <div class="tip">💡 像每月一次的"四村联合大会"，还不能吵架。</div>
+      </div>
+
+      <div class="card" style="background:#F2F2F2;border-color:#E0E0E0;">
+        <h3>🚗 两脚兽与怪兽</h3>
+        <p>人类叫"两脚兽"，汽车叫"怪兽"。它们不懂猫的规矩，却常常改变猫的生活。</p>
+        <div class="tip">💡 在猫的眼里，我们才是"奇怪的大家伙"。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>四个族群，比一比</h2></div>
+    <p class="lead">很多同学读到一半还分不清谁是谁。记住"住在哪 + 擅长什么"，就不会乱了。</p>
+
+    <div class="tablewrap">
+      <table style="min-width:780px;">
+        <thead>
+          <tr><th>比什么</th><th>🐾 雷族</th><th>🌑 影族</th><th>💧 河族</th><th>🌾 风族</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>住在哪</td><td>湖边的森林</td><td>沼泽与松林</td><td>河岸与水边</td><td>开阔的草原</td></tr>
+          <tr><td>最擅长</td><td>爬树、在林子里打</td><td>潜行、夜里行动</td><td>游泳、抓鱼</td><td>奔跑、追兔子</td></tr>
+          <tr><td>给人的感觉</td><td>正直、爱讲规矩</td><td>骄傲、神秘、强硬</td><td>讲究、爱干净</td><td>直脾气、话少</td></tr>
+          <tr><td>族长</td><td>火星</td><td>黑星</td><td>豹星</td><td>一星</td></tr>
+          <tr><td>和三只小猫的关系</td><td>他们的家</td><td>边界上最容易起冲突</td><td>隔水相望</td><td>隔着草原</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 导读笔记 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✍️</span><h2>读完这本书，想留下三句话</h2></div>
+      <div class="qitem">
+        <p>他看不见路，却总想走在最前面。</p>
+        <span>—— 写松鸦爪</span>
+      </div>
+      <div class="qitem">
+        <p>名字一变，全族看你的眼光就变了。</p>
+        <span>—— 写猫族的规矩</span>
+      </div>
+      <div class="qitem">
+        <p>最厉害的力量，常常长在最不被看好的那只猫身上。</p>
+        <span>—— 写这本书的底色</span>
+      </div>
+      <p style="margin:14px 0 0;font-size:12.5px;color:#B9B3D8;">（这三句是导读笔记，不是原文摘录）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">这本书最好的地方，是它从不告诉你"应该怎样"。</p>
+
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>松鸦爪看不见，却最想当武士。你觉得"看不见"是<b>限制</b>了他，还是让他变成了<b>不一样的猫</b>？</p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>米莉是宠物猫，想加入雷族。<b>如果你是族长，你会收下她吗？</b>为什么？</p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>族长有九条命。<b>这会让他更勇敢，还是更不在乎？</b></p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>三只小猫里你最像谁？<b>狮爪</b>（先冲再说）、<b>冬青爪</b>（一定要做好）、还是<b>松鸦爪</b>（越不被看好越要证明）？</p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>如果星族告诉你"你的爪中掌握着星辰的力量"，<b>你会告诉别人吗？</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这本书会遇到的小词</h2></div>
+    <p class="lead">猫族的词大多很直白，遇到不认识的回来看一眼就行。</p>
+
+    <div class="words">
+      <dl class="word"><dt>族群<em>组织</em></dt><dd>一群猫组成的大部落，有自己的地盘和规矩。</dd></dl>
+      <dl class="word"><dt>星族<em>信仰</em></dt><dd>死去的族猫，住在银河里，会给活猫托梦。</dd></dl>
+      <dl class="word"><dt>巫医<em>职位</em></dt><dd>会治病、能和星族沟通的猫，通常不参战。</dd></dl>
+      <dl class="word"><dt>学徒<em>身份</em></dt><dd>正在学本事的年轻猫，名字以"爪"结尾。</dd></dl>
+      <dl class="word"><dt>猫后<em>身份</em></dt><dd>正在照顾幼崽的母亲。</dd></dl>
+      <dl class="word"><dt>长老<em>身份</em></dt><dd>年纪大、不再出猎的猫，受全族照顾。</dd></dl>
+      <dl class="word"><dt>幼崽<em>身份</em></dt><dd>还没成为学徒的小猫，名字以"崽"结尾。</dd></dl>
+      <dl class="word"><dt>月亮池<em>地点</em></dt><dd>巫医与星族说话的水池，族长也在这里接受九条命。</dd></dl>
+      <dl class="word"><dt>集会<em>惯例</em></dt><dd>每月月圆之夜，四族在小岛上见面，期间停战。</dd></dl>
+      <dl class="word"><dt>武士守则<em>规矩</em></dt><dd>猫族共同遵守的一套规则，几乎每本都在被讨论。</dd></dl>
+      <dl class="word"><dt>两脚兽<em>猫语</em></dt><dd>猫对人类的笑称（它们觉得人只有两条腿很怪）。</dd></dl>
+      <dl class="word"><dt>怪兽<em>猫语</em></dt><dd>猫对汽车的叫法，因为它们会吼、会喷气、还会撞死猫。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>这套书"好读"，但不"轻"</h3>
+      <p>《猫武士》是标准的儿童文学，节奏快、章节短，孩子很容易读进去。但它写的是战争与生存：<b>边界冲突、猫在战斗中受伤、有角色失去性命、族群会驱逐成员、幼崽会和父母分开</b>。这一册相对温和，冲突多、伤亡少，仍建议家长知道孩子读到哪一段。</p>
+      <p>建议：<b>10 岁以上、能接受"主角也会受伤"的孩子</b>。本页把战斗写成"打起来了／受了伤"，不写伤口细节；死亡只写"失去一条命"。</p>
+      <h3 style="margin-top:18px;">三种读法，挑一种</h3>
+      <div class="route">
+        <div><b>路线 A · 先认规矩：</b>先读"八个规矩"，把族群、星族、名字、巫医搞清楚，再回头读故事，会顺很多。</div>
+        <div><b>路线 B · 顺着读：</b>按五幕走，每幕结束看一眼关系图，确认"这只猫是谁家的"。</div>
+        <div><b>路线 C · 只读三只小猫：</b>只跟松鸦爪、狮爪、冬青爪的成长线，其余当背景。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#8A7B66;">剧透边界：本页<b>只覆盖第三部曲第 1 册《预视力量》</b>。第三部曲后面几册会揭晓一个关于三兄妹身世的大秘密，本页完全不提，请放心。<br>
+      阅读顺序：丛书建议从第一部曲《预言开始》读起，否则会不认识很多老角色；但本页可以独立看懂。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 系列 ============ -->
+<section id="series">
+  <div class="wrap">
+    <div class="title"><span class="ico">📚</span><h2>第三部曲《三力量》还有五本</h2></div>
+    <p class="lead">这一册只是开头。预言说"有三个"，可他们的力量到底是什么、要用来做什么，要读到最后才知道。</p>
+
+    <div class="trilogy">
+      <div class="tl now">
+        <div class="no">第 1 册 · 你在这里</div>
+        <h3>预视力量</h3>
+        <p>三只小猫成为学徒，松鸦爪听见星族的声音。</p>
+      </div>
+      <a class="tl" href="猫武士三部曲-暗河汹涌-小小读者导读.html">
+        <div class="no">第 2 册</div>
+        <h3>暗河汹涌</h3>
+        <p>隧道、暗河，和一个没能走出来的学徒。</p>
+      </a>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 3 册</div>
+        <h3>驱逐之战</h3>
+        <p>有猫被赶出家园，也有猫选择离开。</p>
+      </div>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 4 册</div>
+        <h3>天蚀遮月</h3>
+        <p>太阳被吞掉的那一天，四族都在等一个信号。</p>
+      </div>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 5 册</div>
+        <h3>暗夜长影</h3>
+        <p>秘密开始反噬，谁都不敢再相信谁。</p>
+      </div>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 6 册</div>
+        <h3>拂晓之光</h3>
+        <p>天亮了，三兄妹必须面对自己是谁。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《猫武士》第三部曲①《预视力量》· 小小读者导读<br>
+    为小学生重述 · 共 5 幕 / 15 个情节台阶 / 10 位人物 / 4 个族群<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span></p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>

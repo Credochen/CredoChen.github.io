@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《三体Ⅲ·死神永生》· 小小读者导读</title>
+<meta name="description" content="把刘慈欣《三体Ⅲ·死神永生》拆成小朋友听得懂的故事：执剑人的十分钟、三个童话里的三件武器、二向箔与二维化、宇宙尽头的小宇宙。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%8C%A0%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#33305A;
+    --ink-soft:#6C688E;
+    --ink-faint:#9A96B4;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#EDE4D5;
+    --dark:#3B3563;
+    --gold:#B2832C;
+    --gold-deep:#8A621A;
+    --gold-soft:#FBF0D4;
+    --gold-line:#EBD6A5;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.16), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(124,107,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.09), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--purple-soft);border-color:#DCD3FF;color:var(--purple);}
+  .nav a.prev{background:var(--purple-soft);color:#5B4BE0;border-color:#DCD3FF;font-weight:700;}
+  .nav a.prev:hover{background:#E5DEFF;border-color:#CFC3FF;color:#4A3E96;}
+
+  /* ---------- 封面 ---------- */
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,#8A621A,#D3A94F);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(138,98,26,.26);
+    transform:rotate(-2deg);
+  }
+  h1{font-size:clamp(28px,5vw,48px);line-height:1.32;margin:20px 0 6px;letter-spacing:2px;font-weight:900;}
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:670px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(178,131,44,.16);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;background-size:100% 12px;background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+
+  /* ---------- 一句话 ---------- */
+  .oneline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--purple-soft);border-color:#DED5FF;}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--gold-soft);border-color:var(--gold-line);}
+
+  /* ---------- 人物 ---------- */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--purple-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--purple-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCF7EC;border:1.5px dashed #E9DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;}
+  .say::before{content:"“";font-weight:900;color:var(--purple);}
+  .say::after{content:"”";font-weight:900;color:var(--purple);}
+
+  /* ---------- SVG 图容器 ---------- */
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+  .subhead{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;margin:26px 0 12px;}
+  .subhead .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+
+  /* ---------- 三个童话 ---------- */
+  .tales{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .tale{
+    background:#fff;border:2px solid var(--gold-line);border-radius:24px;
+    padding:22px 22px 20px;position:relative;box-shadow:0 10px 24px rgba(178,131,44,.09);
+  }
+  .tale .num{
+    position:absolute;right:16px;top:14px;width:34px;height:34px;border-radius:50%;
+    background:var(--gold-soft);color:var(--gold);border:1.5px solid var(--gold-line);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;
+  }
+  .tale h3{margin:0 0 8px;font-size:17px;font-weight:900;padding-right:40px;}
+  .tale .story{font-size:14.2px;color:var(--ink-soft);margin:0 0 12px;}
+  .tale .ans{
+    font-size:13.6px;background:var(--purple-soft);border-radius:14px;padding:10px 13px;
+    color:#4A3E96;line-height:1.8;
+  }
+  .tale .ans b{color:#3A2E86;}
+  .tale .ans .lb{display:block;font-size:11.5px;letter-spacing:1.5px;color:#8A80C4;font-weight:800;margin-bottom:3px;}
+
+  /* ---------- 六幕 ---------- */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:11px;top:8px;bottom:12px;border-left:3px dotted #E7D8BB;}
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--purple);box-shadow:0 0 0 4px #F3EEFF;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .act:nth-child(6)::before{border-color:var(--gold);}
+  .actbody{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;box-shadow:0 8px 20px rgba(107,95,160,.06);}
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--purple);padding:3px 10px;border-radius:8px;}
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .act:nth-child(6) .actno{background:var(--gold);}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{font-size:12px;color:var(--ink-soft);background:#FBF6EA;border:1.5px solid #EFE4CE;border-radius:999px;padding:2px 10px;}
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  /* ---------- 折叠章节卡 ---------- */
+  .beats{display:grid;gap:10px;}
+  details.beat{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);transition:.2s;}
+  details.beat[open]{border-color:#E7D3A8;box-shadow:0 12px 26px rgba(178,131,44,.14);}
+  details.beat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 0;font-weight:800;font-size:15.8px;outline:none;}
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{flex:0 0 34px;height:34px;border-radius:12px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;}
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);padding:1px 8px;border-radius:6px;margin-top:4px;}
+  .binner .key.q{background:var(--orange);}
+
+  /* ---------- 小百科 ---------- */
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--purple);background:var(--purple-soft);border-radius:12px;padding:7px 11px;}
+
+  /* ---------- 表格 ---------- */
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F4EDE0;vertical-align:top;}
+  thead th{background:#FCF6E9;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF8;white-space:nowrap;}
+  tbody tr:hover td{background:#FFF9EC;}
+
+  /* ---------- 终章卡 ---------- */
+  .finale{
+    background:linear-gradient(150deg,#FFF8E4,#F7EEFF 60%,#FFF0F5);
+    border:3px solid var(--gold-line);border-radius:var(--radius);
+    padding:32px 30px;text-align:center;box-shadow:0 18px 36px rgba(178,131,44,.14);
+  }
+  .finale .ball{
+    width:74px;height:74px;margin:0 auto 14px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #EAFFF6, #B9F0DC 55%, #8FD9C0);
+    border:3px solid #fff;box-shadow:0 10px 22px rgba(47,197,171,.24), inset 0 0 0 2px #D8F5EA;
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+  }
+  .finale h3{margin:0 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .finale p{margin:0 auto;max-width:640px;font-size:15px;color:#7A6A46;line-height:1.95;}
+  .finale .q{margin-top:14px;font-size:14px;color:#8A621A;font-weight:800;}
+
+  /* ---------- 三部曲 ---------- */
+  .trilogy{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .tl{
+    background:#fff;border:2px solid var(--line);border-radius:22px;padding:20px;
+    text-decoration:none;color:inherit;display:block;transition:.18s;
+    box-shadow:0 8px 18px rgba(107,95,160,.06);
+  }
+  .tl:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(107,95,160,.13);border-color:#E2D8C2;}
+  .tl .no{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--gold);}
+  .tl h3{margin:4px 0 6px;font-size:17px;font-weight:900;}
+  .tl p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .tl.now{border-color:#DED5FF;background:#FBFAFF;cursor:default;}
+  .tl.now:hover{transform:none;box-shadow:0 8px 18px rgba(107,95,160,.06);}
+
+  /* ---------- 金句 ---------- */
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #4A4374, #2C2A4A 60%, #23213E);
+    border-radius:var(--radius);padding:34px 30px;color:#F4F1FF;
+    position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(44,42,74,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .qitem{position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);margin-bottom:6px;}
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#B9B3D8;letter-spacing:.5px;}
+
+  /* ---------- 想一想 ---------- */
+  .think{display:grid;gap:12px;}
+  .qitem2{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px dashed #E4D9C4;border-radius:18px;padding:16px 18px;}
+  .qnum{flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;}
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  /* ---------- 小词典 ---------- */
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--purple);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  /* ---------- 家长提示 ---------- */
+  .parent{background:linear-gradient(140deg,#FFF6E4,#FFEFF4);border:2px solid #F6E3C6;border-radius:var(--radius);padding:26px 28px;}
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#6A5F52;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#6A5F52;background:rgba(255,255,255,.7);border-radius:12px;padding:9px 13px;}
+  .parent a{color:var(--gold-deep);font-weight:800;text-decoration:none;border-bottom:2px solid var(--gold-line);}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:13px;padding:44px 0 56px;line-height:2;}
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid #E7DCC6;background:#fff;color:var(--gold);font-size:18px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(107,95,160,.16);display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody,.tale{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+    .binner{padding-left:0;}
+    .finale{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">🌠 死神永生·小小读者版</span>
+    <a class="prev" href="三体第二部-黑暗森林-小小读者导读.html">← 第二部</a>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#tales">三个童话</a>
+    <a href="#acts">六幕故事</a>
+    <a href="#chapters">章节地图</a>
+    <a href="#world">小百科</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">刘慈欣 ·《三体Ⅲ·死神永生》</span>
+    <h1>太阳系被折成<span class="hl">一幅画</span>，<br>而她留下了一个玻璃球</h1>
+    <p class="sub">第三部讲的是"尺度"：十分钟里的一次按键，一亿九千万年的一次迟到，还有一个五公斤的选择。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 330" role="img" aria-label="左边是立体的太阳系，右边被二向箔压成了画框里的一幅平面画">
+        <defs>
+          <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FDF5E4"/>
+            <stop offset="55%" stop-color="#F3F1FF"/>
+            <stop offset="100%" stop-color="#FFF6EC"/>
+          </linearGradient>
+          <radialGradient id="sunBall" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#FFEDB4"/>
+            <stop offset="100%" stop-color="#FFC13C"/>
+          </radialGradient>
+          <marker id="arw3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0 0 L9 4.5 L0 9 z" fill="#C6B896"/>
+          </marker>
+        </defs>
+
+        <rect width="1000" height="330" rx="30" fill="url(#sky3)"/>
+
+        <g fill="#CFC4E4">
+          <circle cx="60" cy="46" r="2.1"/><circle cx="130" cy="90" r="1.7"/>
+          <circle cx="210" cy="38" r="1.9"/><circle cx="330" cy="70" r="2.2"/>
+          <circle cx="400" cy="30" r="1.7"/><circle cx="470" cy="88" r="2"/>
+          <circle cx="540" cy="46" r="1.8"/><circle cx="960" cy="96" r="2"/>
+          <circle cx="60" cy="292" r="1.8"/><circle cx="330" cy="300" r="1.6"/>
+        </g>
+
+        <text x="66" y="44" font-size="13.5" fill="#9A7B44" font-weight="800">三维的太阳系</text>
+        <text x="700" y="34" font-size="13.5" fill="#9A7B44" font-weight="800">二维的一幅画</text>
+
+        <!-- 立体太阳系 -->
+        <g>
+          <circle cx="155" cy="152" r="62" fill="#FFD97A" opacity=".22"/>
+          <circle cx="155" cy="152" r="44" fill="url(#sunBall)"/>
+          <ellipse cx="195" cy="152" rx="102" ry="68" fill="none" stroke="#E7D9BC" stroke-width="2" stroke-dasharray="6 8"/>
+          <circle cx="262" cy="102" r="10" fill="#7C6BFF"/>
+          <circle cx="252" cy="208" r="12" fill="#2FC5AB"/>
+          <circle cx="295" cy="150" r="7" fill="#FF8FB4"/>
+        </g>
+
+        <!-- 二向箔 -->
+        <path d="M352 152 L520 152" stroke="#C6B896" stroke-width="2.6" stroke-dasharray="7 8" marker-end="url(#arw3)" fill="none"/>
+        <g transform="rotate(-14 432 196)">
+          <rect x="416" y="178" width="32" height="38" rx="4" fill="#EDF1F8" stroke="#8E9AB3" stroke-width="2"/>
+          <line x1="424" y1="188" x2="440" y2="188" stroke="#B7C0D2" stroke-width="2"/>
+          <line x1="424" y1="196" x2="440" y2="196" stroke="#B7C0D2" stroke-width="2"/>
+        </g>
+        <text x="432" y="238" text-anchor="middle" font-size="12.5" fill="#8A7B66" font-weight="700">二向箔</text>
+
+        <!-- 画框 -->
+        <rect x="560" y="52" width="368" height="216" rx="10" fill="#FFFDF7" stroke="#B2832C" stroke-width="7"/>
+        <rect x="572" y="64" width="344" height="192" rx="6" fill="none" stroke="#F0E2C4" stroke-width="2"/>
+
+        <g opacity=".85">
+          <line x1="580" y1="96" x2="908" y2="96" stroke="#F6EEDA" stroke-width="2"/>
+          <line x1="580" y1="132" x2="908" y2="132" stroke="#F6EEDA" stroke-width="2"/>
+          <line x1="580" y1="168" x2="908" y2="168" stroke="#F6EEDA" stroke-width="2"/>
+          <line x1="580" y1="204" x2="908" y2="204" stroke="#F6EEDA" stroke-width="2"/>
+        </g>
+
+        <ellipse cx="740" cy="146" rx="124" ry="46" fill="none" stroke="#E9D9B4" stroke-width="2"/>
+
+        <ellipse cx="676" cy="128" rx="40" ry="5.5" fill="#FFD97A" opacity=".45"/>
+        <ellipse cx="676" cy="128" rx="26" ry="3.4" fill="#FFC93C"/>
+        <ellipse cx="762" cy="176" rx="12" ry="2" fill="#7C6BFF"/>
+        <ellipse cx="822" cy="108" rx="8" ry="1.6" fill="#2FC5AB"/>
+        <ellipse cx="852" cy="192" rx="14" ry="2.2" fill="#FF8FB4"/>
+
+        <text x="744" y="248" text-anchor="middle" font-size="12.5" fill="#B08A4E" font-weight="700">一切都被压平了</text>
+
+        <!-- 宇航员 -->
+        <g>
+          <circle cx="500" cy="268" r="11" fill="#3B3563"/>
+          <circle cx="500" cy="268" r="14" fill="none" stroke="#9C8BFF" stroke-width="2.4"/>
+          <path d="M488 282 q12 -8 24 0 l4 26 h-32 z" fill="#3B3563"/>
+          <rect x="486" y="286" width="9" height="16" rx="4" fill="#9C8BFF" opacity=".55"/>
+          <rect x="493" y="306" width="6" height="12" rx="3" fill="#3B3563"/>
+          <rect x="505" y="306" width="6" height="12" rx="3" fill="#3B3563"/>
+        </g>
+
+        <!-- 逃走的光速飞船 -->
+        <g>
+          <path d="M846 268 Q896 240 934 210" stroke="#C08A2E" stroke-width="2.2" stroke-dasharray="4 7" fill="none"/>
+          <path d="M950 186 l16 -12 l-4 18 z" fill="#7C6BFF"/>
+          <text x="884" y="300" font-size="12.5" fill="#B2832C" font-weight="700">逃得掉的，只有光速</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">🌍 <b>太阳系</b> 的结局</span>
+      <span class="badge">👦 建议 <b>13 岁+</b></span>
+      <span class="badge">🧚 三个童话 <b>藏三件武器</b></span>
+      <span class="badge">⏳ 一次迟到 <b>1890 万年</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 3分钟版 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整本书</h2></div>
+    <p class="lead">第三部是三部曲的终点，也是格局最大的一本。</p>
+
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 一个按钮，十分钟</h3>
+        <p>罗辑守了 54 年的"同归于尽开关"，交到了程心手上。三体人赌她不敢按——他们赌对了。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 一声广播，两颗星球</h3>
+        <p>人类的飞船在深空里投票，广播了三体世界的坐标。三体星系先被毁灭，太阳系也因此暴露。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 一片纸，一幅画</h3>
+        <p>宇宙里一个"清理员"随手扔来一片二向箔。整个太阳系被压成二维的一幅画，只有光速飞船逃了出去。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🧑‍🚀</span><h2>人物小档案</h2></div>
+    <p class="lead">这一部的主角换了人，但第一部、第二部的人都会回来告别。</p>
+
+    <div class="people">
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🌱</div>
+          <div><div class="pname">程心</div><div class="prole">航天工程师 · 第二任执剑人 · 主角</div></div>
+        </div>
+        <p>温柔、善良、总想救别人，是所有人眼里"最好的人"。可偏偏是这个"最好的人"，被推上了最需要"狠心"的位置。</p>
+        <div class="say">我不能拿两个世界的命去赌。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">🌾</div>
+          <div><div class="pname">云天明</div><div class="prole">程心的同学 · 送星星的人</div></div>
+        </div>
+        <p>他悄悄爱着程心，用一笔钱给她买了一颗星星。后来他得了绝症，把大脑交给了"阶梯计划"，一个人在太空里漂了很多年——最后，他成了唯一能给人类传话的人。</p>
+        <div class="say">我送你的那颗星星，叫 DX3906。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🗡️</div>
+          <div><div class="pname">维德</div><div class="prole">PIA 局长 · 最"狠"的那个人</div></div>
+        </div>
+        <p>为了目的可以不择手段，也从不掩饰。他一手推动阶梯计划和光速飞船，最后放下枪，被处死。</p>
+        <div class="say">前进！前进！不择手段地前进！</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">😄</div>
+          <div><div class="pname">艾 AA</div><div class="prole">程心的朋友 · 助手</div></div>
+        </div>
+        <p>爽快、能干、嘴上不饶人。从地球到蓝星，她一直陪在程心身边——最后，她在蓝星上等了一辈子。</p>
+        <div class="say">别磨叽了，走不走？</div>
+      </article>
+
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🕰️</div>
+          <div><div class="pname">罗辑</div><div class="prole">第一任执剑人 · 守了 54 年</div></div>
+        </div>
+        <p>第二部结尾那个站在雪地里的人，在这里已经是个老人。他把开关交了出去，然后去冥王星守一座"人类文明博物馆"，最后没有走。</p>
+        <div class="say">我守了五十四年，一天都不敢睡熟。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">👘</div>
+          <div><div class="pname">智子</div><div class="prole">三体人的代言人 · 后来有了身体</div></div>
+        </div>
+        <p>它替三体世界说话，语气永远礼貌又冷淡。这一部里它穿上和服、端起茶——也第一次承认："我们学会了欺骗。"</p>
+        <div class="say">我们，已经学会了欺骗。</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🔭</div>
+          <div><div class="pname">关一帆</div><div class="prole">星舰地球的学者</div></div>
+        </div>
+        <p>研究宇宙的年轻学者，跟着飞船在深空里漂了很久。最后，是他陪程心走到了宇宙的尽头。</p>
+        <div class="say">我们可能是最后两个人类了。</div>
+      </article>
+
+      <article class="person" style="--accent:#FBF0D4">
+        <div class="phead">
+          <div class="avatar">🎵</div>
+          <div><div class="pname">歌者</div><div class="prole">宇宙里的"清理员"</div></div>
+        </div>
+        <p>它一边哼着歌，一边做着清理工作。太阳系在它眼里只是一处"需要打扫的地方"——它甚至懒得看一眼，就扔下了一片二向箔。</p>
+        <div class="say">毁灭你，与你何干？</div>
+      </article>
+
+      <article class="person" style="--accent:#FBF0D4">
+        <div class="phead">
+          <div class="avatar">🕯️</div>
+          <div><div class="pname">狄奥伦娜</div><div class="prole">1453 年的"女魔法师" · 序章</div></div>
+        </div>
+        <p>君士坦丁堡陷落那年，一个会"隔空取人脑子"的女人被当成魔法师。她其实只是碰到了一块"四维空间的碎片"。</p>
+        <div class="say">（全书第一个谜题，也是最后一个答案）</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🏰</div>
+          <div><div class="pname">露珠公主</div><div class="prole">童话里的人 · 也是"密码"</div></div>
+        </div>
+        <p>云天明讲的三个童话里的小公主。她和画师、香皂船、深水王子一起，替人类藏下了三件武器的秘密。</p>
+        <div class="say">（她说完这个故事，人类才活下来）</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 三个童话 ============ -->
+<section id="tales">
+  <div class="wrap">
+    <div class="title"><span class="ico">🧚</span><h2>三个童话：全书最聪明的一段</h2></div>
+    <p class="lead">云天明在三体世界那边，不能直接说人类的秘密——因为三体人听得懂人话。于是他讲了三个童话。三体人以为只是故事，人类却从中读出了三件武器。</p>
+
+    <div class="tales">
+      <article class="tale">
+        <div class="num">壹</div>
+        <h3>《王国的新画师》</h3>
+        <p class="story">王国里来了一个"针眼画师"，他画的画能把真人收进去。被画进去的人，就再也出不来了，变成画上薄薄的一层。</p>
+        <div class="ans">
+          <span class="lb">谜底</span>
+          <b>二维化</b>——就是二向箔。三维的东西被"画"进二维，不会死，但永远只能是一幅画。
+        </div>
+      </article>
+
+      <article class="tale">
+        <div class="num">贰</div>
+        <h3>《饕餮海》</h3>
+        <p class="story">公主和画师坐船逃进饕餮海。船没有帆也没有桨，只靠一块香皂在水里化开，船就越跑越快，快得追不上。</p>
+        <div class="ans">
+          <span class="lb">谜底</span>
+          <b>曲率驱动</b>——光速飞船。飞船不是"往后喷火"，而是"踩着空间"往前跑，肥皂只是一个比喻。
+        </div>
+      </article>
+
+      <article class="tale">
+        <div class="num">叁</div>
+        <h3>《深水王子》</h3>
+        <p class="story">深水王子住在很深很深的水里。在那里，光走得特别慢，谁进了那片水域，就再也追不上外面的世界。</p>
+        <div class="ans">
+          <span class="lb">谜底</span>
+          <b>黑域</b>——把一片空间的光速降下来，把自己"关"进去。外面打不到你，可你也永远出不来。
+        </div>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:18px;background:#FBFAFF;border-color:#E4DDFF;">
+      <p style="margin:0;font-size:14.6px;color:var(--ink-soft);">
+        <b style="color:var(--ink);">为什么用童话？</b>因为三体人刚刚学会说谎，还不擅长"读比喻"。云天明赌的就是这一点：
+        <b style="color:var(--ink);">他们能听懂每一个字，却听不懂字底下的意思。</b>
+        这也是全书最温柔的一次"欺骗"——用故事，把活下去的方法递了过去。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 六幕 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎬</span><h2>故事六幕：从十分钟到一亿九千万年</h2></div>
+    <p class="lead">这一部的时间跨度大到离谱：有十分钟的抉择，也有一千八百九十万年的错过。</p>
+
+    <div class="acts">
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第一幕</span><h3>十分钟：一个按钮交到了她手上</h3></div>
+          <div class="chips"><span class="chip">🕐 威慑纪元末年</span><span class="chip">📍 地球 · 引力波发射中心</span><span class="chip">😰 全书最痛</span></div>
+          <ul>
+            <li>罗辑守了 <b>54 年</b>的"开关"要交班了。谁当下一任执剑人？全世界投票，选出了最温柔的那个人——<b>程心</b>。</li>
+            <li>理由很动人：她的"威慑度"极低，意味着她<b>不会真的按下按钮</b>，两个世界都不会被毁。</li>
+            <li>可三体人等的就是这个。交接后 <b>十五分钟</b>，水滴发动攻击，摧毁了地球上所有的引力波发射装置。</li>
+            <li>程心的手放在了按钮上。她看见了两个世界的毁灭，她犹豫了——<b>她最终没有按</b>。</li>
+            <li>地球输了。人类被赶进澳大利亚，<b>智子</b>穿着和服、端着茶，礼貌地宣布：这里就是你们的保留地。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第二幕</span><h3>一个大脑的旅行</h3></div>
+          <div class="chips"><span class="chip">🕐 危机纪元 → 威慑纪元</span><span class="chip">📍 太空 · 三体世界</span><span class="chip">💔 最孤独的人</span></div>
+          <ul>
+            <li><b>云天明</b>得了绝症。程心劝他参加"阶梯计划"：把身体冷冻、只送一颗大脑去太空——这是人类唯一能送出去的东西。</li>
+            <li>他答应了，因为推动他答应的那个人，是程心。</li>
+            <li>那颗大脑在太空里漂了很多年，被三体人捞了起来，<b>在三体世界重新活了过来</b>。</li>
+            <li>他不能说出人类的秘密，于是讲了<b>三个童话</b>（见上一节）。</li>
+            <li>他还做了一件事：把一颗星星，送给了程心。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第三幕</span><h3>深空里的一次投票</h3></div>
+          <div class="chips"><span class="chip">🕐 威慑后纪元</span><span class="chip">📍 奥尔特星云外</span><span class="chip">📡 转折</span></div>
+          <ul>
+            <li>地球上的人被赶进了澳大利亚，可深空里还有两艘人类飞船：<b>万有引力号</b>和<b>蓝色空间号</b>。</li>
+            <li>他们在宇宙里遇到了一个"四维空间的碎片"——在那里，人能像穿墙一样穿过墙壁（就像 1453 年那位"魔法师"）。</li>
+            <li>然后他们做了一个决定：<b>投票，广播三体世界的坐标。</b></li>
+            <li>引力波广播一旦发出，全宇宙都能听见。<b>三体星系，被判了死刑。</b></li>
+            <li>但三体世界在毁灭之前，也把<b>太阳系的坐标</b>送了出去——这是它最后的报复。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第四幕</span><h3>掩体与光速：人类选错了答案</h3></div>
+          <div class="chips"><span class="chip">🕐 广播纪元 → 掩体纪元</span><span class="chip">📍 木星背后</span><span class="chip">⚖️ 道德难题</span></div>
+          <ul>
+            <li>太阳系暴露了，打击迟早会来。人类猜：打击方式是"光粒"——一颗接近光速的小东西撞太阳。</li>
+            <li>于是有了<b>掩体计划</b>：在木星、土星这些大行星背后建太空城，把身子藏起来。人类觉得这样就安全了。</li>
+            <li>另一边，<b>维德</b>带着人在木星背后偷偷造<b>光速飞船</b>。因为只有光速飞船，才能真正逃出太阳系。</li>
+            <li>可光速飞船只能救很少的人。程心赶去阻止他：<b>她不愿意让少数人逃走、把大多数人留下。</b></li>
+            <li>维德放下了枪。随后他被处死。<b>人类最后一条活路，就这样被"善良"关掉了。</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第五幕</span><h3>一片"纸"落下来</h3></div>
+          <div class="chips"><span class="chip">🕐 掩体纪元末年</span><span class="chip">📍 太阳系</span><span class="chip">🎨 最震撼的画面</span></div>
+          <ul>
+            <li>宇宙深处，一个叫<b>歌者</b>的"清理员"路过。它一边哼歌，一边按流程处理这片星域。</li>
+            <li>它发现太阳系有掩体。光粒不好用了，于是它升级了手段——扔出一片<b>二向箔</b>，一片像小纸片一样的东西。</li>
+            <li>二向箔贴上的地方，三维空间开始"塌"成二维。<b>太阳、地球、还有所有人，都被慢慢压成了一幅画。</b></li>
+            <li>这不是爆炸，也不是火焰——是"变成一幅画"。安静、缓慢、无法挽回。</li>
+            <li><b>罗辑</b>留在冥王星的"地球文明博物馆"里，没有走。只有程心和艾 AA 乘着光速飞船<b>星环号</b>逃了出去。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第六幕</span><h3>宇宙尽头的一间小屋</h3></div>
+          <div class="chips"><span class="chip">🕐 银河纪元</span><span class="chip">📍 DX3906 · 蓝星 · 647 号小宇宙</span><span class="chip">🕯️ 结局</span></div>
+          <ul>
+            <li>程心飞向云天明送她的那颗星星——<b>DX3906</b>，那里有一颗蓝色的行星，云天明说好在那里等她。</li>
+            <li>路上出了意外：飞船陷进了一条"<b>死线</b>"（光速飞船留下的低光速航迹）。在里面只过了 <b>16 天</b>，外面却过去了 <b>1890 万年</b>。</li>
+            <li>她出来的时候，云天明和艾 AA 早已在蓝星上过完了一生。石头上刻着一句话："<b>我们度过了幸福的一生</b>。"</li>
+            <li>他们留下了入口：<b>647 号小宇宙</b>——一间宇宙尽头的小屋，管家是智子。</li>
+            <li>最后，大宇宙的"归零者"发出广播：小宇宙借走了太多质量，宇宙快要无法重生了，请把物质还回来。</li>
+            <li>程心和关一帆决定归还。但她偷偷留下了一个 <b>5 公斤</b>的生态球，里面有水、有草、有一条小鱼。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 章节地图 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🗺️</span><h2>章节地图：18 个台阶</h2></div>
+    <p class="lead">点开每一段，看它"发生了什么"和"为什么重要"。</p>
+
+    <div class="beats">
+      <details class="beat">
+        <summary><span class="bno">01</span>1453：魔法师之死<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>君士坦丁堡陷落那年，一个叫狄奥伦娜的女人能隔空取走别人的脑子，被当成魔法师处死。多年后人们才明白：她碰到了一块"四维空间的碎片"。</p>
+          <p><span class="key q">为什么重要</span>全书第一个谜题，提前告诉读者：<b>这个故事的终极武器，是"维度"。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>执剑人交班<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>罗辑守了 54 年的威慑要交出去。全球投票选出了程心——因为她的"威慑度"最低，最不可能真的按下按钮。</p>
+          <p><span class="key q">为什么重要</span>人类把"善良"当成了安全。<b>可威慑的全部力量，恰恰来自"他真敢按"。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>十分钟：她没能按下按钮<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>交接十五分钟后，水滴摧毁了所有引力波发射装置。程心的手放在按钮上，最终没有按下去。地球被占领。</p>
+          <p><span class="key q">为什么重要</span>全书最重要的一次选择。她救了心里的两个世界，输掉了现实里的一个。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>澳大利亚：人类被赶进一块大陆<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三体人要求全人类迁往澳大利亚。智子穿着和服、端着茶，礼貌地宣布这片大陆就是"保留地"。</p>
+          <p><span class="key q">为什么重要</span>这是全书写得最冷的一段：<b>礼貌，也可以是一种暴力。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>万有引力号：来自深空的广播<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>深空里的万有引力号和蓝色空间号相遇，在四维碎片里穿行，最后投票决定：广播三体世界的坐标。</p>
+          <p><span class="key q">为什么重要</span>地球输了，但人类还有一支舰队在几百亿公里外。<b>他们替全人类按下了那个按钮。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>一颗"光粒"结束了三体世界<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三体世界的坐标被广播后，一颗接近光速的"光粒"击中了它的一颗恒星，恒星爆炸，三体行星被摧毁。</p>
+          <p><span class="key q">为什么重要</span>黑暗森林法则第二次被验证。<b>这一次，被毁灭的是一个文明的全部。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>云天明：一个大脑的旅行<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>云天明得绝症，参加阶梯计划，只把大脑送上太空。多年后，他的大脑被三体人捞起，在三体世界重新活了过来。</p>
+          <p><span class="key q">为什么重要</span>他成了人类唯一"在敌人家里"的人——也是唯一能传回消息的人。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">08</span>三个童话（上）：画师与画<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>云天明讲了《王国的新画师》：针眼画师能把人画进画里，被画进去的人就变成薄薄一层。</p>
+          <p><span class="key q">为什么重要</span>谜底是<b>二向箔</b>。人类第一次知道：最可怕的武器不是炸弹，是"变薄"。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">09</span>三个童话（下）：肥皂船与深水<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>《饕餮海》里，船靠一块香皂就越跑越快；《深水王子》里，深水中的光走得特别慢。</p>
+          <p><span class="key q">为什么重要</span>分别对应<b>曲率驱动（光速飞船）</b>和<b>黑域（低光速区）</b>——两条活路，人类只走通了一条。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">10</span>掩体计划：躲在木星背后<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>既然打击是"光粒撞太阳"，那就把城市建到巨行星背后去。人类觉得找到了完美答案。</p>
+          <p><span class="key q">为什么重要</span>它防住了人类<b>想象中的</b>打击——这也是它最致命的地方。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">11</span>维德：前进，不择手段地前进<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>维德在木星背后秘密建造光速飞船。他知道这会违反法律，也知道只有这条路能让人类留下火种。</p>
+          <p><span class="key q">为什么重要</span>他是全书最不受欢迎、也最可能是对的那个人。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">12</span>程心的选择：她阻止了光速飞船<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>程心赶到星环城，要求维德停止。维德放下枪，随后被处死。光速飞船研究被全面叫停。</p>
+          <p><span class="key q">为什么重要</span>她选了"公平"，放弃了"存活"。<b>这个选择的代价，是整个人类。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">13</span>歌者：随手扔下一片"纸"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>宇宙里的"清理员"歌者路过太阳系，一边哼歌一边按流程清理。发现掩体后，它扔出了一片二向箔。</p>
+          <p><span class="key q">为什么重要</span>人类准备了几个世纪的战争，在对方那里只是<b>一件随手的小事</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">14</span>二维化：太阳系变成一幅画<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三维空间开始向二维塌缩，地球、太阳、所有人被慢慢压平。罗辑留在冥王星，没有走。</p>
+          <p><span class="key q">为什么重要</span>全书最震撼、也最安静的一幕：<b>毁灭可以没有声音。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">15</span>星环号：只有光速能逃<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>程心和艾 AA 登上光速飞船星环号，在二维化追上之前飞离太阳系，前往云天明送的星星。</p>
+          <p><span class="key q">为什么重要</span>被叫停的技术，最后救了主角的命——<b>也是人类文明最后的两个人。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">16</span>蓝星：迟到了一千八百九十万年<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>程心的飞船陷入"死线"，里面过了 16 天，外面过了 1890 万年。她到达蓝星时，云天明和艾 AA 早已过完一生，只留下一句石刻。</p>
+          <p><span class="key q">为什么重要</span>全书最动人的"错过"：<b>他们不是不爱，是时间不对。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">17</span>647 号小宇宙：宇宙尽头的小屋<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>云天明留下了一个小宇宙的入口。程心和关一帆走进去，那里有房子、有田、有管家智子。</p>
+          <p><span class="key q">为什么重要</span>在宇宙都要结束的时候，人类最后得到的东西是<b>一间可以住的小屋</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">18</span>归零：留下一个五公斤的玻璃球<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>归零者广播：请把从小宇宙借走的物质还回来，宇宙才能重新开始。程心和关一帆决定归还，但程心偷偷留下了一个 5 公斤的生态球。</p>
+          <p><span class="key q">为什么重要</span>全书最后一句留白：<b>这 5 公斤，会不会让宇宙永远回不去？</b>答案作者没有给。</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小百科 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">🌠</span><h2>八个关键词，看懂宇宙的规矩</h2></div>
+    <p class="lead">这一部的武器和概念比前两部多，但都围绕一件事：<b>怎么让宇宙看不见你。</b></p>
+
+    <div class="wiki">
+      <div class="card" style="background:var(--purple-soft);border-color:#DED5FF;">
+        <h3>🗡️ 执剑人 · 威慑度</h3>
+        <p>握着"广播坐标"开关的人。他的力量不在按钮，而在<b>别人相信他真敢按</b>——这就叫威慑度。罗辑的威慑度极高，程心的极低。</p>
+        <div class="tip">💡 一个"好人"当执剑人，反而是最危险的。</div>
+      </div>
+
+      <div class="card" style="background:var(--teal-soft);border-color:#C9F1E8;">
+        <h3>📡 引力波广播</h3>
+        <p>用引力波把一段信息发向全宇宙，任何文明都能收到。一旦发出，被点名的星系就完了。</p>
+        <div class="tip">💡 它不是"求救"，是"判决书"。</div>
+      </div>
+
+      <div class="card" style="background:var(--yellow-soft);border-color:#F3DFA4;">
+        <h3>💫 光粒</h3>
+        <p>一个接近光速的小颗粒，撞进恒星，让恒星爆炸。清理一个星系，只需要一颗。</p>
+        <div class="tip">💡 掩体计划就是用来防它的——躲到行星背后。</div>
+      </div>
+
+      <div class="card" style="background:var(--gold-soft);border-color:var(--gold-line);">
+        <h3>📄 二向箔 · 维度打击</h3>
+        <p>一片小纸片。贴上之后，周围的三维空间会自己往二维塌缩，像一本书被压成一张纸，而且<b>永不停止</b>。</p>
+        <div class="tip">💡 它不炸不烧，只是"变薄"。谁也挡不住，只能跑。</div>
+      </div>
+
+      <div class="card" style="background:var(--forest-soft,#E2FAF5);border-color:#C9F1E8;">
+        <h3>🌑 黑域 · 低光速</h3>
+        <p>把一片空间的光速降下来，做成一个"黑域"。外面看不见你，你也永远出不去。</p>
+        <div class="tip">💡 是一种保护，也是一座监狱。</div>
+      </div>
+
+      <div class="card" style="background:#F4F9FF;border-color:#D7E5F5;">
+        <h3>🚀 曲率驱动</h3>
+        <p>不靠喷火，而是"踩着前面的空间"往前跑，能让飞船接近光速。飞过的地方会留下一条"死线"。</p>
+        <div class="tip">💡 肥皂船的故事，讲的就是它。</div>
+      </div>
+
+      <div class="card" style="background:var(--orange-soft);border-color:#FFE0BE;">
+        <h3>🛡️ 掩体计划</h3>
+        <p>把太空城建在木星、土星等大行星的背后，用行星的身体挡住光粒。</p>
+        <div class="tip">💡 防得住"子弹"，防不住"变薄"。</div>
+      </div>
+
+      <div class="card" style="background:#FBF6EA;border-color:#EFE4CE;">
+        <h3>🏠 小宇宙 · 归零者</h3>
+        <p>用宇宙的物质单独造一个小世界，躲过宇宙的末日。归零者则是要求所有文明把物质还回去的存在。</p>
+        <div class="tip">💡 借来的东西，最后都要还。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>三种"宇宙武器"，比一比</h2></div>
+    <p class="lead">看懂这张表，就明白为什么"掩体计划"注定失败、"光速飞船"才是唯一答案。</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>武器</th><th>长什么样</th><th>怎么伤人</th><th>后果</th><th>能不能防</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>💫 光粒</td>
+            <td>一颗极小的颗粒，接近光速</td>
+            <td>直接撞进恒星，让恒星爆炸</td>
+            <td>行星被烤焦，整个星系毁灭</td>
+            <td>躲在巨行星背后，有机会挡住</td>
+          </tr>
+          <tr>
+            <td>📄 二向箔</td>
+            <td>一片薄薄的小纸片</td>
+            <td>贴上去，让空间自己往二维塌缩</td>
+            <td>整个太阳系变成一幅平面画</td>
+            <td>挡不住，只有光速飞船能逃</td>
+          </tr>
+          <tr>
+            <td>🌑 黑域</td>
+            <td>一片光速变慢的空间</td>
+            <td>不是攻击，是把自己"关"起来</td>
+            <td>外面找不到你，你也出不去</td>
+            <td>不需要防，这是自保手段</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 终章 ============ -->
+<section id="finale">
+  <div class="wrap">
+    <div class="finale">
+      <div class="ball">🐟</div>
+      <h3>最后一页：五公斤</h3>
+      <p>宇宙要重启了，所有人都在归还借走的东西。程心把整个小宇宙交了出去，却偷偷留下一个五公斤的生态球——
+      里面有水，有草，有一条小鱼。它小到几乎不算什么，可宇宙的结局，也许就差这五公斤。</p>
+      <div class="q">如果是你，你会留下这个玻璃球吗？</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 金句 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✨</span><h2>五句值得抄在本子上的话</h2></div>
+      <div class="qitem">
+        <p>弱小和无知不是生存的障碍，傲慢才是。</p>
+        <span>—— 全书最锋利的一句</span>
+      </div>
+      <div class="qitem">
+        <p>失去人性，失去很多；失去兽性，失去一切。</p>
+        <span>—— 维德</span>
+      </div>
+      <div class="qitem">
+        <p>前进！前进！不择手段地前进！</p>
+        <span>—— 维德</span>
+      </div>
+      <div class="qitem">
+        <p>毁灭你，与你何干？</p>
+        <span>—— 歌者</span>
+      </div>
+      <div class="qitem">
+        <p>我们度过了幸福的一生。</p>
+        <span>—— 蓝星上的石刻</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">第三部没有"正确答案"，它只是把最难的问题摆在你面前。</p>
+
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>程心没有按下按钮。<b>如果是你，你会按吗？</b>按下去，两个世界都可能毁灭；不按，地球就输了。</p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>维德说"失去兽性，失去一切"，程心选择了人性。<b>谁是对的？</b></p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>光速飞船只能救少数人，掩体计划能救大多数人却注定失败。<b>该不该偷偷造那艘船？</b></p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>云天明用童话传密码。<b>为什么"讲故事"比"说实话"更有力量？</b></p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>程心留下了一个五公斤的玻璃球。<b>你支持她吗？</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这本书会遇到的小词</h2></div>
+    <p class="lead">遇到不认识的名词，回来查一下就好。</p>
+
+    <div class="words">
+      <dl class="word"><dt>阶梯计划<em>计划名</em></dt><dd>只把一颗大脑送上太空的计划，因为人类能送出去的东西太少了。</dd></dl>
+      <dl class="word"><dt>威慑度<em>指标</em></dt><dd>衡量一个执剑人"真敢按下按钮"的程度。越高越安全，也越可怕。</dd></dl>
+      <dl class="word"><dt>引力波广播<em>手段</em></dt><dd>用引力波向全宇宙发送坐标，一旦发出就收不回来。</dd></dl>
+      <dl class="word"><dt>光粒<em>武器</em></dt><dd>接近光速的小颗粒，撞进恒星就能毁灭一个星系。</dd></dl>
+      <dl class="word"><dt>二向箔<em>武器</em></dt><dd>把三维空间压成二维的"小纸片"，不可逆，无法阻挡。</dd></dl>
+      <dl class="word"><dt>二维化<em>现象</em></dt><dd>三维物体被压平成二维，像画在纸上，永远出不来。</dd></dl>
+      <dl class="word"><dt>黑域<em>手段</em></dt><dd>光速被降低的空间，安全但封闭。</dd></dl>
+      <dl class="word"><dt>死线<em>现象</em></dt><dd>光速飞船留下的低光速航迹，进去就可能"错过"很多年。</dd></dl>
+      <dl class="word"><dt>掩体计划<em>工程</em></dt><dd>把太空城建在巨行星背后，用行星挡住光粒。</dd></dl>
+      <dl class="word"><dt>星环号<em>飞船</em></dt><dd>程心和艾 AA 乘坐的光速飞船。</dd></dl>
+      <dl class="word"><dt>小宇宙<em>空间</em></dt><dd>用宇宙的物质单独造出的一个小世界，可以躲过宇宙末日。</dd></dl>
+      <dl class="word"><dt>归零者<em>存在</em></dt><dd>要求所有文明归还物质、让宇宙重新开始的存在。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>第三部是"想"的，不是"看"的</h3>
+      <p>《死神永生》几乎没有冒险场面，它讲的是宇宙尺度上的伦理：为了避免毁灭，是否可以毁灭别人？为了多数人，是否可以放弃少数人？为了活下去，是否可以不要人性？<b>整个太阳系被二维化，全人类变成一幅画</b>——这个意象对孩子的冲击，比任何血腥描写都大。</p>
+      <p>建议：<b>13 岁以上、并且已经读完前两部</b>再读。本页保留了核心意象，省略了大量残酷细节与复杂支线（如三体世界的政治、星舰地球的内斗）。</p>
+      <h3 style="margin-top:18px;">三种读法</h3>
+      <div class="route">
+        <div><b>路线 A · 童话入口：</b>先读"三个童话"一节，把它当成三个谜语，再回头看它们对应什么武器。</div>
+        <div><b>路线 B · 顺着读：</b>按六幕走，每幕结束问一句"如果是你，你会怎么选"。</div>
+        <div><b>路线 C · 只读结局：</b>直接读"最后一页：五公斤"，那是全书留给读者的最后一个问题。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#8A7B66;">本页只覆盖第三部。建议的完整顺序：<a href="三体第一部-小小读者导读.html">第一部</a> → <a href="三体第二部-黑暗森林-小小读者导读.html">第二部</a> → 第三部。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 三部曲 ============ -->
+<section id="series">
+  <div class="wrap">
+    <div class="title"><span class="ico">📚</span><h2>三部曲，读完了</h2></div>
+    <p class="lead">从"不要回答"到"五公斤"，这是一个关于选择的故事。</p>
+
+    <div class="trilogy">
+      <a class="tl" href="三体第一部-小小读者导读.html">
+        <div class="no">BOOK Ⅰ</div>
+        <h3>三体</h3>
+        <p>有人回答了宇宙，于是有人要来了。</p>
+      </a>
+      <a class="tl" href="三体第二部-黑暗森林-小小读者导读.html">
+        <div class="no">BOOK Ⅱ</div>
+        <h3>黑暗森林</h3>
+        <p>他学会了开枪，换来了五十年的和平。</p>
+      </a>
+      <div class="tl now">
+        <div class="no">BOOK Ⅲ · 你在这里</div>
+        <h3>死神永生</h3>
+        <p>太阳系成了画，宇宙尽头剩下一间小屋。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《三体Ⅲ·死神永生》· 小小读者导读<br>
+    为小学生重述 · 共 6 幕 / 18 个情节台阶 / 10 位人物 / 3 个童话<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span></p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>

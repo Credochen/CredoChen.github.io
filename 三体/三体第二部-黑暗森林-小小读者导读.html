@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《三体Ⅱ·黑暗森林》· 小小读者导读</title>
+<meta name="description" content="把刘慈欣《三体Ⅱ·黑暗森林》拆成小朋友听得懂的故事：面壁计划与破壁人、水滴与末日战役、黑暗森林法则的推导。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#33305A;
+    --ink-soft:#6C688E;
+    --ink-faint:#9A96B4;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#EDE4D5;
+    --dark:#3B3563;
+    --forest:#2F7A63;
+    --forest-soft:#E4F5EE;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.14), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(124,107,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.10), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--purple-soft);border-color:#DCD3FF;color:var(--purple);}
+  .nav a.prev{background:var(--forest-soft);color:var(--forest);border-color:#C6EBDF;font-weight:700;}
+  .nav a.prev:hover{background:#D6F1E7;border-color:#A9E0CE;color:var(--forest);}
+
+  /* ---------- 封面 ---------- */
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,#2F7A63,#5FB99B);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(47,122,99,.26);
+    transform:rotate(-2deg);
+  }
+  h1{
+    font-size:clamp(29px,5.2vw,50px);
+    line-height:1.3;margin:20px 0 6px;letter-spacing:2px;font-weight:900;
+  }
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:660px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(47,122,99,.14);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;
+    background-size:100% 12px;
+    background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{
+    background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);
+  }
+
+  /* ---------- 一句话 ---------- */
+  .oneline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--purple-soft);border-color:#DED5FF;}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--forest-soft);border-color:#C6EBDF;}
+
+  /* ---------- 人物 ---------- */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--purple-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--purple-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{
+    margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCF7EC;
+    border:1.5px dashed #E9DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;
+  }
+  .say::before{content:"“";font-weight:900;color:var(--purple);}
+  .say::after{content:"”";font-weight:900;color:var(--purple);}
+
+  /* ---------- SVG 图容器 ---------- */
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+  .subhead{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;margin:26px 0 12px;}
+  .subhead .dot{width:10px;height:10px;border-radius:50%;background:var(--purple);}
+
+  /* ---------- 面壁者档案 ---------- */
+  .wfgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+  .wf{
+    position:relative;background:#fff;border:2px solid #E4DDFF;border-radius:24px;
+    padding:20px 22px 18px;box-shadow:0 10px 24px rgba(107,95,160,.08);overflow:hidden;
+  }
+  .wf::after{
+    content:"?";position:absolute;right:-4px;top:-22px;font-size:86px;font-weight:900;
+    color:#F6F2FF;line-height:1;pointer-events:none;
+  }
+  .wfhead{position:relative;display:flex;align-items:center;gap:12px;margin-bottom:6px;padding-right:38px;}
+  .wfhead .avatar{background:var(--purple-soft);}
+  .wfline{position:relative;display:flex;gap:9px;align-items:flex-start;font-size:14px;color:var(--ink-soft);margin-top:8px;}
+  .wfline .k{
+    flex:0 0 52px;font-size:11.5px;font-weight:800;color:#fff;background:var(--purple);
+    border-radius:7px;text-align:center;height:21px;line-height:21px;margin-top:3px;
+  }
+  .wfline.t .k{background:var(--teal);}
+  .wfline.r .k{background:var(--orange);}
+  .wfribbon{
+    position:relative;margin-top:14px;font-size:13.2px;background:var(--yellow-soft);
+    border:1.5px dashed #EFD9A0;border-radius:12px;padding:8px 12px;color:#7A6320;
+  }
+  .wfribbon b{color:#5C4A12;}
+
+  /* ---------- 五幕/六幕 ---------- */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:11px;top:8px;bottom:12px;border-left:3px dotted #DCD2F5;}
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--purple);box-shadow:0 0 0 4px #F3EEFF;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .act:nth-child(6)::before{border-color:var(--forest);}
+  .actbody{
+    background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+  }
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{
+    font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--purple);
+    padding:3px 10px;border-radius:8px;
+  }
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .act:nth-child(6) .actno{background:var(--forest);}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{font-size:12px;color:var(--ink-soft);background:#FBF6EA;border:1.5px solid #EFE4CE;border-radius:999px;padding:2px 10px;}
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  /* ---------- 折叠章节卡 ---------- */
+  .beats{display:grid;gap:10px;}
+  details.beat{
+    background:var(--paper);border:2px solid var(--line);border-radius:18px;
+    padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);transition:.2s;
+  }
+  details.beat[open]{border-color:#D9CEFF;box-shadow:0 12px 26px rgba(124,107,255,.12);}
+  details.beat summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;
+    padding:12px 0;font-weight:800;font-size:15.8px;outline:none;
+  }
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{
+    flex:0 0 34px;height:34px;border-radius:12px;background:var(--purple-soft);color:var(--purple);
+    display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;
+  }
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{
+    flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);
+    padding:1px 8px;border-radius:6px;margin-top:4px;
+  }
+  .binner .key.q{background:var(--orange);}
+
+  /* ---------- 小百科 ---------- */
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--purple);background:var(--purple-soft);border-radius:12px;padding:7px 11px;}
+
+  /* ---------- 黑暗森林配方 ---------- */
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .fitem{background:#fff;border:2px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);}
+  .fitem h4{margin:0 0 5px;font-size:15.5px;display:flex;gap:9px;align-items:center;font-weight:900;}
+  .fnum{
+    width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:var(--purple-soft);color:var(--purple);
+    font-size:12.5px;font-weight:900;display:flex;align-items:center;justify-content:center;
+  }
+  .fitem p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .fmid{text-align:center;color:var(--ink-faint);font-size:13.5px;margin:16px 0 12px;letter-spacing:1px;font-weight:700;}
+  .fres{
+    background:linear-gradient(140deg,#FFF6DA,#FFEEDA);border:3px solid #F3DFA4;border-radius:24px;
+    padding:24px 26px;text-align:center;box-shadow:0 12px 26px rgba(243,223,164,.35);
+  }
+  .fres .lab{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#B08930;}
+  .fres h3{margin:6px 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .fres p{margin:0;font-size:15px;color:#7A6320;line-height:1.9;}
+
+  /* ---------- 表格 ---------- */
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F4EDE0;vertical-align:top;}
+  thead th{background:#FCF6E9;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF8;white-space:nowrap;}
+  tbody tr:hover td{background:#FFF9EC;}
+
+  /* ---------- 金句 ---------- */
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #4A4374, #2C2A4A 60%, #23213E);
+    border-radius:var(--radius);padding:34px 30px;color:#F4F1FF;
+    position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(44,42,74,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .qitem{position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);margin-bottom:6px;}
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#B9B3D8;letter-spacing:.5px;}
+
+  /* ---------- 想一想 ---------- */
+  .think{display:grid;gap:12px;}
+  .qitem2{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px dashed #E4D9C4;border-radius:18px;padding:16px 18px;}
+  .qnum{
+    flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;
+  }
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  /* ---------- 小词典 ---------- */
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--purple);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  /* ---------- 家长提示 ---------- */
+  .parent{background:linear-gradient(140deg,#FFF6E4,#FFEFF4);border:2px solid #F6E3C6;border-radius:var(--radius);padding:26px 28px;}
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#6A5F52;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#6A5F52;background:rgba(255,255,255,.7);border-radius:12px;padding:9px 13px;}
+  .parent a{color:var(--forest);font-weight:800;text-decoration:none;border-bottom:2px solid #C6EBDF;}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:13px;padding:44px 0 56px;line-height:2;}
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid #E7DCC6;background:#fff;color:var(--forest);font-size:18px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(107,95,160,.16);display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody,.wf{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+    .fgrid{grid-template-columns:1fr;}
+    .binner{padding-left:0;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">🌲 黑暗森林·小小读者版</span>
+    <a class="prev" href="三体第一部-小小读者导读.html">← 第一部</a>
+    <a href="三体第三部-死神永生-小小读者导读.html" style="background:#FBF0D4;color:#8A621A;border-color:#EBD6A5;font-weight:700;">第三部 →</a>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#wallfacer">面壁者</a>
+    <a href="#acts">六幕故事</a>
+    <a href="#chapters">章节地图</a>
+    <a href="#world">小百科</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">刘慈欣 ·《三体Ⅱ·黑暗森林》</span>
+    <h1>宇宙是一座<span class="hl">黑暗森林</span>，<br>而他学会了"开枪"</h1>
+    <p class="sub">第一部讲"有人来了"；这一部讲"我们怎么活下去"。故事更长、更绕——这一页帮你把它捋成一条线。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 320" role="img" aria-label="一片安静的森林，山上有座信号塔，远处的星星被画上了准星">
+        <defs>
+          <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#E7EEFF"/>
+            <stop offset="50%" stop-color="#F1F0FF"/>
+            <stop offset="100%" stop-color="#F2FCF7"/>
+          </linearGradient>
+          <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#BFE7D4"/>
+            <stop offset="100%" stop-color="#9ED8BC"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="1000" height="320" rx="30" fill="url(#sky2)"/>
+
+        <!-- 星星 -->
+        <g fill="#C3CDF0">
+          <circle cx="60" cy="54" r="2.2"/><circle cx="128" cy="100" r="1.7"/>
+          <circle cx="196" cy="42" r="2"/><circle cx="268" cy="86" r="2.4"/>
+          <circle cx="352" cy="40" r="1.7"/><circle cx="420" cy="96" r="2.1"/>
+          <circle cx="512" cy="52" r="1.8"/><circle cx="640" cy="38" r="2"/>
+          <circle cx="712" cy="96" r="1.6"/><circle cx="812" cy="150" r="2"/>
+          <circle cx="958" cy="70" r="2.2"/><circle cx="900" cy="124" r="1.7"/>
+        </g>
+
+        <!-- 远处的"被广播的恒星" -->
+        <g>
+          <circle cx="838" cy="86" r="26" fill="#FFD97A" opacity=".22"/>
+          <circle cx="838" cy="86" r="13" fill="#FFC93C"/>
+          <g stroke="#FF7EA8" stroke-width="2.4" opacity=".85">
+            <line x1="806" y1="86" x2="870" y2="86"/>
+            <line x1="838" y1="54" x2="838" y2="118"/>
+          </g>
+          <circle cx="838" cy="86" r="34" fill="none" stroke="#FF7EA8" stroke-width="2" stroke-dasharray="5 7" opacity=".6"/>
+          <text x="838" y="150" text-anchor="middle" font-size="13" fill="#C26887" font-weight="700">坐标被广播</text>
+        </g>
+
+        <!-- 信号塔 -->
+        <g>
+          <path d="M300 214 L316 138 L332 214 Z" fill="none" stroke="#4A4470" stroke-width="5" stroke-linejoin="round"/>
+          <line x1="306" y1="190" x2="326" y2="190" stroke="#4A4470" stroke-width="3.4"/>
+          <line x1="302" y1="205" x2="330" y2="205" stroke="#4A4470" stroke-width="3.4"/>
+          <circle cx="316" cy="134" r="6" fill="#7C6BFF"/>
+          <g fill="none" stroke="#7C6BFF" stroke-width="2.4" opacity=".55">
+            <path d="M336 120 a26 26 0 0 1 0 30"/>
+            <path d="M350 110 a40 40 0 0 1 0 50"/>
+          </g>
+        </g>
+
+        <!-- 森林剪影 -->
+        <path d="M0 320 L0 258 Q120 232 230 250 Q330 266 420 320 Z" fill="url(#hill2)"/>
+        <g fill="#6FBF9E">
+          <g transform="translate(70,236)"><circle cx="0" cy="0" r="26"/><circle cx="-18" cy="10" r="18"/><circle cx="19" cy="11" r="17"/><rect x="-4" y="8" width="8" height="22" rx="4" fill="#4E9A7C"/></g>
+          <g transform="translate(160,250)"><circle cx="0" cy="0" r="21"/><circle cx="-15" cy="9" r="15"/><circle cx="16" cy="9" r="14"/><rect x="-3" y="7" width="7" height="18" rx="3.5" fill="#4E9A7C"/></g>
+          <g transform="translate(245,244)"><circle cx="0" cy="0" r="17"/><circle cx="-13" cy="8" r="12"/><rect x="-3" y="6" width="6" height="16" rx="3" fill="#4E9A7C"/></g>
+        </g>
+
+        <!-- 右侧山坡与小猎人 -->
+        <path d="M520 320 Q700 250 860 268 Q940 276 1000 262 L1000 320 Z" fill="#B6E3CC"/>
+        <g fill="#3F5B52">
+          <circle cx="700" cy="238" r="10"/>
+          <path d="M691 249 q9 -7 18 0 l3 24 h-24 z"/>
+          <rect x="690" y="272" width="6" height="15" rx="3"/>
+          <rect x="703" y="272" width="6" height="15" rx="3"/>
+          <path d="M707 254 l18 -6" stroke="#3F5B52" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <g transform="rotate(-18 730 246)">
+          <rect x="720" y="240" width="26" height="9" rx="4.5" fill="#3F5B52"/>
+        </g>
+
+        <text x="70" y="300" font-size="13.5" fill="#3F7A63" font-weight="700">森林里，谁都不敢出声</text>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">📚 <b>面壁计划</b> 4 人</span>
+      <span class="badge">👦 建议 <b>12 岁+</b></span>
+      <span class="badge">🌊 三幕大转折</span>
+      <span class="badge">🕳️ 核心只有 <b>1 个比喻</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 3分钟版 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整本书</h2></div>
+    <p class="lead">第二部的人物多、时间跨度大，但故事的骨架其实很简单。</p>
+
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 人类没有秘密了</h3>
+        <p>三体人的"眼睛"（智子）能看见地球上的一切，人类的每句话他们都能听见。可他们不会说谎，也不懂欺骗——这是人类唯一的机会。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 于是有了"面壁者"</h3>
+        <p>人类选出四个人，把真正的计划藏在自己脑子里，谁都不告诉。三体人也派出"破壁人"，专门来猜他们的心事。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 一个懒教授想通了</h3>
+        <p>罗辑发现：宇宙是一座黑暗森林，谁暴露坐标谁就死。他拿这件事当"枪"，第一次逼三体人坐下来谈判。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🧑‍🚀</span><h2>人物小档案</h2></div>
+    <p class="lead">这一部的人比第一部多，先认这 12 个，故事就通了。</p>
+
+    <div class="people">
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🛋️</div>
+          <div><div class="pname">罗辑</div><div class="prole">大学教授 · 主角 · 第四位面壁者</div></div>
+        </div>
+        <p>研究天文和社会学的大学老师，有点懒、有点花心，最大的理想是"找个安静地方混日子"。可偏偏是他，成了三体世界唯一点名要杀的人。</p>
+        <div class="say">我就是一个普通人，为什么是我？</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🚬</div>
+          <div><div class="pname">史强</div><div class="prole">警官 · 外号"大史"</div></div>
+        </div>
+        <p>还是那个抽烟、说话粗、直觉准得吓人的大史。这一部他得了白血病，只好冬眠到未来治病，后来又和罗辑一起醒来，继续当他的保镖。</p>
+        <div class="say">别怕，天塌下来有个高的顶着——现在个高的就是你。</div>
+      </article>
+
+      <article class="person" style="--accent:#E4F5EE">
+        <div class="phead">
+          <div class="avatar">🎖️</div>
+          <div><div class="pname">章北海</div><div class="prole">太空军政委 · 外号"第五位面壁者"</div></div>
+        </div>
+        <p>全书最厉害的"演员"。他表面上是最坚定的必胜派，心里却早就认定人类打不赢，偷偷策划了一场谁也不知道的逃亡。</p>
+        <div class="say">没关系的，都一样。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🎨</div>
+          <div><div class="pname">庄颜</div><div class="prole">美术生 · 罗辑的爱人</div></div>
+        </div>
+        <p>罗辑说"我想要一个梦里的女孩"，结果她真的出现了。她陪罗辑过了五年最平静的日子，后来为了让他工作，被送进了冬眠。</p>
+        <div class="say">（她一出现，全书就忽然有了颜色）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🌌</div>
+          <div><div class="pname">叶文洁</div><div class="prole">第一部的主角 · 这一部的"老师"</div></div>
+        </div>
+        <p>她已经老了。在女儿杨冬的墓前，她把"宇宙社会学"的两条公理和两个概念，全部交给了罗辑。那是整部书的钥匙。</p>
+        <div class="say">生存是文明的第一需要。</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🧠</div>
+          <div><div class="pname">希恩斯</div><div class="prole">英国脑科学家 · 第三位面壁者</div></div>
+        </div>
+        <p>温和、聪明，发明了"思想钢印"——在人的大脑里烙下一个不能反悔的信念。他的真实目的，比所有人想的都更冷酷。</p>
+        <div class="say">信念如果能被打印，人还是人吗？</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🌸</div>
+          <div><div class="pname">山杉惠子</div><div class="prole">希恩斯的妻子 · 也是他的破壁人</div></div>
+        </div>
+        <p>她安静地陪在丈夫身边很多年，然后在最关键的时刻站起来说："我是你的破壁人。"最了解你的人，最能拆穿你。</p>
+        <div class="say">亲爱的，我一直都懂你。</div>
+      </article>
+
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">💂</div>
+          <div><div class="pname">泰勒</div><div class="prole">美国前国防部长 · 第一位面壁者</div></div>
+        </div>
+        <p>他的计划听起来像鬼故事：制造一支"量子幽灵"舰队——人死了，还能继续打仗。计划被说穿后，他选择了结束自己的生命。</p>
+        <div class="say">我要的士兵，是打不死的。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🎩</div>
+          <div><div class="pname">雷迪亚兹</div><div class="prole">委内瑞拉总统 · 第二位面壁者</div></div>
+        </div>
+        <p>他的计划是造出超级氢弹，然后拿"同归于尽"去威胁三体人：你敢来，我就把太阳系炸了。破壁之后，他死在自己国家愤怒的民众手里。</p>
+        <div class="say">要么都活着，要么都别活。</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">👩‍💼</div>
+          <div><div class="pname">萨伊</div><div class="prole">联合国秘书长 · 面壁计划的推动者</div></div>
+        </div>
+        <p>冷静、克制，是她把"面壁计划"推上了台面，也是她在关键时刻一次次提醒人类：我们面对的到底是什么。</p>
+        <div class="say">面壁者不需要向任何人解释自己的行为。</div>
+      </article>
+
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">👁️</div>
+          <div><div class="pname">智子</div><div class="prole">三体人的"眼睛"与"嘴"</div></div>
+        </div>
+        <p>它无处不在，能看见一切、听见一切，还能在人眼前显示文字。它代表三体世界说话，语气永远平静得可怕。</p>
+        <div class="say">主不在乎。</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🎱</div>
+          <div><div class="pname">丁仪</div><div class="prole">物理学家 · 第一部里的"台球老师"</div></div>
+        </div>
+        <p>那个头发乱糟糟的物理学家又出现了。他第一个登上飞船去看"水滴"，也是第一批牺牲的人——他到死都在感叹那个东西有多完美。</p>
+        <div class="say">太美了……美得不像武器。</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 面壁者 ============ -->
+<section id="wallfacer">
+  <div class="wrap">
+    <div class="title"><span class="ico">🧱</span><h2>面壁计划：把秘密藏在脑子里</h2></div>
+    <p class="lead">这是全书最聪明的设定。先看懂"为什么必须这样"，再去看四个人的计划，就一点都不绕了。</p>
+
+    <div class="graph" style="margin-bottom:26px;">
+      <svg viewBox="0 0 700 340" role="img" aria-label="人类在透明玻璃房里开会，屋顶上有一只在偷听的智子">
+        <!-- 玻璃房 -->
+        <rect x="60" y="118" width="440" height="180" rx="18" fill="#F4F9FF" stroke="#C5D6EC" stroke-width="3"/>
+        <rect x="60" y="118" width="440" height="180" rx="18" fill="none" stroke="#FFFFFF" stroke-width="1.6" opacity=".9"/>
+        <text x="280" y="106" text-anchor="middle" font-size="14" fill="#7A8AA6" font-weight="700">玻璃房：说的每句话都被听见</text>
+
+        <!-- 房间里的人 -->
+        <g fill="#4A4470">
+          <g transform="translate(140,222)"><circle cx="0" cy="0" r="12"/><path d="M-11 12 q11 -8 22 0 l3 30 h-28 z"/></g>
+          <g transform="translate(215,226)"><circle cx="0" cy="0" r="12"/><path d="M-11 12 q11 -8 22 0 l3 30 h-28 z"/></g>
+          <g transform="translate(360,226)"><circle cx="0" cy="0" r="12"/><path d="M-11 12 q11 -8 22 0 l3 30 h-28 z"/></g>
+          <g transform="translate(430,222)"><circle cx="0" cy="0" r="12"/><path d="M-11 12 q11 -8 22 0 l3 30 h-28 z"/></g>
+        </g>
+
+        <!-- 一个人脑子里有锁 -->
+        <g>
+          <circle cx="290" cy="228" r="13" fill="#7C6BFF"/>
+          <path d="M279 240 q11 -8 22 0 l3 32 h-28 z" fill="#7C6BFF"/>
+          <circle cx="293" cy="204" r="5" fill="#EFEBFF" stroke="#C9BEFF" stroke-width="2"/>
+          <circle cx="297" cy="195" r="7" fill="#EFEBFF" stroke="#C9BEFF" stroke-width="2"/>
+          <rect x="256" y="154" width="68" height="38" rx="15" fill="#EFEBFF" stroke="#C9BEFF" stroke-width="2.4"/>
+          <rect x="276" y="162" width="28" height="22" rx="5" fill="#7C6BFF"/>
+          <path d="M282 162 v-6 a8 8 0 0 1 16 0 v6" fill="none" stroke="#7C6BFF" stroke-width="3"/>
+          <text x="290" y="144" text-anchor="middle" font-size="12.5" fill="#7C6BFF" font-weight="800">只有他自己知道</text>
+        </g>
+
+        <!-- 屋顶的智子 -->
+        <g>
+          <circle cx="280" cy="62" r="22" fill="#3B3563"/>
+          <circle cx="272" cy="58" r="4" fill="#fff"/>
+          <circle cx="288" cy="58" r="4" fill="#fff"/>
+          <path d="M280 62 q-8 10 0 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <g stroke="#B9AEE8" stroke-width="2.4" fill="none" stroke-dasharray="4 6">
+            <path d="M256 78 a34 34 0 0 1 48 0"/>
+          </g>
+          <text x="280" y="26" text-anchor="middle" font-size="13.5" fill="#5B4A96" font-weight="800">智子：看得见、听得见，但读不了心</text>
+        </g>
+
+        <!-- 右侧说明 -->
+        <g>
+          <rect x="540" y="118" width="130" height="86" rx="16" fill="#E4F5EE" stroke="#C6EBDF" stroke-width="2"/>
+          <text x="605" y="148" text-anchor="middle" font-size="13" fill="#2F7A63" font-weight="800">写在纸上的</text>
+          <text x="605" y="168" text-anchor="middle" font-size="13" fill="#2F7A63" font-weight="800">计划</text>
+          <text x="605" y="190" text-anchor="middle" font-size="12" fill="#5A9884">全部作废 ✕</text>
+
+          <rect x="540" y="218" width="130" height="86" rx="16" fill="#EFEBFF" stroke="#DED5FF" stroke-width="2"/>
+          <text x="605" y="248" text-anchor="middle" font-size="13" fill="#4A3E96" font-weight="800">藏在脑子里的</text>
+          <text x="605" y="268" text-anchor="middle" font-size="13" fill="#4A3E96" font-weight="800">计划</text>
+          <text x="605" y="290" text-anchor="middle" font-size="12" fill="#7A6FBD">才有机会 ✓</text>
+        </g>
+      </svg>
+      <div class="cap">图 1 · 面壁计划的由来：在一个"全透明"的世界里，唯一能藏东西的地方是大脑</div>
+    </div>
+
+    <div class="subhead"><span class="dot"></span>四位面壁者的档案（"?"是他们真正的计划）</div>
+
+    <div class="wfgrid">
+      <article class="wf">
+        <div class="wfhead">
+          <div class="avatar">💂</div>
+          <div><div class="pname">泰勒</div><div class="prole">美国 · 前国防部长 · 第一位面壁者</div></div>
+        </div>
+        <div class="wfline"><span class="k">明面上</span><span>研究球状闪电武器，组建一支特殊的太空部队。</span></div>
+        <div class="wfline t"><span class="k">他真正想做</span><span>把士兵变成"<b>量子幽灵</b>"——身体没了也还能继续作战的军队，用一支"打不死"的舰队去拼掉三体舰队。</span></div>
+        <div class="wfline r"><span class="k">结局</span><span>计划被当面说穿。之后，他选择结束了自己的生命。</span></div>
+        <div class="wfribbon"><b>破壁结果：</b>他被一句话点破——"你想要的不是胜利，是一支幽灵军队。"</div>
+      </article>
+
+      <article class="wf">
+        <div class="wfhead">
+          <div class="avatar">🎩</div>
+          <div><div class="pname">雷迪亚兹</div><div class="prole">委内瑞拉 · 总统 · 第二位面壁者</div></div>
+        </div>
+        <div class="wfline"><span class="k">明面上</span><span>造一大批恒星型超级氢弹，准备跟三体舰队正面硬拼。</span></div>
+        <div class="wfline t"><span class="k">他真正想做</span><span>在水星上埋氢弹，炸掉水星，让它掉进太阳，引发太阳大爆发——<b>用"一起毁灭"来威胁三体人</b>。</span></div>
+        <div class="wfline r"><span class="k">结局</span><span>计划被说穿。他回到自己的国家，被愤怒的民众围攻致死。</span></div>
+        <div class="wfribbon"><b>破壁结果：</b>"你不是要打赢，你是要拿全人类当人质。"</div>
+      </article>
+
+      <article class="wf">
+        <div class="wfhead">
+          <div class="avatar">🧠</div>
+          <div><div class="pname">希恩斯</div><div class="prole">英国 · 脑科学家 · 第三位面壁者</div></div>
+        </div>
+        <div class="wfline"><span class="k">明面上</span><span>研究"思想钢印"，让太空军拥有不可动摇的必胜信念。</span></div>
+        <div class="wfline t"><span class="k">他真正想做</span><span>偷偷给一部分人打上"<b>人类必败</b>"的钢印——只有真的相信会输的人，才敢头也不回地逃亡，文明才可能活下去。</span></div>
+        <div class="wfline r"><span class="k">结局</span><span>被破壁，思想钢印被全面禁止。他没有辩解。</span></div>
+        <div class="wfribbon"><b>破壁人：他的妻子山杉惠子。</b>她在听证会上站起来说："我是你的破壁人。"</div>
+      </article>
+
+      <article class="wf" style="border-color:#C6EBDF;background:#FBFFFD;">
+        <div class="wfhead">
+          <div class="avatar">🛋️</div>
+          <div><div class="pname">罗辑</div><div class="prole">中国 · 大学教授 · 第四位面壁者</div></div>
+        </div>
+        <div class="wfline"><span class="k">明面上</span><span>要了一座雪山下的庄园、一个梦里的女孩，和一颗"很远的恒星"。所有人都觉得他是骗子。</span></div>
+        <div class="wfline t"><span class="k">他真正想做</span><span>向宇宙广播那颗恒星的坐标，然后<b>等</b>——用一颗星的命运，去验证一个关于宇宙的可怕猜想。</span></div>
+        <div class="wfline r"><span class="k">结局</span><span>咒语生效。他成了人类唯一的希望。</span></div>
+        <div class="wfribbon" style="background:#E4F5EE;border-color:#C6EBDF;color:#2F6E5B;"><b>他没有破壁人。</b>因为三体世界直接下了命令：<b>杀掉罗辑。</b>——他的计划，连他自己都还不知道。</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 六幕 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎬</span><h2>故事六幕：一场跨越两百年的棋</h2></div>
+    <p class="lead">这一部的时间跨度很大：从"危机纪元"一直写到"威慑纪元"。把六幕连起来，就是一条完整的时间线。</p>
+
+    <div class="acts">
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第一幕</span><h3>透明的世界：人类没有秘密了</h3></div>
+          <div class="chips"><span class="chip">🕐 危机纪元元年</span><span class="chip">📍 地球 · PDC</span><span class="chip">🔍 困局</span></div>
+          <ul>
+            <li>三体舰队在路上，还要 <b>450 年</b>才到。人类第一次有了"倒计时"式的准备时间。</li>
+            <li>但情况更糟：<b>智子</b>能看见地球上的一切、听见每一句话。人类开的每一场会，三体人都在旁听。</li>
+            <li>唯一的缝隙是：三体人的交流是"脑电波直连"，<b>他们不会说谎，也不懂欺骗</b>。</li>
+            <li>于是有了<b>面壁计划</b>：选出四个人，真正的战略只放在他们脑子里。他们可以调动巨大资源，却<b>不需要向任何人解释</b>。</li>
+            <li>三体人的回应是<b>破壁人</b>：不派兵，派"最会猜心的人"。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第二幕</span><h3>四个不能说的计划</h3></div>
+          <div class="chips"><span class="chip">🕐 危机纪元 1—8 年</span><span class="chip">📍 联合国 · 各处</span><span class="chip">🎭 猜心游戏</span></div>
+          <ul>
+            <li><b>泰勒</b>要一支"量子幽灵"舰队，被说穿后自杀；<b>雷迪亚兹</b>要拿全人类当人质，被说穿后死于民众之手。</li>
+            <li><b>希恩斯</b>的思想钢印被妻子山杉惠子当众破壁——最懂你的人，最能拆穿你。</li>
+            <li><b>罗辑</b>呢？他要了一座庄园、一个女孩、一颗恒星，然后什么都不干。全世界都在骂他浪费资源。</li>
+            <li>可三体世界只对一个人下过"杀"的命令——就是罗辑。<b>他们怕他，却没人知道为什么。</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第三幕</span><h3>咒语：向一颗恒星"点名"</h3></div>
+          <div class="chips"><span class="chip">🕐 危机纪元 3—8 年</span><span class="chip">📍 杨冬墓前 · 雪山庄园</span><span class="chip">🔑 全书钥匙</span></div>
+          <ul>
+            <li>答案在<b>叶文洁</b>那里。女儿杨冬的墓前，她给罗辑上了最后一课：宇宙社会学的<b>两条公理</b>和<b>两个概念</b>。</li>
+            <li>罗辑的第一个要求荒唐得像个玩笑：<b>"我想要一个梦里的女孩。"</b>——结果<b>庄颜</b>真的出现了。他们在雪山下的庄园里过了五年，还有了孩子。</li>
+            <li>然后 PDC 把他叫醒：为了让他专心工作，庄颜和孩子被送进了冬眠。</li>
+            <li>他的"面壁计划"只有一句话：借用当年红岸基地的办法，<b>把一颗恒星（187J3X1）的坐标向宇宙广播出去</b>。</li>
+            <li>发完之后就是等。观测结果要很多年，他选择<b>冬眠</b>，去未来等答案。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第四幕</span><h3>大低谷与盛世：人类飘了</h3></div>
+          <div class="chips"><span class="chip">🕐 危机纪元 20—205 年</span><span class="chip">📍 地下城 · 太空</span><span class="chip">📈 先跌后涨</span></div>
+          <ul>
+            <li>先是<b>大低谷</b>：粮食危机、战乱、人口锐减。纪念碑上刻着一句话——"<b>给岁月以文明，而不是给文明以岁月</b>"。</li>
+            <li>然后技术爆炸：太空电梯、地下城市、<b>近两千艘恒星级战舰</b>。人类觉得自己已经赢了。</li>
+            <li>舰队国际甚至认为：三体人是来投降的。</li>
+            <li><b>章北海</b>不这么想。他表面上是最坚定的必胜派，心里却早就认定人类必败。</li>
+            <li>在末日战役之前，他做了一件谁也没想到的事：带着"自然选择号"<b>飞向深空</b>。他被称为"<b>第五位面壁者</b>"——一个没有被任命、却骗过了所有人的面壁者。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第五幕</span><h3>水滴：一份"完美的礼物"</h3></div>
+          <div class="chips"><span class="chip">🕐 危机纪元 205 年</span><span class="chip">📍 太阳系边缘</span><span class="chip">💧 全书最痛一幕</span></div>
+          <ul>
+            <li>三体舰队先派来一个"探测器"：形状像一滴水，表面光滑得没有一丝瑕疵。</li>
+            <li>人类以为那是和平的礼物，派出舰队去"迎接"，<b>丁仪</b>也在其中。</li>
+            <li>水滴动了。它不用炮、不用导弹，只是<b>撞</b>——半小时，近两千艘战舰被摧毁。人类最强的舰队，像纸一样被戳破。</li>
+            <li>逃出去的几艘飞船，为了抢燃料和物资互相开火，这叫"<b>黑暗战役</b>"。<b>章北海</b>在这场战役中牺牲。</li>
+            <li>黑暗森林的第一课，人类是在自己人身上学会的。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第六幕</span><h3>黑暗森林：他终于开了枪</h3></div>
+          <div class="chips"><span class="chip">🕐 危机纪元 205 年—威慑纪元</span><span class="chip">📍 雪地工程</span><span class="chip">🌲 高潮</span></div>
+          <ul>
+            <li>罗辑在未来醒来，人们告诉他：<b>咒语生效了</b>——187J3X1 那颗恒星被摧毁了。</li>
+            <li>人类先是把他当神，又把他当罪人（他"杀"了一个恒星系），最后把他忘了。</li>
+            <li>他被安排去干"<b>雪地工程</b>"：在太阳系边缘布置恒星型氢弹，用来监测三体舰队。</li>
+            <li>然后他把所有线索接上了：<b>生存第一 + 物质有限 + 猜疑链 + 技术爆炸 = 黑暗森林</b>。</li>
+            <li>他把雪地工程的氢弹变成了一个"开关"：只要引爆，尘埃就会遮住太阳，让太阳按摩尔斯码闪烁——<b>整个宇宙都会看见三体世界的坐标</b>。</li>
+            <li>他站在雪地里，对着智子说："<b>现在，我，罗辑，向三体世界说话。</b>"</li>
+            <li>三体人妥协了：舰队开始转向，第一次坐下来谈判。人类有了"威慑"，罗辑成为第一任"<b>执剑人</b>"。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 章节地图 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🗺️</span><h2>章节地图：18 个台阶</h2></div>
+    <p class="lead">点开每一段，看它"发生了什么"和"为什么重要"。记不住细节没关系，记住台阶的顺序就够了。</p>
+
+    <div class="beats">
+      <details class="beat">
+        <summary><span class="bno">01</span>危机纪元：他们已经在路上了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第一部的结尾之后，人类正式进入"危机纪元"。三体舰队还要 450 年才到，智子已经开始锁死基础科学、监视全球。</p>
+          <p><span class="key q">为什么重要</span>这一部所有的故事，都建立在两个前提上：<b>时间还有</b>，但<b>秘密没有了</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>透明的玻璃房<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>人类发现：任何写在纸上、说出口的计划，三体人立刻就知道。开多少会都没用。</p>
+          <p><span class="key q">为什么重要</span>这是全书最漂亮的"设定困局"：你不是打不过，你是<b>连想什么都被人看着</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>面壁计划：把秘密藏在脑子里<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>PDC 推出面壁计划：选出四位面壁者，他们可以调用人类资源，但<b>不需要向任何人解释</b>，包括联合国。</p>
+          <p><span class="key q">为什么重要</span>这是人类第一次用"欺骗"当武器——而三体人恰恰不会这一招。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>破壁人：会猜心的人<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三体世界启用"破壁人"：他们不是杀手，而是专门研究面壁者、把他的真实意图说穿的人。</p>
+          <p><span class="key q">为什么重要</span>一场"藏"和"猜"的比赛开始了。最残酷的是：破壁人往往是最了解那个人的。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>泰勒的"量子幽灵"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第一位面壁者泰勒，想造一支"死了也能打仗"的量子舰队。计划被说穿后，他结束了自己的生命。</p>
+          <p><span class="key q">为什么重要</span>第一个出局的人告诉读者：面壁者不是超级英雄，他们也会崩溃。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>雷迪亚兹的"同归于尽"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第二位面壁者雷迪亚兹，打算用超级氢弹毁掉水星、引发太阳爆发，拿"一起毁灭"威胁三体人。被破壁后，他死在自己国家的民众手里。</p>
+          <p><span class="key q">为什么重要</span>"威慑"这个念头第一次出现——它后来成了罗辑的武器。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>希恩斯与"思想钢印"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第三位面壁者希恩斯发明了思想钢印：给大脑烙下一个不能反悔的信念。表面是让人"必胜"，实际是让人"相信必败"，从而敢于逃亡。</p>
+          <p><span class="key q">为什么重要</span>它问了一个很扎心的问题：<b>如果信念可以打印，那还是你的信念吗？</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">08</span>最懂你的人来破壁<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>在听证会上，希恩斯的妻子山杉惠子站起来，承认自己就是他的破壁人。她把他藏了很多年的真实目的，一句一句说了出来。</p>
+          <p><span class="key q">为什么重要</span>这是全书最安静、也最凉的一幕：破壁不需要酷刑，只需要<b>了解</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">09</span>罗辑：唯一被"点名"的人<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第四位面壁者公布时，所有人都不理解：为什么选一个吊儿郎当的大学教授？更奇怪的是，三体世界下令 ETO 不惜代价杀掉他。</p>
+          <p><span class="key q">为什么重要</span>悬念立住了：<b>他到底知道什么？</b>——答案是：他还什么都不知道。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">10</span>杨冬墓前的最后一课<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>叶文洁在女儿墓前告诉罗辑宇宙社会学的两条公理：生存是文明的第一需要；文明不断扩张，但宇宙的物质总量基本不变。还有两个概念：猜疑链、技术爆炸。</p>
+          <p><span class="key q">为什么重要</span>这四句话，就是整部《黑暗森林》的<b>公式</b>。后面所有事都在验证它。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">11</span>梦里的女孩：庄颜<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>罗辑当上面壁者后的第一个要求，是找一个"只存在于他梦里的女孩"。史强真的找到了她——庄颜。他们在雪山庄园里过了五年，有了孩子。</p>
+          <p><span class="key q">为什么重要</span>它是全书最温柔的一段，也让后面的"叫醒他"变得格外残忍。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">12</span>咒语：187J3X1<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>罗辑借用当年红岸基地的原理，把一颗遥远恒星的坐标向宇宙广播出去，然后进入冬眠，去未来等结果。</p>
+          <p><span class="key q">为什么重要</span>他在做一个实验：<b>如果宇宙真是黑暗森林，那颗星就会消失。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">13</span>大低谷：给岁月以文明<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>危机压顶之下，人类先经历了一段极其黑暗的时期：饥荒、战乱、人口锐减。后来靠着技术爆炸重新站起来，建起地下城市和太空舰队。</p>
+          <p><span class="key q">为什么重要</span>纪念碑上那句"给岁月以文明，而不是给文明以岁月"，是全书的价值观。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">14</span>章北海：第五位面壁者<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>太空军政委章北海，多年来扮演最坚定的必胜派。在末日战役前，他带着"自然选择号"飞向深空，为人类文明留了一条"备份"。</p>
+          <p><span class="key q">为什么重要</span>他证明了：<b>面壁不需要任命</b>。一个人只要把决心藏得够深，连智子也看不见。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">15</span>水滴：完美的礼物<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三体舰队先送来一个探测器。它像一滴水银，表面光滑得找不到任何缝隙。人类以为这是和平的信号。</p>
+          <p><span class="key q">为什么重要</span>它教会人类一件事：<b>在绝对的技术差距面前，数量没有意义。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">16</span>末日战役与黑暗战役<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>水滴只用"撞"，半小时摧毁近两千艘战舰，丁仪牺牲。之后，逃出去的几艘飞船为了抢燃料互相开火——"黑暗战役"。章北海在这场战役中死去。</p>
+          <p><span class="key q">为什么重要</span>人类第一次亲身体会到"黑暗森林"：<b>在没有规则的地方，先开枪的人活下来。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">17</span>咒语生效：他成了"神"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>罗辑醒来，被告知 187J3X1 恒星已被摧毁。人们先是把他奉为神明，随后又恐惧他、指责他，最后把他遗忘。</p>
+          <p><span class="key q">为什么重要</span>这是全书最讽刺的一段：<b>能救人类的人，被人类自己推开。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">18</span>雪地工程与最后的谈判<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>罗辑把监测三体舰队的氢弹变成了"死亡开关"：一旦引爆，太阳会按摩尔斯码闪烁，向全宇宙广播三体世界的坐标。他对着智子说出那句话，三体舰队转向，开始谈判。</p>
+          <p><span class="key q">为什么重要</span>人类第一次靠"同归于尽"的威慑活了下来。罗辑成为第一任执剑人——<b>第二部在这里结束，第三部的故事从这里开始。</b></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小百科 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">🌲</span><h2>八个关键词，看懂这一部</h2></div>
+    <p class="lead">面壁、破壁、思想钢印、猜疑链、技术爆炸、水滴、冬眠、执剑人——这八个词串起来，就是第二部的骨架。</p>
+
+    <div class="wiki">
+      <div class="card" style="background:var(--purple-soft);border-color:#DED5FF;">
+        <h3>🧱 面壁计划</h3>
+        <p>把战略藏在脑子里，不告诉任何人，也不解释。面壁者可以调动巨大资源，代价是<b>必须一个人扛住所有误解</b>。</p>
+        <div class="tip">💡 名字来自"面壁"：一个人对着墙，谁也看不见他在想什么。</div>
+      </div>
+
+      <div class="card" style="background:var(--pink-soft);border-color:#FFC9DA;">
+        <h3>🔨 破壁人</h3>
+        <p>三体人派出的"猜心者"。他们不暗杀，只做一件事：当面把面壁者的真实计划说出来。</p>
+        <div class="tip">💡 一旦被说穿，计划就废了——因为智子已经听见了。</div>
+      </div>
+
+      <div class="card" style="background:var(--yellow-soft);border-color:#F3DFA4;">
+        <h3>🖨️ 思想钢印</h3>
+        <p>在大脑里烙下一个不能反悔的信念。打上"人类必胜"，就永远不会动摇；打上"人类必败"，就再也不会回头。</p>
+        <div class="tip">💡 它最可怕的地方不是控制，而是<b>不能撤销</b>。</div>
+      </div>
+
+      <div class="card" style="background:var(--teal-soft);border-color:#C9F1E8;">
+        <h3>⛓️ 猜疑链</h3>
+        <p>我不知道你怎么想我；我不知道你怎么想"我怎么想你"……这样一层层猜下去，永远没有尽头。所以两个陌生的文明，<b>只能往最坏处想</b>。</p>
+        <div class="tip">💡 就像夜里两个人隔着墙，谁也不敢先放下武器。</div>
+      </div>
+
+      <div class="card" style="background:var(--forest-soft);border-color:#C6EBDF;">
+        <h3>💥 技术爆炸</h3>
+        <p>一个看起来落后的文明，可能在一瞬间突飞猛进。人类从蒸汽机到原子弹只用了两百年——在宇宙尺度上，这就是"一眨眼"。</p>
+        <div class="tip">💡 所以不能"等等看"，因为你等的可能是一个未来的巨人。</div>
+      </div>
+
+      <div class="card" style="background:#F4F9FF;border-color:#D7E5F5;">
+        <h3>💧 水滴</h3>
+        <p>三体人的探测器。表面由强相互作用力锁死，完美得像一面镜子，硬到无法摧毁。它不用武器，<b>撞</b>就够了。</p>
+        <div class="tip">💡 丁仪说它"太美了"——美到让人忘了它是来杀人的。</div>
+      </div>
+
+      <div class="card" style="background:var(--orange-soft);border-color:#FFE0BE;">
+        <h3>🌡️ 冬眠</h3>
+        <p>把身体冷冻保存，睡到很多年以后再醒来。罗辑、史强、庄颜都用过它——它是人类对付"时间太长"的唯一办法。</p>
+        <div class="tip">💡 醒来时，朋友可能已经不在，世界已经换了一副样子。</div>
+      </div>
+
+      <div class="card" style="background:#FBF6EA;border-color:#EFE4CE;">
+        <h3>🗡️ 执剑人</h3>
+        <p>掌握"广播三体坐标"这个开关的人。他不需要打仗，只需要让三体人相信：<b>他真的敢按下按钮。</b></p>
+        <div class="tip">💡 全书最后，罗辑成了第一任执剑人。</div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="dot"></span>把四块积木拼起来：黑暗森林是怎么"算"出来的</div>
+
+    <div class="fgrid">
+      <div class="fitem">
+        <h4><span class="fnum">1</span>公理一：生存第一</h4>
+        <p>任何文明的第一件事，都是活下去。这一条不需要证明。</p>
+      </div>
+      <div class="fitem">
+        <h4><span class="fnum">2</span>公理二：物质有限</h4>
+        <p>文明不断增长、扩张，可宇宙里的物质总量基本不变。蛋糕就这么大。</p>
+      </div>
+      <div class="fitem">
+        <h4><span class="fnum">3</span>概念一：猜疑链</h4>
+        <p>你永远无法确认对方是善意的，也永远无法确认"对方认为你是善意的"。猜疑没有底。</p>
+      </div>
+      <div class="fitem">
+        <h4><span class="fnum">4</span>概念二：技术爆炸</h4>
+        <p>今天的弱者，明天可能一秒钟变成强者。等待，等于把命运交给别人。</p>
+      </div>
+    </div>
+
+    <div class="fmid">↓ 四条合在一起，只能推出一个结论 ↓</div>
+
+    <div class="fres">
+      <div class="lab">DARK FOREST LAW</div>
+      <h3>黑暗森林法则</h3>
+      <p>"宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵一样在林中潜行。<br>
+      他必须小心，因为林中到处都有和他一样潜行的猎人。<br>
+      如果他发现了别的生命，能做的只有一件事：<b>开枪消灭之。</b>"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>两边的底牌，比一比</h2></div>
+    <p class="lead">看完这张表，你会明白为什么人类唯一的出路是"威慑"，而不是"打赢"。</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>比什么</th><th>🌍 人类</th><th>☀️ 三体世界</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>科技水平</td><td>被智子锁死，基础科学寸步难行</td><td>远远领先，一个水滴就能毁掉整支舰队</td></tr>
+          <tr><td>信息</td><td>完全透明，说什么都被听见</td><td>能看见地球一切，但读不了人心</td></tr>
+          <tr><td>最擅长的事</td><td>欺骗、谋略、藏心思</td><td>诚实、直接，不会说谎</td></tr>
+          <tr><td>最怕的事</td><td>被彻底消灭</td><td>自己的坐标被广播出去</td></tr>
+          <tr><td>手里的牌</td><td>同归于尽的威慑（罗辑的开关）</td><td>绝对的技术优势（水滴、智子）</td></tr>
+          <tr><td>结论</td><td colspan="2">打不赢，但可以让对方"不敢打"——这就是威慑。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 金句 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✨</span><h2>五句值得抄在本子上的话</h2></div>
+      <div class="qitem">
+        <p>给岁月以文明，而不是给文明以岁月。</p>
+        <span>—— 大低谷纪念碑</span>
+      </div>
+      <div class="qitem">
+        <p>宇宙就是一座黑暗森林，每个文明都是带枪的猎人。</p>
+        <span>—— 罗辑</span>
+      </div>
+      <div class="qitem">
+        <p>现在，我，罗辑，向三体世界说话。</p>
+        <span>—— 罗辑，站在雪地里</span>
+      </div>
+      <div class="qitem">
+        <p>没关系的，都一样。</p>
+        <span>—— 章北海，最后一刻</span>
+      </div>
+      <div class="qitem">
+        <p>主不在乎。</p>
+        <span>—— 智子，替三体世界说的话</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">第二部没有标准答案，它只是把问题问得更狠了一点。</p>
+
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>如果人类真的<b>不会说谎</b>，世界会更好还是更糟？</p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>面壁者可以不向任何人解释，甚至可以牺牲一部分人。这样的权力，<b>该不该存在</b>？</p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>希恩斯给大脑打"人类必败"的钢印，是为了让文明活下去。<b>用谎言拯救文明，可以吗？</b></p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>黑暗森林法则说"发现即毁灭"。<b>你同意吗？</b>如果宇宙里真的有别的文明，你希望人类出声吗？</p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>罗辑靠"我敢同归于尽"救下了人类。<b>这算胜利，还是算另一种失败？</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这本书会遇到的小词</h2></div>
+    <p class="lead">遇到不认识的名词，回来查一下就好。</p>
+
+    <div class="words">
+      <dl class="word"><dt>危机纪元<em>纪年</em></dt><dd>从人类确认三体舰队出发那一年开始计算的年代。</dd></dl>
+      <dl class="word"><dt>PDC<em>组织</em></dt><dd>行星防御理事会，人类为应对三体危机成立的最高机构。</dd></dl>
+      <dl class="word"><dt>面壁者<em>身份</em></dt><dd>被授予极大权力、但只需把计划藏在脑子里的四个人。</dd></dl>
+      <dl class="word"><dt>破壁人<em>身份</em></dt><dd>三体人派来"说穿"面壁者真实计划的人。</dd></dl>
+      <dl class="word"><dt>思想钢印<em>技术</em></dt><dd>在大脑里烙下不可反悔的信念，不能撤销。</dd></dl>
+      <dl class="word"><dt>猜疑链<em>概念</em></dt><dd>"我不知道你怎么想我"无限循环，导致只能互相防备。</dd></dl>
+      <dl class="word"><dt>技术爆炸<em>概念</em></dt><dd>文明可能在极短时间内技术突飞猛进。</dd></dl>
+      <dl class="word"><dt>咒语<em>计划代号</em></dt><dd>罗辑向宇宙广播一颗恒星坐标的行动。</dd></dl>
+      <dl class="word"><dt>187J3X1<em>恒星编号</em></dt><dd>罗辑"念咒"的那颗恒星。它的毁灭证明了黑暗森林。</dd></dl>
+      <dl class="word"><dt>水滴<em>武器</em></dt><dd>三体人的探测器，表面完美、坚硬到无法摧毁。</dd></dl>
+      <dl class="word"><dt>雪地工程<em>工程名</em></dt><dd>在太阳系边缘布置恒星型氢弹的计划，后来成了罗辑的"开关"。</dd></dl>
+      <dl class="word"><dt>执剑人<em>身份</em></dt><dd>掌握"广播三体坐标"开关的人，靠威慑维持和平。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>这一部比第一部"冷"得多</h3>
+      <p>《黑暗森林》讨论的是威慑、猜疑、牺牲少数人救多数人、以及"发现即毁灭"的宇宙观。书里还有面壁者自杀、民众把领导者打死、逃亡飞船互相残杀的情节。<b>思想上的沉重，远超过情节上的暴力。</b></p>
+      <p>建议：<b>12 岁以上、并且愿意和孩子讨论"如果你是罗辑"</b>再读。本页已把血腥细节做了省略，保留了核心逻辑与情感。</p>
+      <h3 style="margin-top:18px;">三种读法</h3>
+      <div class="route">
+        <div><b>路线 A · 先看设定：</b>直接读"面壁计划"和"黑暗森林配方"两节，把逻辑搞懂，再回头看故事。</div>
+        <div><b>路线 B · 顺着读：</b>按六幕顺序走，每幕结束回来看"两边的底牌"表，确认谁占上风。</div>
+        <div><b>路线 C · 只读人物：</b>先读罗辑、章北海、希恩斯三个人的档案，他们的选择就是这本书的三个答案。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#8A7B66;">本页只覆盖第二部《黑暗森林》，不含第三部《死神永生》。建议先读 <a href="三体第一部-小小读者导读.html">第一部的小小读者导读</a>，再来这里。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《三体Ⅱ·黑暗森林》· 小小读者导读<br>
+    为小学生重述 · 共 6 幕 / 18 个情节台阶 / 12 位人物 / 4 位面壁者<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span></p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>

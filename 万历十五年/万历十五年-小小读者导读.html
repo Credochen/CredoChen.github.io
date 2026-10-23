@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<!--
+  童趣单页导读（kid-book-guide）·《万历十五年》
+  主色：暗金 #B2832C（时间、告别）· 单文件、零外链
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万历十五年 · 小小读者导读</title>
+<meta name="description" content="把黄仁宇《万历十五年》拆成小朋友听得懂的故事：六个人、一个死结、一套只讲道德不讲数字的规矩。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%93%96%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#33305A;
+    --ink-soft:#6C688E;
+    --ink-faint:#9A96B4;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#EDE4D5;
+    --dark:#3B3563;
+    --gold:#B2832C;
+    --gold-deep:#8A621A;
+    --gold-soft:#FBF0D4;
+    --gold-line:#EBD6A5;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.16), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(124,107,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.09), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--purple-soft);border-color:#DCD3FF;color:var(--purple);}
+
+  /* ---------- 封面 ---------- */
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,#8A621A,#D3A94F);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(138,98,26,.26);
+    transform:rotate(-2deg);
+  }
+  h1{font-size:clamp(28px,5vw,48px);line-height:1.32;margin:20px 0 6px;letter-spacing:2px;font-weight:900;}
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:670px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(178,131,44,.16);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;background-size:100% 12px;background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+
+  /* ---------- 一句话 ---------- */
+  .oneline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--purple-soft);border-color:#DED5FF;}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--gold-soft);border-color:var(--gold-line);}
+
+  /* ---------- 人物 ---------- */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--purple-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--purple-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCF7EC;border:1.5px dashed #E9DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;}
+  .say::before{content:"“";font-weight:900;color:var(--purple);}
+  .say::after{content:"”";font-weight:900;color:var(--purple);}
+
+  /* ---------- SVG 图容器 ---------- */
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+
+  /* ---------- 六幕 ---------- */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:11px;top:8px;bottom:12px;border-left:3px dotted #E7D8BB;}
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--purple);box-shadow:0 0 0 4px #F3EEFF;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .act:nth-child(6)::before{border-color:var(--gold);}
+  .actbody{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;box-shadow:0 8px 20px rgba(107,95,160,.06);}
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--purple);padding:3px 10px;border-radius:8px;}
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .act:nth-child(6) .actno{background:var(--gold);}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{font-size:12px;color:var(--ink-soft);background:#FBF6EA;border:1.5px solid #EFE4CE;border-radius:999px;padding:2px 10px;}
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  /* ---------- 折叠章节卡 ---------- */
+  .beats{display:grid;gap:10px;}
+  details.beat{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);transition:.2s;}
+  details.beat[open]{border-color:#E7D3A8;box-shadow:0 12px 26px rgba(178,131,44,.14);}
+  details.beat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 0;font-weight:800;font-size:15.8px;outline:none;}
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{flex:0 0 34px;height:34px;border-radius:12px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;}
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);padding:1px 8px;border-radius:6px;margin-top:4px;}
+  .binner .key.q{background:var(--orange);}
+
+  /* ---------- 小百科 ---------- */
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--purple);background:var(--purple-soft);border-radius:12px;padding:7px 11px;}
+
+  /* ---------- 表格 ---------- */
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F4EDE0;vertical-align:top;}
+  thead th{background:#FCF6E9;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF8;white-space:nowrap;}
+  tbody tr:hover td{background:#FFF9EC;}
+
+  /* ---------- 终章卡 ---------- */
+  .finale{
+    background:linear-gradient(150deg,#FFF8E4,#F7EEFF 60%,#FFF0F5);
+    border:3px solid var(--gold-line);border-radius:var(--radius);
+    padding:32px 30px;text-align:center;box-shadow:0 18px 36px rgba(178,131,44,.14);
+  }
+  .finale .ball{
+    width:74px;height:74px;margin:0 auto 14px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #FFF6DA, #F3DFA4 55%, #E3C98C);
+    border:3px solid #fff;box-shadow:0 10px 22px rgba(178,131,44,.24), inset 0 0 0 2px #FBF0D4;
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+  }
+  .finale h3{margin:0 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .finale p{margin:0 auto;max-width:640px;font-size:15px;color:#7A6A46;line-height:1.95;}
+  .finale .q{margin-top:14px;font-size:14px;color:#8A621A;font-weight:800;}
+
+  /* ---------- 金句 ---------- */
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #4A4374, #2C2A4A 60%, #23213E);
+    border-radius:var(--radius);padding:34px 30px;color:#F4F1FF;
+    position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(44,42,74,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .qitem{position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);margin-bottom:6px;}
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#B9B3D8;letter-spacing:.5px;}
+
+  /* ---------- 想一想 ---------- */
+  .think{display:grid;gap:12px;}
+  .qitem2{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px dashed #E4D9C4;border-radius:18px;padding:16px 18px;}
+  .qnum{flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;}
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  /* ---------- 小词典 ---------- */
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--purple);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  /* ---------- 家长提示 ---------- */
+  .parent{background:linear-gradient(140deg,#FFF6E4,#FFEFF4);border:2px solid #F6E3C6;border-radius:var(--radius);padding:26px 28px;}
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#6A5F52;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#6A5F52;background:rgba(255,255,255,.7);border-radius:12px;padding:9px 13px;}
+  .parent a{color:var(--gold-deep);font-weight:800;text-decoration:none;border-bottom:2px solid var(--gold-line);}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:13px;padding:44px 0 56px;line-height:2;}
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid #E7DCC6;background:#fff;color:var(--gold);font-size:18px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(107,95,160,.16);display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody,.tale{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+    .binner{padding-left:0;}
+    .finale{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">📖 明史·小小读者版</span>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#map">两张图</a>
+    <a href="#acts">故事</a>
+    <a href="#chapters">章节地图</a>
+    <a href="#world">小百科</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">黄仁宇 ·《万历十五年》</span>
+    <h1>平平淡淡的一年，<br><span class="hl">六个人一起输给一套规矩</span></h1>
+    <p class="sub">1587 年，明朝没打大仗，也没闹大灾。可就在这一年，皇帝、两任首辅、一个清官、一位将军、一个思想家，先后发现了同一件事：自己再怎么拼命，也动不了那套老规矩。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 300" role="img" aria-label="一座明代宫城的城门，一个穿龙袍的人独自站在门前，天上飘着几张奏折">
+        <defs>
+          <linearGradient id="skyT" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FDF5E4"/>
+            <stop offset="55%" stop-color="#F6F1FF"/>
+            <stop offset="100%" stop-color="#FBF3E2"/>
+          </linearGradient>
+        </defs>
+        <rect width="1000" height="300" rx="30" fill="url(#skyT)"/>
+
+        <!-- 低低的太阳 -->
+        <circle cx="168" cy="92" r="34" fill="#FFD76A" opacity="0.85"/>
+        <circle cx="168" cy="92" r="46" fill="none" stroke="#FFD76A" stroke-width="3" opacity="0.45"/>
+
+        <!-- 云 -->
+        <g fill="#E6DFF5" opacity="0.75">
+          <ellipse cx="640" cy="66" rx="46" ry="15"/>
+          <ellipse cx="672" cy="58" rx="30" ry="12"/>
+          <ellipse cx="880" cy="88" rx="38" ry="12"/>
+        </g>
+
+        <!-- 空中飘的奏折 -->
+        <g fill="#FFFDF6" stroke="#E3C98C" stroke-width="2">
+          <rect x="330" y="66" width="34" height="46" rx="4" transform="rotate(-14 347 89)"/>
+          <rect x="592" y="94" width="30" height="41" rx="4" transform="rotate(12 607 114)"/>
+          <rect x="812" y="116" width="26" height="35" rx="4" transform="rotate(-8 825 133)"/>
+        </g>
+        <g stroke="#F0E2C6" stroke-width="1.6">
+          <line x1="337" y1="82" x2="358" y2="78"/>
+          <line x1="338" y1="92" x2="359" y2="88"/>
+          <line x1="598" y1="108" x2="617" y2="112"/>
+          <line x1="597" y1="118" x2="616" y2="122"/>
+        </g>
+
+        <!-- 城墙 -->
+        <g>
+          <rect x="80" y="178" width="840" height="74" fill="#F7EBD5" stroke="#E3C98C" stroke-width="3"/>
+          <g fill="#F7EBD5" stroke="#E3C98C" stroke-width="3">
+            <rect x="96" y="162" width="26" height="18"/>
+            <rect x="148" y="162" width="26" height="18"/>
+            <rect x="200" y="162" width="26" height="18"/>
+            <rect x="252" y="162" width="26" height="18"/>
+            <rect x="304" y="162" width="26" height="18"/>
+            <rect x="356" y="162" width="26" height="18"/>
+            <rect x="408" y="162" width="26" height="18"/>
+            <rect x="566" y="162" width="26" height="18"/>
+            <rect x="618" y="162" width="26" height="18"/>
+            <rect x="670" y="162" width="26" height="18"/>
+            <rect x="722" y="162" width="26" height="18"/>
+            <rect x="774" y="162" width="26" height="18"/>
+            <rect x="826" y="162" width="26" height="18"/>
+            <rect x="878" y="162" width="26" height="18"/>
+          </g>
+          <!-- 城门洞 -->
+          <path d="M452 252 L452 206 Q500 176 548 206 L548 252 Z" fill="#C9B08A" stroke="#E3C98C" stroke-width="3"/>
+          <path d="M470 252 L470 212 Q500 192 530 212 L530 252 Z" fill="#9C8258"/>
+          <line x1="500" y1="192" x2="500" y2="252" stroke="#8A7350" stroke-width="2"/>
+        </g>
+
+        <!-- 站在门前的人（放大，保证手机上还看得见） -->
+        <g transform="translate(620,252) scale(1.2) translate(-690,-252)">
+          <ellipse cx="700" cy="253" rx="27" ry="6" fill="#E8DCC2"/>
+          <path d="M677 184 q13 -19 26 0 l3 -8 q-16 -15 -32 0 z" fill="#3B3563"/>
+          <circle cx="690" cy="192" r="11" fill="#F3C9A0" stroke="#D9A57C" stroke-width="2"/>
+          <path d="M675 203 q15 -10 30 0 l7 49 h-44 z" fill="#D8A73A" stroke="#C08F26" stroke-width="2"/>
+          <path d="M684 204 l6 13 l6 -13" fill="none" stroke="#FFF6DA" stroke-width="2.4"/>
+          <path d="M675 210 q-9 12 -7 26" fill="none" stroke="#D8A73A" stroke-width="9" stroke-linecap="round"/>
+          <path d="M705 210 q9 12 7 26" fill="none" stroke="#D8A73A" stroke-width="9" stroke-linecap="round"/>
+          <rect x="679" y="248" width="9" height="8" rx="3" fill="#3B3563"/>
+          <rect x="695" y="248" width="9" height="8" rx="3" fill="#3B3563"/>
+        </g>
+
+        <text x="52" y="272" font-size="23" fill="#8A83B8" font-weight="700">1587年 · 明万历十五年</text>
+        <text x="948" y="272" font-size="23" fill="#8A83B8" font-weight="700" text-anchor="end">表面上，什么都没发生</text>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">📚 <b>6</b> 幕</span>
+      <span class="badge">👦 建议 <b>11 岁+</b></span>
+      <span class="badge">⏱ 读完约 <b>25 分钟</b></span>
+      <span class="badge">🧩 核心 <b>1 个比喻</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 三句话 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整本书</h2></div>
+    <p class="lead">如果同学问你「这本书讲什么」，你可以这样回答。</p>
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 皇帝罢工了</h3>
+        <p>万历想立自己喜欢的儿子当太子，大臣们集体说不行。他争不过，于是干脆不上朝、不批文件，一拖就是很多年。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 最能干的人全倒了</h3>
+        <p>改革家张居正死后被抄家，清官海瑞孤独死在任上，名将戚继光被罢官后在贫病中去世。三个人都很有本事，都没好下场。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 输的不是他们，是规矩</h3>
+        <p>黄仁宇说：这个国家习惯用「道德」管一切，却不用数字和法律。所以不管好人坏人、能干不能干，最后都做不成事。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🧑‍🚀</span><h2>人物小档案</h2></div>
+    <p class="lead">六个人，六种身份，六条路。先认人，再看故事会轻松很多。</p>
+    <div class="people">
+
+      <article class="person" style="--accent:#FBF0D4">
+        <div class="phead">
+          <div class="avatar">👑</div>
+          <div><div class="pname">万历皇帝 · 朱翊钧</div><div class="prole">皇帝 · 被困住的那个人</div></div>
+        </div>
+        <p>十岁登基，从小被管得极紧：读书、行礼、写字，一样不许偷懒。长大后想立自己喜欢的儿子当太子，被整个文官集团挡了回来。他找到的唯一反抗方式，是「不合作」。</p>
+        <div class="say">他后来几十年很少上朝，用沉默当武器</div>
+      </article>
+
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🧮</div>
+          <div><div class="pname">张居正</div><div class="prole">首辅 · 上一个管家</div></div>
+        </div>
+        <p>万历初年真正管事的人。他给官员定考核指标、清丈田亩、把各种税折成银子收。他要所有人高效，也要所有人听话。</p>
+        <div class="say">据说他坐三十二个人抬的大轿——这一点，后来成了别人攻击他的证据</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🤝</div>
+          <div><div class="pname">申时行</div><div class="prole">首辅 · 现任和事佬</div></div>
+        </div>
+        <p>张居正倒台后接任。他不硬推任何事，专门在吵架的双方之间找台阶。他知道同僚们嘴上讲道德、私下算利益，所以从不把话挑明。</p>
+        <div class="say">他一辈子最擅长的事，是把快要打起来的人拉开</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">⚖️</div>
+          <div><div class="pname">海瑞</div><div class="prole">清官 · 道德满分的人</div></div>
+        </div>
+        <p>一辈子只信一条：按老祖宗朱元璋定下的规矩办。他不收钱、不怕官，连皇帝都敢骂。可他越「正确」，同僚越受不了他。</p>
+        <div class="say">他死后，同事清点遗物：八两银子、两丈麻布、几件旧衣服</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">⚔️</div>
+          <div><div class="pname">戚继光</div><div class="prole">将军 · 会办事的人</div></div>
+        </div>
+        <p>自己招兵、自己写教材、自己发明阵法。他打的仗几乎没输过。他也清楚，要办成事，必须有人在朝廷里替他撑腰。</p>
+        <div class="say">封侯非我意，但愿海波平</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">🕯️</div>
+          <div><div class="pname">李贽</div><div class="prole">思想家 · 拆房子的人</div></div>
+        </div>
+        <p>做过知府，五十三岁就不干了。他写书骂那些「嘴上讲道德、心里算利益」的读书人。他拆穿了旧道理，却没能造出新道理。</p>
+        <div class="say">吃饭穿衣，就是人伦物理</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 主图 ============ -->
+<section id="map">
+  <div class="wrap">
+    <div class="title"><span class="ico">🕸️</span><h2>两张图，看懂这本书的骨架</h2></div>
+    <p class="lead">先看第一张：六个人站在完全不同的位置上，撞上的却是同一个死结。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 500 360" role="img" aria-label="六个人名围绕中心的一套规矩排成放射状">
+        <g stroke="#E3D3B4" stroke-width="3" stroke-dasharray="6 7">
+          <line x1="250" y1="180" x2="250" y2="91"/>
+          <line x1="250" y1="180" x2="131" y2="144"/>
+          <line x1="250" y1="180" x2="131" y2="216"/>
+          <line x1="250" y1="180" x2="369" y2="144"/>
+          <line x1="250" y1="180" x2="369" y2="216"/>
+          <line x1="250" y1="180" x2="250" y2="269"/>
+        </g>
+
+        <circle cx="250" cy="180" r="52" fill="#FBF0D4" stroke="#E3C98C" stroke-width="3"/>
+        <text x="250" y="174" text-anchor="middle" font-size="17" font-weight="900" fill="#8A621A">一套</text>
+        <text x="250" y="196" text-anchor="middle" font-size="17" font-weight="900" fill="#8A621A">规矩</text>
+
+        <g font-size="17" font-weight="900" text-anchor="middle">
+          <circle cx="250" cy="55" r="36" fill="#EFEBFF" stroke="#DED5FF" stroke-width="2"/>
+          <text x="250" y="62" fill="#4A3E96">皇帝</text>
+
+          <circle cx="95" cy="108" r="36" fill="#FFF0DE" stroke="#FFE0BE" stroke-width="2"/>
+          <text x="95" y="115" fill="#9A5A11">张居正</text>
+
+          <circle cx="95" cy="252" r="36" fill="#FFF0DE" stroke="#FFE0BE" stroke-width="2"/>
+          <text x="95" y="259" fill="#9A5A11">申时行</text>
+
+          <circle cx="405" cy="108" r="36" fill="#E2FAF5" stroke="#C9F1E8" stroke-width="2"/>
+          <text x="405" y="115" fill="#1C6B5C">海瑞</text>
+
+          <circle cx="405" cy="252" r="36" fill="#FFE9F0" stroke="#FFD3E1" stroke-width="2"/>
+          <text x="405" y="259" fill="#B03A63">戚继光</text>
+
+          <circle cx="250" cy="305" r="36" fill="#FFF6DA" stroke="#F3DFA4" stroke-width="2"/>
+          <text x="250" y="312" fill="#8A621A">李贽</text>
+        </g>
+      </svg>
+      <div class="cap">图 1 · 六条路，同一个死结：不是他们不够强，是墙太厚。</div>
+    </div>
+
+    <p class="lead" style="margin-top:28px;">第二张图更狠。黄仁宇把整个社会比作一块「潜水艇三明治」——上下两片面包很大，中间夹的东西很少。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 520 290" role="img" aria-label="三明治结构：上面是文官集团，中间是儒家的道德原则，下面是成千上万的农民">
+        <rect x="80" y="44" width="360" height="58" rx="26" fill="#F2E2C4" stroke="#DFC79B" stroke-width="3"/>
+        <text x="260" y="81" text-anchor="middle" font-size="19" font-weight="900" fill="#7A5A16">上面的一片面包：文官集团</text>
+
+        <rect x="104" y="118" width="312" height="36" rx="14" fill="#E2FAF5" stroke="#B9E9DC" stroke-width="3"/>
+        <text x="260" y="143" text-anchor="middle" font-size="17" font-weight="900" fill="#1C6B5C">中间夹的：儒家的道德原则</text>
+
+        <rect x="80" y="170" width="360" height="58" rx="26" fill="#F2E2C4" stroke="#DFC79B" stroke-width="3"/>
+        <text x="260" y="207" text-anchor="middle" font-size="19" font-weight="900" fill="#7A5A16">下面的一片面包：千万农民</text>
+
+        <text x="260" y="264" text-anchor="middle" font-size="15" fill="#9A96B4">中间没有账本，没有法律，只有一句「应该」</text>
+      </svg>
+      <div class="cap">图 2 · 上下两块面包都很大，可中间夹着的不是肉，是一句「应该」。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 故事幕 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎬</span><h2>故事六幕</h2></div>
+    <p class="lead">这本书不是从头讲到尾的故事。它像六盏灯，一盏一盏打在六个人身上。你可以按顺序读，也可以先跳到最想看的那个人。</p>
+    <div class="acts">
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第一幕</span><h3>一场没人通知的早朝</h3></div>
+          <div class="chips"><span class="chip">🕐 1587年3月2日</span><span class="chip">📍 北京·皇城</span><span class="chip">😳 荒诞</span></div>
+          <ul>
+            <li>那天中午，北京城里突然热闹起来：<b>传说皇帝今天要举行午朝大典</b>。</li>
+            <li>官员们立刻往皇宫赶。坐轿的还有时间在轿子里整理衣冠；走路的小官跑了一里多地，到了还在喘气，也顾不上体面了。</li>
+            <li>守门的禁卫军压根没接到通知，但看见满街穿礼服的人，就以为真是大典，<b>没有盘问</b>。</li>
+            <li>结果：<b>根本没有这场大典</b>。消息是讹传，谁也说不清从哪传出来的。</li>
+            <li>皇帝很不高兴。但这件事实在太小了，小到连「一件事」都算不上，最后没有下文。</li>
+            <li><b>为什么用这件小事开场？</b>因为它把整台机器照了一遍：所有人都在猜上面想什么，所有人都在演给别人看，却没人在管事情本身。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第二幕</span><h3>皇帝的「不合作」</h3></div>
+          <div class="chips"><span class="chip">🕐 1586—1620年</span><span class="chip">📍 紫禁城</span><span class="chip">😤 憋闷</span></div>
+          <ul>
+            <li>万历十岁登基，从小被母亲和张居正管得很紧。每天的日程排得满满的：读书、祭祖、行礼、批文件。</li>
+            <li>长大后，他想立自己喜欢的儿子<b>常洵</b>当太子。大臣们说：不行，规矩是立大儿子<b>常洛</b>。</li>
+            <li>这场争论拖了很多年，史书上叫<b>「争国本」</b>。皇帝一个人，争不过一整个文官集团。</li>
+            <li>他找到唯一的反抗方式：<b>不上朝、不批文件、缺了官也不补</b>。但他不能辞职，因为皇帝没有辞职这回事。</li>
+            <li>后果：国家靠惯性往前滚。很多位置空着，事情越积越多，谁也不用负责。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第三幕</span><h3>两个管家，两种办法</h3></div>
+          <div class="chips"><span class="chip">🕐 1573—1591年</span><span class="chip">📍 内阁</span><span class="chip">😬 紧张</span></div>
+          <ul>
+            <li><b>张居正</b>是万历初年的首辅，实际上的大管家。他推<b>考成法</b>（给官员定指标、按期限查账），推<b>一条鞭法</b>（把各种税并成一条，折成银子交）。</li>
+            <li>他要所有人高效，也要所有人听话。他坐三十二个人抬的大轿，家里也收礼——这些后来都成了攻击他的材料。</li>
+            <li><b>1582年</b>他去世。没过多久他就被清算：<b>夺官、抄家、家人受到牵连</b>。他推的很多做法，也一起被废掉。</li>
+            <li><b>申时行</b>接着上台，办法完全相反：不硬推、不撕破脸，专门给吵架的双方找台阶下。</li>
+            <li>后果：一个太硬，人一走就被砸；一个太软，什么也没改变。</li>
+            <li><b>为什么重要？</b>这不只是两个人性格不同。坐在那个位置上，好像只有这两种选法，而两种都不管用。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第四幕</span><h3>清官的孤独</h3></div>
+          <div class="chips"><span class="chip">🕐 1514—1587年</span><span class="chip">📍 南京</span><span class="chip">😔 心酸</span></div>
+          <ul>
+            <li><b>海瑞</b>一辈子只信一条：按老祖宗朱元璋定下的规矩办。</li>
+            <li>1558年当淳安知县，敢挡总督家人的路；后来他上书把皇帝骂得很惨，被关进监狱，直到新皇帝登基才放出来。</li>
+            <li>1585年，七十二岁的他被重新起用，做南京右都御史。他要求所有官员跟他一样清廉，同僚受不了，反过来弹劾他。</li>
+            <li>他七次递辞职信，皇帝七次不批。他既走不了，也改不了任何人。</li>
+            <li><b>1587年</b>，他在任上去世。同事清点遗物：<b>竹箱里只有八两银子、两丈麻布、几件旧衣服</b>。</li>
+            <li>灵船过江时，南京百姓穿白衣夹岸相送，绵延很长一段路。</li>
+            <li><b>为什么重要？</b>海瑞证明了「一个人可以完全正确」。也证明了：一个完全正确的人，救不了一个系统。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第五幕</span><h3>将军的孤独</h3></div>
+          <div class="chips"><span class="chip">🕐 1555—1588年</span><span class="chip">📍 浙江·蓟镇·蓬莱</span><span class="chip">🌧 悲凉</span></div>
+          <ul>
+            <li><b>戚继光</b>1555年调到浙江打倭寇。他自己招兵、自己编教材、自己设计阵法。</li>
+            <li>他发明的<b>鸳鸯阵</b>，是十来个人一组：拿大盾的、拿狼筅的、拿长枪的、拿短刀的，各管一段，像一台小机器一样配合。</li>
+            <li>戚家军几乎没打过败仗。后来他调到北方守长城，蓟镇一带安安静静守了十六年。</li>
+            <li>他能做成事，一半靠本事，一半靠<b>张居正在朝廷里替他撑腰</b>。</li>
+            <li>1582年张居正倒台，1583年他被调到广东，后来干脆罢官，回到山东蓬莱。</li>
+            <li><b>1588年1月17日</b>（万历十五年十二月十二日），他在贫病中去世。</li>
+            <li><b>为什么重要？</b>他不是输给敌人，是输给「武将不能太强」这条规矩。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第六幕</span><h3>思想家的自相矛盾</h3></div>
+          <div class="chips"><span class="chip">🕐 1527—1602年</span><span class="chip">📍 湖北麻城</span><span class="chip">🕯 矛盾</span></div>
+          <ul>
+            <li><b>李贽</b>1527年生于福建泉州，中过举人，做过云南姚安的知府。五十三岁那年，他不干了。</li>
+            <li>他写书骂那些「嘴上讲道德、心里算利益」的读书人。书很受欢迎，也极招恨。</li>
+            <li>1587年，他的妻子去世。第二年，他剃了头发，住进麻城的<b>芝佛院</b>，既不当官，也不回家。</li>
+            <li>他收女学生，在当时被当成丑闻。1601年，他住的佛院被人烧了。</li>
+            <li>1602年，他被抓进监狱，在狱中结束了自己的生命。临走前，他用手指写下七个字：<b>七十老翁何所求</b>。</li>
+            <li><b>为什么重要？</b>他是全书最敢想的人。可他拆穿了旧道理，却造不出新道理——连最锋利的人，也没找到出口。</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 章节地图 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🗺️</span><h2>章节地图：8 个台阶</h2></div>
+    <p class="lead">点开每一段，看「发生了什么」和「为什么重要」。原著共七章，加一篇自序。</p>
+    <div class="beats">
+
+      <details class="beat">
+        <summary><span class="bno">00</span>自序：作者开出的「诊断书」<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>黄仁宇在自序里说了一句很重的话：中国两千年来，习惯用道德代替法律，到明朝到了极点，这就是一切问题的症结。</p>
+          <p><span class="key q">为什么重要</span>这句话是全书的「诊断书」。后面六章，其实都是在给这句话找证据。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">01</span>第一章 · 万历皇帝<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>从「讹传的午朝大典」这件小事写起，讲皇帝每天怎么被礼仪、经筵、早朝捆住；再讲他想立常洵为太子、被大臣拦住，从此越来越不肯露面。</p>
+          <p><span class="key q">为什么重要</span>皇帝看着权力最大，其实是被规矩捆得最紧的那个人。他一「躺平」，整台机器就开始空转。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>第二章 · 首辅申时行<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>写申时行怎么当首辅：他看透了文官集团有「阳」（公开讲的道德）和「阴」（私下算的利益）两面，于是靠调和、靠给人留台阶来维持局面。</p>
+          <p><span class="key q">为什么重要</span>「和事佬」不是没本事，是他知道硬碰硬一定碎。但也正因如此，他什么也改不了。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>第三章 · 世间已无张居正<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>张居正死后被清算：抄家、夺谥，家人受牵连。他一倒，皇帝和整个文官集团彻底僵住，谁也不信谁。</p>
+          <p><span class="key q">为什么重要</span>这一章说明：在这个系统里，改革者的下场不是「被反对」，而是「被清算」。后来的人看着，就没人敢再改。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>第四章 · 活着的祖宗<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>写皇帝怎么被「祖宗的规矩」和一套套礼仪供起来：修陵墓、祭天地、立太子，每一步都不是他自己的意思。他更像一个活着的神像。</p>
+          <p><span class="key q">为什么重要</span>「祖宗」两个字比皇帝还大。谁都不能改规矩，因为规矩不是人定的，是「祖宗定的」。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>第五章 · 海瑞，古怪的模范官僚<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>海瑞一辈子照洪武年间的老规矩办事，清廉到极点，也硬到极点。他弹劾过皇帝，也被同僚弹劾；七次辞职，七次不批；1587年在任上去世，遗物只有八两银子。</p>
+          <p><span class="key q">为什么重要</span>全书的「道德极限实验」：如果一个人道德满分，能不能治好国家？答案是——不能，因为他要对抗的是整个同僚集团。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>第六章 · 戚继光，孤独的将领<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>戚继光自己练兵、创鸳鸯阵，扫平东南倭患；调守蓟镇十六年安然无事。张居正死后他失去靠山，被调广东、被罢官，1588年1月17日在贫病中去世。</p>
+          <p><span class="key q">为什么重要</span>全书唯一的「技术派」：他懂专业、也懂人情，却仍然赢不了「重文轻武」这条规矩。他的死，等于明朝关上了一扇还能修的门。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>第七章 · 李贽，自相冲突的哲学家<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>李贽做过知府，五十三岁退休，晚年住在麻城芝佛院。他批判假道学，也批判自己；1601年佛院被烧，1602年被捕，在狱中结束了自己的生命。</p>
+          <p><span class="key q">为什么重要</span>全书收尾：连最敢怀疑的人，也只能破坏、不能建设。所以书的最后一句话是——万历十五年，是「历史上一部失败的总记录」。</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小百科 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">🪐</span><h2>8 个关键词，看懂这本书</h2></div>
+    <p class="lead">这几个词看懂了，这本书就懂了一大半。每个词后面都配了一个生活里的比方。</p>
+    <div class="wiki">
+
+      <div class="card" style="background:var(--gold-soft);border-color:var(--gold-line);">
+        <h3>🔭 大历史观</h3>
+        <p>不盯着一件事、一个人看，而是把眼光放到几十年、几百年，看整个趋势。</p>
+        <div class="tip">💡 像看球赛：只盯着球，你只看到谁踢了一脚；看整场阵型，才知道为什么会输。</div>
+      </div>
+
+      <div class="card" style="background:var(--purple-soft);border-color:#DED5FF;">
+        <h3>⚖️ 以道德代替法制</h3>
+        <p>国家没有一套能执行的规则，遇事先问「这样做对不对」，而不是「法律怎么写的」。</p>
+        <div class="tip">💡 像班里没有班规，全靠每个人「自觉」。吵起来的时候，谁声音大谁有理。</div>
+      </div>
+
+      <div class="card" style="background:var(--teal-soft);border-color:#C9F1E8;">
+        <h3>🧮 数目字管理</h3>
+        <p>用账本、统计、数字来管理国家：有多少人、多少田、多少税，都要算得清。</p>
+        <div class="tip">💡 像记零花钱：记在本子上的，月底还剩多少心里有数；靠感觉花的，月底一定傻眼。</div>
+      </div>
+
+      <div class="card" style="background:var(--orange-soft);border-color:#FFE0BE;">
+        <h3>👥 文官集团</h3>
+        <p>通过考试当上官的一大批读书人。他们不是一个组织，却有共同的习惯和利益，能一起挡住任何一个人。</p>
+        <div class="tip">💡 像全班的班干部：没有谁特别坏，但你要动他们的安排，他们能一起把你顶回去。</div>
+      </div>
+
+      <div class="card" style="background:var(--pink-soft);border-color:#FFD3E1;">
+        <h3>🎭 「阳」与「阴」</h3>
+        <p>黄仁宇说官员有两套标准：「阳」是公开讲的道德文章，「阴」是私下算的利益关系。两套同时存在，谁都不能说破。</p>
+        <div class="tip">💡 像朋友圈发的和心里想的，常常不是一回事，但没人会把它写出来。</div>
+      </div>
+
+      <div class="card" style="background:var(--yellow-soft);border-color:#F3DFA4;">
+        <h3>📜 祖制</h3>
+        <p>老祖宗（主要是朱元璋）定下的规矩。它最大的威力不是内容多好，而是「谁都不能改」。</p>
+        <div class="tip">💡 像家里那条「年夜饭必须吃饺子」的规定，没人记得谁定的，可谁也不敢取消。</div>
+      </div>
+
+      <div class="card" style="background:var(--purple-soft);border-color:#DED5FF;">
+        <h3>👑 争国本</h3>
+        <p>「国本」就是太子。万历想立常洵，大臣坚持立长子常洛，这场拉锯战拖了十几年。</p>
+        <div class="tip">💡 像选班长：规则说按学号轮，可老师想选另一个，全班都不答应。</div>
+      </div>
+
+      <div class="card" style="background:var(--teal-soft);border-color:#C9F1E8;">
+        <h3>🏹 重文轻武</h3>
+        <p>明朝由读书人管武将。武将功劳再大，地位也低；军队的钱粮、调度，全握在文官手里。</p>
+        <div class="tip">💡 像运动会拿了冠军，奖金却发给写总结的人——下次谁还拼命练？</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>三个人，三种救法</h2></div>
+    <p class="lead">这本书最容易记混的，就是「谁做了什么」。这张表帮你把三条路分开。</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>比一比</th><th>张居正</th><th>申时行</th><th>海瑞</th></tr></thead>
+        <tbody>
+          <tr><td>他的办法</td><td>强推：定指标、查账、逼所有人跟上</td><td>调和：不撕破脸，给双方都留台阶</td><td>照祖制：一律按洪武年间的老规矩办</td></tr>
+          <tr><td>他相信什么</td><td>只要管得够紧，国家就能转起来</td><td>只要不吵翻，事情总能慢慢办</td><td>只要人人像我一样清廉，天下就太平</td></tr>
+          <tr><td>别人怎么看他</td><td>怕他，也恨他</td><td>觉得他滑头，但不讨厌他</td><td>敬佩他，却没人愿意跟他共事</td></tr>
+          <tr><td>结局</td><td>死后被抄家，改革大多被废</td><td>被弹劾后辞职回家，平安活到老</td><td>孤独死在任上，遗物只有八两银子</td></tr>
+          <tr><td>留下了什么</td><td>一套没人敢接着用的制度</td><td>一个「什么也没变」的朝廷</td><td>一个所有人敬佩、却没人模仿的榜样</td></tr>
+          <tr><td>结论</td><td colspan="3">三条路都试过了，全都走不通——这就是这本书最冷的地方。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 金句 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✨</span><h2>5 句值得抄在本子上的话</h2></div>
+
+      <div class="qitem">
+        <p>公元1587年，在中国为明万历十五年，论干支则为丁亥，属猪。当日四海升平，全年并无大事可叙。</p>
+        <span>——《万历十五年》第一章开篇</span>
+      </div>
+
+      <div class="qitem">
+        <p>中国二千年来，以道德代替法制，至明代而极，这就是一切问题的症结。</p>
+        <span>——《万历十五年》自序</span>
+      </div>
+
+      <div class="qitem">
+        <p>当一个人口众多的国家，各人行动全凭儒家简单粗浅而又无法固定的原则所限制，而法律又缺乏创造性，则其社会发展的程度，必然受到限制。</p>
+        <span>——《万历十五年》第七章</span>
+      </div>
+
+      <div class="qitem">
+        <p>万历丁亥年的年鉴，是为历史上一部失败的总记录。</p>
+        <span>——《万历十五年》全书最后一句</span>
+      </div>
+
+      <div class="qitem">
+        <p>叙事不妨细致，但是结论却要看远不顾近。</p>
+        <span>——黄仁宇自述「大历史观」</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">这本书没有标准答案，只有很多值得争一争的问题。挑一个，说说你的理由。</p>
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>万历用「不上朝」来反抗。你觉得这算<b>勇敢</b>，还是算<b>放弃</b>？如果你是他，还有别的办法吗？</p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>海瑞一分钱不收，可同事都不喜欢他。为什么<b>「完全正确」的人，常常最不受欢迎</b>？</p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>戚继光为了能打仗，去结交朝廷里有权的大官。这算<b>会办事</b>，还是算<b>走后门</b>？两件事能分开吗？</p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>书里说「用道德代替法律」。如果你们班没有班规，只靠大家自觉，一个星期后会变成什么样？</p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>黄仁宇说这一年「什么大事都没发生」。你觉得<b>「没发生大事」的一年，真的不重要吗</b>？</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这本书会遇到的小词</h2></div>
+    <p class="lead">遇到不认识的名词，回来查一下就好，不用背。</p>
+    <div class="words">
+      <dl class="word"><dt>万历<em>年号</em></dt><dd>明朝第十三位皇帝朱翊钧的年号，从 1573 年用到 1620 年，一共四十八年。</dd></dl>
+      <dl class="word"><dt>首辅<em>官职</em></dt><dd>内阁大学士里的第一号人物，相当于「大臣们的班长」。张居正、申时行都做过。</dd></dl>
+      <dl class="word"><dt>内阁<em>机构</em></dt><dd>帮皇帝看文件、提意见的几个人。他们没有真正的决定权，全靠皇帝点头。</dd></dl>
+      <dl class="word"><dt>经筵<em>仪式</em></dt><dd>皇帝定期听讲书的典礼。听着像上课，其实更像一场必须到场的表演。</dd></dl>
+      <dl class="word"><dt>廷杖<em>刑罚</em></dt><dd>皇帝下令在朝堂上打大臣的板子。被打的人常常反而更有名，因为「敢说」成了光荣。</dd></dl>
+      <dl class="word"><dt>考成法<em>制度</em></dt><dd>张居正发明的官员考核办法：每件事定好期限，到期查账，做不完就罚。像给官员发一张任务清单。</dd></dl>
+      <dl class="word"><dt>一条鞭法<em>税制</em></dt><dd>把原来各种杂税并成一条，大部分折成银子交。听着简单，其实是把账算清楚的一次努力。</dd></dl>
+      <dl class="word"><dt>夺情<em>典故</em></dt><dd>官员父母去世本该回家守孝三年，皇帝特批「不用走」叫夺情。张居正曾被夺情，引发巨大争议。</dd></dl>
+      <dl class="word"><dt>国本<em>政治</em></dt><dd>指太子的人选。太子是国家的根本，所以争立太子就叫「争国本」。</dd></dl>
+      <dl class="word"><dt>倭寇<em>历史</em></dt><dd>明朝中后期在东南沿海抢掠的武装团伙，成分很杂。戚继光就是打他们出名的。</dd></dl>
+      <dl class="word"><dt>鸳鸯阵<em>战术</em></dt><dd>戚继光发明的步兵小队阵法，盾牌、狼筅、长枪、短刀分工配合，专门克制倭寇的刀法。</dd></dl>
+      <dl class="word"><dt>芝佛院<em>地点</em></dt><dd>湖北麻城的一座私人佛堂。李贽晚年住在这里写书、讲学，1601 年被人烧毁。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 终章 ============ -->
+<section id="finale">
+  <div class="wrap">
+    <div class="finale">
+      <div class="ball">🕰️</div>
+      <h3>这一年，其实什么都没发生</h3>
+      <p>没有大战，没有大火，没有改朝换代。六个人各自努力了几十年，最后一个被抄家，一个被罢官，一个孤独死去，一个在狱中离世，一个什么也没改变。黄仁宇把这一年翻出来，是想让我们看见：<b>一个系统坏掉的时候，是不出声的。</b></p>
+      <div class="q">所以问题不是「谁做错了」，而是——如果所有人都不算坏人，为什么结果这么糟？</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>先说清楚：这本书有「重量」</h3>
+      <p>这不是一本儿童文学，而是一部历史著作。它讲的不是冒险，是<b>失败</b>，而且是「好人也会失败」的那种失败。具体涉及：</p>
+      <p>· 张居正死后被抄家，家人受到牵连（原著写到长子自尽，本页只保留「家人受牵连」）；<br>
+         · 海瑞在任上去世，清点遗物只有八两银子（本页保留，用来讲「清廉」的重量）；<br>
+         · 戚继光被罢官，在贫病中去世；<br>
+         · 李贽在狱中结束了自己的生命（本页只写结果，不写过程，也不写细节）；<br>
+         · 全书基调偏冷，读完可能让孩子觉得「努力也没用」。</p>
+      <p>建议：<b>11 岁以上，可独立阅读；但「努力为什么没用」这个话题，最好有大人陪着聊一次</b>。这本书的价值恰恰在这里——它不哄人，却也不让人绝望，它把问题指出来了。</p>
+
+      <h3 style="margin-top:18px;">三种读法，挑一种</h3>
+      <div class="route">
+        <div><b>路线 A · 故事优先：</b>先读第一幕「没人通知的早朝」和第五幕「将军的孤独」，这两段最像故事，孩子容易进去。</div>
+        <div><b>路线 B · 顺着读：</b>按本页顺序，一幕一幕往下；每读完一幕，回到「章节地图」对一次原著章节。</div>
+        <div><b>路线 C · 只聊问题：</b>书先不读，直接看「想一想」里的五个问题，和孩子聊半小时，再决定要不要翻开原著。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#8A7B66;">本页只覆盖《万历十五年》这一本（自序 + 七章），不涉及明末农民战争、清朝建立等后续历史，也不引用大段原文。文中的引文均出自该书中文版。若孩子读得进去，下一本可以看黄仁宇的《中国大历史》。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《万历十五年》· 小小读者导读<br>
+    为小学生重述 · 共 6 幕 / 8 个情节台阶 / 6 位人物<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span></p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 工作区内部数据（记忆、配置等），不发布到站点
+.workbuddy/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp

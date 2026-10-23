@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张居正抄家始末 · 万历十年到崇祯十三年</title>
+<meta name="description" content="张居正身后清算全记录：从万历十年病逝赐谥文忠，到万历十二年四月籍没江陵故居，再到天启、崇祯三朝平反。含《明史》原文、抄没数字对照与三种评价。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='12' y='12' width='76' height='76' rx='6' fill='%23A63B2A'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#FBF7EF;
+    --card:#FFFFFF;
+    --ink:#2B2A26;
+    --ink-soft:#655D55;
+    --ink-faint:#9A8F86;
+    --line:#E8DFD0;
+
+    --pri:#3D4E5C;
+    --pri-deep:#28353F;
+    --pri-soft:#EDF1F4;
+    --pri-line:#D3DDE4;
+
+    --acc:#A63B2A;
+    --acc-deep:#832C1F;
+    --acc-soft:#F8ECE8;
+    --acc-line:#EBD3CC;
+
+    --gold:#A8822F;
+    --gold-soft:#FAF1D9;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% 6%, rgba(61,78,92,.05), transparent 26%),
+      radial-gradient(circle at 88% 10%, rgba(166,59,42,.06), transparent 24%),
+      radial-gradient(#EDE4D5 1.2px, transparent 1.2px);
+    background-size:auto,auto,28px 28px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+  .serif{font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;}
+
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(251,247,239,.94);
+    border-bottom:1px solid #EADFCC;
+  }
+  .nav .wrap{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding-top:9px;padding-bottom:9px;}
+  .nav .brand{font-weight:700;font-size:14.5px;margin-right:10px;letter-spacing:1px;color:var(--pri-deep);}
+  .nav a{
+    font-size:13px;color:var(--ink-soft);text-decoration:none;
+    padding:4px 11px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;transition:.2s;
+  }
+  .nav a:hover{background:var(--pri-soft);border-color:var(--pri-line);color:var(--pri);}
+
+  .hero{padding:52px 0 6px;}
+  .kicker{
+    display:inline-block;font-size:12.5px;letter-spacing:2.5px;color:#fff;
+    background:var(--pri);padding:5px 16px;border-radius:3px;font-weight:600;
+  }
+  h1{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    font-size:clamp(29px,5vw,48px);line-height:1.3;margin:18px 0 10px;
+    letter-spacing:2px;font-weight:700;color:#241F1B;
+  }
+  h1 em{font-style:normal;color:var(--acc);}
+  .sub{color:var(--ink-soft);font-size:15.8px;margin:0;max-width:760px;}
+  .cover{margin:24px 0 0;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);}
+
+  section{padding:46px 0 4px;}
+  .title{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;}
+  .title .no{
+    font-family:"Songti SC","STSong",serif;font-size:13.5px;color:var(--acc);
+    font-weight:700;letter-spacing:2px;
+  }
+  .title h2{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    font-size:clamp(21px,3vw,27px);margin:0;font-weight:700;letter-spacing:2px;color:#241F1B;
+  }
+  .lead{color:var(--ink-soft);margin:4px 0 20px;font-size:15px;max-width:880px;}
+  .rule{height:2px;background:linear-gradient(90deg,var(--pri),var(--pri-line) 45%,transparent);border-radius:2px;margin-bottom:18px;}
+
+  /* 三句话 */
+  .trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .tcard .n{
+    font-family:"Songti SC","STSong",serif;font-size:13px;font-weight:700;
+    color:var(--acc);letter-spacing:2px;display:block;margin-bottom:6px;
+  }
+  .tcard h3{margin:0 0 6px;font-size:16.5px;font-weight:600;}
+  .tcard p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .tcard p b{color:var(--ink);font-weight:600;}
+
+  /* 时间线 */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:9px;top:12px;bottom:16px;width:2px;background:linear-gradient(180deg,var(--pri),var(--pri-line) 70%,var(--acc-line));}
+  .act{position:relative;margin-bottom:14px;}
+  .act::before{
+    content:"";position:absolute;left:-30px;top:20px;width:11px;height:11px;border-radius:50%;
+    background:#fff;border:3px solid var(--pri);
+  }
+  .act.turn::before{border-color:var(--acc);}
+  .actbody{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 19px;}
+  .act.turn .actbody{border-color:var(--acc-line);background:#FFFCFB;}
+  .acthead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .actdate{font-size:12.5px;font-weight:600;color:#fff;background:var(--pri);padding:2px 9px;border-radius:3px;letter-spacing:.5px;}
+  .act.turn .actdate{background:var(--acc);}
+  .acthead h3{margin:0;font-size:16.5px;font-weight:600;letter-spacing:.5px;}
+  .actbody p{margin:8px 0 0;font-size:14.4px;color:var(--ink-soft);}
+  .actbody p b{color:var(--ink);font-weight:600;}
+
+  /* 原文引用 */
+  .quote{
+    background:#FFFDF8;border:1px solid var(--line);border-left:3px solid var(--acc);
+    border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0;
+  }
+  .quote p{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    margin:0;font-size:16px;line-height:2;color:#3A332C;letter-spacing:.5px;
+  }
+  .quote .src{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-faint);font-family:inherit;letter-spacing:.5px;}
+
+  .expl{margin:0 0 12px;font-size:14.8px;color:var(--ink-soft);}
+  .expl b{color:var(--ink);font-weight:600;}
+
+  /* 原因 */
+  .reasons{display:grid;gap:12px;}
+  .reason{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px 16px 56px;position:relative;
+  }
+  .reason .rn{
+    position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;
+    background:var(--pri-soft);color:var(--pri-deep);font-size:13px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;border:1px solid var(--pri-line);
+  }
+  .reason h3{margin:0 0 5px;font-size:16px;font-weight:600;}
+  .reason p{margin:0;font-size:14.3px;color:var(--ink-soft);}
+  .reason p b{color:var(--ink);font-weight:600;}
+
+  /* 人物表 */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff;}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px;}
+  th,td{padding:12px 15px;text-align:left;border-bottom:1px solid #F3EBDF;vertical-align:top;}
+  thead th{background:var(--pri-soft);font-weight:600;font-size:13px;color:var(--pri-deep);white-space:nowrap;}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:600;color:var(--ink);white-space:nowrap;}
+  tbody tr:hover td{background:#FFFCF6;}
+  .hint{display:none;font-size:12.5px;color:var(--ink-faint);margin:8px 0 0;}
+
+  /* 数字 */
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;}
+  .num{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 17px;}
+  .num .big{
+    font-family:"Songti SC","STSong",serif;font-size:22px;font-weight:700;
+    color:var(--pri-deep);line-height:1.35;letter-spacing:.5px;
+  }
+  .num.warn .big{color:var(--acc-deep);}
+  .num .cap{font-size:12.8px;color:var(--ink-soft);margin-top:3px;line-height:1.6;}
+  .num .cap b{color:var(--ink);font-weight:600;}
+
+  /* 评价 */
+  .verdicts{display:grid;gap:12px;}
+  .vd{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;}
+  .vd p{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    margin:0 0 6px;font-size:15.5px;line-height:1.95;color:#3A332C;
+  }
+  .vd .who{font-size:12.5px;color:var(--ink-faint);font-family:inherit;}
+  .vd .say{font-size:13.6px;color:var(--ink-soft);margin-top:6px;font-family:inherit;line-height:1.8;}
+
+  /* 说明 */
+  .notes{background:#FFFCF6;border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
+  .notes h3{margin:0 0 9px;font-size:15.5px;font-weight:600;letter-spacing:1px;}
+  .notes ul{margin:0 0 14px;padding-left:18px;}
+  .notes li{font-size:14px;color:var(--ink-soft);margin-bottom:6px;}
+  .notes li b{color:var(--ink);font-weight:600;}
+  .notes .last{margin:0;font-size:12.8px;color:var(--ink-faint);}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:12.5px;padding:44px 0 52px;line-height:2;}
+  footer .seal{
+    width:38px;height:38px;margin:0 auto 12px;border-radius:4px;background:var(--acc);
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    font-family:"Songti SC","STSong",serif;font-size:17px;font-weight:700;letter-spacing:1px;
+  }
+
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:44px;height:44px;border-radius:50%;
+    border:1px solid var(--line);background:#fff;color:var(--pri);font-size:17px;cursor:pointer;
+    display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .acts{padding-left:26px;}
+    .acts::before{left:5px;}
+    .act::before{left:-22px;}
+    .actbody{padding:14px 16px;}
+    .reason{padding-left:52px;}
+    .quote{padding:15px 16px;}
+    .quote p{font-size:15px;}
+    .nums{grid-template-columns:repeat(2,1fr);}
+    .hint{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">张居正 · 身后清算</span>
+    <a href="#trio">三句话</a>
+    <a href="#timeline">始末</a>
+    <a href="#scene">抄家现场</a>
+    <a href="#why">为什么会这样</a>
+    <a href="#people">关键人物</a>
+    <a href="#numbers">数字对照</a>
+    <a href="#after">三朝平反</a>
+    <a href="#notes">史料说明</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">万历十年六月 — 崇祯十三年</span>
+    <h1>他死的时候是「文忠公」，<br><em>不到两年，成了被抄家的罪人</em></h1>
+    <p class="sub">1582 年夏天，张居正病逝，皇帝辍朝、赐谥、护丧归葬，给足了哀荣。可就在此后二十来个月里，他的盟友倒台、官阶被夺、谥号被削、家门被抄，长子自缢，一门流放。这一页把这件事的每一步、每一个推手、每一笔数字都摊开。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 340" role="img" aria-label="一扇被两条封条交叉封住的老宅大门，门缝中央盖着一枚红印">
+        <defs>
+          <linearGradient id="bgW" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FBF4E4"/>
+            <stop offset="100%" stop-color="#F3EADB"/>
+          </linearGradient>
+        </defs>
+        <rect width="1000" height="340" fill="url(#bgW)"/>
+
+        <rect x="0" y="46" width="300" height="294" fill="#EFE3D1"/>
+        <rect x="700" y="46" width="300" height="294" fill="#EFE3D1"/>
+        <g stroke="#E2D3BC" stroke-width="2">
+          <line x1="0" y1="120" x2="300" y2="120"/>
+          <line x1="700" y1="120" x2="1000" y2="120"/>
+          <line x1="0" y1="210" x2="300" y2="210"/>
+          <line x1="700" y1="210" x2="1000" y2="210"/>
+          <line x1="150" y1="120" x2="150" y2="210"/>
+          <line x1="850" y1="120" x2="850" y2="210"/>
+        </g>
+
+        <rect x="286" y="36" width="428" height="304" fill="#C6A97F"/>
+        <rect x="304" y="54" width="392" height="286" fill="#E1C8A2"/>
+        <g stroke="#D3B78E" stroke-width="2">
+          <line x1="353" y1="54" x2="353" y2="340"/>
+          <line x1="402" y1="54" x2="402" y2="340"/>
+          <line x1="451" y1="54" x2="451" y2="340"/>
+          <line x1="549" y1="54" x2="549" y2="340"/>
+          <line x1="598" y1="54" x2="598" y2="340"/>
+          <line x1="647" y1="54" x2="647" y2="340"/>
+        </g>
+        <line x1="500" y1="54" x2="500" y2="340" stroke="#B99A6E" stroke-width="3"/>
+
+        <g fill="none" stroke="#A98A5F" stroke-width="4">
+          <circle cx="452" cy="186" r="13"/>
+          <circle cx="548" cy="186" r="13"/>
+        </g>
+
+        <rect x="286" y="36" width="428" height="18" fill="#B08F63"/>
+
+        <g transform="rotate(-19 500 200)">
+          <rect x="478" y="32" width="44" height="296" fill="#FFFDF6" stroke="#E2D3B8" stroke-width="1.5"/>
+          <line x1="490" y1="46" x2="490" y2="316" stroke="#EFE4CE" stroke-width="1.5"/>
+        </g>
+        <g transform="rotate(19 500 200)">
+          <rect x="478" y="32" width="44" height="296" fill="#FFFDF6" stroke="#E2D3B8" stroke-width="1.5"/>
+        </g>
+
+        <g transform="rotate(-19 500 200)">
+          <rect x="468" y="168" width="64" height="64" rx="3" fill="#A63B2A"/>
+          <rect x="476" y="176" width="48" height="48" rx="2" fill="none" stroke="#F6E7E2" stroke-width="2"/>
+          <g stroke="#F6E7E2" stroke-width="4" stroke-linecap="square">
+            <line x1="488" y1="184" x2="488" y2="216"/>
+            <line x1="500" y1="184" x2="500" y2="216"/>
+            <line x1="512" y1="184" x2="512" y2="216"/>
+            <line x1="484" y1="192" x2="516" y2="192"/>
+            <line x1="484" y1="208" x2="516" y2="208"/>
+          </g>
+        </g>
+
+        <g fill="#CDB894">
+          <rect x="330" y="312" width="340" height="10" rx="3"/>
+          <rect x="306" y="322" width="388" height="10" rx="3"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="trio">
+  <div class="wrap">
+    <div class="title"><span class="no">壹</span><h2>三句话说清这件事</h2></div>
+    <div class="rule"></div>
+    <div class="trio">
+      <div class="tcard">
+        <span class="n">生 前</span>
+        <h3>他几乎是半个皇帝</h3>
+        <p>万历初年起当国十年，皇帝称他「先生」。考成法、一条鞭法、清丈田亩，都出自他手。他死后，皇帝<strong>辍朝、谕祭九坛、赠上柱国、谥文忠</strong>。</p>
+      </div>
+      <div class="tcard">
+        <span class="n">死 后</span>
+        <h3>不到两年，全反过来了</h3>
+        <p>盟友冯保先倒，接着<strong>夺上柱国、夺太师、夺谥号</strong>；再借「辽王案」发难，万历十二年四月下诏<strong>籍没江陵故居</strong>。</p>
+      </div>
+      <div class="tcard">
+        <span class="n">结 果</span>
+        <h3>抄出来的，远少于想象</h3>
+        <p>黄金一万两、白银十余万两。皇帝不信，逼供「寄藏三十万」，长子张敬修<span style="color:var(--acc-deep);font-weight:600">自缢</span>，家人饿死十余口，诸子流放。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="title"><span class="no">贰</span><h2>八年始末：从哀荣到抄家</h2></div>
+    <div class="rule"></div>
+    <p class="lead">按时间顺序。红点标出的四个节点，是整件事真正转向的地方。</p>
+    <div class="acts">
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十年六月二十日 · 1582.7.9</span>
+            <h3>病逝，哀荣备至</h3>
+          </div>
+          <p>张居正病逝于北京，年五十八。皇帝为之辍朝，谕祭九坛，按国公兼师傅的规格治丧；<b>赠上柱国，谥文忠</b>，并派四品京卿、锦衣堂上官和司礼监太监护丧归葬江陵。此时没有人预感到，风向会转得这么快。</p>
+        </div>
+      </div>
+
+      <div class="act turn">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十年十二月 · 1583 年初</span>
+            <h3>冯保倒台，冰山裂了第一道缝</h3>
+          </div>
+          <p>张居正能当国十年，靠的是内廷有<b>冯保</b>（司礼监掌印太监）配合。冯保早年排挤过的太监<b>张诚</b>重新入宫，把两人「交结恣横」的情形全盘报告皇帝，还说他们<b>「宝藏逾天府」</b>——家里的财宝比国库还多。</p>
+          <p>御史李植随即弹劾冯保。皇帝把冯保贬到南京守孝陵，<b>抄其家，得金银珠宝巨万计</b>。这一抄，让皇帝第一次真切地意识到：原来「身边人」可以这么有钱。</p>
+        </div>
+      </div>
+
+      <div class="act turn">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十一年 · 1583</span>
+            <h3>夺官、夺谥，张居正被「拆」掉</h3>
+          </div>
+          <p>皇帝下诏<b>夺去张居正的上柱国、太师，随后再夺谥号</b>。他一手提拔的官员几乎被斥削殆尽；当年因反对「夺情」被廷杖的吴中行、赵用贤等人被召回升官；弹劾过张居正而被削籍的刘台，追赠官职、归还原产。</p>
+          <p>这一连串动作的政治含义很明确：<b>凡是张居正定的、用的、压的，全部倒过来</b>。继任首辅张四维虽由张居正引荐，此时也不阻止，其门人御史李植正是发难者之一。</p>
+        </div>
+      </div>
+
+      <div class="act turn">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十一年 · 1583</span>
+            <h3>辽王案：为抄家找到「罪名」</h3>
+          </div>
+          <p>御史<b>羊可立</b>追论旧事，指张居正构陷辽王朱宪㸅（早已废为庶人）。辽王妃趁机上疏辩冤，并说了一句关键的话：<b>「庶人金宝万计，悉入居正」</b>——辽王府数以万计的金银，全落进了张家。</p>
+          <p>这句话把「政治清算」变成了「经济案件」。有了这条线索，抄家就从报复变成了「追赃」。</p>
+        </div>
+      </div>
+
+      <div class="act turn">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十二年四月 · 1584</span>
+            <h3>下诏籍家，钦差赴荆州</h3>
+          </div>
+          <p>皇帝命<b>司礼监太监张诚、刑部右侍郎丘橓</b>，会同锦衣卫指挥曹应魁、左给事中杨廷相，前往荆州抄没张居正家产。</p>
+          <p>还没等钦差到，荆州地方官已经<b>提前登记人口、封锁张府大门</b>。府中子女来不及退出，只能躲进空屋。等门再打开时，<b>已经饿死十余人</b>。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十二年四月 · 1584</span>
+            <h3>张敬修受刑，写下绝命书</h3>
+          </div>
+          <p>抄出黄金一万两、白银十余万两，与「金宝万计」的预期相差太远。于是用刑逼供。长子<b>张敬修</b>（礼部主事，万历八年进士）受刑不过，<b>自诬承认把三十万两银子寄存在曾省吾、王篆、傅作舟等人家里</b>，随后自缢。</p>
+          <p>他留下的绝命书里，点名痛骂办案的两个人：「丘侍郎、任巡按，活阎王！」</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十二年 · 1584</span>
+            <h3>定案：削尽官秩，罪状示天下</h3>
+          </div>
+          <p>申时行等内阁与六部大臣联名上疏，请求稍缓；刑部尚书<b>潘季驯</b>的奏疏尤其激切，说张家「奄奄待毙之老母，茕茕无倚之诸孤，行道之人皆为怜悯」。皇帝不高兴，潘季驯后来被御史李植劾为「党庇」，<b>落职为民</b>。</p>
+          <p>最终下诏：<b>尽削张居正官秩，追夺此前所赐玺书与四代诰命</b>，把罪状昭告天下，并称「本当剖棺戮死，姑且免了」。其弟张居易、子张嗣修<b>发戍烟瘴之地</b>。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">万历十二年之后</span>
+            <h3>余波：一座空宅，十顷薄田</h3>
+          </div>
+          <p>迫于舆论，皇帝准许给张家<b>留空宅一所、田十顷</b>，用来赡养张居正八十多岁的老母赵氏。其余诸子充军。据记载，赵氏一年多后在悲伤中去世。</p>
+          <p>而发难的言官们得到了奖赏：李植、江东之、羊可立三人以「尽忠言事、揭发大奸有功」，分别升任太仆寺少卿、光禄寺少卿、尚宝司少卿。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="scene">
+  <div class="wrap">
+    <div class="title"><span class="no">叁</span><h2>抄家现场：《明史》只用了一百字</h2></div>
+    <div class="rule"></div>
+    <p class="lead">这件事最可靠的记载，在《明史·张居正传》里。整段不过百余字，却把过程、数目、结局全写完了。</p>
+
+    <div class="quote">
+      <p>诚等将至，荆州守令先期录人口，锢其门，子女多遁避空室中。比门启，饿死者十余辈。诚等尽发其诸子兄弟藏，得黄金万两，白金十余万两。其长子礼部主事敬修不胜刑，自诬服寄三十万金于省吾、篆及傅作舟等，寻自缢死。</p>
+      <span class="src">——《明史》卷二百一十三·张居正传</span>
+    </div>
+
+    <p class="expl">逐句拆开看，这一段其实讲了四件事：</p>
+
+    <div class="reasons">
+      <div class="reason">
+        <div class="rn">一</div>
+        <h3>封门是地方官干的，不是钦差</h3>
+        <p>「荆州守令先期录人口，锢其门」——钦差还没到，地方官就先把人登记、把门封了。<b>饿死的人，是在等钦差的那些天里死的。</b>这不是圣旨要求，是地方官揣摩上意的「提前办理」。</p>
+      </div>
+      <div class="reason">
+        <div class="rn">二</div>
+        <h3>抄家数字：黄金一万，白银十余万</h3>
+        <p>按明代白银购买力粗算，这仍是一笔巨款，但与「宝藏逾天府」「金宝万计」的想象差得远。<b>皇帝预期落空，才有了后面的逼供。</b></p>
+      </div>
+      <div class="reason">
+        <div class="rn">三</div>
+        <h3>「自诬服」三个字最重</h3>
+        <p>史书用的是「自诬服」——自己诬陷自己，承认了并不存在的三十万两寄藏。这三个字是史官的态度：<b>口供是打出来的。</b></p>
+      </div>
+      <div class="reason">
+        <div class="rn">四</div>
+        <h3>三十万两牵出一串人</h3>
+        <p>曾省吾、王篆、傅作舟都是张居正提拔的官员。一句逼供出来的口供，让追赃范围从张家扩到整个「张党」，<b>抄家由此变成了一场扩大化的清算</b>。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="title"><span class="no">肆</span><h2>为什么会走到这一步</h2></div>
+    <div class="rule"></div>
+    <p class="lead">不是某一个坏人推倒了他。是五股力量同时指向同一个方向。</p>
+    <div class="reasons">
+
+      <div class="reason">
+        <div class="rn">1</div>
+        <h3>威权震主：皇帝长大了，位置却没还给他</h3>
+        <p>万历登基时十岁，张居正以「先生」身份管了他十年。到万历十年，皇帝已经二十岁，<b>却仍然不能真正亲政</b>。一个已经成年的君主，最不能忍的就是「有人替他当家」——哪怕这个人是为他好。</p>
+      </div>
+
+      <div class="reason">
+        <div class="rn">2</div>
+        <h3>被欺骗感：讲节俭的人，抄出来很有钱</h3>
+        <p>张居正反复劝皇帝省用、停修工程，自己却坐三十二人抬的大轿、收受馈赠。冯保抄出「巨万」之后，皇帝认定张居正藏得更多。<b>落差越大，愤怒越真。</b></p>
+      </div>
+
+      <div class="reason">
+        <div class="rn">3</div>
+        <h3>内外同盟断裂：冯保一倒，张居正就只剩一个人</h3>
+        <p>明代内阁要办事，必须有司礼监配合。张居正与冯保一外一内，是十年政局的支柱。冯保被贬，这根支柱抽掉，<b>张居正在朝中再没有可以挡刀的人</b>——而他已经死了，连自辩的机会都没有。</p>
+      </div>
+
+      <div class="reason">
+        <div class="rn">4</div>
+        <h3>言官反攻：被压了十年的人，一起回来了</h3>
+        <p>考成法让官员人人自危，夺情事件让一批人挨了廷杖。张居正在世时，他们不敢说话；他一死，<b>弹劾成了最安全的晋升通道</b>。李植、羊可立、江东之三人因「揭发大奸有功」升官，就是最好的证明。</p>
+      </div>
+
+      <div class="reason">
+        <div class="rn">5</div>
+        <h3>财政期待：抄家被当成了一笔收入</h3>
+        <p>万历朝边饷、宗禄、营建开支都在涨，国库并不宽裕。抄冯保得了巨万，皇帝「益心艳之」——<b>眼睛红了</b>。当抄家被当成财政手段，数目不够时，就只剩下刑讯一条路。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="no">伍</span><h2>关键人物：谁在推，谁在拦</h2></div>
+    <div class="rule"></div>
+    <p class="lead">这件事里没有纯粹的好人或坏人，只有各自的位置和算计。</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>人物</th><th>身份</th><th>在这场清算里的角色</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>万历皇帝</td>
+            <td>明神宗朱翊钧</td>
+            <td>最终裁决者。从「辍朝赐谥」到「削秩籍家」，转变只用了二十个月。他的愤怒里有被压抑十年的成分，也有对巨额家产的期待。</td>
+          </tr>
+          <tr>
+            <td>冯保</td>
+            <td>司礼监掌印太监</td>
+            <td>张居正的内廷盟友。第一个倒台，家产被抄「巨万计」，等于替张居正做了一次「财富示范」。</td>
+          </tr>
+          <tr>
+            <td>张诚</td>
+            <td>司礼监太监</td>
+            <td>曾被冯保排挤出宫，后奉命密查冯、张二人，最后亲自带队去荆州抄家。</td>
+          </tr>
+          <tr>
+            <td>丘橓</td>
+            <td>刑部右侍郎</td>
+            <td>主持抄家审问。张敬修绝命书里点名骂的「丘侍郎」就是他。</td>
+          </tr>
+          <tr>
+            <td>张敬修</td>
+            <td>张居正长子·礼部主事</td>
+            <td>万历八年进士。受刑不过，自诬承认寄藏三十万两，随后自缢。崇祯十三年追复其官。</td>
+          </tr>
+          <tr>
+            <td>张四维</td>
+            <td>继任首辅</td>
+            <td>张居正一手引荐，继任后与张居正提拔的王篆、曾省吾交恶，不阻止门人李植发难。</td>
+          </tr>
+          <tr>
+            <td>申时行</td>
+            <td>内阁首辅</td>
+            <td>与六卿大臣联名上疏，请求对张家稍加宽缓，争到了「空宅一所、田十顷」。</td>
+          </tr>
+          <tr>
+            <td>潘季驯</td>
+            <td>刑部尚书·治河名臣</td>
+            <td>上疏最激切，直指办案太急。被劾「党庇张居正」，落职为民。</td>
+          </tr>
+          <tr>
+            <td>羊可立</td>
+            <td>云南道御史</td>
+            <td>追论辽王旧案，引爆抄家。事后升尚宝司少卿。</td>
+          </tr>
+          <tr>
+            <td>于慎行</td>
+            <td>礼部官员</td>
+            <td>当年因「夺情」得罪过张居正，此刻却给主审官丘橓写信说公道话（见下节）。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">表格可左右滑动 →</p>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="wrap">
+    <div class="title"><span class="no">陆</span><h2>数字对照：想要的，和抄到的</h2></div>
+    <div class="rule"></div>
+    <p class="lead">把这几个数字并排放，就能看出抄家为什么会失控。</p>
+    <div class="nums">
+      <div class="num warn"><div class="big">黄金一万两</div><div class="cap"><b>实际抄出</b> ·《明史》</div></div>
+      <div class="num warn"><div class="big">白银十余万两</div><div class="cap"><b>实际抄出</b> ·《明史》</div></div>
+      <div class="num"><div class="big">三十万两</div><div class="cap"><b>刑讯逼出的「寄藏」数</b><br>张敬修自诬</div></div>
+      <div class="num"><div class="big">十余人</div><div class="cap"><b>封门期间饿死</b><br>《明史》记「十余辈」</div></div>
+      <div class="num"><div class="big">一所 / 十顷</div><div class="cap"><b>最终留给张家</b><br>空宅一所、田十顷</div></div>
+      <div class="num"><div class="big">二十个月</div><div class="cap"><b>从病逝到抄家</b><br>1582.7 → 1584.4</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="after">
+  <div class="wrap">
+    <div class="title"><span class="no">柒</span><h2>余波：三十八年后才开始翻案</h2></div>
+    <div class="rule"></div>
+    <div class="acts">
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actdate">万历一朝 · 1584—1620</span><h3>「终万历世，无敢白居正者」</h3></div>
+          <p>《明史》这九个字，是整件事最冷的一句。张居正被抄家后的三十六年里，<b>满朝没有一个人敢公开为他说话</b>。不是没人知道他有功，是没人愿意为一件已经定性的案子冒险。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actdate">天启二年 · 1622</span><h3>熹宗复其故官，予葬祭</h3></div>
+          <p>到天启年间，朝臣开始追述他的功绩，连当年被张居正打压过的邹元标（时任左都御史）也公开称赞他。皇帝下诏<b>恢复张居正原官，给予葬祭</b>。这是第一次正式松口。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actdate">崇祯三年 · 1630</span><h3>复二荫及诰命</h3></div>
+          <p>礼部侍郎罗喻义等人为张居正讼冤，崇祯帝命部议，<b>恢复两处荫职与诰命</b>。此时距明朝灭亡只剩十四年。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actdate">崇祯十三年 · 1640</span><h3>张同敞请复武荫，追复张敬修官</h3></div>
+          <p>张敬修之孙<b>张同敞</b>上书，请求恢复武荫并为祖父复官。崇祯授张同敞中书舍人，并让部议张敬修之事。吏部尚书李日宣的覆奏，等于给张居正做了最终的官方评价（见下节）。</p>
+          <p>张同敞后来在南明抗清，桂林城破时与瞿式耜一同不屈而死——张家的气节，在他身上接上了。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="verdicts">
+  <div class="wrap">
+    <div class="title"><span class="no">捌</span><h2>四句评价，四种立场</h2></div>
+    <div class="rule"></div>
+    <p class="lead">这四段话分别来自：当时看不下去的人、被得罪过的人、清算执行层的人、三十八年后的官方。</p>
+    <div class="verdicts">
+
+      <div class="vd">
+        <p>「当其柄政，举朝争颂其功而不敢言其过；今日既败，举朝争索其罪而不敢言其功，皆非情实也。」</p>
+        <div class="who">—— 于慎行《致丘橓书》</div>
+        <div class="say">说这话的人，当年正因「夺情」事件得罪张居正而被排挤。他没有借机报复，反而指出：得势时无人敢说缺点，失势时无人敢说功绩，两种都不是实情。</div>
+      </div>
+
+      <div class="vd">
+        <p>「昔日颠倒是非在小人，今乃在君子。」</p>
+        <div class="who">—— 大学士许国，连上三疏求去时所说</div>
+        <div class="say">「君子」指那些以清议自居的言官。这句话点破了清算的真相：换了一批人，逻辑没变。</div>
+      </div>
+
+      <div class="vd">
+        <p>「丘侍郎、任巡按，活阎王！你也有父母妻子之念，何忍陷人如此酷烈！」</p>
+        <div class="who">—— 张敬修绝命书（转引自后世记载）</div>
+        <div class="say">这是全场唯一一句来自受害者的声音。它不是史料判断，是一个人在死前的原话。</div>
+      </div>
+
+      <div class="vd">
+        <p>「故辅居正，受遗辅政，事皇祖者十年，肩劳任怨，举废饬弛，弼成万历初年之治。……功在社稷，日久论定，人益追思。」</p>
+        <div class="who">—— 吏部尚书李日宣覆奏，崇祯十三年</div>
+        <div class="say">「日久论定」四个字，用了五十八年才换来。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="notes">
+  <div class="wrap">
+    <div class="title"><span class="no">玖</span><h2>史料说明</h2></div>
+    <div class="rule"></div>
+    <div class="notes">
+      <h3>主要依据</h3>
+      <ul>
+        <li><b>《明史》卷二百一十三·张居正传</b>：本页所有关键情节（冯保被谪、夺官夺谥、辽王案、籍家、饿死、抄没数字、张敬修自诬自缢、削秩定案、三朝平反）均出自此传，可直接核对原文。</li>
+        <li>于慎行致丘橓书、许国求去语、张敬修绝命书：均见于后世史论与笔记的转引，非《明史》正文，本页已逐条标注「转引」。</li>
+        <li>人物生卒与科第（如张敬修 1552—1584、万历八年二甲第十三名进士）：参用通行辞书与地方志记载。</li>
+      </ul>
+
+      <h3>三处细节存在异说</h3>
+      <ul>
+        <li><b>饿死人数</b>：《明史》记「饿死者十余辈」；部分野史与百科记「十七口，其中三名婴儿」。本页取正史的「十余」，异说在此说明。</li>
+        <li><b>抄家月份</b>：多记「万历十二年四月」，也有资料系于三月。本页取四月。</li>
+        <li><b>抄没总额</b>：《明史》的「黄金万两、白金十余万两」是官方奏报数。有研究者认为实际查抄更少或更多，但无可靠新证，本页不采纳推测。</li>
+      </ul>
+
+      <h3>关于纪年</h3>
+      <ul>
+        <li>本页同时给出明代纪年与公历年份。农历月份折公历会有跨年（如万历十年十二月已在 1583 年初），因此部分节点只标年份、不标具体日。</li>
+        <li>张居正卒日「万历十年六月二十日」对应公历 1582 年 7 月 9 日，为通行换算。</li>
+      </ul>
+
+      <p class="last">本页为公开史料整理，供学习与查证使用。涉及具体数字与引文，建议回到《明史》原文核对。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="seal">张</div>
+    <p>张居正抄家始末 · 万历十年至崇祯十三年<br>
+    哀荣 → 夺谥 → 籍家 → 平反 · 凡五十八年</p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>

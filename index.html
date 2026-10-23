@@ -1,1 +1,250 @@
-   
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图书导读 · 书架</title>
+<meta name="description" content="小小读者导读与历史档案：三体、小王子、猫武士、神探狗狗、万历十五年、红军长征、张居正抄家。全部为单文件 HTML，离线可读。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='14' y='18' width='72' height='64' rx='6' fill='%238A5A3B'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#FDF9F0;
+    --card:#FFFFFF;
+    --ink:#2C2825;
+    --soft:#6B625B;
+    --faint:#9C9089;
+    --line:#E8DDCD;
+    --brown:#8A5A3B;
+    --brown-soft:#F7EDE4;
+    --green:#3D5A4C;
+    --green-soft:#EAF0EC;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(138,90,59,.06), transparent 26%),
+      radial-gradient(circle at 88% 12%, rgba(61,90,76,.06), transparent 24%),
+      radial-gradient(#EFE5D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,28px 28px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
+
+  header{padding:70px 0 8px;}
+  .kicker{
+    display:inline-block;font-size:12.5px;letter-spacing:3px;color:#fff;
+    background:var(--brown);padding:5px 15px;border-radius:3px;font-weight:600;
+  }
+  h1{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    font-size:clamp(30px,5vw,46px);line-height:1.3;margin:18px 0 10px;
+    letter-spacing:3px;font-weight:700;
+  }
+  .sub{color:var(--soft);font-size:15.8px;margin:0;max-width:700px;}
+
+  .toc{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 0;}
+  .toc a{
+    font-size:13px;color:var(--soft);text-decoration:none;
+    padding:5px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;transition:.2s;
+  }
+  .toc a:hover{border-color:var(--brown);color:var(--brown);}
+
+  section{padding:44px 0 4px;}
+  .sec{display:flex;align-items:baseline;gap:12px;margin:0 0 4px;}
+  .sec h2{
+    font-family:"Songti SC","STSong",serif;font-size:23px;margin:0;
+    font-weight:700;letter-spacing:2px;
+  }
+  .sec .cnt{font-size:12.5px;color:var(--faint);letter-spacing:1px;}
+  .rule{height:2px;border-radius:2px;margin:10px 0 20px;}
+  .rule.b{background:linear-gradient(90deg,var(--brown),#F0DFD2 45%,transparent);}
+  .rule.g{background:linear-gradient(90deg,var(--green),#DDE7E1 45%,transparent);}
+  .note{color:var(--soft);font-size:14.6px;margin:0 0 20px;max-width:820px;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+
+  .bk{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px 18px;display:flex;flex-direction:column;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .bk:hover{transform:translateY(-3px);border-color:#DCCBB4;box-shadow:0 12px 26px rgba(90,70,50,.09);}
+  .bk .tag{
+    align-self:flex-start;font-size:11.5px;letter-spacing:1.5px;font-weight:600;
+    padding:2px 10px;border-radius:999px;margin-bottom:10px;
+  }
+  .bk.kid .tag{color:var(--brown);background:var(--brown-soft);border:1px solid #EBD8C7;}
+  .bk.his .tag{color:var(--green);background:var(--green-soft);border:1px solid #D6E2DA;}
+  .bk h3{
+    font-family:"Songti SC","STSong",serif;
+    margin:0 0 7px;font-size:20px;font-weight:700;letter-spacing:1px;
+  }
+  .bk p{margin:0 0 14px;font-size:14.2px;color:var(--soft);flex:1;}
+  .links{display:flex;flex-direction:column;gap:6px;border-top:1px dashed var(--line);padding-top:12px;}
+  .links a{
+    font-size:14px;color:var(--brown);text-decoration:none;
+    display:flex;align-items:center;gap:7px;transition:.15s;
+  }
+  .bk.his .links a{color:var(--green);}
+  .links a::before{content:"›";color:var(--faint);font-weight:700;}
+  .links a:hover{text-decoration:underline;text-underline-offset:3px;}
+  .links .sub2{font-size:12px;color:var(--faint);}
+
+  .about{
+    background:#FFFCF6;border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;margin-top:8px;
+  }
+  .about h3{margin:0 0 10px;font-size:16px;font-weight:600;letter-spacing:1px;}
+  .about p{margin:0 0 8px;font-size:14.3px;color:var(--soft);}
+  .about p:last-child{margin:0;}
+  .about b{color:var(--ink);font-weight:600;}
+  .about code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.8px;
+    background:#F4EDE0;padding:1px 6px;border-radius:4px;color:#6B4B33;
+  }
+
+  footer{
+    text-align:center;color:var(--faint);font-size:12.5px;
+    padding:52px 0 60px;line-height:2;
+  }
+  footer .dot{color:var(--brown);letter-spacing:8px;font-size:15px;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    header{padding:48px 0 4px;}
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="kicker">图书导读 · 书架</span>
+    <h1>把厚书读薄，<br>再把薄书读透</h1>
+    <p class="sub">两个系列：一个是给孩子的名著导读，把长篇小说和复杂文本重写成能读懂的故事；一个是历史档案，把一件事的来龙去脉摊开。每份都是单文件 HTML，断网也能打开。</p>
+
+    <nav class="toc">
+      <a href="#kid">小小读者导读</a>
+      <a href="#his">历史档案</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </header>
+
+  <section id="kid">
+    <div class="sec"><h2>小小读者导读</h2><span class="cnt">5 部 · 8 篇</span></div>
+    <div class="rule b"></div>
+    <p class="note">面向 8–14 岁。封面插画、人物档案、情节分幕、章节地图、小百科、讨论题，最后附一段给家长的诚实提示。</p>
+
+    <div class="grid">
+
+      <article class="bk kid">
+        <span class="tag">科幻 · 三部曲</span>
+        <h3>三体</h3>
+        <p>刘慈欣的宇宙史诗。用「面壁计划」「黑暗森林」「二维化」三个比喻，把三部曲的骨架搭给孩子看。</p>
+        <div class="links">
+          <a href="三体/三体第一部-小小读者导读.html">第一部 · 地球往事</a>
+          <a href="三体/三体第二部-黑暗森林-小小读者导读.html">第二部 · 黑暗森林</a>
+          <a href="三体/三体第三部-死神永生-小小读者导读.html">第三部 · 死神永生</a>
+        </div>
+      </article>
+
+      <article class="bk kid">
+        <span class="tag">童话</span>
+        <h3>小王子</h3>
+        <p>一颗小行星、一朵玫瑰、一只狐狸。全书最轻，也最难讲——难在那些「大人看不懂」的地方。</p>
+        <div class="links">
+          <a href="小王子/小王子-小小读者导读.html">全本导读</a>
+        </div>
+      </article>
+
+      <article class="bk kid">
+        <span class="tag">漫画 · 全系列</span>
+        <h3>神探狗狗</h3>
+        <p>一半是狗、一半是警察的超级英雄。搞笑漫画也能读出结构：谁在制造麻烦，谁在收拾残局。</p>
+        <div class="links">
+          <a href="神探狗狗/神探狗狗-全系列-小小读者导读.html">全系列导读</a>
+        </div>
+      </article>
+
+      <article class="bk kid">
+        <span class="tag">奇幻 · 三部曲</span>
+        <h3>猫武士</h3>
+        <p>森林里四个猫族争地盘。野性、忠诚、背叛，孩子看得懂的那种「权力游戏」。</p>
+        <div class="links">
+          <a href="猫武士/猫武士三部曲-预视力量-小小读者导读.html">预视力量</a>
+          <a href="猫武士/猫武士三部曲-暗河汹涌-小小读者导读.html">暗河汹涌</a>
+          <span class="sub2">已收录 2 册</span>
+        </div>
+      </article>
+
+      <article class="bk kid">
+        <span class="tag">历史 · 非虚构</span>
+        <h3>万历十五年</h3>
+        <p>黄仁宇写「平淡无事的一年」。皇帝、首辅、清官、将军、思想家，六个人撞上同一个死结。</p>
+        <div class="links">
+          <a href="万历十五年/万历十五年-小小读者导读.html">全本导读</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="his">
+    <div class="sec"><h2>历史档案</h2><span class="cnt">2 篇</span></div>
+    <div class="rule g"></div>
+    <p class="note">面向成人读者。不做儿童化改写，重点在时间线、原始史料、数字对照，以及不同说法之间的差异。</p>
+
+    <div class="grid">
+
+      <article class="bk his">
+        <span class="tag">近现代史</span>
+        <h3>红军长征</h3>
+        <p>四支队伍、十二段路线、五次关键会议、九场战役。含路线示意图与八组关键数字，并说明三处史料口径差异。</p>
+        <div class="links">
+          <a href="红军长征-路线战役大事记.html">路线 · 战役 · 大事记</a>
+        </div>
+      </article>
+
+      <article class="bk his">
+        <span class="tag">明史</span>
+        <h3>张居正抄家始末</h3>
+        <p>从万历十年赐谥「文忠」，到两年后籍没江陵故居，再到三朝平反。《明史》原文、五条动因、抄没数字对照。</p>
+        <div class="links">
+          <a href="张居正抄家始末.html">万历十年至崇祯十三年</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec"><h2>关于本站</h2></div>
+    <div class="rule b"></div>
+    <div class="about">
+      <h3>技术说明</h3>
+      <p>所有页面都是<b>单个 HTML 文件</b>：样式内联、插画是 SVG、不引用任何外部图片或字体，所以拔掉网线也能正常打开，也可以直接发给别人。</p>
+      <p>本站用 <b>GitHub Pages</b> 托管，内容随仓库更新。</p>
+
+      <h3 style="margin-top:16px;">内容说明</h3>
+      <p>「小小读者导读」是故事梳理与阅读辅助，<b>不是原文节选</b>；涉及沉重内容时会在「给家长」一段明确标注。历史档案类页面的史料来源与分歧说法，写在每篇末尾的「史料说明」里。</p>
+      <p>如果发现史实错误或表述问题，欢迎提 Issue 指正。</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="dot">· · ·</div>
+    <p>图书导读 · 书架<br>
+    共 7 部作品 / 10 个页面</p>
+  </footer>
+</div>
+
+</body>
+</html>

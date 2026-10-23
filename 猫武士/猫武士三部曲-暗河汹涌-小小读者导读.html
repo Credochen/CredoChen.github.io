@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《猫武士》第三部曲②《暗河汹涌》· 小小读者导读</title>
+<meta name="description" content="把《猫武士》第三部曲第二部《暗河汹涌》讲给小读者：地下的隧道、一个没能走出来的学徒、三只小猫各自的秘密与选择。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%90%BE%3C/text%3E%3C/svg%3E">
+<style>
+
+
+  /* ================================================================
+     kid-book-guide 设计系统（默认主色 = 暗金）。
+     换主色只需改 --gold / --gold-soft / --gold-line，
+     或整体换成紫/墨绿/海蓝，详见 references/design-system.md。
+     原则：单文件、零外链、浅色底、圆角 26、正文 16.5/1.9。
+     ================================================================ */
+
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#33305A;
+    --ink-soft:#6C688E;
+    --ink-faint:#9A96B4;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#EDE4D5;
+    --dark:#3B3563;
+    --gold:#2F7A63;
+    --gold-deep:#22604D;
+    --gold-soft:#E4F5EE;
+    --gold-line:#C6EBDF;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.16), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(124,107,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.09), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--purple-soft);border-color:#DCD3FF;color:var(--purple);}
+  .nav a.prev{background:var(--purple-soft);color:#5B4BE0;border-color:#DCD3FF;font-weight:700;}
+  .nav a.prev:hover{background:#E5DEFF;border-color:#CFC3FF;color:#4A3E96;}
+
+  /* ---------- 封面 ---------- */
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,#22604D,#5FB99B);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(47,122,99,.26);
+    transform:rotate(-2deg);
+  }
+  h1{font-size:clamp(28px,5vw,48px);line-height:1.32;margin:20px 0 6px;letter-spacing:2px;font-weight:900;}
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:670px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(47,122,99,.14);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;background-size:100% 12px;background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+
+  /* ---------- 一句话 ---------- */
+  .oneline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--purple-soft);border-color:#DED5FF;}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--gold-soft);border-color:var(--gold-line);}
+
+  /* ---------- 人物 ---------- */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--purple-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--purple-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCF7EC;border:1.5px dashed #E9DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;}
+  .say::before{content:"“";font-weight:900;color:var(--purple);}
+  .say::after{content:"”";font-weight:900;color:var(--purple);}
+
+  /* ---------- SVG 图容器 ---------- */
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+  .subhead{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;margin:26px 0 12px;}
+  .subhead .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+
+  /* ---------- 三个童话 ---------- */
+  .tales{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .tale{
+    background:#fff;border:2px solid var(--gold-line);border-radius:24px;
+    padding:22px 22px 20px;position:relative;box-shadow:0 10px 24px rgba(47,122,99,.08);
+  }
+  .tale .num{
+    position:absolute;right:16px;top:14px;width:34px;height:34px;border-radius:50%;
+    background:var(--gold-soft);color:var(--gold);border:1.5px solid var(--gold-line);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;
+  }
+  .tale h3{margin:0 0 8px;font-size:17px;font-weight:900;padding-right:40px;}
+  .tale .story{font-size:14.2px;color:var(--ink-soft);margin:0 0 12px;}
+  .tale .ans{
+    font-size:13.6px;background:var(--purple-soft);border-radius:14px;padding:10px 13px;
+    color:#4A3E96;line-height:1.8;
+  }
+  .tale .ans b{color:#3A2E86;}
+  .tale .ans .lb{display:block;font-size:11.5px;letter-spacing:1.5px;color:#8A80C4;font-weight:800;margin-bottom:3px;}
+
+  /* ---------- 六幕 ---------- */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:11px;top:8px;bottom:12px;border-left:3px dotted #E7D8BB;}
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--purple);box-shadow:0 0 0 4px #F3EEFF;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .act:nth-child(6)::before{border-color:var(--gold);}
+  .actbody{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;box-shadow:0 8px 20px rgba(107,95,160,.06);}
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--purple);padding:3px 10px;border-radius:8px;}
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .act:nth-child(6) .actno{background:var(--gold);}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{font-size:12px;color:var(--ink-soft);background:#FBF6EA;border:1.5px solid #EFE4CE;border-radius:999px;padding:2px 10px;}
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  /* ---------- 折叠章节卡 ---------- */
+  .beats{display:grid;gap:10px;}
+  details.beat{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);transition:.2s;}
+  details.beat[open]{border-color:#C6EBDF;box-shadow:0 12px 26px rgba(47,122,99,.14);}
+  details.beat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 0;font-weight:800;font-size:15.8px;outline:none;}
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{flex:0 0 34px;height:34px;border-radius:12px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;}
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);padding:1px 8px;border-radius:6px;margin-top:4px;}
+  .binner .key.q{background:var(--orange);}
+
+  /* ---------- 小百科 ---------- */
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--purple);background:var(--purple-soft);border-radius:12px;padding:7px 11px;}
+
+/* ---------- 黑暗森林配方 ---------- */
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .fitem{background:#fff;border:2px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);}
+  .fitem h4{margin:0 0 5px;font-size:15.5px;display:flex;gap:9px;align-items:center;font-weight:900;}
+  .fnum{
+    width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:var(--purple-soft);color:var(--purple);
+    font-size:12.5px;font-weight:900;display:flex;align-items:center;justify-content:center;
+  }
+  .fitem p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .fmid{text-align:center;color:var(--ink-faint);font-size:13.5px;margin:16px 0 12px;letter-spacing:1px;font-weight:700;}
+  .fres{
+    background:linear-gradient(140deg,#FFF6DA,#FFEEDA);border:3px solid #F3DFA4;border-radius:24px;
+    padding:24px 26px;text-align:center;box-shadow:0 12px 26px rgba(243,223,164,.35);
+  }
+  .fres .lab{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#B08930;}
+  .fres h3{margin:6px 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .fres p{margin:0;font-size:15px;color:#7A6320;line-height:1.9;}
+
+    /* ---------- 表格 ---------- */
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F4EDE0;vertical-align:top;}
+  thead th{background:#FCF6E9;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF8;white-space:nowrap;}
+  tbody tr:hover td{background:#FFF9EC;}
+
+  /* ---------- 终章卡 ---------- */
+  .finale{
+    background:linear-gradient(150deg,#FFF8E4,#F7EEFF 60%,#FFF0F5);
+    border:3px solid var(--gold-line);border-radius:var(--radius);
+    padding:32px 30px;text-align:center;box-shadow:0 18px 36px rgba(47,122,99,.14);
+  }
+  .finale .ball{
+    width:74px;height:74px;margin:0 auto 14px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #EAFFF6, #B9F0DC 55%, #8FD9C0);
+    border:3px solid #fff;box-shadow:0 10px 22px rgba(47,197,171,.24), inset 0 0 0 2px #D8F5EA;
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+  }
+  .finale h3{margin:0 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .finale p{margin:0 auto;max-width:640px;font-size:15px;color:#7A6A46;line-height:1.95;}
+  .finale .q{margin-top:14px;font-size:14px;color:#22604D;font-weight:800;}
+
+  /* ---------- 三部曲 ---------- */
+  .trilogy{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .tl{
+    background:#fff;border:2px solid var(--line);border-radius:22px;padding:20px;
+    text-decoration:none;color:inherit;display:block;transition:.18s;
+    box-shadow:0 8px 18px rgba(107,95,160,.06);
+  }
+  .tl:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(107,95,160,.13);border-color:#E2D8C2;}
+  .tl .no{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--gold);}
+  .tl h3{margin:4px 0 6px;font-size:17px;font-weight:900;}
+  .tl p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .tl.now{border-color:#DED5FF;background:#FBFAFF;cursor:default;}
+  .tl.now:hover{transform:none;box-shadow:0 8px 18px rgba(107,95,160,.06);}
+
+  /* ---------- 金句 ---------- */
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #4A4374, #2C2A4A 60%, #23213E);
+    border-radius:var(--radius);padding:34px 30px;color:#F4F1FF;
+    position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(44,42,74,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .qitem{position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);margin-bottom:6px;}
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#B9B3D8;letter-spacing:.5px;}
+
+  /* ---------- 想一想 ---------- */
+  .think{display:grid;gap:12px;}
+  .qitem2{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px dashed #E4D9C4;border-radius:18px;padding:16px 18px;}
+  .qnum{flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;}
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  /* ---------- 小词典 ---------- */
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--purple);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  /* ---------- 家长提示 ---------- */
+  .parent{background:linear-gradient(140deg,#FFF6E4,#FFEFF4);border:2px solid #F6E3C6;border-radius:var(--radius);padding:26px 28px;}
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#6A5F52;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#6A5F52;background:rgba(255,255,255,.7);border-radius:12px;padding:9px 13px;}
+  .parent a{color:var(--gold-deep);font-weight:800;text-decoration:none;border-bottom:2px solid var(--gold-line);}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:13px;padding:44px 0 56px;line-height:2;}
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid #E7DCC6;background:#fff;color:var(--gold);font-size:18px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(107,95,160,.16);display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody,.tale{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+    .binner{padding-left:0;}
+    .finale{padding:24px 20px;}
+  }
+
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">🐾 猫武士·小小读者版</span>
+    <a class="prev" href="猫武士三部曲-预视力量-小小读者导读.html" style="background:#E4F5EE;color:#2F6E5B;border-color:#C6EBDF;">← 第 1 册</a>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#map">地下地图</a>
+    <a href="#acts">五幕故事</a>
+    <a href="#chapters">章节地图</a>
+    <a href="#world">猫族规矩</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">艾琳·亨特 ·《猫武士》第三部曲 ②</span>
+    <h1>草地下面的<span class="hl">那条暗河</span>，<br>藏着一个没能回家的学徒</h1>
+    <p class="sub">《暗河汹涌》是《三力量》的第二本。这一册讲的不是打仗，是"秘密"——三只小猫各自守着一个不能说的事。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 330" role="img" aria-label="夜晚的草地，草坡下有一条隧道和地下暗河，隧道深处有一个发光的小猫身影">
+        <defs>
+          <linearGradient id="skyD" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#EDF4E8"/>
+            <stop offset="55%" stop-color="#F1F1FF"/>
+            <stop offset="100%" stop-color="#FFF8E9"/>
+          </linearGradient>
+          <linearGradient id="grassD" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#CFE9D5"/>
+            <stop offset="100%" stop-color="#A9DCC0"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="1000" height="330" rx="30" fill="url(#skyD)"/>
+
+        <g fill="#CFC9EE">
+          <circle cx="70" cy="42" r="2"/><circle cx="150" cy="66" r="1.6"/>
+          <circle cx="250" cy="36" r="2.2"/><circle cx="360" cy="62" r="1.7"/>
+          <circle cx="470" cy="34" r="2"/><circle cx="600" cy="58" r="1.6"/>
+          <circle cx="720" cy="30" r="2.2"/><circle cx="840" cy="54" r="1.8"/>
+          <circle cx="940" cy="80" r="2"/><circle cx="520" cy="96" r="1.6"/>
+        </g>
+        <g fill="#FFE28A">
+          <circle cx="300" cy="96" r="2.2"/><circle cx="680" cy="72" r="2"/>
+          <circle cx="900" cy="40" r="1.8"/>
+        </g>
+
+        <text x="66" y="52" font-size="13.5" fill="#3F7A63" font-weight="800">上面：四个族群的家</text>
+
+        <!-- 草坡 -->
+        <path d="M0 330 L0 176 Q220 152 440 176 Q660 200 820 178 Q910 166 1000 178 L1000 330 Z" fill="#CFE9D5"/>
+
+        <!-- 土壤剖面 -->
+        <path d="M0 330 L0 194 Q220 170 440 194 Q660 218 820 196 Q910 184 1000 196 L1000 330 Z" fill="#F3E7D2"/>
+        <g fill="#E2D0B2">
+          <circle cx="92" cy="252" r="4"/><circle cx="162" cy="288" r="3"/>
+          <circle cx="332" cy="258" r="3.4"/><circle cx="522" cy="292" r="3"/>
+          <circle cx="706" cy="252" r="3.6"/><circle cx="788" cy="306" r="3"/>
+          <circle cx="944" cy="268" r="3.4"/><circle cx="58" cy="314" r="3"/>
+        </g>
+        <g stroke="#8FCBA8" stroke-width="2.4" stroke-linecap="round" opacity=".85">
+          <path d="M120 184 l6 -16"/><path d="M132 186 l-4 -18"/>
+          <path d="M880 194 l6 -16"/><path d="M892 196 l-4 -18"/>
+          <path d="M760 200 l5 -14"/>
+        </g>
+
+        <!-- 洞口 -->
+        <ellipse cx="250" cy="200" rx="46" ry="15" fill="#4C5B6B"/>
+        <ellipse cx="250" cy="198" rx="38" ry="10" fill="#333C48"/>
+
+        <!-- 隧道：外描边 + 内壁 + 地下暗河 -->
+        <path d="M250 204 C 430 226, 620 258, 900 292" stroke="#D8CBB2" stroke-width="58" fill="none" stroke-linecap="round"/>
+        <path d="M250 204 C 430 226, 620 258, 900 292" stroke="#FFFCF3" stroke-width="52" fill="none" stroke-linecap="round"/>
+        <path d="M250 212 C 430 234, 620 266, 900 300" stroke="#BFE3F5" stroke-width="13" fill="none" stroke-linecap="round" opacity=".95"/>
+
+        <!-- 落叶（发光的猫） -->
+        <g>
+          <circle cx="872" cy="294" r="32" fill="#FFF3C9" opacity=".8"/>
+          <circle cx="872" cy="294" r="19" fill="#FFF8DF" opacity=".95"/>
+          <g transform="translate(872,300) scale(.98)" fill="#E2BE72">
+            <path d="M-15 6 q-2 -17 11 -17 q13 0 11 17 z"/>
+            <circle cx="-4" cy="-16" r="9"/>
+            <path d="M-11 -21 L-14 -31 L-4 -25 Z"/><path d="M4 -21 L7 -31 L-1 -25 Z"/>
+            <path d="M15 4 q14 5 8 -10" fill="none" stroke="#E2BE72" stroke-width="4" stroke-linecap="round"/>
+          </g>
+        </g>
+        <text x="872" y="256" text-anchor="middle" font-size="12.5" fill="#B08A3E" font-weight="800">等了很久的猫</text>
+
+        <!-- 洞口的小猫（松鸦爪） -->
+        <g transform="translate(196,180) scale(.9)" fill="#3B4652">
+          <path d="M-15 6 q-2 -17 11 -17 q13 0 11 17 z"/>
+          <circle cx="-4" cy="-16" r="9"/>
+          <path d="M-11 -21 L-14 -31 L-4 -25 Z"/><path d="M4 -21 L7 -31 L-1 -25 Z"/>
+          <path d="M15 4 q13 5 7 -9" fill="none" stroke="#3B4652" stroke-width="3.8" stroke-linecap="round"/>
+        </g>
+
+        <text x="410" y="146" font-size="13" fill="#8A7B66" font-weight="800">下面有一条谁也不知道的路</text>
+        <path d="M500 156 Q540 196 566 232" stroke="#B7A88C" stroke-width="2" stroke-dasharray="4 6" fill="none"/>
+
+        <text x="66" y="316" font-size="13.5" fill="#9A7B44" font-weight="700">洞里在涨水的时候，谁都不该进去</text>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">📖 第三部曲 <b>第 2 册</b></span>
+      <span class="badge">🕳️ 一条 <b>地下暗河</b></span>
+      <span class="badge">👦 建议 <b>10 岁+</b></span>
+      <span class="badge">💔 一个 <b>迟到的学徒</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 三句话 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整本书</h2></div>
+    <p class="lead">这一册看起来是三件事，其实是同一件事：每个人都在守一个秘密。</p>
+
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 地下有另一条路</h3>
+        <p>松鸦爪捡到一根刻满划痕的木棍，还梦见一个下雨的夜晚。他终于明白：草地下面有一整套隧道，和一条会把隧道灌满的地下河。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 三只小猫都有秘密</h3>
+        <p>狮爪在夜里偷偷见风族的朋友；冬青爪发现了这件事；松鸦爪能听见很久以前的声音——三个人谁都不敢说。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 三个幼崽不见了</h3>
+        <p>风族的三只幼崽失踪，风族要打河族。真正的原因在地下——而唯一认得那条路的，是一个已经死在那里的学徒。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🐾</span><h2>人物小档案</h2></div>
+    <p class="lead">这一册多了三个重要角色：一个风族学徒、一个远古的鬼魂，还有一个活得比谁都久的老猫。</p>
+
+    <div class="people">
+      <article class="person" style="--accent:#EFEBFF">
+        <div class="phead">
+          <div class="avatar">🌑</div>
+          <div><div class="pname">松鸦爪</div><div class="prole">雷族巫医学徒 · 看不见</div></div>
+        </div>
+        <p>他现在跟着叶池学做巫医。这一册里，他从湖里捞起一根刻满划痕的木棍，还一次次梦见一场雨——那不是他的记忆，是别人的。</p>
+        <div class="say">（他能听见别的猫听不见的声音）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🦁</div>
+          <div><div class="pname">狮爪</div><div class="prole">雷族学徒 · 力气最大</div></div>
+        </div>
+        <p>他交了一个不能告诉别人的朋友——风族的石楠爪。两个人夜里在隧道里见面，还自己编了一个"族群"。他还偷偷跟着一个梦里的老师学战斗。</p>
+        <div class="say">（他想要的东西， 武士守则一样都不允许）</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🌿</div>
+          <div><div class="pname">冬青爪</div><div class="prole">雷族学徒 · 最守规矩</div></div>
+        </div>
+        <p>她发现弟弟半夜溜出去，也发现自己在"说出去"和"替他瞒着"之间左右为难。后来她在河族领地上被抓住，被当成探子关了起来。</p>
+        <div class="say">（她不是爱管闲事，她只是怕出事）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">🌾</div>
+          <div><div class="pname">石楠爪</div><div class="prole">风族学徒 · 狮爪的朋友</div></div>
+        </div>
+        <p>她跑得快、胆子大，是风族最不服输的学徒。她和狮爪在隧道里建了一个只属于两个人的"暗族"，可族群之间的规矩，比两个孩子的约定更硬。</p>
+        <div class="say">（她给狮爪起的名字是"狮爪将军"）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF3C9">
+        <div class="phead">
+          <div class="avatar">🕯️</div>
+          <div><div class="pname">落叶</div><div class="prole">远古的学徒 · 一个鬼魂</div></div>
+        </div>
+        <p>很久很久以前，他为了一场"成年试炼"走进隧道。老猫问他"会不会下雨"，他怕被要求改天再来，就撒了谎说"不会"。那场雨来了，他再也没有走出来。</p>
+        <div class="say">（他一直在隧道里，等着有谁能听懂他）</div>
+      </article>
+
+      <article class="person" style="--accent:#E6E9EE">
+        <div class="phead">
+          <div class="avatar">🪨</div>
+          <div><div class="pname">岩</div><div class="prole">远古的"记录者" · 又老又瞎</div></div>
+        </div>
+        <p>一只没有毛、眼睛看不见的老猫。他守着一根木棍，把每一个进隧道试炼的学徒名字刻上去；活着出来的划掉，没出来的留着。</p>
+        <div class="say">（他比落叶还要老，见过太多没回来的猫）</div>
+      </article>
+
+      <article class="person" style="--accent:#E2FAF5">
+        <div class="phead">
+          <div class="avatar">🌙</div>
+          <div><div class="pname">叶池</div><div class="prole">雷族巫医 · 松鸦爪的导师</div></div>
+        </div>
+        <p>这一册里她几乎把全部心神都放在一条断腿上——学徒炭爪从树上摔了下来。松鸦爪不明白她为什么这么执着，后来才知道原因。</p>
+        <div class="say">（她救的不只是一条腿）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFFDF6">
+        <div class="phead">
+          <div class="avatar">🦴</div>
+          <div><div class="pname">炭爪</div><div class="prole">雷族学徒 · 摔断了后腿</div></div>
+        </div>
+        <p>她从族里最高的那棵橡树上摔下来，伤得很重。松鸦爪在梦里见到了一个"不疼的"她，才知道这个学徒的身体里，住着一位老巫医的灵魂。</p>
+        <div class="say">（她自己并不知道这件事）</div>
+      </article>
+
+      <article class="person" style="--accent:#EDE7F6">
+        <div class="phead">
+          <div class="avatar">🐅</div>
+          <div><div class="pname">虎星</div><div class="prole">死去的反派 · 在梦里教战斗</div></div>
+        </div>
+        <p>他早就死了，却还在梦里出现，教狮爪一些连导师都不会的战斗技巧。他不是好心——他想让这个孩子变成自己想要的样子。</p>
+        <div class="say">（免费的礼物，往往最贵）</div>
+      </article>
+
+      <article class="person" style="--accent:#DCF0FA">
+        <div class="phead">
+          <div class="avatar">🌊</div>
+          <div><div class="pname">雾脚</div><div class="prole">河族副族长</div></div>
+        </div>
+        <p>河族的二号猫，冷静、不刻薄。冬青爪被抓的时候，是她看着这个"小探子"，既没有为难她，也没有放她走。</p>
+        <div class="say">（她按规矩办事，但不欺负小猫）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">🔥</div>
+          <div><div class="pname">火星</div><div class="prole">雷族族长</div></div>
+        </div>
+        <p>这一册里他最难：一边是风族要打河族，一边是自己族里的学徒被抓。他得在所有猫都在气头上的时候，找出真正该做的事。</p>
+        <div class="say">（他当族长这么多年，靠的从来不是嗓门大）</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 主图 ============ -->
+<section id="map">
+  <div class="wrap">
+    <div class="title"><span class="ico">🕳️</span><h2>第一张图：草地下面藏着什么</h2></div>
+    <p class="lead">这一册所有的意外，都发生在这张图的下半部分。看懂它，就懂了整本书。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 700 400" role="img" aria-label="剖面示意图：上面是四个族群的领地，下面是相互连通的隧道与地下暗河">
+        <!-- 地面 -->
+        <rect width="700" height="400" rx="24" fill="#FBFAF3"/>
+        <path d="M0 150 Q120 138 240 148 Q380 160 520 146 Q620 136 700 148 L700 172 Q560 182 420 170 Q260 156 120 168 Q60 172 0 168 Z" fill="#CFE9D5"/>
+        <g stroke="#8FCBA8" stroke-width="2.2" stroke-linecap="round" opacity=".8">
+          <path d="M70 148 l5 -14"/><path d="M82 150 l-4 -15"/>
+          <path d="M610 148 l5 -14"/><path d="M622 150 l-4 -15"/>
+        </g>
+
+        <!-- 四个族群（地上） -->
+        <text x="118" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#2F6E5B">雷族</text>
+        <text x="118" y="130" text-anchor="middle" font-size="10.5" fill="#5A9884">森林</text>
+        <text x="280" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#5A4A86">影族</text>
+        <text x="280" y="130" text-anchor="middle" font-size="10.5" fill="#7F71A6">沼泽</text>
+        <text x="452" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#8A6A1E">风族</text>
+        <text x="452" y="130" text-anchor="middle" font-size="10.5" fill="#A98C48">草原</text>
+        <text x="612" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#3A6F8C">河族</text>
+        <text x="612" y="130" text-anchor="middle" font-size="10.5" fill="#5F93AC">水边</text>
+
+        <!-- 地表线上的竖井口 -->
+        <g fill="#8FA0B2">
+          <ellipse cx="200" cy="164" rx="16" ry="5"/>
+          <ellipse cx="400" cy="158" rx="16" ry="5"/>
+          <ellipse cx="560" cy="170" rx="16" ry="5"/>
+        </g>
+
+        <!-- 隧道网 -->
+        <g stroke="#C6D2DC" stroke-width="26" fill="none" stroke-linecap="round" opacity=".95">
+          <path d="M200 168 L200 250 Q200 268 218 272 L420 292"/>
+          <path d="M400 162 L400 236 Q400 252 418 256 L560 274 Q580 278 580 296 L580 320"/>
+          <path d="M560 174 L560 240"/>
+          <path d="M218 272 L120 280 Q104 282 104 300 L104 330"/>
+          <path d="M420 292 L600 300 Q640 302 640 336"/>
+        </g>
+        <g stroke="#EFF3F7" stroke-width="18" fill="none" stroke-linecap="round">
+          <path d="M200 168 L200 250 Q200 268 218 272 L420 292"/>
+          <path d="M400 162 L400 236 Q400 252 418 256 L560 274 Q580 278 580 296 L580 320"/>
+          <path d="M560 174 L560 240"/>
+          <path d="M218 272 L120 280 Q104 282 104 300 L104 330"/>
+          <path d="M420 292 L600 300 Q640 302 640 336"/>
+        </g>
+
+        <!-- 地下暗河 -->
+        <path d="M116 316 Q300 306 420 316 Q540 326 640 330" stroke="#B9DDEF" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <text x="300" y="352" text-anchor="middle" font-size="11.5" fill="#6E9AB0">地下暗河：一下雨就涨水</text>
+
+        <!-- 岩与木棍 -->
+        <g>
+          <circle cx="120" cy="252" r="9" fill="#B0A79A"/>
+          <path d="M112 262 q8 -6 16 0 l3 16 h-22 z" fill="#B0A79A"/>
+          <text x="120" y="292" text-anchor="middle" font-size="10.5" fill="#8A8275" font-weight="700">岩</text>
+        </g>
+
+        <!-- 落叶 -->
+        <g>
+          <circle cx="470" cy="300" r="20" fill="#FFF3C9" opacity=".9"/>
+          <g transform="translate(470,304) scale(.72)" fill="#E2BE72">
+            <path d="M-15 6 q-2 -17 11 -17 q13 0 11 17 z"/>
+            <circle cx="-4" cy="-16" r="9"/>
+            <path d="M-11 -21 L-14 -31 L-4 -25 Z"/><path d="M4 -21 L7 -31 L-1 -25 Z"/>
+            <path d="M15 4 q14 5 8 -10" fill="none" stroke="#E2BE72" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <text x="470" y="288" text-anchor="middle" font-size="10.5" fill="#B08A3E" font-weight="800">落叶</text>
+        </g>
+
+        <text x="350" y="386" text-anchor="middle" font-size="11.5" fill="#A9A2C2">示意：隧道像树根一样，把四个族群的脚下连在一起</text>
+      </svg>
+      <div class="cap">图 1 · 上面是四族的地盘，下面是另一套"路网"——幼崽会走丢，水会涨起来</div>
+    </div>
+
+    <div class="subhead"><span class="dot"></span>第二张图：每个学徒，都有两个"老师"</div>
+    <p class="lead" style="margin-top:-4px;">一个在白天教他们本事，另一个只在没人看见的时候出现。</p>
+
+    <div class="tales">
+      <article class="tale">
+        <div class="num">壹</div>
+        <h3>松鸦爪</h3>
+        <p class="story"><b>明面上：</b>巫医叶池教他认草药、听星族的声音。<br><b>暗地里：</b>一个死在隧道里的学徒，一次次把他拉进同一场雨。</p>
+        <div class="ans">
+          <span class="lb">他学到的事</span>
+          有些声音来自<b>很久以前</b>，而活着的人得替他们把话说完。
+        </div>
+      </article>
+
+      <article class="tale">
+        <div class="num">贰</div>
+        <h3>狮爪</h3>
+        <p class="story"><b>明面上：</b>武士灰毛教他战斗和规矩。<br><b>暗地里：</b>死去的虎星在梦里教他更狠的招式，还有一个不能说的朋友在隧道里等他。</p>
+        <div class="ans">
+          <span class="lb">他学到的事</span>
+          有些本事<b>不能拿来炫耀</b>，有些朋友<b>只能在没有猫看见的地方见</b>。
+        </div>
+      </article>
+
+      <article class="tale">
+        <div class="num">叁</div>
+        <h3>冬青爪</h3>
+        <p class="story"><b>明面上：</b>武士蕨毛教她守则、教她判断。<br><b>暗地里：</b>没有别人。她只有自己，和一个不知道该不该说出口的秘密。</p>
+        <div class="ans">
+          <span class="lb">她学到的事</span>
+          有时候"说出去"会伤害别人，"瞒下来"也一样——<b>她只能自己扛</b>。
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 五幕 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎬</span><h2>故事五幕：一条隧道串起三件事</h2></div>
+    <p class="lead">这一册的时间线是并行的：松鸦爪在查木棍，狮爪在见朋友，冬青爪在纠结要不要说。三条线最后在隧道里汇合。</p>
+
+    <div class="acts">
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第一幕</span><h3>一根木棍，一场梦</h3></div>
+          <div class="chips"><span class="chip">🕐 春天</span><span class="chip">📍 湖边 · 巫医巢穴</span><span class="chip">🔍 谜题</span></div>
+          <ul>
+            <li>松鸦爪和叶池采药时，从湖里捞起一根<b>刻满划痕的木棍</b>。有些划痕被划掉了，最后一道没有。</li>
+            <li>为了把这根木棍捞上来，他差点把自己淹死——他自己也说不清为什么这么在意。</li>
+            <li>那天夜里，他梦见一个下雨的隧道：一只年轻的猫在岔道里跑来跑去，水越来越高，然后一切安静了。</li>
+            <li>他懂了：木棍上每一道划痕，都是一个进去"试炼"的学徒。<b>最后那道没被划掉的，就是那个没出来的猫。</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第二幕</span><h3>夜里的朋友</h3></div>
+          <div class="chips"><span class="chip">🕐 同一时期</span><span class="chip">📍 地下隧道</span><span class="chip">💛 秘密</span></div>
+          <ul>
+            <li>狮爪在边界上认识了风族学徒<b>石楠爪</b>。两个孩子在夜里偷偷见面，在隧道里建了一个只属于他们的"族群"——<b>暗族</b>。</li>
+            <li>她当族长，他当副族长。这个游戏让他们开心了一整个春天。</li>
+            <li>可是武士守则不允许跨族群的友谊，更何况是秘密见面。<b>冬青爪发现了。</b></li>
+            <li>狮爪开始躲着姐姐——他第一次觉得，家人也可能是个麻烦。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第三幕</span><h3>梦里的老师，梦里的旧魂</h3></div>
+          <div class="chips"><span class="chip">🕐 夏初</span><span class="chip">📍 梦境</span><span class="chip">🌫️ 危险</span></div>
+          <ul>
+            <li>死去的<b>虎星</b>开始在梦里找狮爪，还带着鹰霜，教他一些连导师都不会的战斗技巧。</li>
+            <li>狮爪把这套招式教给石楠爪，被鹰霜骂了一顿：<b>"你把本事教给敌人。"</b></li>
+            <li>另一边，学徒<b>炭爪</b>从族里最高的橡树上摔下来，后腿断了。叶池拼命想保住这条腿，几乎到了不顾一切的地步。</li>
+            <li>松鸦爪在梦里见到一个"不疼的"炭爪，她带他回到雷族从前的营地。他终于明白：<b>炭爪的身体里，住着上一代巫医炭毛的灵魂。</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第四幕</span><h3>河变黑了，冬青爪被抓了</h3></div>
+          <div class="chips"><span class="chip">🕐 夏天</span><span class="chip">📍 河族领地</span><span class="chip">⚔️ 紧张</span></div>
+          <ul>
+            <li>两脚兽又在河族的水边"搞工程"，河水变脏、鱼也少了。<b>河族只好把营地搬到集会用的那座小岛上。</b></li>
+            <li>冬青爪在河族的领地上被发现，被当成"探子"抓了起来。</li>
+            <li>副族长<b>雾脚</b>负责看着她。她没有为难这只小猫，但也没有放她走。</li>
+            <li>一支雷族巡逻队来接她回家——可这件事已经在两个族群之间结下了一个疙瘩。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第五幕</span><h3>隧道里的洪水</h3></div>
+          <div class="chips"><span class="chip">🕐 夏末 · 一场大雨</span><span class="chip">📍 地下隧道</span><span class="chip">🌊 高潮</span></div>
+          <ul>
+            <li>风族的三只幼崽不见了。风族认定是河族干的，<b>两支族群差点打起来</b>。</li>
+            <li>松鸦爪猜到了：幼崽不在谁家，<b>在隧道里</b>。三个学徒和两名风族学徒一起钻了进去。</li>
+            <li>隧道像迷宫，天又开始下雨。水从四面八方涌进来——这就是"暗河"。</li>
+            <li>只有松鸦爪看得见<b>落叶</b>。这个死了很久的学徒，在黑暗里给大家引路，把幼崽和所有猫带了出去。</li>
+            <li>最后，狮爪做了一个决定：<b>他选择族群，和石楠爪告别。</b>他没有做错，但也没有赢。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 章节地图 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🗺️</span><h2>章节地图：16 个台阶</h2></div>
+    <p class="lead">点开每一段，看它"发生了什么"和"为什么重要"。</p>
+
+    <div class="beats">
+      <details class="beat">
+        <summary><span class="bno">01</span>序章：一个撒了谎的学徒<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>很久以前，学徒落叶要进隧道完成"成年试炼"。守着试炼的老猫岩问他："会不会下雨？"他怕被要求改天再来，说了"不会"。</p>
+          <p><span class="key q">为什么重要</span>全书最重的一个谎——<b>他不是坏，他只是太想快点长大。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>岩：一个记名字的老猫<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>岩又老又瞎，没有毛，守着一根木棍。每个进隧道的学徒，他都在上面刻一道；活着出来的，就划掉。</p>
+          <p><span class="key q">为什么重要</span>一个人替所有人记着"谁回来了、谁没有"，这比任何战斗都沉重。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>雨来了，水涨起来了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>落叶走进隧道，越走越深，走到一条死路。这时雨落下来，水从每个岔口灌进来。他没找到出口。</p>
+          <p><span class="key q">为什么重要</span>这一册的书名"暗河"，就是从这一夜来的。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>一根有划痕的木棍<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>松鸦爪和叶池采药时发现一根被水冲上岸的木棍，上面有被划掉和没被划掉的划痕。他为了捞它差点淹死。</p>
+          <p><span class="key q">为什么重要</span>松鸦爪的力量不是"能打"，而是"能听见过去"——木棍是过去的留言板。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>松鸦爪梦见那场雨<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>他梦见自己变成落叶，在同一段隧道里被水追着跑。醒来后他明白了划痕的意思，也明白了最后一道为什么没被划掉。</p>
+          <p><span class="key q">为什么重要</span>这是他和落叶第一次"见面"——一个是活着的巫医，一个是没能出来的学徒。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>狮爪和石楠爪<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>狮爪在边界认识了风族学徒石楠爪。两个人很谈得来，开始约在夜里见面。</p>
+          <p><span class="key q">为什么重要</span>武士守则不允许跨族群的友谊。<b>两个孩子第一次遇到"我喜欢"和"规矩说不行"打架。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>"暗族"：两个孩子编的族群<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>他们在隧道里建了一个假族群"暗族"：石楠爪当族长，狮爪当副族长。每个能见面的夜晚都是节日。</p>
+          <p><span class="key q">为什么重要</span>这是全书最快乐的一段，也是后面最疼的一段。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">08</span>虎星来了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>死去的虎星带着鹰霜出现在狮爪梦里，教他更狠的战斗招式，还不许他外传。</p>
+          <p><span class="key q">为什么重要</span>他给的是"礼物"：<b>不用努力就变强的捷径</b>。可捷径都有代价。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">09</span>冬青爪看见了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>冬青爪发现弟弟半夜不在窝里，也发现了他和石楠爪的事。她不知道该告诉谁。</p>
+          <p><span class="key q">为什么重要</span>姐弟俩第一次真正分开——不是因为不爱，是因为"什么才是对的"答案不一样。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">10</span>树上的坠落<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>学徒炭爪从族里最高的橡树上摔下来，后腿断了，伤得很重。</p>
+          <p><span class="key q">为什么重要</span>在一个"能不能打"决定价值的世界里，一条断腿几乎等于宣判。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">11</span>叶池的执念<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>叶池用尽一切办法要保住那条腿，连松鸦爪都觉得她"太过了"。</p>
+          <p><span class="key q">为什么重要</span>她的执着有原因——第 12 条会揭晓。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">12</span>梦里的老营地<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>松鸦爪在梦里见到不疼的炭爪，她带他回到雷族从前的家，还让他转告叶池："我为你骄傲。"他这才明白：<b>炭爪是上一代巫医炭毛的转世</b>，而她自己不知道。</p>
+          <p><span class="key q">为什么重要</span>全书最安静的一个秘密：<b>有些告别，会以另一个人的样子回来。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">13</span>河变黑了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>两脚兽又在河族的水边施工，河水变脏、鱼变少。河族不得不把营地搬到集会的小岛上。</p>
+          <p><span class="key q">为什么重要</span>四个族群的矛盾，很多时候不是猫造成的，<b>是"怪兽"和"两脚兽"</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">14</span>冬青爪被抓<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>冬青爪在河族领地被当成探子抓了起来。副族长雾脚看着她，不刻薄，也不放她走。最后雷族巡逻队把她接了回去。</p>
+          <p><span class="key q">为什么重要</span>她第一次体会到：<b>在别的族群眼里，你只是"那个族群的猫"。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">15</span>三只幼崽不见了<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>风族的三只幼崽失踪，风族咬定是河族干的，两边剑拔弩张。火星派松鸦爪和叶池去传话，松鸦爪却想到了另一个可能。</p>
+          <p><span class="key q">为什么重要</span>所有人都在找一个"该负责的族群"，只有他想到"该负责的地方"。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">16</span>暗河：他带大家走了出去<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>三个学徒和风族学徒一起进隧道，找到幼崽。这时下起大雨，隧道开始涨水——只有松鸦爪看得见落叶，落叶带着他们往外走。</p>
+          <p><span class="key q">为什么重要</span>当年没能走出去的学徒，这一次把别人送了出去。<b>这大概是他等了这么久的原因。</b></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 猫族规矩 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">📜</span><h2>六个词，看懂这一册</h2></div>
+    <p class="lead">上一册讲的是"族群是什么"，这一册讲的是"底下的东西"：隧道、试炼、鬼魂和秘密。</p>
+
+    <div class="wiki">
+      <div class="card" style="background:var(--gold-soft);border-color:var(--gold-line);">
+        <h3>🕳️ 隧道</h3>
+        <p>草地下面一整套通道，像树根一样连着四个族群的脚下。族群猫大多不知道它存在，只有少数猫走过。</p>
+        <div class="tip">💡 像城市下面的下水道：你天天踩在它上面，却从没下去过。</div>
+      </div>
+
+      <div class="card" style="background:#FFF6DA;border-color:#F3DFA4;">
+        <h3>⚔️ 成年试炼</h3>
+        <p>很久以前的猫，要独自穿过隧道、走到草原上，才算成为"武士"。走不出来，就留在里面。</p>
+        <div class="tip">💡 像一场没有补考、也没有监考老师的期末考试。</div>
+      </div>
+
+      <div class="card" style="background:#E6E9EE;border-color:#D3DAE3;">
+        <h3>🪨 岩与木棍</h3>
+        <p>岩负责记录试炼：进去的刻一道，出来的划掉。这根木棍后来被水冲到湖里，落到松鸦爪手上。</p>
+        <div class="tip">💡 一根木棍，就是一本很旧的"点名册"。</div>
+      </div>
+
+      <div class="card" style="background:#FFF3C9;border-color:#EBDCA8;">
+        <h3>🕯️ 落叶</h3>
+        <p>死在隧道里的学徒，成了一个鬼魂。活着的猫看不见他，只有松鸦爪能看见、能听见。</p>
+        <div class="tip">💡 他不是来吓人的，他是来帮忙的——只是没人看得见他。</div>
+      </div>
+
+      <div class="card" style="background:#F1F0FF;border-color:#DED5FF;">
+        <h3>🔄 转世</h3>
+        <p>死去的巫医炭毛，灵魂住进了新学徒炭爪的身体里。炭爪自己完全不知道。</p>
+        <div class="tip">💡 像一本旧书换了个新封面，内容还是那些内容。</div>
+      </div>
+
+      <div class="card" style="background:#DCF0FA;border-color:#C2E3F2;">
+        <h3>🌊 暗河</h3>
+        <p>隧道最底下有一条地下河。平时只是浅浅一层水，一下雨就暴涨，把整条隧道变成死路。</p>
+        <div class="tip">💡 平时能走的路，下雨天就是陷阱——所以岩才要问"会不会下雨"。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>三只小猫，这一册各自在学什么</h2></div>
+    <p class="lead">他们明明是一家人，却谁也不能跟谁说。这张表帮你看清三条线。</p>
+
+    <div class="tablewrap">
+      <table style="min-width:760px;">
+        <thead>
+          <tr><th>比什么</th><th>🌑 松鸦爪</th><th>🦁 狮爪</th><th>🌿 冬青爪</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>这一册的难题</td><td>一根看不懂的木棍，一个反复出现的雨夜</td><td>一个不能让别人知道的朋友</td><td>弟弟的秘密，和要不要说出去</td></tr>
+          <tr><td>他的秘密</td><td>他能看见死去的猫</td><td>他偷偷和"敌方"学徒见面</td><td>她一个人扛着所有人的秘密</td></tr>
+          <tr><td>帮过他的人</td><td>叶池、落叶、岩</td><td>石楠爪、灰毛（还有不怀好意的虎星）</td><td>雾脚（虽然是"敌人"）</td></tr>
+          <tr><td>最难忘的一幕</td><td>在梦里被那场雨"淹死"</td><td>在隧道里和石楠爪告别</td><td>被河族当成探子关起来</td></tr>
+          <tr><td>他学到的事</td><td>活着的人要替过去把话说完</td><td>有些选择没有两全</td><td>有些话说出口就会伤人</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 终章 ============ -->
+<section id="finale">
+  <div class="wrap">
+    <div class="finale">
+      <div class="ball">🕯️</div>
+      <h3>最后一页：他没有走出来</h3>
+      <p>落叶只是想让试炼早点开始，所以撒了一个小谎。那场雨来了，他留在了隧道里，一个人待了很久很久。
+      直到有一天，他听见有猫在喊救命——这一次，他认得路。</p>
+      <div class="q">如果重来一次，你觉得他还会撒那个谎吗？</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 导读笔记 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✍️</span><h2>读完这本书，想留下三句话</h2></div>
+      <div class="qitem">
+        <p>他撒了一个小谎，只是想快一点长大。</p>
+        <span>—— 写落叶</span>
+      </div>
+      <div class="qitem">
+        <p>有的朋友，只能在没有猫看见的地方见面。</p>
+        <span>—— 写狮爪和石楠爪</span>
+      </div>
+      <div class="qitem">
+        <p>隧道里最黑的地方，有一个等了很久的猫，在替别人照路。</p>
+        <span>—— 写落叶的结局</span>
+      </div>
+      <p style="margin:14px 0 0;font-size:12.5px;color:#B9B3D8;">（这三句是导读笔记，不是原文摘录）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">这一册里没有真正的坏人，只有一堆"没办法"的选择。</p>
+
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>落叶撒谎，只是不想被要求"改天再来"。<b>你觉得他错了吗？</b>如果你是他，你会怎么说？</p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>狮爪最后选择了族群，离开了石楠爪。<b>这是对的吗？</b>有没有第三种办法？</p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>冬青爪发现了弟弟的秘密。<b>如果你是姐姐，你会告诉父母吗？</b></p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>虎星在梦里教狮爪本事，不要任何回报。<b>这样的"礼物"能收吗？</b></p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>如果你是松鸦爪，能看见别人看不见的猫，<b>你会告诉族里吗？</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这一册会遇到的小词</h2></div>
+    <p class="lead">遇到不认识的名词，回来查一下就好。</p>
+
+    <div class="words">
+      <dl class="word"><dt>隧道<em>地点</em></dt><dd>草地下面的通道网，连着四个族群的脚下。</dd></dl>
+      <dl class="word"><dt>暗河<em>地点</em></dt><dd>隧道最底部的地下河，下雨就会暴涨。</dd></dl>
+      <dl class="word"><dt>试炼<em>传统</em></dt><dd>远古猫的成年考验：独自穿过隧道走到草原。</dd></dl>
+      <dl class="word"><dt>鬼魂<em>存在</em></dt><dd>死去的猫留下的影子，只有少数猫能看见。</dd></dl>
+      <dl class="word"><dt>转世<em>现象</em></dt><dd>一个灵魂住进新的身体里，本人往往不知道。</dd></dl>
+      <dl class="word"><dt>探子<em>罪名</em></dt><dd>偷偷打探别的族群消息的猫，被抓到会很麻烦。</dd></dl>
+      <dl class="word"><dt>俘虏<em>处境</em></dt><dd>被别的族群抓住、暂时不能回家的猫。</dd></dl>
+      <dl class="word"><dt>巫医学徒<em>身份</em></dt><dd>正在学做巫医的猫，松鸦爪现在就是这个身份。</dd></dl>
+      <dl class="word"><dt>跨族友谊<em>禁忌</em></dt><dd>和别的族群的猫交朋友，被武士守则禁止。</dd></dl>
+      <dl class="word"><dt>集会<em>惯例</em></dt><dd>每月月圆，四族在小岛上见面，期间停战。</dd></dl>
+      <dl class="word"><dt>两脚兽<em>猫语</em></dt><dd>猫对人类的称呼。</dd></dl>
+      <dl class="word"><dt>怪兽<em>猫语</em></dt><dd>猫对汽车、挖掘机这类大家伙的称呼。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>这一册比第一册"沉"一点</h3>
+      <p>《暗河汹涌》好看，但它有几种让 10 岁左右的孩子会停下来想一想的內容：<b>一个学徒在隧道里溺亡的往事</b>（写得克制，但确实发生了）、<b>死去的反派在梦里教唆孩子</b>、<b>跨族群的友谊被规则强行拆散</b>、<b>学徒重伤可能再也无法战斗</b>、<b>幼崽走失与两个族群差点开战</b>、以及<b>被抓为俘虏</b>。</p>
+      <p>建议：<b>10 岁以上、且已经读过第 1 册</b>更合适。这一册的价值在于"选择"：孩子会自然地问"他为什么不能和石楠爪做朋友"，这正是聊规则与情谊的好时机。</p>
+      <h3 style="margin-top:18px;">三种读法，挑一种</h3>
+      <div class="route">
+        <div><b>路线 A · 先看地下：</b>先读"第一张图：草地下面藏着什么"和六个关键词，把隧道与暗河搞懂，再读故事。</div>
+        <div><b>路线 B · 顺着读：</b>按五幕走。这一册三线并行，读完一幕回来看"三只小猫各自在学什么"那张表，就不会乱。</div>
+        <div><b>路线 C · 只读落叶：</b>只跟序章到第 16 条这条线，它是一个完整的小故事，也最动人。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#8A7B66;">剧透边界：本页<b>只覆盖第三部曲第 2 册《暗河汹涌》</b>。三兄妹的身世秘密要到第 6 册才揭晓，本页完全不提。<br>
+      阅读顺序：第 1 册《预视力量》 → 本册 → 第 3 册《驱逐之战》。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 系列 ============ -->
+<section id="series">
+  <div class="wrap">
+    <div class="title"><span class="ico">📚</span><h2>第三部曲《三力量》</h2></div>
+    <p class="lead">六本书，一条线：三个孩子慢慢发现自己是谁。</p>
+
+    <div class="trilogy">
+      <a class="tl" href="猫武士三部曲-预视力量-小小读者导读.html">
+        <div class="no">第 1 册</div>
+        <h3>预视力量</h3>
+        <p>三只小猫成为学徒，松鸦爪听见星族的声音。</p>
+      </a>
+      <div class="tl now">
+        <div class="no">第 2 册 · 你在这里</div>
+        <h3>暗河汹涌</h3>
+        <p>隧道、暗河，和一个没能走出来的学徒。</p>
+      </div>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 3 册</div>
+        <h3>驱逐之战</h3>
+        <p>有猫被赶出家园，也有猫选择离开。</p>
+      </div>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 4 册</div>
+        <h3>天蚀遮月</h3>
+        <p>太阳被吞掉的那一天，四族都在等一个信号。</p>
+      </div>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 5 册</div>
+        <h3>暗夜长影</h3>
+        <p>秘密开始反噬，谁都不敢再相信谁。</p>
+      </div>
+      <div class="tl" style="opacity:.72">
+        <div class="no">第 6 册</div>
+        <h3>拂晓之光</h3>
+        <p>天亮了，三兄妹必须面对自己是谁。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《猫武士》第三部曲②《暗河汹涌》· 小小读者导读<br>
+    为小学生重述 · 共 5 幕 / 16 个情节台阶 / 11 位人物 / 1 条暗河<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span></p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>

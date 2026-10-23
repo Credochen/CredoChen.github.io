@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《神探狗狗》全系列 · 小小读者导读</title>
+<meta name="description" content="把《神探狗狗》五册讲给小读者：神探狗狗是怎么诞生的、坏猫彼蒂为什么变坏、小彼蒂和超怕80，以及每个孩子都爱玩的翻翻乐。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%90%B6%3C/text%3E%3C/svg%3E">
+<style>
+
+  /* ================================================================
+     kid-book-guide 设计系统（默认主色 = 暗金）。
+     换主色只需改 --gold / --gold-soft / --gold-line，
+     或整体换成紫/墨绿/海蓝，详见 references/design-system.md。
+     原则：单文件、零外链、浅色底、圆角 26、正文 16.5/1.9。
+     ================================================================ */
+
+  :root{
+    --cream:#FFFBF3;
+    --paper:#FFFFFF;
+    --ink:#33305A;
+    --ink-soft:#6C688E;
+    --ink-faint:#9A96B4;
+    --purple:#7C6BFF;
+    --purple-soft:#EFEBFF;
+    --orange:#FF9E3D;
+    --orange-soft:#FFF0DE;
+    --pink:#FF7EA8;
+    --pink-soft:#FFE9F0;
+    --teal:#2FC5AB;
+    --teal-soft:#E2FAF5;
+    --yellow:#FFC93C;
+    --yellow-soft:#FFF6DA;
+    --line:#EDE4D5;
+    --dark:#3B3563;
+    --gold:#E0623F;
+    --gold-deep:#A8402A;
+    --gold-soft:#FFE9DF;
+    --gold-line:#F7C9B5;
+    --radius:26px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,201,60,.16), transparent 22%),
+      radial-gradient(circle at 88% 12%, rgba(124,107,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 92%, rgba(47,197,171,.09), transparent 26%),
+      radial-gradient(#EFE6D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,26px 26px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,251,243,.92);
+    border-bottom:2px dashed var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;}
+  .nav .brand{font-weight:800;font-size:15px;margin-right:6px;letter-spacing:.5px;}
+  .nav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:5px 12px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;
+    transition:.2s;
+  }
+  .nav a:hover{background:var(--purple-soft);border-color:#DCD3FF;color:var(--purple);}
+  .nav a.prev{background:var(--purple-soft);color:#5B4BE0;border-color:#DCD3FF;font-weight:700;}
+  .nav a.prev:hover{background:#E5DEFF;border-color:#CFC3FF;color:#4A3E96;}
+
+  /* ---------- 封面 ---------- */
+  .hero{padding:54px 0 10px;text-align:center;position:relative;}
+  .kicker{
+    display:inline-block;font-size:13px;letter-spacing:3px;color:#fff;
+    background:linear-gradient(120deg,#A8402A,#F08A62);
+    padding:6px 18px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 18px rgba(224,98,63,.26);
+    transform:rotate(-2deg);
+  }
+  h1{font-size:clamp(28px,5vw,48px);line-height:1.32;margin:20px 0 6px;letter-spacing:2px;font-weight:900;}
+  h1 .hl{
+    background:linear-gradient(transparent 58%, #FFE28A 58%, #FFE28A 92%, transparent 92%);
+    padding:0 4px;
+  }
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:670px;}
+  .cover{margin:26px 0 6px;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:30px;box-shadow:0 18px 42px rgba(224,98,63,.14);}
+  .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .badge{
+    background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--ink-soft);
+    box-shadow:0 4px 0 #F2EADA;
+  }
+  .badge b{color:var(--ink);}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:46px 0 6px;}
+  .title{display:flex;align-items:center;gap:12px;margin:0 0 8px;}
+  .title .ico{font-size:28px;line-height:1;}
+  .title h2{
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:900;letter-spacing:1px;
+    display:inline-block;padding:0 6px 3px;
+    background-image:linear-gradient(90deg,#FFE9A8,#FFD0DF);
+    background-repeat:no-repeat;background-size:100% 12px;background-position:0 88%;
+    border-radius:4px;
+  }
+  .lead{color:var(--ink-soft);margin:6px 0 22px;font-size:15.5px;}
+
+  .card{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+
+  /* ---------- 一句话 ---------- */
+  .oneline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .oneline .card{border-radius:22px;padding:20px 22px;}
+  .oneline h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center;gap:8px;}
+  .oneline p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .c1{background:var(--purple-soft);border-color:#DED5FF;}
+  .c2{background:var(--orange-soft);border-color:#FFE0BE;}
+  .c3{background:var(--gold-soft);border-color:var(--gold-line);}
+
+  /* ---------- 人物 ---------- */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;}
+  .person{
+    background:var(--paper);border:2px solid var(--line);border-radius:24px;
+    padding:20px 20px 18px;position:relative;overflow:hidden;
+    box-shadow:0 8px 20px rgba(107,95,160,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .person:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(107,95,160,.13);}
+  .person::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:88px;height:88px;border-radius:50%;
+    background:var(--accent,var(--purple-soft));opacity:.55;
+  }
+  .phead{display:flex;align-items:center;gap:12px;margin-bottom:10px;position:relative;}
+  .avatar{
+    width:52px;height:52px;flex:0 0 52px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+    background:var(--accent,var(--purple-soft));border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 4px 10px rgba(107,95,160,.12);
+  }
+  .pname{font-weight:900;font-size:18px;line-height:1.3;}
+  .prole{font-size:12.5px;color:var(--ink-faint);letter-spacing:.5px;}
+  .person p{margin:0;font-size:14.6px;color:var(--ink-soft);}
+  .say{margin-top:12px;font-size:13.5px;color:var(--ink);background:#FCF7EC;border:1.5px dashed #E9DCC4;border-radius:14px 14px 14px 4px;padding:9px 12px;}
+  .say::before{content:"“";font-weight:900;color:var(--purple);}
+  .say::after{content:"”";font-weight:900;color:var(--purple);}
+
+  /* ---------- SVG 图容器 ---------- */
+  .graph{background:var(--paper);border:2px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 10px 26px rgba(107,95,160,.07);}
+  .graph svg{width:100%;height:auto;display:block;}
+  .graph .cap{text-align:center;font-size:13.5px;color:var(--ink-faint);padding:8px 0 4px;}
+  .subhead{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;margin:26px 0 12px;}
+  .subhead .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+
+  /* ---------- 三个童话 ---------- */
+  .tales{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .tale{
+    background:#fff;border:2px solid var(--gold-line);border-radius:24px;
+    padding:22px 22px 20px;position:relative;box-shadow:0 10px 24px rgba(224,98,63,.08);
+  }
+  .tale .num{
+    position:absolute;right:16px;top:14px;width:34px;height:34px;border-radius:50%;
+    background:var(--gold-soft);color:var(--gold);border:1.5px solid var(--gold-line);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;
+  }
+  .tale h3{margin:0 0 8px;font-size:17px;font-weight:900;padding-right:40px;}
+  .tale .story{font-size:14.2px;color:var(--ink-soft);margin:0 0 12px;}
+  .tale .ans{
+    font-size:13.6px;background:var(--purple-soft);border-radius:14px;padding:10px 13px;
+    color:#4A3E96;line-height:1.8;
+  }
+  .tale .ans b{color:#3A2E86;}
+  .tale .ans .lb{display:block;font-size:11.5px;letter-spacing:1.5px;color:#8A80C4;font-weight:800;margin-bottom:3px;}
+
+  /* ---------- 六幕 ---------- */
+  .acts{position:relative;padding-left:34px;}
+  .acts::before{content:"";position:absolute;left:11px;top:8px;bottom:12px;border-left:3px dotted #E7D8BB;}
+  .act{position:relative;margin-bottom:20px;}
+  .act::before{
+    content:"";position:absolute;left:-34px;top:26px;width:20px;height:20px;border-radius:50%;
+    background:#fff;border:4px solid var(--purple);box-shadow:0 0 0 4px #F3EEFF;
+  }
+  .act:nth-child(2)::before{border-color:var(--orange);}
+  .act:nth-child(3)::before{border-color:var(--pink);}
+  .act:nth-child(4)::before{border-color:var(--teal);}
+  .act:nth-child(5)::before{border-color:var(--dark);}
+  .act:nth-child(6)::before{border-color:var(--gold);}
+  .actbody{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:18px 22px;box-shadow:0 8px 20px rgba(107,95,160,.06);}
+  .acthead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .actno{font-size:12px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--purple);padding:3px 10px;border-radius:8px;}
+  .act:nth-child(2) .actno{background:var(--orange);}
+  .act:nth-child(3) .actno{background:var(--pink);}
+  .act:nth-child(4) .actno{background:var(--teal);}
+  .act:nth-child(5) .actno{background:var(--dark);}
+  .act:nth-child(6) .actno{background:var(--gold);}
+  .acthead h3{margin:0;font-size:18.5px;font-weight:900;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px;}
+  .chip{font-size:12px;color:var(--ink-soft);background:#FBF6EA;border:1.5px solid #EFE4CE;border-radius:999px;padding:2px 10px;}
+  .actbody ul{margin:8px 0 0;padding-left:20px;}
+  .actbody li{font-size:14.8px;color:var(--ink-soft);margin-bottom:6px;}
+  .actbody li b{color:var(--ink);}
+
+  /* ---------- 折叠章节卡 ---------- */
+  .beats{display:grid;gap:10px;}
+  details.beat{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:4px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);transition:.2s;}
+  details.beat[open]{border-color:#F7C9B5;box-shadow:0 12px 26px rgba(224,98,63,.14);}
+  details.beat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 0;font-weight:800;font-size:15.8px;outline:none;}
+  details.beat summary::-webkit-details-marker{display:none;}
+  .bno{flex:0 0 34px;height:34px;border-radius:12px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:900;}
+  details.beat .arw{margin-left:auto;color:var(--ink-faint);font-size:13px;transition:.2s;}
+  details.beat[open] .arw{transform:rotate(180deg);}
+  .binner{padding:2px 0 16px 46px;font-size:14.8px;color:var(--ink-soft);}
+  .binner p{margin:0 0 8px;display:flex;gap:9px;align-items:flex-start;}
+  .binner .key{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--teal);padding:1px 8px;border-radius:6px;margin-top:4px;}
+  .binner .key.q{background:var(--orange);}
+
+  /* ---------- 小百科 ---------- */
+  .wiki{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  .wiki .card{padding:20px;border-radius:22px;}
+  .wiki h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px;}
+  .wiki p{margin:0;font-size:14.4px;color:var(--ink-soft);}
+  .wiki .tip{margin-top:10px;font-size:13px;color:var(--purple);background:var(--purple-soft);border-radius:12px;padding:7px 11px;}
+
+/* ---------- 黑暗森林配方 ---------- */
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .fitem{background:#fff;border:2px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:0 6px 16px rgba(107,95,160,.05);}
+  .fitem h4{margin:0 0 5px;font-size:15.5px;display:flex;gap:9px;align-items:center;font-weight:900;}
+  .fnum{
+    width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:var(--purple-soft);color:var(--purple);
+    font-size:12.5px;font-weight:900;display:flex;align-items:center;justify-content:center;
+  }
+  .fitem p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .fmid{text-align:center;color:var(--ink-faint);font-size:13.5px;margin:16px 0 12px;letter-spacing:1px;font-weight:700;}
+  .fres{
+    background:linear-gradient(140deg,#FFF6DA,#FFEEDA);border:3px solid #F3DFA4;border-radius:24px;
+    padding:24px 26px;text-align:center;box-shadow:0 12px 26px rgba(243,223,164,.35);
+  }
+  .fres .lab{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#B08930;}
+  .fres h3{margin:6px 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .fres p{margin:0;font-size:15px;color:#7A6320;line-height:1.9;}
+
+    /* ---------- 表格 ---------- */
+  .tablewrap{overflow-x:auto;border-radius:22px;border:2px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(107,95,160,.07);}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1.5px solid #F4EDE0;vertical-align:top;}
+  thead th{background:#FCF6E9;font-weight:900;font-size:14px;letter-spacing:.5px;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:800;color:var(--ink);background:#FFFDF8;white-space:nowrap;}
+  tbody tr:hover td{background:#FFF9EC;}
+
+  /* ---------- 终章卡 ---------- */
+  .finale{
+    background:linear-gradient(150deg,#FFF8E4,#F7EEFF 60%,#FFF0F5);
+    border:3px solid var(--gold-line);border-radius:var(--radius);
+    padding:32px 30px;text-align:center;box-shadow:0 18px 36px rgba(224,98,63,.14);
+  }
+  .finale .ball{
+    width:74px;height:74px;margin:0 auto 14px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #EAFFF6, #B9F0DC 55%, #8FD9C0);
+    border:3px solid #fff;box-shadow:0 10px 22px rgba(47,197,171,.24), inset 0 0 0 2px #D8F5EA;
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+  }
+  .finale h3{margin:0 0 8px;font-size:21px;font-weight:900;color:#5C4A12;}
+  .finale p{margin:0 auto;max-width:640px;font-size:15px;color:#7A6A46;line-height:1.95;}
+  .finale .q{margin-top:14px;font-size:14px;color:#A8402A;font-weight:800;}
+
+  /* ---------- 三部曲 ---------- */
+  .trilogy{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .tl{
+    background:#fff;border:2px solid var(--line);border-radius:22px;padding:20px;
+    text-decoration:none;color:inherit;display:block;transition:.18s;
+    box-shadow:0 8px 18px rgba(107,95,160,.06);
+  }
+  .tl:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(107,95,160,.13);border-color:#E2D8C2;}
+  .tl .no{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--gold);}
+  .tl h3{margin:4px 0 6px;font-size:17px;font-weight:900;}
+  .tl p{margin:0;font-size:13.8px;color:var(--ink-soft);}
+  .tl.now{border-color:#DED5FF;background:#FBFAFF;cursor:default;}
+  .tl.now:hover{transform:none;box-shadow:0 8px 18px rgba(107,95,160,.06);}
+
+  /* ---------- 金句 ---------- */
+  .quotes{
+    background:radial-gradient(circle at 20% 20%, #4A4374, #2C2A4A 60%, #23213E);
+    border-radius:var(--radius);padding:34px 30px;color:#F4F1FF;
+    position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(44,42,74,.25);
+  }
+  .quotes::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:44px 44px;opacity:.10;pointer-events:none;
+  }
+  .quotes h2{color:#fff;}
+  .quotes .title h2{background-image:none;padding-left:6px;}
+  .qitem{position:relative;padding:14px 0 14px 22px;border-left:3px solid rgba(255,226,138,.55);margin-bottom:6px;}
+  .qitem p{margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.75;color:#FFF8E6;}
+  .qitem span{font-size:12.5px;color:#B9B3D8;letter-spacing:.5px;}
+
+  /* ---------- 想一想 ---------- */
+  .think{display:grid;gap:12px;}
+  .qitem2{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px dashed #E4D9C4;border-radius:18px;padding:16px 18px;}
+  .qnum{flex:0 0 30px;height:30px;border-radius:50%;background:var(--yellow-soft);color:#B98A00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border:1.5px solid #F3DFA4;}
+  .qitem2 p{margin:0;font-size:15px;color:var(--ink-soft);}
+  .qitem2 p b{color:var(--ink);}
+
+  /* ---------- 小词典 ---------- */
+  .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+  .word{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;}
+  .word dt{font-weight:900;font-size:14.8px;margin-bottom:3px;}
+  .word dt em{font-style:normal;color:var(--purple);font-size:12px;margin-left:6px;font-weight:700;}
+  .word dd{margin:0;font-size:13.6px;color:var(--ink-soft);line-height:1.75;}
+
+  /* ---------- 家长提示 ---------- */
+  .parent{background:linear-gradient(140deg,#FFF6E4,#FFEFF4);border:2px solid #F6E3C6;border-radius:var(--radius);padding:26px 28px;}
+  .parent h3{margin:0 0 10px;font-size:18px;}
+  .parent p{margin:0 0 8px;font-size:14.8px;color:#6A5F52;}
+  .parent .route{display:grid;gap:8px;margin-top:12px;}
+  .parent .route div{font-size:14.4px;color:#6A5F52;background:rgba(255,255,255,.7);border-radius:12px;padding:9px 13px;}
+  .parent a{color:var(--gold-deep);font-weight:800;text-decoration:none;border-bottom:2px solid var(--gold-line);}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:13px;padding:44px 0 56px;line-height:2;}
+  footer .stars{font-size:18px;letter-spacing:6px;color:var(--yellow);}
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid #E7DCC6;background:#fff;color:var(--gold);font-size:18px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(107,95,160,.16);display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .card,.actbody,.tale{padding:18px;}
+    .acts{padding-left:26px;}
+    .act::before{left:-26px;width:16px;height:16px;border-width:3px;}
+    .acts::before{left:7px;}
+    .quotes{padding:24px 20px;}
+    .nav a{font-size:12.5px;padding:4px 9px;}
+    .binner{padding-left:0;}
+    .finale{padding:24px 20px;}
+  }
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">🐶 神探狗狗·小小读者版</span>
+    <a href="#oneline">3分钟版</a>
+    <a href="#people">人物</a>
+    <a href="#map">他怎么来的</a>
+    <a href="#acts">五册故事</a>
+    <a href="#chapters">名场面</a>
+    <a href="#world">这本书怎么玩</a>
+    <a href="#words">小词典</a>
+    <a href="#parent">给家长</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">戴夫·皮尔奇 ·《神探狗狗》全 5 册</span>
+    <h1>一个狗头的警察，<br>和一只<span class="hl">永远在越狱</span>的猫</h1>
+    <p class="sub">这是那种"翻开就停不下来"的书：字少、图多、笑点密。这一页帮你把五册的故事、人物和所有好玩的机关一次讲清楚。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 1000 330" role="img" aria-label="城市屋顶上，狗头人身的警察神探狗狗举着一根骨头，角落里黑猫彼蒂正坏笑">
+        <defs>
+          <linearGradient id="skyDog" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFF3E4"/>
+            <stop offset="50%" stop-color="#FFEFF0"/>
+            <stop offset="100%" stop-color="#F3F7FF"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="1000" height="330" rx="30" fill="url(#skyDog)"/>
+
+        <g fill="#FFD3A8">
+          <circle cx="120" cy="46" r="26" opacity=".55"/>
+          <circle cx="120" cy="46" r="16" opacity=".8"/>
+        </g>
+        <g fill="#C9D6EE">
+          <circle cx="60" cy="120" r="2"/><circle cx="210" cy="52" r="1.8"/>
+          <circle cx="480" cy="46" r="2.2"/><circle cx="640" cy="90" r="1.7"/>
+          <circle cx="880" cy="60" r="2"/><circle cx="940" cy="140" r="1.8"/>
+        </g>
+
+        <!-- 城市剪影 -->
+        <g fill="#C9D8EA">
+          <rect x="0" y="236" width="86" height="94"/>
+          <rect x="96" y="204" width="70" height="126"/>
+          <rect x="176" y="252" width="60" height="78"/>
+          <rect x="560" y="220" width="74" height="110"/>
+          <rect x="644" y="250" width="58" height="80"/>
+          <rect x="712" y="212" width="66" height="118"/>
+          <rect x="788" y="244" width="72" height="86"/>
+          <rect x="868" y="228" width="80" height="102"/>
+          <rect x="956" y="256" width="44" height="74"/>
+        </g>
+        <g fill="#E8F0FA">
+          <rect x="106" y="216" width="12" height="12"/><rect x="130" y="216" width="12" height="12"/>
+          <rect x="106" y="240" width="12" height="12"/><rect x="130" y="240" width="12" height="12"/>
+          <rect x="572" y="232" width="12" height="12"/><rect x="596" y="232" width="12" height="12"/>
+          <rect x="572" y="256" width="12" height="12"/><rect x="722" y="224" width="12" height="12"/>
+          <rect x="746" y="224" width="12" height="12"/><rect x="722" y="248" width="12" height="12"/>
+          <rect x="880" y="240" width="12" height="12"/><rect x="904" y="240" width="12" height="12"/>
+        </g>
+
+        <!-- 神探狗狗 -->
+        <g>
+          <!-- 身体 -->
+          <path d="M270 330 L278 232 Q282 208 306 206 L360 206 Q384 208 388 232 L396 330 Z" fill="#6E8FC4"/>
+          <path d="M306 206 L360 206 L356 240 L310 240 Z" fill="#5B7BAE"/>
+          <!-- 警徽 -->
+          <path d="M322 262 l7 14 l15 2 l-11 11 l3 15 l-14 -8 l-14 8 l3 -15 l-11 -11 l15 -2 z" fill="#FFC93C"/>
+          <!-- 头 -->
+          <ellipse cx="272" cy="150" rx="26" ry="42" fill="#C49A76" transform="rotate(-14 272 150)"/>
+          <ellipse cx="388" cy="150" rx="26" ry="42" fill="#C49A76" transform="rotate(14 388 150)"/>
+          <circle cx="330" cy="150" r="56" fill="#D9B08C"/>
+          <ellipse cx="330" cy="182" rx="36" ry="27" fill="#F0DCC6"/>
+          <ellipse cx="330" cy="168" rx="14" ry="10" fill="#3B3B44"/>
+          <circle cx="310" cy="140" r="5" fill="#3B3B44"/>
+          <circle cx="350" cy="140" r="5" fill="#3B3B44"/>
+          <path d="M330 196 v10" stroke="#3B3B44" stroke-width="2.4"/>
+          <!-- 抬起的胳膊 + 骨头 -->
+          <path d="M382 236 q34 -6 46 -30" stroke="#6E8FC4" stroke-width="17" fill="none" stroke-linecap="round"/>
+          <g transform="rotate(-24 440 196)">
+            <rect x="424" y="188" width="34" height="14" rx="6" fill="#FFFDF6" stroke="#D8CDBB" stroke-width="2"/>
+            <circle cx="424" cy="189" r="9" fill="#FFFDF6" stroke="#D8CDBB" stroke-width="2"/>
+            <circle cx="424" cy="201" r="9" fill="#FFFDF6" stroke="#D8CDBB" stroke-width="2"/>
+            <circle cx="458" cy="189" r="9" fill="#FFFDF6" stroke="#D8CDBB" stroke-width="2"/>
+            <circle cx="458" cy="201" r="9" fill="#FFFDF6" stroke="#D8CDBB" stroke-width="2"/>
+          </g>
+        </g>
+
+        <!-- 彼蒂 -->
+        <g transform="translate(792,272)">
+          <rect x="-44" y="6" width="88" height="52" rx="8" fill="#B9C7D9"/>
+          <rect x="-48" y="0" width="96" height="14" rx="7" fill="#A6B6CB"/>
+          <circle cx="0" cy="-16" r="30" fill="#4A4A55"/>
+          <path d="M-24 -36 l-6 -24 l20 12 z" fill="#4A4A55"/>
+          <path d="M24 -36 l6 -24 l-20 12 z" fill="#4A4A55"/>
+          <circle cx="-11" cy="-20" r="7" fill="#FFF3C9"/>
+          <circle cx="12" cy="-20" r="7" fill="#FFF3C9"/>
+          <circle cx="-10" cy="-20" r="3.4" fill="#2B2B33"/>
+          <circle cx="13" cy="-20" r="3.4" fill="#2B2B33"/>
+          <path d="M-12 -4 q12 8 24 0" stroke="#2B2B33" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path d="M-14 -6 l-14 -4 M-14 -1 l-14 3 M14 -6 l14 -4 M14 -1 l14 3" stroke="#8E8E9A" stroke-width="1.8"/>
+        </g>
+        <text x="792" y="196" text-anchor="middle" font-size="13" fill="#5E6B7E" font-weight="800">彼蒂（暂时关不住）</text>
+
+        <!-- 对话气泡 -->
+        <g>
+          <path d="M150 92 h92 a14 14 0 0 1 14 14 v30 a14 14 0 0 1 -14 14 h-62 l-16 16 l2 -16 h-16 a14 14 0 0 1 -14 -14 v-30 a14 14 0 0 1 14 -14 z" fill="#FFFDF6" stroke="#E8DCC8" stroke-width="2.4"/>
+          <text x="196" y="128" text-anchor="middle" font-size="20" font-weight="900" fill="#E0623F">汪！</text>
+        </g>
+
+        <text x="64" y="296" font-size="13.5" fill="#A8402A" font-weight="800">一半是人，一半是狗</text>
+        <text x="64" y="318" font-size="12.5" fill="#B9735C">两边的优点，他都有</text>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <span class="badge">📚 中文版 <b>5 册</b></span>
+      <span class="badge">👦 建议 <b>7–10 岁</b></span>
+      <span class="badge">😂 <b>图多字少</b>·看得飞快</span>
+      <span class="badge">🎬 <b>翻翻乐</b> 会动</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 三句话 ============ -->
+<section id="oneline">
+  <div class="wrap">
+    <div class="title"><span class="ico">⚡</span><h2>先用三句话说完整套书</h2></div>
+    <p class="lead">如果同学问你《神探狗狗》讲了什么，你可以这样回答。</p>
+
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 一次爆炸，一个怪警察</h3>
+        <p>一位警员和一条警犬被炸弹炸伤，护士把狗头缝到了人的身体上——神探狗狗就这样诞生了。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 一只坏猫，一肚子坏水</h3>
+        <p>彼蒂是全世界最坏的猫：越狱、造假、搞机器人。可他这么坏，是因为小时候没人爱他。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 五本书，从抓坏蛋到当爸爸</h3>
+        <p>彼蒂做了一个克隆小猫，本想让他帮自己使坏，结果这个小猫善良得要命——最后，坏猫学会了说"爸爸在这里"。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 人物 ============ -->
+<section id="people">
+  <div class="wrap">
+    <div class="title"><span class="ico">🐾</span><h2>人物小档案</h2></div>
+    <p class="lead">这套书角色不多，但每一个都很好笑。先认这 8 个。</p>
+
+    <div class="people">
+      <article class="person" style="--accent:#FFE9DF">
+        <div class="phead">
+          <div class="avatar">🐶</div>
+          <div><div class="pname">神探狗狗</div><div class="prole">主角 · 一半人一半狗</div></div>
+        </div>
+        <p>有警员的身手，也有警犬的鼻子和耳朵。他抓坏蛋很厉害，但也改不掉狗的天性：爱追球、爱舔骨头、看见吸尘器就想扑。</p>
+        <div class="say">（他几乎不说话，只会"汪"）</div>
+      </article>
+
+      <article class="person" style="--accent:#F1F2F6">
+        <div class="phead">
+          <div class="avatar">🐱</div>
+          <div><div class="pname">彼蒂</div><div class="prole">大反派 · 一只坏猫</div></div>
+        </div>
+        <p>智商高、嘴很毒、坏点子一箩筐。小时候被爸爸抛弃，妈妈又早早去世，所以他认定"我不需要爱"——可他比谁都想被爱。</p>
+        <div class="say">（他越坏，越说明他心里有个洞）</div>
+      </article>
+
+      <article class="person" style="--accent:#E4F5EE">
+        <div class="phead">
+          <div class="avatar">🐈</div>
+          <div><div class="pname">小彼蒂</div><div class="prole">彼蒂的克隆小猫 · 后来的"猫小子"</div></div>
+        </div>
+        <p>彼蒂为了干坏事克隆出来的小猫。彼蒂本以为他会跟自己一样坏，结果他眼睛一睁开，清澈得让人愣住——他善良、爱问问题、还爱画漫画。</p>
+        <div class="say">（他像彼蒂"本来可能成为的样子"）</div>
+      </article>
+
+      <article class="person" style="--accent:#E8F0FA">
+        <div class="phead">
+          <div class="avatar">🤖</div>
+          <div><div class="pname">超怕 80</div><div class="prole">彼蒂造的机器人</div></div>
+        </div>
+        <p>本来是彼蒂的武器，结果被小彼蒂拆了导弹、装上太阳能电池、还改了"听谁的话"的指令。后来成了小彼蒂最好的朋友。</p>
+        <div class="say">（一台被"改邪归正"的机器人）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF6DA">
+        <div class="phead">
+          <div class="avatar">👮</div>
+          <div><div class="pname">警长</div><div class="prole">神探狗狗的老板</div></div>
+        </div>
+        <p>脾气大、爱嚷嚷，天天骂神探狗狗"坏狗狗"。可神探狗狗难过的时候，是他摸着它的头说：回家休息吧，明天是新的一天。</p>
+        <div class="say">（嘴上最凶的人，常常心最软）</div>
+      </article>
+
+      <article class="person" style="--accent:#F4F9FF">
+        <div class="phead">
+          <div class="avatar">🎩</div>
+          <div><div class="pname">市长</div><div class="prole">小镇的官 · 只关心自己</div></div>
+        </div>
+        <p>他最擅长的不是管事，是甩锅：制造对警长不利的传言、放走监狱里的彼蒂，然后把责任推给别人。</p>
+        <div class="say">（书里最"不像卡通"的一个角色）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFF0DE">
+        <div class="phead">
+          <div class="avatar">✏️</div>
+          <div><div class="pname">乔治和哈罗德</div><div class="prole">这套书的"作者" · 两个小孩</div></div>
+        </div>
+        <p>整套书都是这两个小学生"写"的。所以他们会在书里写错字、画歪、突然插一句"这页太蠢了"，还会教你跟着画。</p>
+        <div class="say">（大人才不会这么写书）</div>
+      </article>
+
+      <article class="person" style="--accent:#FFE9F0">
+        <div class="phead">
+          <div class="avatar">🦟</div>
+          <div><div class="pname">跳蚤帮</div><div class="prole">第 5 册的大反派</div></div>
+        </div>
+        <p>三只小动物组成的小团伙。当年就是他们陷害了小时候的彼蒂，让一个好孩子走上了坏路。这一册，他们回来复仇了。</p>
+        <div class="say">（彼蒂变坏，从这里开始）</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 起源图 ============ -->
+<section id="map">
+  <div class="wrap">
+    <div class="title"><span class="ico">💥</span><h2>第一张图：神探狗狗是怎么来的</h2></div>
+    <p class="lead">这是全套书的起点，也是最好笑的一个设定：两个"各有缺点"的搭档，被合成了一只"什么都行"的狗。</p>
+
+    <div class="graph">
+      <svg viewBox="0 0 700 340" role="img" aria-label="示意图：身手好但脑子笨的警员，加上鼻子灵但四肢弱的警犬，被炸弹炸伤后合成神探狗狗">
+        <rect width="700" height="340" rx="24" fill="#FBFAF3"/>
+
+        <!-- 警员 -->
+        <g>
+          <rect x="20" y="46" width="180" height="182" rx="18" fill="#FFFDF6" stroke="#EDE4D5" stroke-width="2"/>
+          <circle cx="110" cy="106" r="26" fill="#E8C9A6"/>
+          <circle cx="102" cy="104" r="2.8" fill="#3B3B44"/>
+          <circle cx="118" cy="104" r="2.8" fill="#3B3B44"/>
+          <path d="M104 116 q6 5 12 0" stroke="#3B3B44" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M110 78 a26 26 0 0 1 26 26 h-52 a26 26 0 0 1 26 -26 z" fill="#5B7BAE"/>
+          <path d="M84 136 q26 -12 52 0 l8 62 h-68 z" fill="#6E8FC4"/>
+          <text x="110" y="216" text-anchor="middle" font-size="14.5" font-weight="800" fill="#4A5C78">警员</text>
+          <text x="110" y="234" text-anchor="middle" font-size="11.5" fill="#8A93A6">身手好 · 脑子不太行</text>
+        </g>
+
+        <!-- 加号 -->
+        <text x="232" y="140" text-anchor="middle" font-size="30" font-weight="900" fill="#D9A08C">+</text>
+
+        <!-- 警犬 -->
+        <g>
+          <rect x="252" y="46" width="180" height="182" rx="18" fill="#FFFDF6" stroke="#EDE4D5" stroke-width="2"/>
+          <ellipse cx="322" cy="112" rx="34" ry="26" fill="#D9B08C"/>
+          <ellipse cx="300" cy="96" rx="12" ry="20" fill="#C49A76" transform="rotate(-16 300 96)"/>
+          <ellipse cx="344" cy="96" rx="12" ry="20" fill="#C49A76" transform="rotate(16 344 96)"/>
+          <ellipse cx="322" cy="124" rx="18" ry="13" fill="#F0DCC6"/>
+          <ellipse cx="322" cy="118" rx="7" ry="5" fill="#3B3B44"/>
+          <circle cx="310" cy="104" r="3.4" fill="#3B3B44"/>
+          <circle cx="334" cy="104" r="3.4" fill="#3B3B44"/>
+          <path d="M290 146 q32 14 64 0" stroke="#C49A76" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <text x="342" y="216" text-anchor="middle" font-size="14.5" font-weight="800" fill="#4A5C78">警犬</text>
+          <text x="342" y="234" text-anchor="middle" font-size="11.5" fill="#8A93A6">鼻子灵 · 四肢没力气</text>
+        </g>
+
+        <!-- 箭头 + 爆炸 -->
+        <g>
+          <path d="M448 138 L498 138" stroke="#E0A08C" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#arwDog)"/>
+          <defs>
+            <marker id="arwDog" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0 0 L9 4.5 L0 9 z" fill="#E0A08C"/>
+            </marker>
+          </defs>
+          <path d="M520 112 l10 14 l16 -6 l-6 16 l14 10 l-16 6 l2 16 l-14 -10 l-12 12 l-2 -16 l-16 -4 l14 -10 z" fill="#FFC93C" opacity=".9"/>
+          <text x="530" y="180" text-anchor="middle" font-size="12" fill="#B08930" font-weight="800">彼蒂的炸弹</text>
+          <path d="M548 172 Q584 192 606 200" stroke="#E0A08C" stroke-width="3" stroke-dasharray="5 6" fill="none" marker-end="url(#arwDog)"/>
+        </g>
+
+        <!-- 结果 -->
+        <g>
+          <rect x="574" y="202" width="106" height="112" rx="18" fill="#FFE9DF" stroke="#F7C9B5" stroke-width="2"/>
+          <circle cx="627" cy="238" r="20" fill="#D9B08C"/>
+          <ellipse cx="608" cy="234" rx="8" ry="13" fill="#C49A76" transform="rotate(-14 608 234)"/>
+          <ellipse cx="646" cy="234" rx="8" ry="13" fill="#C49A76" transform="rotate(14 646 234)"/>
+          <ellipse cx="627" cy="248" rx="11" ry="8" fill="#F0DCC6"/>
+          <ellipse cx="627" cy="245" rx="4.4" ry="3.2" fill="#3B3B44"/>
+          <path d="M610 268 q17 -8 34 0 l4 30 h-42 z" fill="#6E8FC4"/>
+          <text x="627" y="308" text-anchor="middle" font-size="12" fill="#A8402A" font-weight="800">神探狗狗</text>
+        </g>
+
+        <text x="350" y="322" text-anchor="middle" font-size="12.5" fill="#A9A2C2">所以他会破案，也会追着球跑——这两件事都是真的</text>
+      </svg>
+      <div class="cap">图 1 · 两个"半成品"，拼成了一个"全才"，但狗的那一半从来没消失</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 五册 ============ -->
+<section id="acts">
+  <div class="wrap">
+    <div class="title"><span class="ico">📚</span><h2>五册故事：一本一幕</h2></div>
+    <p class="lead">这套书没有"大结局"，每一册都是完整的一个案子。但有一条线从头串到尾：彼蒂和小彼蒂。</p>
+
+    <div class="acts">
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第 1 册</span><h3>坏蛋克星：他是怎么来的</h3></div>
+          <div class="chips"><span class="chip">📖 起源故事</span><span class="chip">🐱 彼蒂登场</span><span class="chip">😂 笑点最密</span></div>
+          <ul>
+            <li>一位警员和一条警犬被彼蒂的炸弹炸成重伤，护士灵机一动：<b>把狗头缝到人的身体上。</b></li>
+            <li><b>神探狗狗</b>诞生：他有警员的身手、警犬的鼻子，还有狗的全部天性。</li>
+            <li>坏猫<b>彼蒂</b>登场，坏点子层出不穷；神探狗狗靠机智、勇猛，还有一点点运气，一次次化解危机。</li>
+            <li>这一册基本是"抓坏蛋日常"，先让你笑，再让你喜欢上这群人。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第 2 册</span><h3>萌犬出笼：警长的生日和一场怪劫案</h3></div>
+          <div class="chips"><span class="chip">🎂 警长生日</span><span class="chip">🚔 彼蒂大逃亡</span><span class="chip">🫓 扁扁的猫</span></div>
+          <ul>
+            <li>这天是<b>警长的生日</b>。大家想送他一份礼物——他丢三落四，又很孤独。</li>
+            <li>派对结束后，街上出现一个神秘陌生人，抢走的东西奇怪得让人摸不着头脑。</li>
+            <li><b>彼蒂越狱了</b>，还一度变成了"扁扁的猫"（被压平的那种）。</li>
+            <li>这一册最动人的不是抓坏人，而是警长过完糟透的一天后说的那句："明天是新的一天。"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第 3 册</span><h3>双猫传奇：按下那个按钮</h3></div>
+          <div class="chips"><span class="chip">🧪 科学中心</span><span class="chip">🐈 小彼蒂出生</span><span class="chip">💚 全套转折</span></div>
+          <ul>
+            <li>科学中心在做一场绝密实验；彼蒂的实验室里，一台古怪机器就要被按下按钮。</li>
+            <li>那个按钮制造出了<b>小彼蒂</b>——彼蒂的克隆小猫。</li>
+            <li>彼蒂以为克隆出来的会跟自己一样坏。可小猫睁开眼睛的那一刻，<b>眼神清澈得让他愣住</b>。</li>
+            <li>他自己以为"克隆失败了"，其实那是他自己小时候的样子。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第 4 册</span><h3>猫狗大战：保姆、电影和一台机器人</h3></div>
+          <div class="chips"><span class="chip">👵 怪可疑夫人</span><span class="chip">🎬 狗狗侠</span><span class="chip">🤖 超怕80</span></div>
+          <ul>
+            <li>一个自称"<b>怪可疑夫人</b>"的猫咪保姆敲开了神探狗狗家的门。看着有点眼熟……</li>
+            <li>那其实是<b>彼蒂假扮的</b>。他趁神探狗狗去好莱坞电影《狗狗侠》片场当保镖，把小彼蒂带走了。</li>
+            <li>他想教小彼蒂做坏事，可小彼蒂天性善良，最后站在了正义这边。</li>
+            <li>彼蒂造的机器人<b>超怕80</b>登场，被小彼蒂拆掉导弹、装上太阳能电池，还改了"听谁的话"的指令。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead"><span class="actno">第 5 册</span><h3>跳蚤之王：坏猫的过去</h3></div>
+          <div class="chips"><span class="chip">🛋️ 心理治疗</span><span class="chip">🦟 跳蚤帮复仇</span><span class="chip">💛 最感人</span></div>
+          <ul>
+            <li>一次心理治疗，变成了<b>一场谋划多年的复仇</b>的开始。</li>
+            <li>彼蒂第一次对儿子讲起自己的童年：他被<b>跳蚤帮</b>陷害，才从好孩子变成了坏猫。</li>
+            <li>跳蚤帮卷土重来，还带来了机器恐龙。这一次，神探狗狗不是一个人——猫小子、闪电小哥，还有一位"不可能之人"都来帮忙。</li>
+            <li>最后，彼蒂终于接受了自己的身份。他说：<b>"爸爸在这里。"</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 名场面 ============ -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="title"><span class="ico">🌟</span><h2>名场面：八个最好笑也最动人的瞬间</h2></div>
+    <p class="lead">这套书没有章节名可背，但有八个地方，孩子会反复翻回去看。</p>
+
+    <div class="beats">
+      <details class="beat">
+        <summary><span class="bno">01</span>狗头缝到人身上<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>警员和警犬被炸伤，两个身体都救不回来了。护士想了个办法：一边是还好的身体，一边是还好的头。</p>
+          <p><span class="key q">为什么好看</span>荒诞到极点，但书里所有人都当成很正常的事——<b>这就是它的幽默方式。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">02</span>"汪！"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>神探狗狗几乎不说话，只会"汪"。可他照样能破案、能安慰人、能表达委屈。</p>
+          <p><span class="key q">为什么好看</span>作者用行动代替台词——<b>不识字的孩子也能完全看懂他的心情。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">03</span>舔骨头惹的祸<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>神探狗狗有狗的天性：看到骨头就想舔、看到球就想追。这些"毛病"常常把正事搞砸。</p>
+          <p><span class="key q">为什么好看</span>他的弱点就是笑点，后来还成了关键伏笔——<b>缺点也会救人。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">04</span>警长糟透的生日<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第 2 册里，警长过了一个不能再糟的生日。派对散了，他一个人坐着。</p>
+          <p><span class="key q">为什么好看</span>他说"生活本身就是奇迹"。<b>一本搞笑漫画，忽然认真了一下。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">05</span>回家休息，明天是新的一天<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第 4 册里，神探狗狗在片场闯祸被开除，垂着头回警局。所有人都怪他，只有警长拉着他走开，摸摸他的头。</p>
+          <p><span class="key q">为什么好看</span>警长平时天天骂他"坏狗狗"，可在他最难过的时候，<b>一句责备都没有。</b></p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">06</span>小猫睁开眼睛<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第 3 册，彼蒂按下按钮，克隆小猫诞生。他等着看一个"小坏蛋"，却看见一双干净的眼睛。</p>
+          <p><span class="key q">为什么好看</span>彼蒂以为克隆失败，其实那是<b>他自己曾经的样子</b>。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">07</span>被改装的超怕80<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>小彼蒂把彼蒂的战争机器人拆了：卸下导弹、装上太阳能电池，还改了"听谁的话"。</p>
+          <p><span class="key q">为什么好看</span>一个孩子用"改装"的方式，把武器变成了朋友。</p>
+        </div>
+      </details>
+
+      <details class="beat">
+        <summary><span class="bno">08</span>"爸爸在这里"<span class="arw">▾</span></summary>
+        <div class="binner">
+          <p><span class="key">发生什么</span>第 5 册结尾，彼蒂一直不许小彼蒂叫他爸爸，因为他觉得自己不配。可当孩子有危险时，他冲了过去。</p>
+          <p><span class="key q">为什么好看</span>全套书五本，就在等这一句。<b>坏猫终于承认：我是他爸爸。</b></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 这本书怎么玩 ============ -->
+<section id="world">
+  <div class="wrap">
+    <div class="title"><span class="ico">🎮</span><h2>这本书不只是"读"的</h2></div>
+    <p class="lead">《神探狗狗》最特别的地方：它里面藏着好几个机关，孩子可以动手、可以画、可以自己造。</p>
+
+    <div class="wiki">
+      <div class="card" style="background:var(--gold-soft);border-color:var(--gold-line);">
+        <h3>🎬 翻翻乐</h3>
+        <p>书里有一些特殊的页面，快速来回翻，画面就会"动"起来——像一小段动画。</p>
+        <div class="tip">💡 用拇指压住书页边缘，来回快速翻，就能看见它动。</div>
+      </div>
+
+      <div class="card" style="background:#FFF6DA;border-color:#F3DFA4;">
+        <h3>✏️ 怎样画</h3>
+        <p>作者会在书里一步一步教你怎么画神探狗狗、彼蒂、小彼蒂。角色外形很简单，几笔就能画出来。</p>
+        <div class="tip">💡 画得歪一点反而更像——这套书本来就不追求"画得好"。</div>
+      </div>
+
+      <div class="card" style="background:#E8F0FA;border-color:#D3E2F2;">
+        <h3>👦 作者是两个小孩</h3>
+        <p>书里的"作者"是乔治和哈罗德，两个小学生。所以会有错别字、会有"这一页太蠢了"的吐槽、会有突然插进来的广告。</p>
+        <div class="tip">💡 这不是印错了，是故意的——它让你觉得"我也能写一本"。</div>
+      </div>
+
+      <div class="card" style="background:#F1F2F6;border-color:#DFE2E8;">
+        <h3>🐱 彼蒂为什么变坏</h3>
+        <p>他小时候被爸爸抛弃，妈妈早逝，又被跳蚤帮陷害。没有人教他怎么爱别人，他就学会了"我不需要任何人"。</p>
+        <div class="tip">💡 读懂这一点，就会觉得他不太像"反派"，更像一个受伤的小孩。</div>
+      </div>
+
+      <div class="card" style="background:#FFE9DF;border-color:#F7C9B5;">
+        <h3>🐕 狗的那一半</h3>
+        <p>他会破案，也会追球；会救人，也会对着吸尘器狂叫。作者从不打算让他"变成人"。</p>
+        <div class="tip">💡 一个人可以同时很厉害、又很傻——这不矛盾。</div>
+      </div>
+
+      <div class="card" style="background:#E4F5EE;border-color:#C6EBDF;">
+        <h3>📚 图像小说</h3>
+        <p>它不是"图画书"，也不是"字很多的书"。它用漫画分镜讲故事，图在承担一半的叙事。</p>
+        <div class="tip">💡 读图也是阅读。看图读懂一个笑话，也是阅读理解。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比表 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="title"><span class="ico">📊</span><h2>神探狗狗 vs 彼蒂</h2></div>
+    <p class="lead">一个是"什么都行但傻乎乎"的英雄，一个是"什么都懂但心里空"的反派。</p>
+
+    <div class="tablewrap">
+      <table style="min-width:680px;">
+        <thead>
+          <tr><th>比什么</th><th>🐶 神探狗狗</th><th>🐱 彼蒂</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>他最擅长</td><td>抓坏蛋、闻气味、扑上去</td><td>发明、伪装、想坏点子</td></tr>
+          <tr><td>他的弱点</td><td>看到骨头和球就控制不住</td><td>不肯承认自己需要别人</td></tr>
+          <tr><td>他想要什么</td><td>抓住坏人，然后被摸摸头</td><td>证明自己不需要任何人</td></tr>
+          <tr><td>他最柔软的地方</td><td>被警长骂完还会摇尾巴</td><td>对儿子小彼蒂</td></tr>
+          <tr><td>一句话</td><td>他什么都不说，但你都知道</td><td>他什么都说得出口，除了"我需要你"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 金句 ============ -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="quotes">
+      <div class="title"><span class="ico">✨</span><h2>四句不像漫画台词的话</h2></div>
+      <div class="qitem">
+        <p>回家休息一下，明天就是新的一天。</p>
+        <span>—— 警长，第 4 册</span>
+      </div>
+      <div class="qitem">
+        <p>生活本身就是奇迹。</p>
+        <span>—— 警长，过一个糟透的生日之后</span>
+      </div>
+      <div class="qitem">
+        <p>爸爸在这里。</p>
+        <span>—— 彼蒂，第 5 册结尾</span>
+      </div>
+      <div class="qitem">
+        <p>我要把我没有感受过的爱，全都给你。</p>
+        <span>—— 彼蒂对小彼蒂（大意）</span>
+      </div>
+      <p style="margin:14px 0 0;font-size:12.5px;color:#B9B3D8;">（中文版由孙鹏翻译，不同印次措辞可能略有不同）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 想一想 ============ -->
+<section id="think">
+  <div class="wrap">
+    <div class="title"><span class="ico">💭</span><h2>读完可以聊一聊</h2></div>
+    <p class="lead">这套书看着胡闹，其实有很多可以聊的。</p>
+
+    <div class="think">
+      <div class="qitem2"><div class="qnum">1</div><p>彼蒂那么坏，可他还是想当爸爸。<b>你觉得他算"坏猫"吗？</b></p></div>
+      <div class="qitem2"><div class="qnum">2</div><p>小彼蒂是彼蒂克隆出来的，长得一模一样，性格却完全不同。<b>为什么？</b></p></div>
+      <div class="qitem2"><div class="qnum">3</div><p>警长天天骂神探狗狗"坏狗狗"，可最难的时候是他来安慰。<b>你身边有没有这样的人？</b></p></div>
+      <div class="qitem2"><div class="qnum">4</div><p>如果给你加一种狗的本事（鼻子、耳朵、跑得快、力气大），<b>你选哪个？</b>会带来什么麻烦？</p></div>
+      <div class="qitem2"><div class="qnum">5</div><p>书里的"作者"是两个小孩，所以书里允许有错别字。<b>如果让你写一本，你会写什么？</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 小词典 ============ -->
+<section id="words">
+  <div class="wrap">
+    <div class="title"><span class="ico">🔤</span><h2>读这套书会遇到的小词</h2></div>
+    <p class="lead">都是漫画里常见的词，认一遍就能自己读了。</p>
+
+    <div class="words">
+      <dl class="word"><dt>图像小说<em>类型</em></dt><dd>用漫画分镜讲一个完整故事的书，图承担一半的叙事。</dd></dl>
+      <dl class="word"><dt>分镜<em>漫画</em></dt><dd>把一个故事切成一个个格子，决定先看哪、后看哪。</dd></dl>
+      <dl class="word"><dt>翻翻乐<em>机关</em></dt><dd>快速来回翻页就能看到"动画"的特殊页面。</dd></dl>
+      <dl class="word"><dt>克隆<em>科学</em></dt><dd>用一模一样的信息造出一个新个体。小彼蒂就是彼蒂的克隆。</dd></dl>
+      <dl class="word"><dt>反派<em>角色</em></dt><dd>故事里跟主角作对的坏蛋。彼蒂就是这套书的反派。</dd></dl>
+      <dl class="word"><dt>越狱<em>情节</em></dt><dd>从监狱里逃出来。彼蒂最擅长这个。</dd></dl>
+      <dl class="word"><dt>警长<em>职业</em></dt><dd>警察局里管事的人。神探狗狗的老板。</dd></dl>
+      <dl class="word"><dt>市长<em>职业</em></dt><dd>管理一座城市的人。书里这位只关心自己的位子。</dd></dl>
+      <dl class="word"><dt>保镖<em>职业</em></dt><dd>负责保护别人的安全。第 4 册神探狗狗去片场当保镖。</dd></dl>
+      <dl class="word"><dt>片场<em>地点</em></dt><dd>拍电影的地方。第 4 册的好莱坞片场被搞得一团乱。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 给家长 ============ -->
+<section id="parent">
+  <div class="wrap">
+    <div class="title"><span class="ico">👨‍👩‍👧</span><h2>给家长的两句话</h2></div>
+    <div class="parent">
+      <h3>它是"桥梁书"，专治"不爱看书"</h3>
+      <p>作者戴夫·皮尔奇小时候有阅读障碍和多动问题，老师每天让他坐在走廊里。他就用那些时间画漫画——后来他成了《内裤队长》和《神探狗狗》的作者。这套书就是为"坐不住、读不进"的孩子设计的：<b>一页没几个字，笑点密集，翻两下就有回报。</b></p>
+      <p>内容上它很干净，但也不是完全"无害"：有炸弹、越狱、打斗（都是卡通化处理，没有血腥），也有彼蒂被父亲抛弃、母亲早逝的童年创伤。这份沉重写得很轻，但确实是全书的情感核心。建议：<b>7 岁以上可独立阅读，5–7 岁适合亲子共读</b>（一起玩翻翻乐最好玩）。</p>
+      <h3 style="margin-top:18px;">三种读法，挑一种</h3>
+      <div class="route">
+        <div><b>路线 A · 从第 1 册顺着读：</b>起源故事在第 1 册，先读它，后面的人物关系才不会乱。</div>
+        <div><b>路线 B · 先看机关：</b>直接翻到"翻翻乐"和"怎样画"的页面，先玩起来，再回头读故事。</div>
+        <div><b>路线 C · 只读彼蒂：</b>只跟彼蒂和小彼蒂这条线（第 3、4、5 册），它其实是"一个缺爱的孩子怎么被爱救回来"的故事。</div>
+      </div>
+      <p style="margin-top:14px;font-size:13.6px;color:#8A7B66;">范围说明：本页按后浪·花山文艺出版社的中文版 <b>5 册</b>梳理（《坏蛋克星》《萌犬出笼》《双猫传奇》《猫狗大战》《跳蚤之王》）。原版系列更长，后面还有新的故事，本页不涉及。<br>
+      另：书里的错别字、歪字、"这页太蠢了"的吐槽，都是作者故意模仿小孩写漫画的效果，不是印刷问题。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 三个小任务 ============ -->
+<section id="series">
+  <div class="wrap">
+    <div class="title"><span class="ico">✏️</span><h2>读完可以做三件事</h2></div>
+    <p class="lead">这套书最厉害的地方，是它会让小孩想"自己也画一本"。</p>
+
+    <div class="oneline">
+      <div class="card c1">
+        <h3>① 画一只神探狗狗</h3>
+        <p>跟着书里的"怎样画"画一遍：圆脑袋、两只耷拉耳朵、一个黑鼻子、一身蓝制服。画歪了也没关系。</p>
+      </div>
+      <div class="card c2">
+        <h3>② 做一本迷你翻翻乐</h3>
+        <p>拿几张便签纸，每页画同一个东西稍微变一点，快速翻——你的第一段"动画"就做好了。</p>
+      </div>
+      <div class="card c3">
+        <h3>③ 给彼蒂写一句话</h3>
+        <p>如果你见到彼蒂，你想对他说什么？"你可以不用那么坏"，还是"我知道你其实想要人陪"？</p>
+      </div>
+    </div>
+
+    <div class="finale" style="margin-top:22px;">
+      <div class="ball">🦴</div>
+      <h3>最后一页：一根骨头</h3>
+      <p>神探狗狗不会说话，也没有超能力。他破案靠鼻子，开心靠一根骨头，难过的时候只想有人摸摸他的头。
+      整套书五本，讲了那么多爆炸、越狱和机器人，最后留下的其实是很小的一件事：<b>有个人愿意在你搞砸的时候，带你回家。</b></p>
+      <div class="q">你身边有没有这样一个人？</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stars">✦ ✦ ✦</div>
+    <p>《神探狗狗》全系列 · 小小读者导读<br>
+    为小学生重述 · 共 5 册 / 8 位人物 / 8 个名场面<br>
+    <span style="font-size:12px;">本页为故事梳理与阅读辅助，非原文节选。读原著，才是正餐。</span>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var first = document.querySelector('details.beat');
+  if (first) { first.open = true; }
+</script>
+</body>
+</html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>红军长征 · 路线 · 战役 · 大事记</title>
+<meta name="description" content="红军长征全程梳理：四支队伍、十二段路线、五次关键会议、八场著名战役、八组关键数字。单文件离线可读。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%E2%98%85%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#FDF9F0;
+    --card:#FFFFFF;
+    --ink:#2F2A26;
+    --ink-soft:#6B615A;
+    --ink-faint:#9C9089;
+    --line:#EADFD0;
+
+    --red:#B03A2E;
+    --red-deep:#8C2B21;
+    --red-soft:#FBEDE7;
+    --red-line:#EFD5CB;
+
+    --gold:#B2832C;
+    --gold-soft:#FBF0D4;
+    --gold-line:#EBD6A5;
+
+    --teal:#2F7A63;
+    --teal-soft:#E4F5EE;
+    --blue:#2B6CB0;
+    --blue-soft:#E7F1FA;
+    --plum:#7A3E5C;
+    --plum-soft:#F8EAF1;
+
+    --radius:22px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 10% 6%, rgba(176,58,46,.07), transparent 26%),
+      radial-gradient(circle at 90% 10%, rgba(178,131,44,.09), transparent 24%),
+      radial-gradient(circle at 50% 96%, rgba(47,122,99,.06), transparent 28%),
+      radial-gradient(#EFE5D6 1.2px, transparent 1.2px);
+    background-size:auto,auto,auto,28px 28px;
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(253,249,240,.94);
+    border-bottom:2px solid #EFE3D2;
+  }
+  .nav .wrap{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding-top:9px;padding-bottom:9px;}
+  .nav .brand{font-weight:700;font-size:14.5px;margin-right:10px;letter-spacing:1px;color:var(--red-deep);}
+  .nav a{
+    font-size:13px;color:var(--ink-soft);text-decoration:none;
+    padding:4px 11px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap;transition:.2s;
+  }
+  .nav a:hover{background:var(--red-soft);border-color:var(--red-line);color:var(--red);}
+
+  .hero{padding:52px 0 8px;position:relative;}
+  .kicker{
+    display:inline-block;font-size:12.5px;letter-spacing:3px;color:#fff;
+    background:var(--red);padding:5px 16px;border-radius:4px;font-weight:600;
+  }
+  h1{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    font-size:clamp(30px,5.2vw,50px);line-height:1.28;margin:18px 0 10px;
+    letter-spacing:3px;font-weight:700;color:#2A2420;
+  }
+  h1 span{color:var(--red);}
+  .sub{color:var(--ink-soft);font-size:16px;margin:0;max-width:720px;}
+  .cover{margin:24px 0 0;}
+  .cover svg{width:100%;height:auto;display:block;border-radius:20px;border:1px solid var(--line);background:#FFFCF6;}
+
+  section{padding:48px 0 4px;}
+  .title{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;}
+  .title .no{
+    font-family:"Songti SC","STSong",serif;font-size:14px;color:var(--red);
+    font-weight:700;letter-spacing:2px;
+  }
+  .title h2{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    font-size:clamp(21px,3vw,28px);margin:0;font-weight:700;letter-spacing:2px;color:#2A2420;
+  }
+  .lead{color:var(--ink-soft);margin:4px 0 22px;font-size:15px;max-width:860px;}
+  .rule{height:2px;background:linear-gradient(90deg,var(--red),var(--red-line) 45%,transparent);border-radius:2px;margin-bottom:18px;}
+
+  /* 数字 */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+  .stat{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px 18px 16px;position:relative;overflow:hidden;
+  }
+  .stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);opacity:.85;}
+  .stat .num{
+    font-family:"Songti SC","STSong",serif;
+    font-size:30px;font-weight:700;color:var(--red-deep);line-height:1.2;letter-spacing:1px;
+  }
+  .stat .num small{font-size:14px;font-weight:600;margin-left:3px;color:var(--red);}
+  .stat .lab{font-size:13px;color:var(--ink-soft);margin-top:4px;line-height:1.6;}
+  .stat .lab b{color:var(--ink);font-weight:600;}
+
+  /* 表格 */
+  .tablewrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:#fff;}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.2px;}
+  th,td{padding:13px 15px;text-align:left;border-bottom:1px solid #F3EBDF;vertical-align:top;}
+  thead th{background:var(--red-soft);font-weight:600;font-size:13.5px;color:var(--red-deep);white-space:nowrap;}
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:600;color:var(--ink);white-space:nowrap;}
+  tbody tr:hover td{background:#FFFCF6;}
+  .hint{display:none;font-size:12.5px;color:var(--ink-faint);margin:8px 0 0;}
+
+  /* 时间线 */
+  .acts{position:relative;padding-left:36px;}
+  .acts::before{content:"";position:absolute;left:10px;top:10px;bottom:14px;width:2px;background:linear-gradient(180deg,var(--red),var(--red-line));}
+  .act{position:relative;margin-bottom:16px;}
+  .act::before{
+    content:"";position:absolute;left:-32px;top:22px;width:12px;height:12px;border-radius:50%;
+    background:#fff;border:3px solid var(--red);
+  }
+  .actbody{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;}
+  .acthead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .actdate{font-size:12.5px;font-weight:600;color:#fff;background:var(--red);padding:2px 9px;border-radius:4px;letter-spacing:.5px;}
+  .acthead h3{margin:0;font-size:17px;font-weight:600;letter-spacing:.5px;}
+  .actbody p{margin:8px 0 0;font-size:14.6px;color:var(--ink-soft);}
+  .actbody p b{color:var(--ink);font-weight:600;}
+  .place{font-size:12.5px;color:var(--ink-faint);margin-left:auto;white-space:nowrap;}
+
+  /* 会议 */
+  .meets{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:14px;}
+  .meet{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;position:relative;}
+  .meet .tag{
+    display:inline-block;font-size:11.5px;letter-spacing:1px;color:var(--red-deep);
+    background:var(--red-soft);border:1px solid var(--red-line);padding:1px 9px;border-radius:999px;font-weight:600;
+  }
+  .meet h3{margin:9px 0 6px;font-size:17px;font-weight:600;letter-spacing:.5px;}
+  .meet .meta{font-size:12.5px;color:var(--ink-faint);margin-bottom:7px;}
+  .meet p{margin:0;font-size:14.2px;color:var(--ink-soft);}
+  .meet p b{color:var(--ink);font-weight:600;}
+
+  /* 战役 */
+  .battles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+  .bt{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:0 0 16px;overflow:hidden;
+  }
+  .bt .bar{
+    background:var(--red-soft);border-bottom:1px solid var(--red-line);
+    padding:9px 18px;font-size:12.5px;color:var(--red-deep);font-weight:600;letter-spacing:.5px;
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+  .bt .bar span:last-child{color:var(--ink-soft);font-weight:400;}
+  .bt h3{margin:14px 18px 6px;font-size:17.5px;font-weight:600;letter-spacing:.5px;}
+  .bt .body{padding:0 18px;}
+  .bt p{margin:0 0 8px;font-size:14.2px;color:var(--ink-soft);}
+  .bt p b{color:var(--ink);font-weight:600;}
+  .bt .why{
+    font-size:13.6px;color:var(--red-deep);background:#FFF8F4;
+    border-left:2px solid var(--red);padding:7px 11px;border-radius:0 6px 6px 0;margin-top:2px;
+  }
+
+  /* 诗词 */
+  .poem{
+    background:#2B2622;
+    border-radius:18px;padding:36px 32px;color:#F6EFE2;position:relative;overflow:hidden;
+  }
+  .poem::after{
+    content:"★";position:absolute;right:26px;bottom:14px;font-size:130px;
+    color:rgba(255,255,255,.04);line-height:1;
+  }
+  .poem .pt{font-size:12.5px;letter-spacing:4px;color:#D9C69A;margin-bottom:14px;}
+  .poem h3{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    font-size:clamp(20px,3vw,26px);margin:0 0 16px;font-weight:700;letter-spacing:4px;color:#FFF6E4;
+  }
+  .poem p{
+    font-family:"Songti SC","STSong","Source Han Serif SC","SimSun",serif;
+    margin:0 0 6px;font-size:clamp(16px,2.2vw,20px);line-height:2.05;letter-spacing:2px;color:#F3E8D5;
+  }
+  .poem .sig{margin-top:16px;font-size:12.5px;color:#B7A98F;letter-spacing:1px;font-family:inherit;}
+
+  /* 说明 */
+  .notes{background:#FFFCF6;border:1px solid var(--line);border-radius:16px;padding:24px 26px;}
+  .notes h3{margin:0 0 10px;font-size:16px;font-weight:600;letter-spacing:1px;}
+  .notes ul{margin:0 0 14px;padding-left:18px;}
+  .notes li{font-size:14px;color:var(--ink-soft);margin-bottom:7px;}
+  .notes li b{color:var(--ink);font-weight:600;}
+  .notes .last{margin:0;font-size:13px;color:var(--ink-faint);}
+
+  .closing{
+    background:linear-gradient(135deg,#FBEDE7,#FDF6EC 60%,#FBF0D4);
+    border:1px solid var(--red-line);border-radius:18px;padding:30px 30px;
+  }
+  .closing p{margin:0 0 10px;font-size:15.5px;color:#5B4A42;line-height:2;}
+  .closing p:last-child{margin:0;}
+  .closing b{color:var(--red-deep);}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:12.5px;padding:46px 0 54px;line-height:2;}
+  footer .star{color:var(--red);letter-spacing:8px;font-size:16px;}
+
+  .top{
+    position:fixed;right:20px;bottom:22px;z-index:60;width:44px;height:44px;border-radius:50%;
+    border:1px solid var(--red-line);background:#fff;color:var(--red);font-size:17px;cursor:pointer;
+    display:none;align-items:center;justify-content:center;
+  }
+  .top.on{display:flex;}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .acts{padding-left:28px;}
+    .acts::before{left:6px;}
+    .act::before{left:-24px;}
+    .actbody{padding:14px 16px;}
+    .place{margin-left:0;}
+    .place{width:100%;}
+    .poem{padding:26px 20px;}
+    .closing{padding:22px 20px;}
+    .hint{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">★ 红军长征</span>
+    <a href="#stats">关键数字</a>
+    <a href="#armies">四支队伍</a>
+    <a href="#route">路线全程</a>
+    <a href="#meetings">关键会议</a>
+    <a href="#battles">著名战役</a>
+    <a href="#poem">七律·长征</a>
+    <a href="#notes">史料说明</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">1934.10 — 1936.10</span>
+    <h1>四路红军<span>远征</span>，<br>两万五千里</h1>
+    <p class="sub">从江西于都到陕北吴起镇，中央红军用一年零九天走完二万五千里；两年后，三大主力在甘肃会宁、将台堡会师，长征全部结束。这一页把路线、会议、战役和数字串成一条线。</p>
+
+    <div class="cover">
+      <svg viewBox="0 0 640 440" role="img" aria-label="中央红军长征路线示意图：从江西于都出发，经湘江、遵义、金沙江、泸定桥、夹金山、草地、腊子口，抵达陕北吴起镇">
+        <rect width="640" height="440" fill="#FFFCF6"/>
+        <g opacity="0.5" stroke="#F0E4D2" stroke-width="1">
+          <line x1="0" y1="110" x2="640" y2="110"/>
+          <line x1="0" y1="220" x2="640" y2="220"/>
+          <line x1="0" y1="330" x2="640" y2="330"/>
+          <line x1="160" y1="0" x2="160" y2="440"/>
+          <line x1="320" y1="0" x2="320" y2="440"/>
+          <line x1="480" y1="0" x2="480" y2="440"/>
+        </g>
+
+        <path d="M560 386 C538 368 518 352 496 342 C470 330 442 354 414 352 C398 351 384 320 372 300 C360 280 340 300 324 316 C312 328 304 330 296 332 C282 336 264 300 250 282 C238 268 224 238 214 218 C206 202 196 184 198 168 C200 152 212 132 224 120 C238 106 254 76 268 60"
+              fill="none" stroke="#B03A2E" stroke-width="3.2" stroke-linecap="round"/>
+
+        <g fill="#FFFFFF" stroke="#B03A2E" stroke-width="2.2">
+          <circle cx="496" cy="342" r="5.5"/>
+          <circle cx="414" cy="352" r="5.5"/>
+          <circle cx="296" cy="332" r="5.5"/>
+          <circle cx="250" cy="282" r="5.5"/>
+          <circle cx="214" cy="218" r="5.5"/>
+          <circle cx="198" cy="168" r="5.5"/>
+          <circle cx="224" cy="120" r="5.5"/>
+        </g>
+        <g fill="#B03A2E" stroke="#FFFFFF" stroke-width="2.5">
+          <circle cx="560" cy="386" r="7.5"/>
+          <circle cx="268" cy="60" r="7.5"/>
+        </g>
+
+        <g font-size="17" fill="#2F2A26" font-weight="600" font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">
+          <text x="556" y="410" text-anchor="end">于都 · 出发</text>
+          <text x="490" y="320" text-anchor="end">湘江</text>
+          <text x="414" y="378" text-anchor="middle">遵义</text>
+          <text x="290" y="356" text-anchor="end">金沙江</text>
+          <text x="244" y="270" text-anchor="end">泸定桥</text>
+          <text x="206" y="206" text-anchor="end">夹金山</text>
+          <text x="190" y="156" text-anchor="end">草地</text>
+          <text x="236" y="114" text-anchor="start">腊子口</text>
+          <text x="268" y="44" text-anchor="middle">吴起镇 · 终点</text>
+        </g>
+        <g font-size="12.5" fill="#9C9089" font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">
+          <text x="556" y="428" text-anchor="end">1934.10</text>
+          <text x="268" y="26" text-anchor="middle">1935.10</text>
+          <text x="414" y="396" text-anchor="middle">四渡赤水</text>
+          <text x="40" y="424">路线示意图 · 非精确地图</text>
+        </g>
+
+        <g font-family="PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif">
+          <text x="466" y="76" font-size="12" fill="#B8ABA2" letter-spacing="3">图例</text>
+          <line x1="466" y1="102" x2="498" y2="102" stroke="#B03A2E" stroke-width="3.2" stroke-linecap="round"/>
+          <text x="508" y="107" font-size="13" fill="#6B615A">中央红军行军路线</text>
+          <circle cx="482" cy="130" r="5.5" fill="#FFFFFF" stroke="#B03A2E" stroke-width="2.2"/>
+          <text x="508" y="135" font-size="13" fill="#6B615A">途经重要节点</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="stats">
+  <div class="wrap">
+    <div class="title"><span class="no">壹</span><h2>先看八组数字</h2></div>
+    <div class="rule"></div>
+    <p class="lead">这些数字都指中央红军（红一方面军），出自人民网党史频道、国防部网等公开资料。</p>
+    <div class="stats">
+      <div class="stat"><div class="num">2.5<small>万里</small></div><div class="lab"><b>行程</b><br>二万五千里，约合 12500 公里</div></div>
+      <div class="stat"><div class="num">368<small>天</small></div><div class="lab"><b>历时</b><br>1934.10.16 夜渡于都河 → 1935.10.19 到吴起镇</div></div>
+      <div class="stat"><div class="num">11<small>个省</small></div><div class="lab"><b>纵横</b><br>赣、闽、粤、湘、桂、黔、滇、川、康、甘、陕</div></div>
+      <div class="stat"><div class="num">24<small>条河</small></div><div class="lab"><b>抢渡</b><br>湘江、乌江、赤水河、金沙江、大渡河……</div></div>
+      <div class="stat"><div class="num">18<small>座山</small></div><div class="lab"><b>翻越</b><br>其中 5 座终年积雪，夹金山、梦笔山、岷山……</div></div>
+      <div class="stat"><div class="num">380<small>余次</small></div><div class="lab"><b>战斗</b><br>平均每天一场遭遇战</div></div>
+      <div class="stat"><div class="num">8.6万<small>→7000</small></div><div class="lab"><b>兵力</b><br>出发 8.6 万，湘江后剩 3 万，到陕北 7000 余人</div></div>
+      <div class="stat"><div class="num">430<small>余人</small></div><div class="lab"><b>牺牲</b><br>阵亡的营以上干部</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="armies">
+  <div class="wrap">
+    <div class="title"><span class="no">贰</span><h2>四支队伍，四条路线</h2></div>
+    <div class="rule"></div>
+    <p class="lead">「长征」不是一支队伍的行动。四路红军在不同时间、从不同地点出发，最终在陕甘会合。平时说的「二万五千里」，专指中央红军。</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>部队</th><th>出发时间</th><th>出发地</th><th>到达时间</th><th>终点</th><th>行程</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>中央红军<br>（红一方面军）</td>
+            <td>1934.10</td>
+            <td>江西于都、瑞金</td>
+            <td>1935.10</td>
+            <td>陕北吴起镇</td>
+            <td>二万五千里</td>
+          </tr>
+          <tr>
+            <td>红二十五军</td>
+            <td>1934.11</td>
+            <td>河南罗山何家冲</td>
+            <td>1935.09</td>
+            <td>陕西延川永坪镇</td>
+            <td>近万里（称「北上先锋」）</td>
+          </tr>
+          <tr>
+            <td>红四方面军</td>
+            <td>1935.03</td>
+            <td>四川苍溪（强渡嘉陵江）</td>
+            <td>1936.10</td>
+            <td>甘肃会宁</td>
+            <td>一万余里（曾三过草地）</td>
+          </tr>
+          <tr>
+            <td>红二方面军</td>
+            <td>1935.11</td>
+            <td>湖南桑植刘家坪</td>
+            <td>1936.10</td>
+            <td>甘肃将台堡</td>
+            <td>二万余里</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">表格可左右滑动，查看「终点」和「行程」 →</p>
+  </div>
+</section>
+
+<section id="route">
+  <div class="wrap">
+    <div class="title"><span class="no">叁</span><h2>中央红军路线全程</h2></div>
+    <div class="rule"></div>
+    <p class="lead">十二段，一年零九天。每一段后面那句话，是它在整个长征里的位置。</p>
+    <div class="acts">
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1934.10</span>
+            <h3>夜渡于都河，离开中央苏区</h3>
+            <span class="place">江西 · 于都</span>
+          </div>
+          <p>第五次反「围剿」失利后，中央机关、中革军委和红一方面军主力共 <b>8.6 万余人</b>集结于都，10 月 16 日夜渡于都河，开始战略转移。当时对外称「野战军」，目标是到湘西与红二、六军团会合。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1934.11</span>
+            <h3>突破四道封锁线，血战湘江</h3>
+            <span class="place">广西 · 全州 兴安</span>
+          </div>
+          <p>连续突破三道封锁线后，红军在湘江边遭到近 30 万国民党军围堵。苦战五昼夜渡过湘江，<b>队伍从 8.6 万锐减到 3 万余人</b>。这是长征途中损失最惨重的一战，也直接催生了后来的遵义会议。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1934.12</span>
+            <h3>通道转兵，改向贵州</h3>
+            <span class="place">湖南通道 → 贵州黎平</span>
+          </div>
+          <p>原定去湘西，但那里已有重兵等着。通道紧急会议上采纳毛泽东的建议，<b>改向敌人力量薄弱的贵州</b>；黎平会议正式作出决定。这一步把红军从口袋里拉了出来。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.01</span>
+            <h3>强渡乌江，占领遵义</h3>
+            <span class="place">贵州 · 瓮安 遵义</span>
+          </div>
+          <p>突破乌江天险，1 月初占领遵义，获得长征以来难得的休整。1 月 15 日至 17 日，<b>遵义会议</b>在这座小城召开。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.01—03</span>
+            <h3>四渡赤水，跳出四十万包围</h3>
+            <span class="place">川黔滇边 · 赤水河</span>
+          </div>
+          <p>3 万对 40 万。红军在赤水河两岸来回穿插，一渡作势北渡长江、二渡回师遵义、三渡再入川南、四渡南渡乌江直逼贵阳，<b>把敌人的追剿部署彻底打乱</b>。1960 年毛泽东对蒙哥马利说，四渡赤水才是他的「得意之笔」。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.05</span>
+            <h3>巧渡金沙江，摆脱追兵</h3>
+            <span class="place">云南 · 皎平渡</span>
+          </div>
+          <p>红军佯攻昆明，把金沙江防线的敌军调开，随后抢占皎平渡，靠几条小船昼夜摆渡，全军渡过金沙江，<b>把数十万追兵甩在江南岸</b>。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.05</span>
+            <h3>强渡大渡河，飞夺泸定桥</h3>
+            <span class="place">四川 · 安顺场 泸定</span>
+          </div>
+          <p>5 月 25 日，17 名勇士在安顺场乘一条木船强渡成功；5 月 29 日，红四团一昼夜奔袭 240 里赶到泸定桥，22 名勇士攀着铁索夺桥。<b>红军没有成为「石达开第二」</b>，北上通道被打开。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.06</span>
+            <h3>翻越夹金山，懋功会师</h3>
+            <span class="place">四川 · 宝兴 懋功</span>
+          </div>
+          <p>翻过长征路上第一座大雪山夹金山，6 月中旬在懋功与红四方面军会师。两军会合后，<b>北上还是南下</b>成了新的分歧，这也埋下了后来张国焘分裂的伏笔。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.08</span>
+            <h3>穿越松潘草地</h3>
+            <span class="place">四川 · 毛儿盖 班佑</span>
+          </div>
+          <p>茫茫沼泽，没有道路、没有粮食、没有干净的水，一脚踩空就可能陷进去。这是长征中最艰难的一段，<b>非战斗减员极为严重</b>。走出草地后发起包座战斗，粉碎了敌人把红军逼回草地的企图。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.09</span>
+            <h3>突破腊子口，榜罗镇定方向</h3>
+            <span class="place">甘肃 · 迭部 通渭</span>
+          </div>
+          <p>腊子口两侧峭壁夹峙，是北上的最后一道天险，红军攀崖迂回、正面强攻拿下。9 月 27 日榜罗镇会议，<b>正式决定把落脚点放在陕北</b>，长征第一次有了明确终点。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1935.10</span>
+            <h3>到达吴起镇，中央红军长征结束</h3>
+            <span class="place">陕西 · 吴起</span>
+          </div>
+          <p>10 月 19 日，中央红军 7000 余人到达吴起镇。两天后打了「切尾巴」战斗，击溃尾随的国民党骑兵。<b>11 月的直罗镇战役被称为「奠基礼」</b>，为党中央在陕北落脚打下基础。</p>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="actbody">
+          <div class="acthead">
+            <span class="actdate">1936.10</span>
+            <h3>会宁、将台堡会师，长征全部结束</h3>
+            <span class="place">甘肃 · 会宁 将台堡</span>
+          </div>
+          <p>10 月 9 日红一、红四方面军在会宁会师；10 月 22 日红一、红二方面军在将台堡会师。<b>三大主力会合，历时两年的长征胜利结束。</b></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="meetings">
+  <div class="wrap">
+    <div class="title"><span class="no">肆</span><h2>五次关键会议</h2></div>
+    <div class="rule"></div>
+    <p class="lead">长征路上的会议，往往决定「往哪走」。五次之中，遵义会议的分量最重。</p>
+    <div class="meets">
+
+      <div class="meet">
+        <span class="tag">1934.12.12</span>
+        <h3>通道会议</h3>
+        <div class="meta">湖南通道 · 紧急会议</div>
+        <p>原计划北上湘西与红二、六军团会合，但那里已布下重兵。会议采纳毛泽东的建议，<b>改向贵州进军</b>，避免了钻进敌人口袋。</p>
+      </div>
+
+      <div class="meet">
+        <span class="tag">1934.12.18</span>
+        <h3>黎平会议</h3>
+        <div class="meta">贵州黎平 · 中央政治局会议</div>
+        <p>正式作出<b>放弃原定计划、转兵贵州</b>的决定，并着手调整行军部署。通道的「临时改向」在这里变成了「正式决定」。</p>
+      </div>
+
+      <div class="meet">
+        <span class="tag">1935.01.15—17</span>
+        <h3>遵义会议</h3>
+        <div class="meta">贵州遵义 · 政治局扩大会议</div>
+        <p>集中批评博古、李德在军事指挥上的错误，<b>增选毛泽东为政治局常委，取消博古、李德的最高军事指挥权</b>；此后又组成毛泽东、周恩来、王稼祥三人军事指挥小组，统一指挥军事行动。这是党成立以来第一次独立自主地解决自己的重大问题，被称为<b>生死攸关的转折点</b>。</p>
+      </div>
+
+      <div class="meet">
+        <span class="tag">1935.06.26</span>
+        <h3>两河口会议</h3>
+        <div class="meta">四川小金 · 政治局会议</div>
+        <p>一、四方面军会师后，会议确定<b>北上建立川陕甘根据地</b>的方针。会后张国焘主张南下，分歧由此公开化。</p>
+      </div>
+
+      <div class="meet">
+        <span class="tag">1935.09.27</span>
+        <h3>榜罗镇会议</h3>
+        <div class="meta">甘肃通渭 · 政治局常委会议</div>
+        <p>改变此前「到接近苏联的地方」的设想，<b>决定把落脚点放在陕北</b>，以陕北苏区作为领导中国革命的大本营。长征的终点，在这里定了下来。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="battles">
+  <div class="wrap">
+    <div class="title"><span class="no">伍</span><h2>八场著名战役</h2></div>
+    <div class="rule"></div>
+    <p class="lead">按时间排列。每张卡最后那一行，是这一仗在整个长征里的意义。</p>
+    <div class="battles">
+
+      <article class="bt">
+        <div class="bar"><span>1934.11.27 — 12.01</span><span>广西全州 · 兴安</span></div>
+        <h3>湘江战役</h3>
+        <div class="body">
+          <p>中央红军 8.6 万余人对国民党军近 30 万，苦战五昼夜强渡湘江。掩护主力的红五军团三十四师、红三军团十八团被阻断在江东，大部分阵亡。</p>
+          <div class="why">长征途中损失最惨重的一战，也是「左」倾错误路线破产的实证。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1934.11.26</span><span>河南方城 · 独树镇</span></div>
+        <h3>独树镇战斗</h3>
+        <div class="body">
+          <p>红二十五军长征途中遭遇国民党军步骑夹击，地形不利、天候恶劣、战前毫无准备，指战员与敌血战，最终突出重围。</p>
+          <div class="why">红二十五军生死存亡的一战，突围后得以继续北上。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1935.01 — 03</span><span>川黔滇边 · 赤水河</span></div>
+        <h3>四渡赤水</h3>
+        <div class="body">
+          <p>中央红军 3 万余人对国民党军 40 余万。三个多月里四次渡过赤水河，大小战斗 40 余次，在敌军间隙中反复穿插。</p>
+          <div class="why">以弱胜强的经典，从根本上扭转了长征以来的被动局面。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1935.05</span><span>云南 · 皎平渡</span></div>
+        <h3>巧渡金沙江</h3>
+        <div class="body">
+          <p>红军佯攻昆明，诱使敌军回援，随即抢占皎平渡，靠几条小船昼夜摆渡，全军渡过金沙江。</p>
+          <div class="why">彻底摆脱数十万敌军的围追堵截，获得了真正的主动权。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1935.05.25</span><span>四川 · 安顺场</span></div>
+        <h3>强渡大渡河</h3>
+        <div class="body">
+          <p>红一团一营营长孙继先率 17 名勇士，乘一条木船在枪林弹雨中强渡，在国民党军视为天险的大渡河防线上撕开缺口。</p>
+          <div class="why">为红军沿两岸夹河北上、夺取泸定桥创造了条件。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1935.05.29</span><span>四川 · 泸定桥</span></div>
+        <h3>飞夺泸定桥</h3>
+        <div class="body">
+          <p>红四团一昼夜奔袭 240 里赶到桥头，22 名勇士攀着只剩下铁索的桥身，冒着密集火力冲向对岸，后续部队边铺木板边跟进。</p>
+          <div class="why">打开了中央红军北上的通道，避免重演石达开全军覆没的命运。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1935.08.29 — 31</span><span>四川 · 包座</span></div>
+        <h3>包座战斗</h3>
+        <div class="body">
+          <p>一、四方面军会师后，右路军在人马劳顿、饥寒交迫的情况下采取「围点打援」战法，攻占包座。</p>
+          <div class="why">粉碎了敌人把红军逼回草地的企图，为北上打开了通道。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1935.09.17</span><span>甘肃 · 迭部腊子口</span></div>
+        <h3>突破腊子口</h3>
+        <div class="body">
+          <p>腊子口两山夹一沟，宽仅数十米，正面强攻难以奏效。红军以一部攀上峭壁迂回至敌后，正面同时猛攻，一举拿下。</p>
+          <div class="why">突破北上的最后一道天险，陕甘的大门由此打开。</div>
+        </div>
+      </article>
+
+      <article class="bt">
+        <div class="bar"><span>1935.11.20 — 24</span><span>陕西 · 直罗镇</span></div>
+        <h3>直罗镇战役</h3>
+        <div class="body">
+          <p>中央红军与陕北红军配合，在直罗镇设伏，歼灭国民党军一个师又一个团。</p>
+          <div class="why">为党中央把革命大本营放在陕北举行了「奠基礼」。</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="poem">
+  <div class="wrap">
+    <div class="poem">
+      <div class="pt">1935.10 · 长征途中</div>
+      <h3>七律 · 长征</h3>
+      <p>红军不怕远征难，万水千山只等闲。</p>
+      <p>五岭逶迤腾细浪，乌蒙磅礴走泥丸。</p>
+      <p>金沙水拍云崖暖，大渡桥横铁索寒。</p>
+      <p>更喜岷山千里雪，三军过后尽开颜。</p>
+      <div class="sig">—— 毛泽东</div>
+    </div>
+  </div>
+</section>
+
+<section id="closing">
+  <div class="wrap">
+    <div class="title"><span class="no">陆</span><h2>这条路的重量</h2></div>
+    <div class="rule"></div>
+    <div class="closing">
+      <p>368 天里，真正打仗的时间不超过 35 天，行军约 267 天，休息不超过 65 天。也就是说，<b>大部分日子他们只是在走路</b>——翻山、涉水、饿着、冻着，一天几十里。</p>
+      <p>出发时 8.6 万人，湘江之后剩 3 万，到陕北时 7000 余人。牺牲的营以上干部 430 余人。央视记者在报道中这样概括这条路：<b>平均每 300 米，就有一位战士牺牲。</b></p>
+      <p>毛泽东在 1935 年说：<b>「长征是历史纪录上的第一次，长征是宣言书，长征是宣传队，长征是播种机。」</b>这句话不是修辞——沿途十一个省、十个少数民族地区，红军走过的地方，后来都成了火种。</p>
+    </div>
+  </div>
+</section>
+
+<section id="notes">
+  <div class="wrap">
+    <div class="title"><span class="no">柒</span><h2>史料说明</h2></div>
+    <div class="rule"></div>
+    <div class="notes">
+      <h3>本页依据</h3>
+      <ul>
+        <li>主要参考：<b>人民网党史频道</b>《红一方面军主力到达陕北，结束长征》与「数读：你不可不知的长征知识」、<b>中华人民共和国国防部网</b>《征程万里 初心如一》及遵义会议会址报道、<b>央视新闻</b>「再走长征路」系列。</li>
+        <li>战役时间、兵力对比、伤亡与减员数字，均取上述来源；不同来源之间如有出入，本页采用较通行的一种。</li>
+      </ul>
+
+      <h3>三处口径差异，说明一下</h3>
+      <ul>
+        <li><b>省份：11 个还是 12 个？</b>常见的说法是 11 个省。人民网党史频道按中央红军实际经过的行政区域统计为 12 个（含宁夏）。本页用 11 个，与国防部网、央视口径一致。</li>
+        <li><b>历时：367 天还是 368 天？</b>从 1934 年 10 月 10 日离开瑞金算起为 367 天，从 10 月 16 日夜渡于都河算起为 368 天。本页取 368 天，并在路线中标注了 10 月出发、10 月 16 日渡河两个节点。</li>
+        <li><b>河流与山峰：22 条还是 24 条？</b>党史频道的详表列出 22 条河流、20 余座高山；对外常用的概括数字是「24 条大河、18 座大山」。本页用后者，因其流传更广。</li>
+      </ul>
+
+      <h3>关于「二万五千里」</h3>
+      <ul>
+        <li>这个数字<b>专指中央红军（红一方面军）</b>的行程。红二方面军约二万余里，红四方面军约一万余里，红二十五军近万里。四路相加，总行程远超二万五千里。</li>
+        <li>路线图为<b>走向示意图，不是精确地理地图</b>，节点位置经过简化，只表达先后顺序与大致方位，不作距离、方位测量之用。</li>
+      </ul>
+
+      <p class="last">本页为公开史料整理，供学习与查阅使用。如需引用具体数字，建议回到上述原始来源核对。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="star">★ ★ ★</div>
+    <p>红军长征 · 路线 · 战役 · 大事记<br>
+    1934.10 — 1936.10 · 四支队伍 · 十二段路线 · 五次会议 · 八场战役</p>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 600) { topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
