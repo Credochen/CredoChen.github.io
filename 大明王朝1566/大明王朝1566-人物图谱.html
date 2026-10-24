@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《大明王朝1566》故事脉络与人物关系图谱</title>
+<style>
+  :root{
+    --paper:#faf7f0; --ink:#2b2b2b; --muted:#6f6a60;
+    --vermilion:#a63a2b; --yan:#8e2f21; --qing:#2e4f7f;
+    --neiting:#6b3e8f; --shigan:#0e7c66; --minjian:#8d6e3f;
+    --card:#ffffff; --line:#e6e0d4;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Songti SC","Noto Serif SC","Source Han Serif SC","STSong",Georgia,serif;
+    line-height:1.75;
+  }
+  .wrap{max-width:1040px; margin:0 auto; padding:32px 20px 80px;}
+  header.hero{
+    text-align:center; padding:48px 20px 36px;
+    border-bottom:3px double #c9bfa8; margin-bottom:8px;
+  }
+  header.hero h1{
+    font-size:34px; letter-spacing:6px; margin:0 0 10px; color:var(--ink); font-weight:700;
+  }
+  header.hero .sub{color:var(--muted); font-size:15px; letter-spacing:2px;}
+  header.hero .tagline{
+    display:inline-block; margin-top:18px; padding:8px 22px;
+    border:1px solid var(--vermilion); color:var(--vermilion);
+    border-radius:999px; font-size:14px; letter-spacing:2px;
+  }
+  nav.toc{
+    position:sticky; top:0; z-index:10; background:rgba(250,247,240,.95);
+    border-bottom:1px solid var(--line); text-align:center; padding:10px 0;
+    font-size:14px; letter-spacing:1px;
+  }
+  nav.toc a{color:var(--ink); text-decoration:none; margin:0 14px; padding-bottom:2px;}
+  nav.toc a:hover{color:var(--vermilion); border-bottom:2px solid var(--vermilion);}
+  section{margin-top:56px;}
+  h2.sec{
+    font-size:24px; letter-spacing:4px; margin:0 0 6px;
+    padding-left:14px; border-left:5px solid var(--vermilion);
+  }
+  p.secdesc{color:var(--muted); margin:4px 0 24px; font-size:14.5px;}
+
+  /* 主线一图流 */
+  .spine{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:22px 18px; text-align:center; font-size:15px; letter-spacing:1px;
+    box-shadow:0 2px 10px rgba(0,0,0,.04); margin-bottom:26px;
+  }
+  .spine b{color:var(--vermilion);}
+  .spine .arr{color:#b7ad99; margin:0 6px;}
+
+  /* 时间线 */
+  .timeline{position:relative; margin-left:14px; padding-left:34px; border-left:2px solid #d8cfba;}
+  .t-item{position:relative; margin-bottom:30px;}
+  .t-item::before{
+    content:""; position:absolute; left:-42px; top:8px; width:12px; height:12px;
+    border-radius:50%; background:var(--vermilion); border:2px solid var(--paper);
+    box-shadow:0 0 0 2px var(--vermilion);
+  }
+  .t-year{
+    display:inline-block; background:var(--vermilion); color:#fff; font-size:13px;
+    padding:2px 12px; border-radius:4px; letter-spacing:1px; margin-bottom:6px;
+  }
+  .t-item h3{margin:2px 0 6px; font-size:18px; letter-spacing:1px;}
+  .t-item p{margin:0; color:#4a463f; font-size:15px;}
+  .t-people{margin-top:6px; font-size:13px; color:var(--muted);}
+  .t-people b{color:#5a544a;}
+
+  /* 事件卡片 */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px;}
+  .ev{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:20px 22px; box-shadow:0 2px 8px rgba(0,0,0,.04);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .ev:hover{transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,.08);}
+  .ev h3{margin:0 0 4px; font-size:17px; letter-spacing:1px; color:var(--ink);}
+  .ev .no{
+    display:inline-block; font-size:12px; color:#fff; background:var(--ink);
+    border-radius:4px; padding:1px 8px; margin-right:8px; vertical-align:2px;
+  }
+  .ev .who{font-size:13px; color:var(--vermilion); margin-bottom:8px;}
+  .ev p{margin:0; font-size:14.5px; color:#4a463f;}
+
+  /* 阵营 */
+  .factions{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px;}
+  .fac{border-radius:12px; padding:18px 22px; background:var(--card); border:1px solid var(--line); border-top:5px solid;}
+  .fac h3{margin:0 0 4px; font-size:18px; letter-spacing:2px;}
+  .fac .role{font-size:13px; color:var(--muted); margin-bottom:10px;}
+  .fac ul{margin:0; padding-left:20px; font-size:14.5px;}
+  .fac ul li{margin-bottom:4px;}
+  .fac ul li b{font-weight:700;}
+  .fac.yan{border-top-color:var(--yan);} .fac.yan h3{color:var(--yan);}
+  .fac.qing{border-top-color:var(--qing);} .fac.qing h3{color:var(--qing);}
+  .fac.neiting{border-top-color:var(--neiting);} .fac.neiting h3{color:var(--neiting);}
+  .fac.shigan{border-top-color:var(--shigan);} .fac.shigan h3{color:var(--shigan);}
+  .fac.minjian{border-top-color:var(--minjian);} .fac.minjian h3{color:var(--minjian);}
+  .fac.emp{border-top-color:var(--vermilion);} .fac.emp h3{color:var(--vermilion);}
+
+  /* 人物表 */
+  table{width:100%; border-collapse:collapse; background:var(--card); font-size:14.5px;
+    border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04);}
+  th,td{padding:10px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top;}
+  th{background:#2f2b26; color:#f3eee2; letter-spacing:2px; font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td.name{white-space:nowrap; font-weight:700;}
+  .chip{display:inline-block; font-size:12px; padding:1px 10px; border-radius:999px; color:#fff; white-space:nowrap;}
+  .c-emp{background:var(--vermilion);} .c-yan{background:var(--yan);}
+  .c-qing{background:var(--qing);} .c-nei{background:var(--neiting);}
+  .c-shi{background:var(--shigan);} .c-min{background:var(--minjian);}
+
+  /* 图谱 */
+  .mapbox{background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:14px; box-shadow:0 2px 10px rgba(0,0,0,.05); overflow-x:auto;}
+  svg{display:block; margin:0 auto; min-width:760px; max-width:100%; height:auto;}
+  .mapnote{font-size:13.5px; color:var(--muted); margin-top:12px; text-align:center;}
+
+  footer{margin-top:70px; text-align:center; color:var(--muted); font-size:13px; letter-spacing:2px;}
+  blockquote.core{
+    margin:26px 0 0; padding:16px 24px; border-left:4px solid var(--vermilion);
+    background:#fdf6f0; color:#5a4a3a; font-size:15px; border-radius:0 10px 10px 0;
+  }
+  blockquote.core b{color:var(--vermilion);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>大明王朝 1566</h1>
+  <div class="sub">刘和平 原著 · 嘉靖与海瑞 —— 一部关于钱粮、人心与体制的历史正剧</div>
+  <div class="tagline">国库亏空 → 改稻为桑 → 层层变形 → 大案爆发 → 倒严 → 上疏 → 帝崩</div>
+</header>
+
+<nav class="toc">
+  <a href="#timeline">故事脉络</a>
+  <a href="#events">关键事件</a>
+  <a href="#factions">阵营人物</a>
+  <a href="#map">关系图谱</a>
+  <a href="#roster">人物志</a>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ 故事脉络 ============ -->
+<section id="timeline">
+  <h2 class="sec">一、故事脉络</h2>
+  <p class="secdesc">小说以嘉靖三十九年（1560）御前财政会议开场，至嘉靖四十五年（1566）嘉靖驾崩收束。全部冲突源自一个死结：<b>国库亏空，钱从哪里来？</b></p>
+
+  <div class="spine">
+    <b>御前算账</b><span class="arr">→</span><b>改稻为桑</b><span class="arr">→</span><b>毁堤淹田</b><span class="arr">→</span><b>贱买灾田</b><span class="arr">→</span><b>沈一石自焚</b><span class="arr">→</span><b>浙江大案</b><span class="arr">→</span><b>倒严</b><span class="arr">→</span><b>海瑞上疏</b><span class="arr">→</span><b>嘉靖驾崩</b>
+  </div>
+
+  <div class="timeline">
+    <div class="t-item">
+      <span class="t-year">嘉靖三十九年 · 腊月</span>
+      <h3>御前财政会议：亏空爆雷</h3>
+      <p>年终结算，国库与内帑亏空巨大。严党提出「改稻为桑」——把浙江五十万亩稻田改种桑养蚕，产丝卖给西洋，以补亏空。一场以「国策」为名的敛财开场。</p>
+      <div class="t-people"><b>在场：</b>嘉靖、严嵩、严世蕃、徐阶、高拱、张居正、吕芳等</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十年 · 春</span>
+      <h3>改稻为桑强推受阻，踏苗激起民变</h3>
+      <p>百姓不愿改，浙江官员急于政绩与私利，杭州知府马宁远带兵踏毁秧苗，激起民变。马宁远最终成为弃子被拿，供出背后勾结。</p>
+      <div class="t-people"><b>参与：</b>马宁远、郑泌昌、何茂才、齐大柱等桑农</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十年 · 五月</span>
+      <h3>毁堤淹田：以灾促卖</h3>
+      <p>严世蕃密令，郑泌昌、何茂才勾结河道监管李玄，炸毁新安江大堤，淹淳安、建德两县——田淹了，灾民就只能贱价卖田给桑民改桑。</p>
+      <div class="t-people"><b>参与：</b>严世蕃（幕后）、郑泌昌、何茂才、李玄、胡宗宪（救灾）</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十年 · 夏</span>
+      <h3>胡宗宪断水救灾，缓行国策；海瑞到任淳安</h3>
+      <p>浙直总督胡宗宪分洪救灾、以「缓」字诀周旋，向朝廷奏明实情。裕王府举荐海瑞任淳安知县、王用汲任建德知县，清流力量入场。</p>
+      <div class="t-people"><b>参与：</b>胡宗宪、谭纶、戚继光；海瑞、王用汲、裕王、张居正等</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十年 · 秋</span>
+      <h3>「以改兼赈」之争与沈一石自焚</h3>
+      <p>江南首富沈一石打着织造局（宫里）的灯笼低价买田，等于把皇帝的脸面押上赌桌。抄家时发现其家财早被各级官府榨空，沈一石焚毁作坊自尽，留下四箱账册。</p>
+      <div class="t-people"><b>参与：</b>沈一石、杨金水、高翰文、海瑞、赵贞吉</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十年 · 冬</span>
+      <h3>浙江大案：郑何落网，杨金水装疯</h3>
+      <p>郑泌昌、何茂才被拿解京，海瑞主审，案绳直指织造局与宫里。杨金水为保「宫里的体面」装疯。嘉靖看过账册后付之一炬——查到织造局，就不能再往下查了。</p>
+      <div class="t-people"><b>参与：</b>郑泌昌、何茂才、海瑞、赵贞吉、杨金水、吕芳、嘉靖</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十一年</span>
+      <h3>严党倒台</h3>
+      <p>鄢懋卿南下巡盐的银子分配暴露严党贪婪，加上历次亏空与浙江案，嘉靖对严氏父子彻底失望。严世蕃等被处死，严嵩放归故里，徐阶接任首辅。</p>
+      <div class="t-people"><b>参与：</b>嘉靖、严嵩、严世蕃、鄢懋卿、徐阶、高拱、张居正</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十一至四十五年</span>
+      <h3>东南抗倭与朝局更迭</h3>
+      <p>胡宗宪督师、戚继光屡挫倭寇，东南底定；朝中陈洪得势、吕芳被遣出宫为嘉靖「提前守陵」，宫廷内外杀机四伏。</p>
+      <div class="t-people"><b>参与：</b>胡宗宪、戚继光、齐大柱、吕芳、陈洪、黄锦</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十五年</span>
+      <h3>海瑞抬棺上《治安疏》</h3>
+      <p>海瑞调任户部主事，买好棺材、遣散家人，上疏直斥嘉靖「二十余年不视朝……天下不直陛下久矣」。嘉靖震怒却不杀，囚于诏狱，「云在青天水在瓶」。</p>
+      <div class="t-people"><b>参与：</b>海瑞、海母、嘉靖、黄锦、吕芳</div>
+    </div>
+    <div class="t-item">
+      <span class="t-year">嘉靖四十五年 · 岁末</span>
+      <h3>嘉靖驾崩，「长江黄河」遗论</h3>
+      <p>临终前嘉靖与海瑞对谈，道出「长江为清，黄河为浊……圣人出，黄河清，可黄河什么时候清过？」的帝王心术自白。遗诏赦免海瑞。海瑞闻帝崩，大恸呕血——全剧在忠与恨的交织中落幕。</p>
+      <div class="t-people"><b>参与：</b>嘉靖、海瑞、裕王、黄锦</div>
+    </div>
+  </div>
+
+  <blockquote class="core">
+    全书题眼——沈一石临终之言：「<b>上下挥霍无度，便掠之于民；民变在即，便掠之于商。</b>」以及嘉靖的驭人之道：「<b>云在青天水在瓶</b>」——每个人都被安放在他该在的位置上，喝他该喝的水。
+  </blockquote>
+</section>
+
+<!-- ============ 关键事件 ============ -->
+<section id="events">
+  <h2 class="sec">二、关键事件一览</h2>
+  <p class="secdesc">十件大事，串起全书因果。每件事都是上一件的恶果、下一件的引信。</p>
+  <div class="grid">
+    <div class="ev"><h3><span class="no">01</span>御前财政会议</h3><div class="who">嘉靖 · 严嵩 · 严世蕃 · 徐阶 · 高拱 · 张居正 · 吕芳</div><p>亏空摆上台面，「改稻为桑」国策出台。严党要借国策敛财，清流看破却无力阻止，嘉靖默许——一切悲剧的起点。</p></div>
+    <div class="ev"><h3><span class="no">02</span>踏苗与民变</h3><div class="who">马宁远 · 郑泌昌 · 何茂才 · 齐大柱</div><p>政策层层加码变成暴力强推，马宁远踏苗激起民变，事败后成为弃子，供出浙江官场与河道、织造的勾结。</p></div>
+    <div class="ev"><h3><span class="no">03</span>毁堤淹田</h3><div class="who">严世蕃（幕后）· 郑泌昌 · 何茂才 · 李玄</div><p>端午汛期炸堤淹田，淹淳安、建德，以「天灾」逼灾民卖田。马宁远、李玄等被推出来顶罪，严党丢车保帅。</p></div>
+    <div class="ev"><h3><span class="no">04</span>胡宗宪救灾缓政</h3><div class="who">胡宗宪 · 谭纶 · 戚继光 · 嘉靖</div><p>分洪救人、奏报实情、顶着严世蕃压力缓行改稻为桑。夹在师门与朝廷之间，「知不可为而为之」的东南柱石。</p></div>
+    <div class="ev"><h3><span class="no">05</span>海瑞到任淳安</h3><div class="who">海瑞 · 王用汲 · 高翰文 · 郑泌昌 · 何茂才</div><p>裕王府举荐，海瑞赴浙江最乱的淳安。面对通倭冤案、灾民卖田，以一介县令硬撼全省官场。</p></div>
+    <div class="ev"><h3><span class="no">06</span>沈一石打灯笼买田与自焚</h3><div class="who">沈一石 · 杨金水 · 海瑞 · 赵贞吉</div><p>打着织造局灯笼贱买灾田，把「宫里」拖下水；抄家时家无余财，焚坊自尽，四箱账册成为倒严与震慑宫里的引信。</p></div>
+    <div class="ev"><h3><span class="no">07</span>浙江大案与装疯</h3><div class="who">海瑞（主审）· 赵贞吉 · 郑泌昌 · 何茂才 · 杨金水</div><p>审案审到织造局，审到宫里。杨金水装疯保全体面，嘉靖烧账册止审——案子办了，根子不能动。</p></div>
+    <div class="ev"><h3><span class="no">08</span>倒严</h3><div class="who">嘉靖 · 徐阶 · 严嵩 · 严世蕃 · 鄢懋卿</div><p>巡盐银子的分配成了压垮骆驼的最后一根稻草。严世蕃被诛，严嵩放归——嘉靖需要的从来不是严嵩这个人，而是敛财的手套；手套脏了，就换一副。</p></div>
+    <div class="ev"><h3><span class="no">09</span>《治安疏》</h3><div class="who">海瑞 · 嘉靖 · 黄锦</div><p>备棺上疏，直斥帝失，即史称「天下第一疏」。嘉靖数毁其疏又数读其疏，杀之不忍、纵之不甘。</p></div>
+    <div class="ev"><h3><span class="no">10</span>嘉靖驾崩</h3><div class="who">嘉靖 · 海瑞 · 裕王 · 黄锦</div><p>「长江黄河」之论为四十五年的帝王术作结；遗诏赦海瑞。海瑞痛哭呕血——他骂的是皇帝，心里装的仍是社稷苍生。</p></div>
+  </div>
+</section>
+
+<!-- ============ 阵营人物 ============ -->
+<section id="factions">
+  <h2 class="sec">三、五大阵营</h2>
+  <p class="secdesc">看懂这本书的关键：所有人分属五股力量，在嘉靖的帝王术下互相咬合、互相牵制。</p>
+  <div class="factions">
+    <div class="fac emp">
+      <h3>皇权（孤家寡人）</h3>
+      <div class="role">凌驾所有阵营之上，以 制衡 为术，以 内帑 为实</div>
+      <ul>
+        <li><b>嘉靖帝 朱厚熜</b>——二十余年不上朝，却把所有人都攥在手心；要钱、要名、要人供着，唯独不肯担责。</li>
+      </ul>
+    </div>
+    <div class="fac yan">
+      <h3>严党（敛财之手）</h3>
+      <div class="role">替皇帝背锅的「白手套」集团</div>
+      <ul>
+        <li><b>严嵩</b>——首辅，老迈昏聩与老谋深算集于一身。</li>
+        <li><b>严世蕃</b>——「小阁老」，毁堤淹田的幕后主使。</li>
+        <li><b>郑泌昌</b>（浙江巡抚）、<b>何茂才</b>（按察使）——浙江案的两只大蛀虫。</li>
+        <li><b>鄢懋卿</b>——巡盐御史，严党的「输血机」。</li>
+      </ul>
+    </div>
+    <div class="fac qing">
+      <h3>清流 / 裕王党（倒严之手）</h3>
+      <div class="role">以未来之君为旗帜，谋国之忠与谋位之心并存</div>
+      <ul>
+        <li><b>徐阶</b>——次辅，隐忍二十年，倒严后接班。</li>
+        <li><b>高拱、张居正</b>——裕王师傅，一刚一谋。</li>
+        <li><b>谭纶</b>——穿针引线之人，荐海瑞、入胡幕。</li>
+        <li><b>海瑞、王用汲</b>——浙江前线的两把硬骨头。</li>
+        <li><b>裕王、李妃</b>——仁弱储君与贤内助。</li>
+      </ul>
+    </div>
+    <div class="fac neiting">
+      <h3>内廷太监（皇帝的家奴与钱袋）</h3>
+      <div class="role">司礼监、御用监、江南织造局</div>
+      <ul>
+        <li><b>吕芳</b>——司礼监掌印，「老祖宗」，懂得护人，最终被遣出宫。</li>
+        <li><b>杨金水</b>——织造局总管，吕芳干儿子，装疯保命。</li>
+        <li><b>黄锦</b>——厚道人，海瑞在宫里的暗中保护者。</li>
+        <li><b>陈洪</b>——狠辣的「咬人的狗」，吕芳之后的潜在掌印。</li>
+      </ul>
+    </div>
+    <div class="fac shigan">
+      <h3>夹缝中的实干者 + 士与民</h3>
+      <div class="role">不问阵营，只问苍生</div>
+      <ul>
+        <li><b>胡宗宪</b>——严嵩门生、浙直总督，「媳妇夹在婆婆之间」。</li>
+        <li><b>戚继光</b>——抗倭名将。</li>
+        <li><b>沈一石</b>——江南首富，织造局白手套，账册与火是他的控诉。</li>
+        <li><b>高翰文</b>——书生问政的杭州知府。</li>
+        <li><b>李时珍、齐大柱、海母、海妻</b>——草野与市井的良知与牺牲。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 关系图谱 ============ -->
+<section id="map">
+  <h2 class="sec">四、人物关系图谱</h2>
+  <p class="secdesc">一图看懂：嘉靖居中驭下，严党（左）敛财、清流（右）倒严、内廷（中）传话，胡宗宪与海瑞分踞两端，构成全书的两大脊梁。</p>
+  <div class="mapbox">
+  <svg viewBox="0 0 920 1180" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif SC',serif">
+    <!-- ===== 连线（先画线再画节点） ===== -->
+    <g fill="none" stroke="#9aa5ad" stroke-width="1.6">
+      <path d="M 385,80 C 300,110 230,140 190,178"/>
+      <path d="M 460,95 L 460,178"/>
+      <path d="M 520,90 C 600,160 660,240 725,288"/>
+      <path d="M 535,78 C 620,95 690,120 728,178"/>
+      <path d="M 160,222 L 160,288"/>
+      <path d="M 160,332 L 160,398"/>
+      <path d="M 160,442 L 160,508"/>
+      <path d="M 505,215 L 545,282"/>
+      <path d="M 460,222 L 460,398"/>
+      <path d="M 460,442 L 460,508"/>
+      <path d="M 760,222 L 760,288"/>
+      <path d="M 715,332 L 665,400"/>
+      <path d="M 805,332 L 855,400"/>
+      <path d="M 760,332 L 760,508"/>
+      <path d="M 760,552 L 760,629"/>
+      <path d="M 195,222 C 120,420 140,650 265,758"/>
+      <path d="M 300,804 L 300,873"/>
+      <path d="M 300,917 L 300,983"/>
+      <path d="M 760,681 L 760,755"/>
+    </g>
+    <!-- 对立（红虚线） -->
+    <g fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="6 5">
+      <path d="M 815,635 C 900,460 900,150 532,70"/>
+    </g>
+    <!-- 利益勾结（橙虚线） -->
+    <g fill="none" stroke="#d68910" stroke-width="1.8" stroke-dasharray="6 5">
+      <path d="M 220,530 L 400,530"/>
+      <path d="M 215,320 C 330,360 400,500 425,633"/>
+    </g>
+    <!-- 同盟/知己（绿实线） -->
+    <g fill="none" stroke="#1e8449" stroke-width="1.8">
+      <path d="M 520,660 L 695,652"/>
+      <path d="M 715,545 C 600,600 450,680 355,762"/>
+      <path d="M 720,681 L 655,753"/>
+      <path d="M 640,868 C 660,800 690,730 715,684"/>
+    </g>
+    <!-- 线上标注 -->
+    <g font-size="12" fill="#6f6a60">
+      <text x="468" y="140">家奴·心腹</text>
+      <text x="560" y="120">父子</text>
+      <text x="620" y="220">制衡</text>
+      <text x="288" y="118">依靠·敛财背锅</text>
+      <text x="168" y="370">指使</text>
+      <text x="468" y="316">干父子</text>
+      <text x="468" y="482">白手套</text>
+      <text x="272" y="520" fill="#b9770e">贱买灾田</text>
+      <text x="300" y="470" fill="#b9770e">外派知府</text>
+      <text x="576" y="646" fill="#1e8449">狱中同盟</text>
+      <text x="470" y="712" fill="#1e8449">知己·幕僚</text>
+      <text x="596" y="712" fill="#1e8449">生死之交</text>
+      <text x="662" y="848" fill="#1e8449">挚友</text>
+      <text x="308" y="955">收编</text>
+      <text x="66" y="540">门生</text>
+      <text x="838" y="360" fill="#c0392b">《治安疏》·对峙</text>
+    </g>
+
+    <!-- ===== 节点 ===== -->
+    <!-- 嘉靖 -->
+    <g>
+      <rect x="385" y="45" width="150" height="50" rx="10" fill="#a63a2b"/>
+      <text x="460" y="66" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">嘉靖帝 朱厚熜</text>
+      <text x="460" y="85" text-anchor="middle" font-size="11" fill="#f3d9d2">孤家寡人 · 权术控局</text>
+    </g>
+    <!-- 严党 -->
+    <g>
+      <rect x="100" y="178" width="120" height="44" rx="8" fill="#fdeeec" stroke="#8e2f21" stroke-width="1.5"/>
+      <text x="160" y="197" text-anchor="middle" font-size="14" font-weight="bold" fill="#6e2318">严嵩</text>
+      <text x="160" y="213" text-anchor="middle" font-size="10.5" fill="#9c6055">内阁首辅</text>
+      <rect x="100" y="288" width="120" height="44" rx="8" fill="#fdeeec" stroke="#8e2f21" stroke-width="1.5"/>
+      <text x="160" y="307" text-anchor="middle" font-size="14" font-weight="bold" fill="#6e2318">严世蕃</text>
+      <text x="160" y="323" text-anchor="middle" font-size="10.5" fill="#9c6055">小阁老 · 工部侍郎</text>
+      <rect x="100" y="398" width="120" height="44" rx="8" fill="#fdeeec" stroke="#8e2f21" stroke-width="1.5"/>
+      <text x="160" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#6e2318">郑泌昌</text>
+      <text x="160" y="433" text-anchor="middle" font-size="10.5" fill="#9c6055">浙江巡抚</text>
+      <rect x="100" y="508" width="120" height="44" rx="8" fill="#fdeeec" stroke="#8e2f21" stroke-width="1.5"/>
+      <text x="160" y="527" text-anchor="middle" font-size="14" font-weight="bold" fill="#6e2318">何茂才</text>
+      <text x="160" y="543" text-anchor="middle" font-size="10.5" fill="#9c6055">浙江按察使</text>
+    </g>
+    <!-- 内廷 -->
+    <g>
+      <rect x="400" y="178" width="120" height="44" rx="8" fill="#f4effa" stroke="#6b3e8f" stroke-width="1.5"/>
+      <text x="460" y="197" text-anchor="middle" font-size="14" font-weight="bold" fill="#4a2b66">吕芳</text>
+      <text x="460" y="213" text-anchor="middle" font-size="10.5" fill="#85639f">司礼监掌印 · 老祖宗</text>
+      <rect x="520" y="280" width="100" height="40" rx="8" fill="#f4effa" stroke="#6b3e8f" stroke-width="1.5"/>
+      <text x="570" y="298" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#4a2b66">黄锦</text>
+      <text x="570" y="313" text-anchor="middle" font-size="10.5" fill="#85639f">忠厚太监</text>
+      <rect x="400" y="398" width="120" height="44" rx="8" fill="#f4effa" stroke="#6b3e8f" stroke-width="1.5"/>
+      <text x="460" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#4a2b66">杨金水</text>
+      <text x="460" y="433" text-anchor="middle" font-size="10.5" fill="#85639f">织造局总管 · 装疯</text>
+      <rect x="400" y="508" width="120" height="44" rx="8" fill="#f4effa" stroke="#6b3e8f" stroke-width="1.5"/>
+      <text x="460" y="527" text-anchor="middle" font-size="14" font-weight="bold" fill="#4a2b66">沈一石</text>
+      <text x="460" y="543" text-anchor="middle" font-size="10.5" fill="#85639f">江南首富 · 白手套</text>
+    </g>
+    <!-- 清流 -->
+    <g>
+      <rect x="695" y="178" width="130" height="44" rx="8" fill="#eef3fa" stroke="#2e4f7f" stroke-width="1.5"/>
+      <text x="760" y="197" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f3a5f">裕王 朱载垕</text>
+      <text x="760" y="213" text-anchor="middle" font-size="10.5" fill="#5f7ba0">储君 · 清流旗帜</text>
+      <rect x="700" y="288" width="120" height="44" rx="8" fill="#eef3fa" stroke="#2e4f7f" stroke-width="1.5"/>
+      <text x="760" y="307" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f3a5f">徐阶</text>
+      <text x="760" y="323" text-anchor="middle" font-size="10.5" fill="#5f7ba0">次辅 · 隐忍待机</text>
+      <rect x="590" y="400" width="110" height="40" rx="8" fill="#eef3fa" stroke="#2e4f7f" stroke-width="1.5"/>
+      <text x="645" y="418" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#1f3a5f">高拱</text>
+      <text x="645" y="433" text-anchor="middle" font-size="10.5" fill="#5f7ba0">刚直</text>
+      <rect x="805" y="400" width="110" height="40" rx="8" fill="#eef3fa" stroke="#2e4f7f" stroke-width="1.5"/>
+      <text x="860" y="418" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#1f3a5f">张居正</text>
+      <text x="860" y="433" text-anchor="middle" font-size="10.5" fill="#5f7ba0">深谋远虑</text>
+      <rect x="705" y="508" width="110" height="44" rx="8" fill="#eef3fa" stroke="#2e4f7f" stroke-width="1.5"/>
+      <text x="760" y="527" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f3a5f">谭纶</text>
+      <text x="760" y="543" text-anchor="middle" font-size="10.5" fill="#5f7ba0">穿针引线 · 举荐海瑞</text>
+      <rect x="695" y="629" width="130" height="52" rx="10" fill="#fdf2ef" stroke="#a63a2b" stroke-width="2.5"/>
+      <text x="760" y="651" text-anchor="middle" font-size="15" font-weight="bold" fill="#7b241c">海瑞</text>
+      <text x="760" y="670" text-anchor="middle" font-size="10.5" fill="#a66a5c">淳安知县 → 户部主事</text>
+      <rect x="565" y="753" width="110" height="44" rx="8" fill="#eef3fa" stroke="#2e4f7f" stroke-width="1.5"/>
+      <text x="620" y="772" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f3a5f">王用汲</text>
+      <text x="620" y="788" text-anchor="middle" font-size="10.5" fill="#5f7ba0">建德知县 · 挚友</text>
+    </g>
+    <!-- 实干 -->
+    <g>
+      <rect x="235" y="756" width="130" height="48" rx="8" fill="#e9f6f2" stroke="#0e7c66" stroke-width="1.5"/>
+      <text x="300" y="776" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#0b5a4a">胡宗宪</text>
+      <text x="300" y="793" text-anchor="middle" font-size="10.5" fill="#4d9c8c">浙直总督 · 东南柱石</text>
+      <rect x="240" y="873" width="120" height="44" rx="8" fill="#e9f6f2" stroke="#0e7c66" stroke-width="1.5"/>
+      <text x="300" y="892" text-anchor="middle" font-size="14" font-weight="bold" fill="#0b5a4a">戚继光</text>
+      <text x="300" y="908" text-anchor="middle" font-size="10.5" fill="#4d9c8c">抗倭名将</text>
+    </g>
+    <!-- 民间/士 -->
+    <g>
+      <rect x="240" y="983" width="120" height="44" rx="8" fill="#f8f3e9" stroke="#8d6e3f" stroke-width="1.5"/>
+      <text x="300" y="1002" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b5227">齐大柱</text>
+      <text x="300" y="1018" text-anchor="middle" font-size="10.5" fill="#a08a63">桑农 → 义军 → 戚家军</text>
+      <rect x="400" y="633" width="120" height="44" rx="8" fill="#f8f3e9" stroke="#8d6e3f" stroke-width="1.5"/>
+      <text x="460" y="652" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b5227">高翰文</text>
+      <text x="460" y="668" text-anchor="middle" font-size="10.5" fill="#a08a63">翰林 → 杭州知府</text>
+      <rect x="565" y="868" width="110" height="44" rx="8" fill="#f8f3e9" stroke="#8d6e3f" stroke-width="1.5"/>
+      <text x="620" y="887" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b5227">李时珍</text>
+      <text x="620" y="903" text-anchor="middle" font-size="10.5" fill="#a08a63">神医 · 敢骂皇帝</text>
+      <rect x="700" y="755" width="80" height="40" rx="8" fill="#f8f3e9" stroke="#8d6e3f" stroke-width="1.5"/>
+      <text x="740" y="779" text-anchor="middle" font-size="13" font-weight="bold" fill="#6b5227">海母</text>
+      <rect x="805" y="755" width="80" height="40" rx="8" fill="#f8f3e9" stroke="#8d6e3f" stroke-width="1.5"/>
+      <text x="845" y="779" text-anchor="middle" font-size="13" font-weight="bold" fill="#6b5227">海妻</text>
+    </g>
+
+    <!-- ===== 图例 ===== -->
+    <g font-size="12.5" fill="#4a463f">
+      <rect x="70" y="1052" width="780" height="102" rx="10" fill="#fdfcf8" stroke="#e6e0d4"/>
+      <text x="92" y="1080" font-size="13" font-weight="bold" fill="#2b2b2b">图例 · 关系类型</text>
+      <line x1="96" y1="1104" x2="146" y2="1104" stroke="#9aa5ad" stroke-width="1.8"/>
+      <text x="154" y="1108">隶属 / 门生 / 依托</text>
+      <line x1="300" y1="1104" x2="350" y2="1104" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="6 5"/>
+      <text x="358" y="1108">对立 / 政争</text>
+      <line x1="470" y1="1104" x2="520" y2="1104" stroke="#d68910" stroke-width="1.8" stroke-dasharray="6 5"/>
+      <text x="528" y="1108">利益勾结 / 利用</text>
+      <line x1="660" y1="1104" x2="710" y2="1104" stroke="#1e8449" stroke-width="1.8"/>
+      <text x="718" y="1108">同盟 / 知己</text>
+      <text x="92" y="1138" fill="#6f6a60">阵营色：■嘉靖·皇权　■严党　■清流/裕王党　■内廷太监　■实干者　■士与民</text>
+    </g>
+  </svg>
+  </div>
+  <p class="mapnote">建议横向滚动或缩放查看 · 布局逻辑：中轴为「皇帝—内廷—白手套」，左翼严党、右翼清流，两根脊梁（胡宗宪、海瑞）沉于下方。</p>
+</section>
+
+<!-- ============ 人物志 ============ -->
+<section id="roster">
+  <h2 class="sec">五、人物志（速查表）</h2>
+  <p class="secdesc">25 个主要人物，一眼定位。其实不需要记住全部——记住嘉靖、严嵩、胡宗宪、海瑞这四个人，全书骨架就在了。</p>
+  <table>
+    <tr><th>人物</th><th>阵营</th><th>身份</th><th>一句话点评</th></tr>
+    <tr><td class="name">嘉靖帝 朱厚熜</td><td><span class="chip c-emp">皇权</span></td><td>皇帝</td><td>以修玄为表、权术为里；「云在青天水在瓶」，要钱要名不肯担责。</td></tr>
+    <tr><td class="name">严嵩</td><td><span class="chip c-yan">严党</span></td><td>内阁首辅</td><td>八十岁替皇帝敛财背锅的老手套，父子相依为命。</td></tr>
+    <tr><td class="name">严世蕃</td><td><span class="chip c-yan">严党</span></td><td>严嵩之子、工部侍郎</td><td>跋扈急躁的「小阁老」，毁堤淹田的幕后主使。</td></tr>
+    <tr><td class="name">郑泌昌</td><td><span class="chip c-yan">严党</span></td><td>浙江巡抚</td><td>贪婪短视，浙江大案的主角。</td></tr>
+    <tr><td class="name">何茂才</td><td><span class="chip c-yan">严党</span></td><td>浙江按察使</td><td>阴狠，制造通倭冤案构陷齐大柱。</td></tr>
+    <tr><td class="name">鄢懋卿</td><td><span class="chip c-yan">严党</span></td><td>巡盐御史</td><td>严党的输血机，巡盐银子成为倒严导火索。</td></tr>
+    <tr><td class="name">徐阶</td><td><span class="chip c-qing">清流</span></td><td>次辅 → 首辅</td><td>隐忍二十年，严嵩倒台后的接班人。</td></tr>
+    <tr><td class="name">高拱</td><td><span class="chip c-qing">清流</span></td><td>阁员、裕王师傅</td><td>刚直火爆的炮筒子。</td></tr>
+    <tr><td class="name">张居正</td><td><span class="chip c-qing">清流</span></td><td>阁员、裕王师傅</td><td>全书最清醒的头脑，未来的改革者。</td></tr>
+    <tr><td class="name">谭纶</td><td><span class="chip c-qing">清流</span></td><td>裕王府属官 → 胡宗宪幕僚</td><td>连接裕王与浙江前线的穿针引线人，荐海瑞出山。</td></tr>
+    <tr><td class="name">裕王 朱载垕</td><td><span class="chip c-qing">清流</span></td><td>储君</td><td>仁弱孝顺，清流全部希望所系。</td></tr>
+    <tr><td class="name">李妃</td><td><span class="chip c-qing">清流</span></td><td>裕王妃</td><td>沉稳有见识，裕王府真正的定盘星。</td></tr>
+    <tr><td class="name">海瑞</td><td><span class="chip c-qing">清流</span></td><td>淳安知县 → 户部主事</td><td>号刚峰，人称「笔架山」；备棺上疏，大明朝的一把神剑。</td></tr>
+    <tr><td class="name">王用汲</td><td><span class="chip c-qing">清流</span></td><td>建德知县 → 户部主事</td><td>海瑞的生死之交，厚道而有担当。</td></tr>
+    <tr><td class="name">吕芳</td><td><span class="chip c-nei">内廷</span></td><td>司礼监掌印太监</td><td>「老祖宗」，会做人也会护人，终被遣出宫守陵。</td></tr>
+    <tr><td class="name">黄锦</td><td><span class="chip c-nei">内廷</span></td><td>司礼监太监</td><td>老实人，海瑞在宫里的保护伞。</td></tr>
+    <tr><td class="name">陈洪</td><td><span class="chip c-nei">内廷</span></td><td>司礼监秉笔太监</td><td>一条会咬人的狗，吕芳之后的暗流。</td></tr>
+    <tr><td class="name">杨金水</td><td><span class="chip c-nei">内廷</span></td><td>江南织造局总管</td><td>吕芳干儿子；装疯是全书最「忠」也最惨的表演。</td></tr>
+    <tr><td class="name">沈一石</td><td><span class="chip c-nei">内廷</span></td><td>江南首富、织造局白手套</td><td>「上下挥霍无度，便掠之于民；民变在即，便掠之于商」。</td></tr>
+    <tr><td class="name">胡宗宪</td><td><span class="chip c-shi">实干</span></td><td>浙直总督</td><td>严嵩门生却心怀社稷，「媳妇夹在婆婆之间」的东南柱石。</td></tr>
+    <tr><td class="name">戚继光</td><td><span class="chip c-shi">实干</span></td><td>抗倭名将</td><td>台州大捷，东南脊梁。</td></tr>
+    <tr><td class="name">高翰文</td><td><span class="chip c-min">士人</span></td><td>翰林编修 → 杭州知府</td><td>书生问政，「以改兼赈，两难自解」方案的提出者，一出场就被算计。</td></tr>
+    <tr><td class="name">李时珍</td><td><span class="chip c-min">草野</span></td><td>神医</td><td>敢当面痛骂嘉靖的布衣。</td></tr>
+    <tr><td class="name">齐大柱</td><td><span class="chip c-min">民间</span></td><td>桑农 → 义军头领 → 戚家军</td><td>底层百姓命运被国策碾压、又被时代成全的缩影。</td></tr>
+    <tr><td class="name">海母 / 海妻</td><td><span class="chip c-min">民间</span></td><td>海瑞之母 / 之妻</td><td>刚烈的母亲教出了海瑞，传统的妻子成全了海瑞。</td></tr>
+  </table>
+</section>
+
+<footer>—— 大明不平，海瑞不平 · 《大明王朝1566》阅读辅助图谱 ——</footer>
+</div>
+</body>
+</html>
